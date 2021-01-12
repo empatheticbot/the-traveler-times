@@ -1,21 +1,9 @@
 {
-  "title": "Steven Ledsworth",
-  "url": "https://sledsworth.com/",
-  "description": "Another white guy, musing.",
-  "subtitles": [
-    {
-      "text": "Personal website of Steve Ledsworth—not a best-selling author or award winner.",
-      "color": "#345678"
-    }
-  ],
-  "feed": {
-    "subtitle": "Another white guy, musing.",
-    "filename": "rss.xml",
-    "path": "rss",
-    "id": "https://sledsworth.com/"
-  },
+  "title": "The Traveler Times",
+  "url": "https://thetraveler.news/",
+  "description": "Keep up to date on the latest Destiny 2 happenings!",
   "author": {
-    "name": "Steve Ledsworth",
-    "email": "sledsworth@gmail.com"
+    "name": "Empatheticbot LLC",
+    "email": "slteve@empatheticbot.com"
   }
 }
