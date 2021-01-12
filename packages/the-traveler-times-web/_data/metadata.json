@@ -1,0 +1,21 @@
+{
+  "title": "Steven Ledsworth",
+  "url": "https://sledsworth.com/",
+  "description": "Another white guy, musing.",
+  "subtitles": [
+    {
+      "text": "Personal website of Steve Ledsworth—not a best-selling author or award winner.",
+      "color": "#345678"
+    }
+  ],
+  "feed": {
+    "subtitle": "Another white guy, musing.",
+    "filename": "rss.xml",
+    "path": "rss",
+    "id": "https://sledsworth.com/"
+  },
+  "author": {
+    "name": "Steve Ledsworth",
+    "email": "sledsworth@gmail.com"
+  }
+}

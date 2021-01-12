@@ -1,0 +1,31 @@
+{
+  "name": "the-traveler-times",
+  "version": "1.0.0",
+  "description": "The web front-end to The Traveler Times site.",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf _site",
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "debug": "DEBUG=* eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sledsworth/the-traveler-times.git"
+  },
+  "author": {
+    "name": "Steven Ledsworth",
+    "email": "steve@empatheticbot.com",
+    "url": "https://sledsworth.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sledsworth/the-traveler-times/issues"
+  },
+  "homepage": "https://github.com/sledsworth/the-traveler-times#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "@11ty/eleventy-navigation": "^0.1.6",
+    "luxon": "^1.25.0"
+  }
+}

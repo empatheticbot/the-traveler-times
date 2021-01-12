@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if renderData.title %}
+    <title>{{ renderData.title  + ' | ' + metadata.tite }}</title>
+    {% elif title %}
+    <title>{{ title + ' | ' + metadata.title }}</title>
+    {% else %}
+    <title>{{ metadata.title }}</title>
+    {% endif %}
+    <meta name = "keywords" content="Destiny 2, Meta, Crucible, Xur, Raid, Iron Banner, PVP, PVE" />
+    <meta name="description" content="{{ renderData.description or description or metadata.description }}">
+    <link rel="stylesheet" href="{{ '/index.css' | url }}">
+    <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+    {% block css %}
+    {% endblock %}
+  </head>
+  <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
+    {% include 'header.njk' %}
+    <main class="{% if templateClass %}{{ templateClass }}{% else %}container{% endif %}">
+      {% block content %}
+        {{ content | safe }}
+      {% endblock %}
+    </main>
+    {% include 'footer.njk' %}
+  </body>
+</html>

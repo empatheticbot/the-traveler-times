@@ -1,0 +1,20 @@
+<footer>
+  <nav class="card">
+    {# <a href="/rss.xml">RSS</a>
+    <a href="mailto:sledsworth@mac.com">Email</a>
+    <a href="https://twitter.com/sledsworth">Twitter</a>
+    <a href="https://github.com/sledsworth">Github</a>
+    <a href="https://codepen.io/sledsworth">CodePen</a> #}
+  </nav>
+  <span id="copyright" class="text-fine copyright small-caps">2021 Empatheticbot LLC</span>
+  <span class="text-fine copyright small-caps">Established in 2021</span>
+</footer>
+<script>
+  var currentYear = new Date().getFullYear();
+  var initialYear = 2021;
+  if (initialYear === currentYear) {
+    document.querySelector('#copyright').innerHTML = '© ' + initialYear + ' Empatheticbot LLC';
+  } else {
+    document.querySelector('#copyright').innerHTML = '© ' + initialYear + ' - ' + currentYear + ' Empatheticbot LLC';
+  }
+</script>
