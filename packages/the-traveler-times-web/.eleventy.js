@@ -23,6 +23,10 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
   });
 
+  eleventyConfig.addFilter("relativeDate", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toRelative();
+  });
+
   eleventyConfig.addFilter("keywordsFromTags", (list, filter = []) => {
     return list.filter((item) => filter.indexOf(item) == -1).join(", ");
   });
