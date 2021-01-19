@@ -6,3 +6,8 @@ eleventyNavigation:
 permalink: /
 ---
 
+{% block content %}
+{% for article in destinyData.articles %}
+  {% include 'article.njk' %}
+{% endfor %}
+{% endblock %}

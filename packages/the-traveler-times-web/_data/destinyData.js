@@ -8,6 +8,18 @@ function mockApi() {
       weekly: {
         resetDate: new Date("2021-01-19T07:00:00"),
       },
+      articles: [
+        {
+          title: "Xur Spotted in the Tower",
+          body: "This is some body text.",
+          date: new Date("2021-01-15"),
+        },
+        {
+          title: "Xur Spotted in the Tower",
+          body: "This is some body text.",
+          date: new Date("2021-01-03"),
+        },
+      ],
     });
   });
 }

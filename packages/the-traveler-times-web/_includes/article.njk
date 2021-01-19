@@ -1,0 +1,11 @@
+<article class="article-container">
+  <header class="article-header">
+    <time class="article-date" datetime="{{ article.date | htmlDateString }}">
+    {{ article.date | relativeDate }}</time>
+    <h2 class="article-title">{{ article.title | safe }}</h2>
+    <h3 class="article-subtitle">{{ article.subtitle | safe }}</h3>
+  </header>
+  <section class="article-body">
+    {{ article.body | safe }}
+  </section>
+</article>
