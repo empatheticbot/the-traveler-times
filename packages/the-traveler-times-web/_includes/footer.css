@@ -1,0 +1,33 @@
+.page-footer {
+  margin: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-footer-nav {
+  margin: 0 1rem;
+  background: var(--color-container);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-l);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.page-footer-copyright {
+  margin: 0;
+}
+
+.page-footer-establishment {
+  margin: 0;
+}
+
+.page-footer-legal {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}

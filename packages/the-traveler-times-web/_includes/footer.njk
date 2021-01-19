@@ -1,13 +1,16 @@
-<footer>
-  <nav class="card">
-    {# <a href="/rss.xml">RSS</a>
+<footer class="page-footer">
+  <hr class="line-separator--thick-light">
+  {# <nav class="page-footer-nav">
+    <a href="/rss.xml">RSS</a>
     <a href="mailto:sledsworth@mac.com">Email</a>
     <a href="https://twitter.com/sledsworth">Twitter</a>
     <a href="https://github.com/sledsworth">Github</a>
-    <a href="https://codepen.io/sledsworth">CodePen</a> #}
-  </nav>
-  <span id="copyright" class="text-fine copyright small-caps">2021 Empatheticbot LLC</span>
-  <span class="text-fine copyright small-caps">Established in 2021</span>
+    <a href="https://codepen.io/sledsworth">CodePen</a>
+  </nav> #}
+  <section class="page-footer-legal">
+    <p id="copyright" class="page-footer-copyright">2021 Empatheticbot LLC</p>
+    <p class="page-footer-establishment">Established in 2021</p>
+  </section>
 </footer>
 <script>
   var currentYear = new Date().getFullYear();
@@ -18,3 +21,4 @@
     document.querySelector('#copyright').innerHTML = '© ' + initialYear + ' - ' + currentYear + ' Empatheticbot LLC';
   }
 </script>
+

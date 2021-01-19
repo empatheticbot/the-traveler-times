@@ -11,6 +11,8 @@ function mockApi() {
       articles: [
         {
           title: "Xur Spotted in the Tower",
+          subtitle:
+            "This is a test of a subtitle. Xur is in the <strong>Hanger</strong>",
           body: "This is some body text.",
           date: new Date("2021-01-15"),
         },

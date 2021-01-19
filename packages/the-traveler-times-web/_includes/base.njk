@@ -19,7 +19,7 @@
   </head>
   <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
     {% include 'header.njk' %}
-    <main class="{% if templateClass %}{{ templateClass }}{% else %}container{% endif %}">
+    <main class="{% if templateClass %}{{ templateClass }}{% else %}main-container{% endif %}">
       {% block content %}
         {{ content | safe }}
       {% endblock %}

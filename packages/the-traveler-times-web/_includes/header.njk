@@ -1,30 +1,30 @@
-<header>
-  <section>
+<header class="page-header">
+  <section class="page-header-left-section">
   {% if destinyData.season and destinyData.season.endDate %}
-  <div>
-    <h5>{{ destinyData.season.name }}</h5>
+  <div class="page-header-reset-container">
+    <h5 class="page-header-reset-label">{{ destinyData.season.name }}</h5>
     <span>ends <time datetime="{{ destinyData.season.endDate | htmlDateString }}">
       {{ destinyData.season.endDate | relativeDate }}</time>
     </span>
   </div>
   {% endif %}
   {% if destinyData.weekly and destinyData.weekly.resetDate %}
-  <div>
-    <h5>Weekly Reset</h5>
+  <div class="page-header-reset-container">
+    <h5 class="page-header-reset-label">Weekly Reset</h5>
     <time datetime="{{ destinyData.weekly.resetDate | htmlDateString }}">
       {{ destinyData.weekly.resetDate | relativeDate }}
     </time>
   </div>
   {% endif %}
-  <hr>
+  <hr class="line-separator--thick-light">
   </section>
-  <div class="heading-title-container">
-    <h1>The Traveler Times</h1>
+  <section class="page-header-heading-container">
+    <h1 class="page-header-heading-title">The Traveler Times</h1>
     <div class="heading-title-logo"></div>
-  </div>
-  <section>
-    <p>"I'm on the edge of my seat!" —Lord Shaxx</p>
+  </section>
+  <section class="page-header-right-section">
+    <blockquote class="page-header-character-quote">"I'm on the edge of my seat!" —Lord Shaxx</blockquote>
     <a class="button">Support Us</a>
-    <hr>
+    <hr class="line-separator--thick-light">
   </section>
 </header>
