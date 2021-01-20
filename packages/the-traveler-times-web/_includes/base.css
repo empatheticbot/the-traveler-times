@@ -15,11 +15,28 @@
 
 .main-container {
   margin: 2rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.line-separator--thick-light {
+.line-separator--thick-light,
+.line-separator-vertical--thick-light {
   border-radius: 4px;
   border: 2px solid #d1d1d1;
   width: 100%;
   height: 0;
+}
+
+.line-separator-vertical--thick-light {
+  width: 0;
+  height: initial;
+  margin: 1rem;
+}
+
+.page-main-content {
+  flex: 2 1 400px;
+}
+
+.page-side-content {
+  flex: 2 2 300px;
 }

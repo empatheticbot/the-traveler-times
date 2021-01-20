@@ -1,13 +1,19 @@
 ---
-layout: base.njk
 eleventyNavigation:
   key: Home
   order: 1
 permalink: /
 ---
+{% extends 'base.njk' %}
 
 {% block content %}
-{% for article in destinyData.articles %}
-  {% include 'article.njk' %}
-{% endfor %}
+  {% for article in destinyData.articles %}
+    {% include 'article.njk' %}
+  {% endfor %}
+{% endblock %}
+
+{% block aside %}
+  {% for article in destinyData.articles %}
+    {% include 'article.njk' %}
+  {% endfor %}
 {% endblock %}
