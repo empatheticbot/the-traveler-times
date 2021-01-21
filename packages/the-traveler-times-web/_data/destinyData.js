@@ -22,6 +22,30 @@ function mockApi() {
           date: new Date("2021-01-03"),
         },
       ],
+      meta: [
+        {
+          gametype: "Control",
+          gameZone: "PVP",
+          name: "Weapons",
+          items: [
+            {
+              name: "Abralist",
+              imgSrc: "#",
+              description: "Exotic Linear Fusion Rifle",
+            },
+            {
+              name: "Abralist",
+              imgSrc: "#",
+              description: "Exotic Linear Fusion Rifle",
+            },
+            {
+              name: "Abralist",
+              imgSrc: "#",
+              description: "Exotic Linear Fusion Rifle",
+            },
+          ],
+        },
+      ],
     });
   });
 }

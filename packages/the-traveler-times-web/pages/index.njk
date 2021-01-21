@@ -13,7 +13,7 @@ permalink: /
 {% endblock %}
 
 {% block aside %}
-  {% for article in destinyData.articles %}
-    {% include 'article.njk' %}
+  {% for list in destinyData.meta %}
+    {% include 'item-list.njk' %}
   {% endfor %}
 {% endblock %}

@@ -1,0 +1,10 @@
+<details>
+  <summary>
+    {{ list.name }}
+  </summary>
+  <ol>
+    {% for item in list.items %}
+      <li>{% include 'item.njk' %}</li>
+    {% endfor %}
+  </ol>
+</details>
