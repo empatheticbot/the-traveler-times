@@ -30,7 +30,7 @@
 .line-separator-vertical--thick-light {
   width: 0;
   height: initial;
-  margin: 1rem;
+  margin: 0 1rem;
 }
 
 .page-main-content {

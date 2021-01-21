@@ -5,19 +5,27 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  list-style: none;
+  counter-reset: item-list-counter;
 }
 
 .item-wrapper {
   margin-right: 3rem;
+  counter-increment: item-list-counter;
+}
+
+.item-wrapper::before {
+  content: counter(item-list-counter) ". ";
+  vertical-align: top;
 }
 
 .item-container {
-  display: flex;
+  display: inline-flex;
 }
 
 .item-image {
   margin-right: 0.5rem;
   border-radius: 6px;
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
