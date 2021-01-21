@@ -3,7 +3,7 @@
   {% if destinyData.season and destinyData.season.endDate %}
   <div class="page-header-reset-container">
     <h5 class="page-header-reset-label">{{ destinyData.season.name }}</h5>
-    <span>ends <time datetime="{{ destinyData.season.endDate | htmlDateString }}">
+    <span>ends <time id="dynamic-season-end-date" datetime="{{ destinyData.season.endDate | htmlDateString }}">
       {{ destinyData.season.endDate | relativeDate }}</time>
     </span>
   </div>
@@ -11,7 +11,7 @@
   {% if destinyData.weekly and destinyData.weekly.resetDate %}
   <div class="page-header-reset-container">
     <h5 class="page-header-reset-label">Weekly Reset</h5>
-    <time datetime="{{ destinyData.weekly.resetDate | htmlDateString }}">
+    <time id="dynamic-weekly-reset-date" datetime="{{ destinyData.weekly.resetDate | htmlDateString }}">
       {{ destinyData.weekly.resetDate | relativeDate }}
     </time>
   </div>

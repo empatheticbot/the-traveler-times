@@ -2,11 +2,11 @@ function mockApi() {
   return new Promise((resolve) => {
     resolve({
       season: {
-        endDate: new Date("2021-02-09T00:00:00"),
+        endDate: new Date("2021-02-09T00:00:00").toISOString(),
         name: "Season of the Hunt",
       },
       weekly: {
-        resetDate: new Date("2021-01-19T07:00:00"),
+        resetDate: new Date("2021-01-19T07:00:00").toISOString(),
       },
       articles: [
         {
@@ -14,12 +14,12 @@ function mockApi() {
           subtitle:
             "This is a test of a subtitle. Xur is in the <strong>Hanger</strong>",
           body: "This is some body text.",
-          date: new Date("2021-01-15"),
+          date: new Date("2021-01-15").toISOString(),
         },
         {
           title: "Xur Spotted in the Tower",
           body: "This is some body text.",
-          date: new Date("2021-01-03"),
+          date: new Date("2021-01-03").toISOString(),
         },
       ],
       meta: [

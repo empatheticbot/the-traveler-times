@@ -27,5 +27,8 @@
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-navigation": "^0.1.6",
     "luxon": "^1.25.0"
+  },
+  "dependencies": {
+    "moment": "^2.29.1"
   }
 }

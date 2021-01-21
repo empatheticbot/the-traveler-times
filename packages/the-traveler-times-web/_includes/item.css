@@ -1,0 +1,23 @@
+.item-list-container {
+}
+
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.item-wrapper {
+  margin-right: 3rem;
+}
+
+.item-container {
+  display: flex;
+}
+
+.item-image {
+  margin-right: 0.5rem;
+  border-radius: 6px;
+  width: 3rem;
+  height: 3rem;
+}

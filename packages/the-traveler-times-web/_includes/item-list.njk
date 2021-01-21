@@ -1,10 +1,10 @@
-<details>
+<details open>
   <summary>
     {{ list.name }}
   </summary>
-  <ol>
+  <ol class="item-list">
     {% for item in list.items %}
-      <li>{% include 'item.njk' %}</li>
+      <li class="item-wrapper">{% include 'item.njk' %}</li>
     {% endfor %}
   </ol>
 </details>
