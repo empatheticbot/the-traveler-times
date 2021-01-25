@@ -29,6 +29,7 @@
     "luxon": "^1.25.0"
   },
   "dependencies": {
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.1"
   }
 }

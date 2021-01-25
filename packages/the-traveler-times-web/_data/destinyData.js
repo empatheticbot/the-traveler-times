@@ -1,4 +1,20 @@
-function mockApi() {
+const fetch = require("node-fetch");
+const API_URL = "https://the-traveler-times.kylefalk.workers.dev/";
+
+async function mockApi() {
+  try {
+    const destinyApi = await fetch(API_URL);
+    const json = await destinyApi.json();
+    console.log(json);
+    return json;
+  } catch (e) {
+    console.error(
+      `Failed to fetch Destiny API at ${API_URL}, with error: ${e}`
+    );
+  }
+
+  // If API fails just return a mock API during dev...
+  // TODO: remove mock API and just fail build before releasing
   return new Promise((resolve) => {
     resolve({
       season: {
