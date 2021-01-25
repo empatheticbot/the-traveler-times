@@ -8,7 +8,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setDataDeepMerge(true);
 
   eleventyConfig.addFilter("noWhiteSpace", (string) => {
-    console.log(string);
     return string.replace(/\s/g, "");
   });
 
@@ -20,11 +19,19 @@ module.exports = function (eleventyConfig) {
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
+    let date = dateObj;
+    if (typeof dateObj != "object") {
+      date = new Date(dateObj);
+    }
+    return DateTime.fromJSDate(date, { zone: "utc" }).toFormat("yyyy-LL-dd");
   });
 
   eleventyConfig.addFilter("relativeDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toRelative();
+    let date = dateObj;
+    if (typeof dateObj != "object") {
+      date = new Date(dateObj);
+    }
+    return DateTime.fromJSDate(date, { zone: "utc" }).toRelative();
   });
 
   eleventyConfig.addFilter("keywordsFromTags", (list, filter = []) => {
