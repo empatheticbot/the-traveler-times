@@ -8,11 +8,11 @@
     </span>
   </div>
   {% endif %}
-  {% if destinyData.weekly and destinyData.weekly.resetDate %}
+  {% if destinyData.weeklyReset %}
   <div class="page-header-reset-container">
     <h5 class="page-header-reset-label">Weekly Reset</h5>
-    <time id="dynamic-weekly-reset-date" datetime="{{ destinyData.weekly.resetDate | htmlDateString }}">
-      {{ destinyData.weekly.resetDate | relativeDate }}
+    <time id="dynamic-weekly-reset-date" datetime="{{ destinyData.weeklyReset | htmlDateString }}">
+      {{ destinyData.weeklyReset | relativeDate }}
     </time>
   </div>
   {% endif %}
