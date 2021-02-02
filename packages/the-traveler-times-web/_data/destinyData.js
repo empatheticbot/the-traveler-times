@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const API_URL = "https://the-traveler-times.kylefalk.workers.dev/";
+const API_URL = "https://destiny-2-worker.kylefalk.workers.dev/";
 
 async function mockApi() {
   try {
