@@ -18,11 +18,17 @@ async function mockApi() {
   return new Promise((resolve) => {
     resolve({
       season: {
+        seasonNumber: 12,
+        description:
+          "As the Pyramids send the system into chaos, Guardians must work with unexpected allies to hunt the monstrous forces of Xivu Arath and unravel the Hive god's network of mysterious cryptoliths.",
         endDate: new Date("2021-02-09T00:00:00").toISOString(),
         name: "Season of the Hunt",
       },
-      weekly: {
-        resetDate: new Date("2021-01-19T07:00:00").toISOString(),
+      weeklyReset: new Date("2021-01-19T07:00:00").toISOString(),
+      xur: {
+        planet: "The Tower",
+        location: "Hanger",
+        confidence: 12,
       },
       articles: [
         {
