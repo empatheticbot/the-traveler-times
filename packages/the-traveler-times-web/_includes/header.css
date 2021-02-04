@@ -5,12 +5,19 @@
 
 .page-header-left-section,
 .page-header-right-section {
-  flex: 1 1 200px;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 1rem 2rem 1.75rem;
-  justify-content: space-between;
-  align-items: flex-end;
+  display: none;
+}
+
+@media screen and (min-width: 800px) {
+  .page-header-left-section,
+  .page-header-right-section {
+    flex: 1 1 200px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 2rem 1.75rem;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
 }
 
 .page-header-reset-label {

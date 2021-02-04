@@ -1,5 +1,5 @@
 {% set xur = destinyData.xur %}
-
+{% if xur %}
 <article class="article-container">
   <header class="article-header">
     <time class="article-date" datetime="{{ xur.nextRefreshDate | htmlDateString }}">
@@ -17,3 +17,4 @@
     {% endfor %}
   </ol>
 </article>
+{% endif %}

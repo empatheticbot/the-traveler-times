@@ -12,7 +12,6 @@ async function mockApi() {
       `Failed to fetch Destiny API at ${API_URL}, with error: ${e}`
     );
   }
-  console.log("here");
   // If API fails just return a mock API during dev...
   // TODO: remove mock API and just fail build before releasing
   return new Promise((resolve) => {
@@ -29,6 +28,9 @@ async function mockApi() {
         planet: "The Tower",
         location: "Hanger",
         confidence: 12,
+        items: [],
+        startDate: new Date("2021-01-19T07:00:00").toISOString(),
+        endDate: new Date("2021-01-19T07:00:00").toISOString(),
       },
       articles: [
         {
