@@ -2,16 +2,16 @@ const fetch = require("node-fetch");
 const API_URL = "https://destiny-2-worker.kylefalk.workers.dev/";
 
 async function mockApi() {
-  try {
-    const destinyApi = await fetch(API_URL);
-    const json = await destinyApi.json();
-    console.log(json);
-    return json;
-  } catch (e) {
-    console.error(
-      `Failed to fetch Destiny API at ${API_URL}, with error: ${e}`
-    );
-  }
+  // try {
+  //   const destinyApi = await fetch(API_URL);
+  //   const json = await destinyApi.json();
+  //   console.log(json);
+  //   return json;
+  // } catch (e) {
+  //   console.error(
+  //     `Failed to fetch Destiny API at ${API_URL}, with error: ${e}`
+  //   );
+  // }
   // If API fails just return a mock API during dev...
   // TODO: remove mock API and just fail build before releasing
   return new Promise((resolve) => {
@@ -29,22 +29,22 @@ async function mockApi() {
         location: "Hanger",
         confidence: 12,
         items: [],
-        startDate: new Date("2021-01-19T07:00:00").toISOString(),
+        nextRefreshDate: new Date("2021-01-19T07:00:00").toISOString(),
         endDate: new Date("2021-01-19T07:00:00").toISOString(),
       },
       articles: [
-        {
-          title: "Xur Spotted in the Tower",
-          subtitle:
-            "This is a test of a subtitle. Xur is in the <strong>Hanger</strong>",
-          body: "This is some body text.",
-          date: new Date("2021-01-15").toISOString(),
-        },
-        {
-          title: "Xur Spotted in the Tower",
-          body: "This is some body text.",
-          date: new Date("2021-01-03").toISOString(),
-        },
+        // {
+        //   title: "Xur Spotted in the Tower",
+        //   subtitle:
+        //     "This is a test of a subtitle. Xur is in the <strong>Hanger</strong>",
+        //   body: "This is some body text.",
+        //   date: new Date("2021-01-15").toISOString(),
+        // },
+        // {
+        //   title: "Xur Spotted in the Tower",
+        //   body: "This is some body text.",
+        //   date: new Date("2021-01-03").toISOString(),
+        // },
       ],
       meta: [
         {

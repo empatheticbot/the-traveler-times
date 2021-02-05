@@ -1,11 +1,12 @@
 {% set xur = destinyData.xur %}
-{% if xur %}
+{% if xur.nextRefreshDate %}
 <article class="article-container">
   <header class="article-header">
     <time class="article-date" datetime="{{ xur.nextRefreshDate | htmlDateString }}">
     {{ xur.nextRefreshDate | relativeDate }}</time>
+    <div class="article-line"></div>
     {% if xur.planet and xur.location %}
-    <h2 class="article-title">Xûr Spotted on <span class="xur-planet">{{ xur.location }}</span></h2>
+    <h2 class="article-title">Xûr Spotted on <span class="xur-planet">{{ xur.planet | safe }}</span></h2>
     <h3 class="article-subtitle">Last seen at <span class="xur-location">{{ xur.location | safe }}</span></h3>
     {% else %}
     <h2 class="article-title">Xûr Arrived, Location Unknown</h2>
