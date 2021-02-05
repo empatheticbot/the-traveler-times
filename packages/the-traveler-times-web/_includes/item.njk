@@ -1,7 +1,10 @@
 <div class="item-container">
-  <img class="item-image" src="https://www.bungie.net{{ item.icon }}">
-  <section class="item-text">
-    <h3 class="item-name">{{ item.name }}</h3>
-    <section class="item-description">{{ item.description | safe }}</section>
-  </section>
+  <header class="item-header">
+    <img class="item-image" src="https://www.bungie.net{{ item.icon }}">
+    <section class="item-title">
+      <h3 class="item-name">{{ item.name }}</h3>
+      <h5 class="item-cost">{{ item.cost | safe }}</h5>
+    </section>
+  </header>
+  <section class="item-description">{{ item.description | safe }}</section>
 </div>

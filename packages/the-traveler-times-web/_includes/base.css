@@ -4,8 +4,8 @@
   --font-size-l: clamp(24px, calc(24px + 1vw), 32px);
   --font-size-xl: clamp(32px, calc(32px + 1vw), 48px);
 
-  --line-height: 1.5;
-  --line-height-s: 1;
+  --line-height: 1;
+  --line-height-s: 0.86;
   --line-height-l: 1.286;
   --line-height-xl: 1.286;
 

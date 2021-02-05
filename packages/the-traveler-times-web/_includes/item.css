@@ -1,6 +1,30 @@
 .item-list-container {
 }
 
+.item-header {
+  display: flex;
+  flex: 2 2 300px;
+}
+
+.item-title {
+}
+
+.item-name {
+  font-weight: 800;
+}
+
+.item-cost {
+  font-variant: all-small-caps;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #777;
+}
+
+.item-description {
+  flex: 2 2 300px;
+  margin-top: 0.5rem;
+}
+
 .item-list {
   display: flex;
   flex-wrap: wrap;
@@ -10,17 +34,20 @@
 }
 
 .item-wrapper {
-  margin-right: 3rem;
+  margin-right: 2rem;
   counter-increment: item-list-counter;
+  flex: 2 2 300px;
 }
 
 .item-wrapper::before {
-  content: counter(item-list-counter) ". ";
-  vertical-align: top;
+  /* content: counter(item-list-counter) ". ";
+  vertical-align: top; */
 }
 
 .item-container {
   display: inline-flex;
+  flex-wrap: wrap;
+  margin: 2rem 0;
 }
 
 .item-image {
