@@ -14,22 +14,22 @@
 
   --max-width: 700px;
 
-  --color-primary: black;
+  --color-primary: rgba(51, 51, 51);
   --color-text-light: rgba(0, 0, 0, 0.45);
-  --color-text: rgba(0, 0, 0, 0.75);
+  --color-text: rgba(51, 51, 51);
   --color-text-dark: rgba(0, 0, 0, 0.85);
   --color-container: rgba(0, 0, 0, 0.06);
-  --color-background: white;
+  --color-background: rgb(245, 245, 245);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-primary: white;
+    /* --color-primary: white;
     --color-text-light: rgba(255, 255, 255, 0.5);
     --color-text: rgba(255, 255, 255, 0.75);
     --color-text-dark: rgba(255, 255, 255, 0.95);
     --color-container: rgba(255, 255, 255, 0.15);
-    --color-background: black;
+    --color-background: black; */
   }
 }
 
