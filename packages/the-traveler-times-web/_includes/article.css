@@ -34,7 +34,7 @@
 .article-date {
   color: #aaa;
   font-weight: 800;
-  font-variant: all-small-caps;
+  /* font-variant: all-small-caps; */
 }
 
 .article-body {

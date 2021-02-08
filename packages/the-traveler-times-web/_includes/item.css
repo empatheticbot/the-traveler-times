@@ -14,7 +14,7 @@
 }
 
 .item-cost {
-  font-variant: all-small-caps;
+  /* font-variant: all-small-caps; */
   font-weight: 800;
   font-size: 1.25rem;
   color: #777;
