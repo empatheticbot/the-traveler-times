@@ -15,6 +15,7 @@
   font-weight: 500;
   line-height: 2rem;
   font-family: "Verlag Cond A", "Verlag Cond B";
+  text-transform: uppercase;
 }
 
 .article-line {
