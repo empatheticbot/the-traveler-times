@@ -139,18 +139,18 @@ body {
   margin: 0;
   min-height: 100vh;
   scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
+  /* text-rendering: optimizeLegibility; */
   line-height: var(--line-height);
   -webkit-font-smoothing: antialiased;
-  font-feature-settings: "kern" 1, "liga" 1;
+  /* font-feature-settings: "kern" 1, "liga" 1; */
   color: var(--color-text);
-  font-family: "SF Pro";
 }
 
 html,
 body {
-  font-family: ui-rounded, "SF Pro Rounded", system-ui, "Helvetica Neue",
-    sans-serif;
+  font-family: "Archer SSm A", "Archer SSm B";
+  font-style: normal;
+  font-weight: 500;
   color: var(--color-text);
   background-color: var(--color-background);
   display: flex;
