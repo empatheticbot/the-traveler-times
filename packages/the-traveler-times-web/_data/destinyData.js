@@ -1,21 +1,22 @@
 const fetch = require("node-fetch");
 const API_URL = "https://destiny-2-worker.kylefalk.workers.dev/";
 
-async function mockApi() {
+async function getDestinyData() {
   try {
     const destinyApi = await fetch(API_URL);
     const json = await destinyApi.json();
-    console.log(json);
     return json;
   } catch (e) {
     console.error(
       `Failed to fetch Destiny API at ${API_URL}, with error: ${e}`
     );
   }
-  // If API fails just return a mock API during dev...
-  // TODO: remove mock API and just fail build before releasing
+}
+
+async function getMockApi() {
   return new Promise((resolve) => {
     resolve({
+      mockData: true,
       season: {
         seasonNumber: 12,
         description:
@@ -106,7 +107,15 @@ async function mockApi() {
 }
 
 module.exports = async function () {
-  let destinyData = await mockApi();
-
+  console.log(process.env.NODE_ENV);
+  let destinyData = await getDestinyData();
+  if (!destinyData) {
+    if (process.env.NODE_ENV === "production") {
+      throw new Error("Failed to fetch destiny data from worker.");
+    } else {
+      destinyData = await getMockApi();
+    }
+  }
+  console.log(destinyData);
   return destinyData;
 };

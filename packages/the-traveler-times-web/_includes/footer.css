@@ -1,10 +1,12 @@
 .page-footer {
-  margin: 2rem 1rem;
+  margin: 2rem 1rem 0;
+  padding: 2rem;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  background: rgb(230, 230, 230);
+  width: 100%;
 }
 
 .page-footer-nav {
@@ -15,7 +17,7 @@
   box-shadow: var(--shadow-l);
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .page-footer-copyright {
@@ -23,11 +25,14 @@
 }
 
 .page-footer-establishment {
-  margin: 0;
+  margin: 2rem 0 0;
 }
 
 .page-footer-legal {
   display: flex;
   flex-flow: column;
-  align-items: center;
+}
+
+.page-footer-character-quote {
+  width: 100%;
 }

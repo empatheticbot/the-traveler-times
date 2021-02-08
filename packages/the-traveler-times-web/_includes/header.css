@@ -34,7 +34,7 @@
 
 .page-header-heading-container {
   display: grid;
-  grid-template-areas: header;
+  margin: 3rem 2rem;
 }
 
 .page-header-heading-title {

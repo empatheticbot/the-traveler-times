@@ -46,7 +46,7 @@
       var seasonEndDate = moment('{{ destinyData.season.endDate }}');
       function updateRelativeDates() {
         console.log(buildDate.fromNow());
-        lastUpdatedElement.innerText = `Last Updated: ${buildDate.fromNow()}`;
+        lastUpdatedElement.innerText = `Updated ${buildDate.fromNow()}`;
         weeklyResetElement.innerText = `${weeklyResetDate.fromNow()}`;
         seasonEndElement.innerText = `${seasonEndDate.fromNow()}`;
       }

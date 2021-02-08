@@ -1,5 +1,4 @@
 <footer class="page-footer">
-  <hr class="line-separator--thick-light">
   {# <nav class="page-footer-nav">
     <a href="/rss.xml">RSS</a>
     <a href="mailto:sledsworth@mac.com">Email</a>
@@ -7,11 +6,14 @@
     <a href="https://github.com/sledsworth">Github</a>
     <a href="https://codepen.io/sledsworth">CodePen</a>
   </nav> #}
+  <blockquote class="page-footer-character-quote">{{ destinyQuote.quote }} <p>—{{ destinyQuote.author }}</p></blockquote>
   <section class="page-footer-legal">
-    <p id="copyright" class="page-footer-copyright">2021 Empatheticbot LLC</p>
-    <p class="page-footer-establishment">Established in 2021</p>
-    <p id="dynamic-last-updated" class="page-footer-establishment">Last Updated: {{ computed.buildDate }}</p>
+    <p class="page-footer-establishment">Established in 2021 by:</p>
+    <a href="https://twitter.com/sledsworth">@sledsworth</a>
+    <a href="https://twitter.com/_kylefalk">@_kylefalk</a>
+    <p id="dynamic-last-updated" class="page-footer-establishment">Updated {{ computed.buildDate }}</p>
   </section>
+  <img src="/assets/empatheticbot.svg" />
 </footer>
 <script>
   var currentYear = new Date().getFullYear();
