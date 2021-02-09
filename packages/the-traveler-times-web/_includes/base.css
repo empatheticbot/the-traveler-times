@@ -2,7 +2,7 @@
   --font-size: clamp(18px, calc(18px + 0.3vw), 24px);
   --font-size-s: clamp(14px, calc(14px + 0.3vw), 19px);
   --font-size-l: clamp(24px, calc(24px + 1vw), 32px);
-  --font-size-xl: clamp(32px, calc(32px + 1vw), 48px);
+  --font-size-xl: clamp(38px, calc(8px + 10vw), 102px);
 
   --line-height: 1;
   --line-height-s: 0.86;
@@ -148,7 +148,7 @@ body {
 
 html,
 body {
-  font-family: "Archer SSm A", "Archer SSm B";
+  font-family: "Verlag Cond A", "Verlag Cond B";
   font-style: normal;
   font-weight: 500;
   color: var(--color-text);
@@ -160,7 +160,7 @@ body {
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: var(--font-size-xl);
 }
 
 h2 {

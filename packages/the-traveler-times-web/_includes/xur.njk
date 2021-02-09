@@ -2,9 +2,9 @@
 {% if xur.nextRefreshDate %}
 <article class="article-container">
   <header class="article-header">
-    <div class="article-line"></div>
+    {# <div class="article-line"></div>
     <time class="article-date" datetime="{{ destinyData.weeklyReset | htmlDateString }}">
-    leaves {{ destinyData.weeklyReset | relativeDate }}</time>
+    leaves {{ destinyData.weeklyReset | relativeDate }}</time> #}
     {% if xur.planet and xur.location %}
     <h2 class="article-title">Xûr Spotted on <span class="xur-planet">{{ xur.planet | safe }}</span></h2>
     <h3 class="article-subtitle">Last seen at <span class="xur-location">{{ xur.location | safe }}</span></h3>

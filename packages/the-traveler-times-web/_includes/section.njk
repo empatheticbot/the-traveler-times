@@ -1,0 +1,11 @@
+<section class="section-container">
+<header class="section-header">
+  <h3 class="section-title">{{ sectionTitle }}</h3>
+  <div class="section-divider"></div>
+  <time class="section-date" datetime="{{ destinyData.weeklyReset | htmlDateString }}">
+  Reset {{ destinyData.weeklyReset | relativeDate }}</time>
+</header>
+ {% block content %}
+   {{ content | safe }}
+ {% endblock %}
+</section>

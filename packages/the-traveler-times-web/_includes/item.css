@@ -3,10 +3,12 @@
 
 .item-header {
   display: flex;
-  flex: 2 2 300px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .item-title {
+  margin-right: 1rem;
 }
 
 .item-name {
@@ -21,7 +23,6 @@
 }
 
 .item-description {
-  flex: 2 2 300px;
   margin-top: 0.5rem;
 }
 
@@ -31,12 +32,14 @@
   align-items: flex-start;
   list-style: none;
   counter-reset: item-list-counter;
+  margin: 0 -1rem;
 }
 
 .item-wrapper {
-  margin-right: 2rem;
   counter-increment: item-list-counter;
   flex: 2 2 300px;
+  margin: 0.5rem 1rem;
+  max-width: 400px;
 }
 
 .item-wrapper::before {
@@ -45,14 +48,16 @@
 }
 
 .item-container {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
-  margin: 2rem 0;
+  /* margin: .5rem 0; */
+  flex: 2 1 300px;
+  flex-direction: column;
 }
 
 .item-image {
-  margin-right: 0.5rem;
   border-radius: 6px;
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
+  filter: grayscale(1);
 }

@@ -1,0 +1,9 @@
+{% set sectionTitle = 'Weekly' %}
+{% extends 'section.njk' %}
+
+{% block content %}
+  {% include 'xur.njk' %}
+  {% for article in destinyData.articles %}
+    {% include 'article.njk' %}
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,25 @@
+.section-container {
+  margin: 2rem 0;
+}
+
+.section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.section-title {
+  font-weight: 800;
+}
+
+.section-divider {
+  height: 2px;
+  flex: 10 10 8px;
+  background: var(--color-text);
+  border-radius: 10px;
+  margin: 0 0.5rem;
+}
+
+.section-date {
+  font-weight: 800;
+}
