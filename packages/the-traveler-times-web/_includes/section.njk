@@ -2,8 +2,10 @@
 <header class="section-header">
   <h3 class="section-title">{{ sectionTitle }}</h3>
   <div class="section-divider"></div>
-  <time class="section-date" datetime="{{ destinyData.weeklyReset | htmlDateString }}">
-  Reset {{ destinyData.weeklyReset | relativeDate }}</time>
+  {% if sectionDate %}
+  <time class="section-date" datetime="{{ sectionDate | htmlDateString }}">
+  {{ sectionTimeDescripter }} {{ sectionDate | relativeDate }}</time>
+  {% endif %}
 </header>
  {% block content %}
    {{ content | safe }}
