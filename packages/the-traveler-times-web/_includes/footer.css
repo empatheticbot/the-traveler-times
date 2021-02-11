@@ -28,11 +28,26 @@
   margin: 2rem 0 0;
 }
 
-.page-footer-legal {
+.page-footer-about {
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
+}
+
+.page-footer-updated {
+  margin: 2rem 0 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #777;
 }
 
 .page-footer-character-quote {
   width: 100%;
+  font-style: italic;
+}
+
+.page-footer-character-quote--author {
+  margin: 0.5rem 0 0 1rem;
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 800;
 }

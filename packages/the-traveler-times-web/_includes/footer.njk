@@ -6,16 +6,16 @@
     <a href="https://github.com/sledsworth">Github</a>
     <a href="https://codepen.io/sledsworth">CodePen</a>
   </nav> #}
-  <blockquote class="page-footer-character-quote">{{ destinyQuote.quote }} <p>—{{ destinyQuote.author }}</p></blockquote>
-  <section class="page-footer-legal">
+  <blockquote class="page-footer-character-quote">{{ destinyQuote.quote }} <p class="page-footer-character-quote--author">—{{ destinyQuote.author }}</p></blockquote>
+  <section class="page-footer-about">
     <p class="page-footer-establishment">Established in 2021 by:</p>
     <a href="https://twitter.com/sledsworth">@sledsworth</a>
     <a href="https://twitter.com/_kylefalk">@_kylefalk</a>
-    <p id="dynamic-last-updated" class="page-footer-establishment">Updated {{ computed.buildDate }}</p>
+    <p id="dynamic-last-updated" class="page-footer-updated">Updated {{ computed.buildDate }}</p>
   </section>
   <img src="/assets/empatheticbot.svg" />
 </footer>
-<script>
+{# <script>
   var currentYear = new Date().getFullYear();
   var initialYear = 2021;
   if (initialYear === currentYear) {
@@ -23,5 +23,5 @@
   } else {
     document.querySelector('#copyright').innerHTML = '© ' + initialYear + ' - ' + currentYear + ' Empatheticbot LLC';
   }
-</script>
+</script> #}
 

@@ -203,7 +203,11 @@ h2 {
 }
 
 .page-main-content {
-  flex: 2 1 400px;
+  /* flex: 2 1 400px; */
+  flex: 6 2 500px;
+  display: flex;
+  margin: -1rem;
+  flex-wrap: wrap;
 }
 
 .page-side-content {
