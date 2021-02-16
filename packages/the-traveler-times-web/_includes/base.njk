@@ -19,6 +19,9 @@
     {% endblock %}
   </head>
   <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
+    <div class="callout warning">
+      <img src="/assets/warning.svg" /><p>This is very not done yet—use this knowledge to dampen your expectations!</p>
+    </div>
     {% include 'header.njk' %}
     <main class="{% if templateClass %}{{ templateClass }}{% else %}main-container{% endif %}">
       <section class="page-main-content">
@@ -34,24 +37,8 @@
       </section> #}
     </main>
     {% include 'footer.njk' %}
-    <script> {% include 'node_modules/moment/min/moment.min.js' %}</script>
     <script>
-      var lastUpdatedElement = document.querySelector('#dynamic-last-updated');
-      var buildDate = moment('{{ computed.buildDate }}');
-
-      var weeklyResetElement = document.querySelector('#dynamic-weekly-reset-date');
-      var weeklyResetDate = moment('{{ destinyData.weekly.resetDate }}');
-
-      var seasonEndElement = document.querySelector('#dynamic-season-end-date');
-      var seasonEndDate = moment('{{ destinyData.season.endDate }}');
-      function updateRelativeDates() {
-        console.log(buildDate.fromNow());
-        lastUpdatedElement.innerText = `Updated ${buildDate.fromNow()}`;
-        weeklyResetElement.innerText = `${weeklyResetDate.fromNow()}`;
-        seasonEndElement.innerText = `${seasonEndDate.fromNow()}`;
-      }
-      setInterval(updateRelativeDates, 10000);
-      updateRelativeDates();
+      {% include 'node_modules/moment/min/moment.min.js' %}
     </script>
   </body>
 </html>

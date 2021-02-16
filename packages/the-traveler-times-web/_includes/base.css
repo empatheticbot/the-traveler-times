@@ -213,3 +213,17 @@ h2 {
 .page-side-content {
   flex: 2 2 300px;
 }
+
+.callout {
+  border-radius: 12px;
+  background: #eee;
+  padding: 0.5rem 1rem;
+  margin: 2rem;
+}
+
+.warning {
+  background-color: #e26b2b;
+  color: white;
+  font-weight: 800;
+  font-size: 1rem;
+}

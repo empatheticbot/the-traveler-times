@@ -3,7 +3,7 @@
   <h3 class="section-title">{{ sectionTitle }}</h3>
   <div class="section-divider"></div>
   {% if sectionDate %}
-  <time class="section-date" datetime="{{ sectionDate | htmlDateString }}">
+  <time id="{{ sectionId }}" class="section-date" datetime="{{ sectionDate | htmlDateString }}">
   {{ sectionTimeDescripter }} {{ sectionDate | relativeDate }}</time>
   {% endif %}
 </header>
@@ -11,3 +11,13 @@
    {{ content | safe }}
  {% endblock %}
 </section>
+<script type="module">
+  var sectionDateElement = document.querySelector('#{{sectionId}}');
+  var sectionDate = moment('{{ sectionDate }}');
+  function updateRelativeDates() {
+    sectionDateElement.innerText = `{{ sectionTimeDescripter }} ${sectionDate.fromNow()}`;
+    console.log(sectionDateElement.innerText);
+  }
+  setInterval(updateRelativeDates, 10000);
+  updateRelativeDates();
+</script>

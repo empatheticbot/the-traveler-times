@@ -11,17 +11,18 @@
     <p class="page-footer-establishment">Established in 2021 by:</p>
     <a href="https://twitter.com/sledsworth">@sledsworth</a>
     <a href="https://twitter.com/_kylefalk">@_kylefalk</a>
-    <p id="dynamic-last-updated" class="page-footer-updated">Updated {{ computed.buildDate }}</p>
+    <p class="page-footer-updated">Updated <time id="dynamic-last-updated"  datetime="{{ computed.buildDate | htmlDateString }}">
+      {{ computed.buildDate | relativeDate }}</time></p>
   </section>
   <img src="/assets/empatheticbot.svg" />
 </footer>
-{# <script>
-  var currentYear = new Date().getFullYear();
-  var initialYear = 2021;
-  if (initialYear === currentYear) {
-    document.querySelector('#copyright').innerHTML = '© ' + initialYear + ' Empatheticbot LLC';
-  } else {
-    document.querySelector('#copyright').innerHTML = '© ' + initialYear + ' - ' + currentYear + ' Empatheticbot LLC';
+<script type="module">
+  var lastUpdatedElement = document.querySelector('#dynamic-last-updated');
+  var buildDate = moment('{{ computed.buildDate }}');
+  function updateRelativeDates() {
+    lastUpdatedElement.innerText = `${buildDate.fromNow()}`;
   }
-</script> #}
+  setInterval(updateRelativeDates, 10000);
+  updateRelativeDates();
+</script>
 
