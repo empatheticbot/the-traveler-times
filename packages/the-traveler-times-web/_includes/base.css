@@ -219,6 +219,8 @@ h2 {
   background: #eee;
   padding: 0.5rem 1rem;
   margin: 2rem;
+  display: flex;
+  align-items: center;
 }
 
 .warning {
@@ -226,4 +228,9 @@ h2 {
   color: white;
   font-weight: 800;
   font-size: 1rem;
+}
+
+.warning--icon {
+  width: 24px;
+  margin-right: 1rem;
 }
