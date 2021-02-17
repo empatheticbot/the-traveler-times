@@ -2,3 +2,4 @@
 publish = "_site"
 command = "DEBUG=* eleventy"
 environment = { NODE_ENV = "production"}
+functions = "functions"
