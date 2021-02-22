@@ -6,4 +6,7 @@
 
 {% block content %}
   <p>Coming soon... (probably)</p>
+  {% for item in destinyData.publicMilestones %}
+    {% include 'item.njk' %}
+  {% endfor %}
 {% endblock %}

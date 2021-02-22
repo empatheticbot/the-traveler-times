@@ -1,0 +1,33 @@
+{% set nightfall = destinyData.nightfall %}
+{% if nightfall %}
+<article class="article-container">
+  <header class="article-header">
+    {# <div class="article-line"></div>
+    <time class="article-date" datetime="{{ destinyData.weeklyReset | htmlDateString }}">
+    leaves {{ destinyData.weeklyReset | relativeDate }}</time> #}
+    <img src="https://bungie.net{{ nightfall.activities[0].displayProperties.icon }}" />
+    <img src="https://bungie.net{{ nightfall.activities[0].pgcrImage }}" />
+    <h2 class="article-title">This Week's Nightfall Strike is <span class="xur-planet">{{ nightfall.activities[0].displayProperties.description | safe }}</span></h2>
+  </header>
+  <ol class="item-list">
+    {% for activity in nightfall.activities %}
+      <li class="item-wrapper">
+      <div class="item-container">
+        <header class="item-header">
+          <section class="item-title">
+            <h3 class="item-name">{{ activity.selectionScreenDisplayProperties.name | safe }}</h3>
+            <h5 class="item-cost">Light Level: {{ activity.activityLightLevel | safe }}</h5>
+          </section>
+        </header>
+        <section class="item-description">
+          {% for modifier in activity.modifiers %}
+            {% set item = modifier.displayProperties %}
+            {% include 'item.njk' %}
+          {% endfor %}
+        </section>
+      </div>
+      </li>
+    {% endfor %}
+  </ol>
+</article>
+{% endif %}
