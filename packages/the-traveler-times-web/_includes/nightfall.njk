@@ -1,13 +1,13 @@
 {% set nightfall = destinyData.nightfall %}
 {% if nightfall %}
 <article class="article-container">
-  <header class="article-header">
+  <header class="nightfall-header">
     {# <div class="article-line"></div>
     <time class="article-date" datetime="{{ destinyData.weeklyReset | htmlDateString }}">
     leaves {{ destinyData.weeklyReset | relativeDate }}</time> #}
-    <img src="https://bungie.net{{ nightfall.activities[0].displayProperties.icon }}" />
-    <img src="https://bungie.net{{ nightfall.activities[0].pgcrImage }}" />
-    <h2 class="article-title">This Week's Nightfall Strike is <span class="xur-planet">{{ nightfall.activities[0].displayProperties.description | safe }}</span></h2>
+    {# <img class="nightfall-icon" src="https://bungie.net{{ nightfall.activities[0].displayProperties.icon }}" /> #}
+    <img class="nightfall-image" src="https://bungie.net{{ nightfall.activities[0].pgcrImage }}" />
+    <h2 class="nightfall-heading">This Week's Nightfall Strike is <span class="nightfall-name xur-planet">{{ nightfall.activities[0].displayProperties.description | safe }}</span></h2>
   </header>
   <ol class="item-list">
     {% for activity in nightfall.activities %}
