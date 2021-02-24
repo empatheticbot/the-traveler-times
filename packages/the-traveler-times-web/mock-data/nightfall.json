@@ -1,0 +1,904 @@
+{
+  "activities": [
+    {
+      "displayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: The Ordeal: Hero",
+        "icon": "/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png",
+        "hasIcon": true
+      },
+      "originalDisplayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: The Ordeal",
+        "icon": "/img/misc/missing_icon_d2.png",
+        "hasIcon": false
+      },
+      "selectionScreenDisplayProperties": {
+        "description": "Be the hero you were born to be.\n\nMatchmaking: ON",
+        "name": "Hero",
+        "hasIcon": false
+      },
+      "releaseIcon": "/img/misc/missing_icon_d2.png",
+      "releaseTime": 0,
+      "completionUnlockHash": 0,
+      "activityLightLevel": 1220,
+      "destinationHash": 3990611421,
+      "placeHash": 3747705955,
+      "activityTypeHash": 575572995,
+      "tier": 2,
+      "pgcrImage": "/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg",
+      "rewards": [
+        {
+          "rewardItems": [
+            {
+              "itemHash": 2791741337,
+              "quantity": 0
+            },
+            {
+              "itemHash": 3710069945,
+              "quantity": 1
+            },
+            {
+              "itemHash": 2422680742,
+              "quantity": 0
+            }
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "hash": 605585258,
+          "redacted": false,
+          "displayProperties": {
+            "name": "Champions: Barrier",
+            "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+            "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+            "hasIcon": true,
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"
+                ]
+              }
+            ]
+          },
+          "index": 4,
+          "blacklisted": false
+        },
+        {
+          "activityModifierHash": 3831042173
+        },
+        {
+          "activityModifierHash": 2229336658
+        },
+        {
+          "activityModifierHash": 3933343183
+        },
+        {
+          "activityModifierHash": 3605663348
+        },
+        {
+          "index": 6,
+          "displayProperties": {
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+                  "/common/destiny2_content/icons/d581c9099f1d6183735a1ad6b71d3bb5.png"
+                ]
+              }
+            ],
+            "name": "Hero Modifiers",
+            "icon": "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+            "hasIcon": true,
+            "description": "Extra Shields"
+          },
+          "hash": 1151235761,
+          "blacklisted": false,
+          "redacted": false
+        },
+        {
+          "redacted": false,
+          "blacklisted": false,
+          "hash": 707502104,
+          "index": 7,
+          "displayProperties": {
+            "name": "Navôta's Abandon",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+                  "/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"
+                ]
+              }
+            ],
+            "icon": "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+            "description": "Incoming Arc and environmental damage increased.",
+            "hasIcon": true
+          }
+        }
+      ],
+      "isPlaylist": false,
+      "challenges": [
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2443315975,
+          "dummyRewards": [
+            {
+              "itemHash": 3114385605,
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2498962144,
+          "dummyRewards": [
+            {
+              "itemHash": 73143230,
+              "quantity": 0
+            }
+          ]
+        }
+      ],
+      "optionalUnlockStrings": [],
+      "inheritFromFreeRoam": false,
+      "suppressOtherRewards": false,
+      "playlistItems": [],
+      "matchmaking": {
+        "isMatchmade": false,
+        "minParty": 1,
+        "maxParty": 3,
+        "maxPlayers": 3,
+        "requiresGuardianOath": false
+      },
+      "directActivityModeHash": 547513715,
+      "directActivityModeType": 46,
+      "loadouts": [],
+      "activityModeHashes": [
+        547513715,
+        2394616003,
+        1164760493
+      ],
+      "activityModeTypes": [
+        46,
+        18,
+        7
+      ],
+      "isPvP": false,
+      "insertionPoints": [],
+      "activityLocationMappings": [],
+      "hash": 2136458567,
+      "index": 15,
+      "redacted": false,
+      "blacklisted": false
+    },
+    {
+      "displayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: The Ordeal: Hero",
+        "icon": "/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png",
+        "hasIcon": true
+      },
+      "originalDisplayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: The Ordeal",
+        "icon": "/img/misc/missing_icon_d2.png",
+        "hasIcon": false
+      },
+      "selectionScreenDisplayProperties": {
+        "description": "Be the hero you were born to be.\n\nMatchmaking: ON",
+        "name": "Hero",
+        "hasIcon": false
+      },
+      "releaseIcon": "/img/misc/missing_icon_d2.png",
+      "releaseTime": 0,
+      "completionUnlockHash": 0,
+      "activityLightLevel": 1220,
+      "destinationHash": 3990611421,
+      "placeHash": 3747705955,
+      "activityTypeHash": 575572995,
+      "tier": 2,
+      "pgcrImage": "/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg",
+      "rewards": [
+        {
+          "rewardItems": [
+            {
+              "itemHash": 2791741337,
+              "quantity": 0
+            },
+            {
+              "itemHash": 3710069945,
+              "quantity": 1
+            },
+            {
+              "itemHash": 2422680742,
+              "quantity": 0
+            }
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "hash": 605585258,
+          "redacted": false,
+          "displayProperties": {
+            "name": "Champions: Barrier",
+            "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+            "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+            "hasIcon": true,
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"
+                ]
+              }
+            ]
+          },
+          "index": 4,
+          "blacklisted": false
+        },
+        {
+          "activityModifierHash": 3831042173
+        },
+        {
+          "activityModifierHash": 2229336658
+        },
+        {
+          "activityModifierHash": 3933343183
+        },
+        {
+          "activityModifierHash": 3605663348
+        },
+        {
+          "index": 6,
+          "displayProperties": {
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+                  "/common/destiny2_content/icons/d581c9099f1d6183735a1ad6b71d3bb5.png"
+                ]
+              }
+            ],
+            "name": "Hero Modifiers",
+            "icon": "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+            "hasIcon": true,
+            "description": "Extra Shields"
+          },
+          "hash": 1151235761,
+          "blacklisted": false,
+          "redacted": false
+        },
+        {
+          "redacted": false,
+          "blacklisted": false,
+          "hash": 707502104,
+          "index": 7,
+          "displayProperties": {
+            "name": "Navôta's Abandon",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+                  "/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"
+                ]
+              }
+            ],
+            "icon": "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+            "description": "Incoming Arc and environmental damage increased.",
+            "hasIcon": true
+          }
+        }
+      ],
+      "isPlaylist": false,
+      "challenges": [
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2443315975,
+          "dummyRewards": [
+            {
+              "itemHash": 3114385605,
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2498962144,
+          "dummyRewards": [
+            {
+              "itemHash": 73143230,
+              "quantity": 0
+            }
+          ]
+        }
+      ],
+      "optionalUnlockStrings": [],
+      "inheritFromFreeRoam": false,
+      "suppressOtherRewards": false,
+      "playlistItems": [],
+      "matchmaking": {
+        "isMatchmade": false,
+        "minParty": 1,
+        "maxParty": 3,
+        "maxPlayers": 3,
+        "requiresGuardianOath": false
+      },
+      "directActivityModeHash": 547513715,
+      "directActivityModeType": 46,
+      "loadouts": [],
+      "activityModeHashes": [
+        547513715,
+        2394616003,
+        1164760493
+      ],
+      "activityModeTypes": [
+        46,
+        18,
+        7
+      ],
+      "isPvP": false,
+      "insertionPoints": [],
+      "activityLocationMappings": [],
+      "hash": 2136458567,
+      "index": 15,
+      "redacted": false,
+      "blacklisted": false
+    },
+    {
+      "displayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: The Ordeal: Hero",
+        "icon": "/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png",
+        "hasIcon": true
+      },
+      "originalDisplayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: The Ordeal",
+        "icon": "/img/misc/missing_icon_d2.png",
+        "hasIcon": false
+      },
+      "selectionScreenDisplayProperties": {
+        "description": "Be the hero you were born to be.\n\nMatchmaking: ON",
+        "name": "Hero",
+        "hasIcon": false
+      },
+      "releaseIcon": "/img/misc/missing_icon_d2.png",
+      "releaseTime": 0,
+      "completionUnlockHash": 0,
+      "activityLightLevel": 1220,
+      "destinationHash": 3990611421,
+      "placeHash": 3747705955,
+      "activityTypeHash": 575572995,
+      "tier": 2,
+      "pgcrImage": "/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg",
+      "rewards": [
+        {
+          "rewardItems": [
+            {
+              "itemHash": 2791741337,
+              "quantity": 0
+            },
+            {
+              "itemHash": 3710069945,
+              "quantity": 1
+            },
+            {
+              "itemHash": 2422680742,
+              "quantity": 0
+            }
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "hash": 605585258,
+          "redacted": false,
+          "displayProperties": {
+            "name": "Champions: Barrier",
+            "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+            "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+            "hasIcon": true,
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"
+                ]
+              }
+            ]
+          },
+          "index": 4,
+          "blacklisted": false
+        },
+        {
+          "activityModifierHash": 3831042173
+        },
+        {
+          "activityModifierHash": 2229336658
+        },
+        {
+          "activityModifierHash": 3933343183
+        },
+        {
+          "activityModifierHash": 3605663348
+        },
+        {
+          "index": 6,
+          "displayProperties": {
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+                  "/common/destiny2_content/icons/d581c9099f1d6183735a1ad6b71d3bb5.png"
+                ]
+              }
+            ],
+            "name": "Hero Modifiers",
+            "icon": "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+            "hasIcon": true,
+            "description": "Extra Shields"
+          },
+          "hash": 1151235761,
+          "blacklisted": false,
+          "redacted": false
+        },
+        {
+          "redacted": false,
+          "blacklisted": false,
+          "hash": 707502104,
+          "index": 7,
+          "displayProperties": {
+            "name": "Navôta's Abandon",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+                  "/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"
+                ]
+              }
+            ],
+            "icon": "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+            "description": "Incoming Arc and environmental damage increased.",
+            "hasIcon": true
+          }
+        }
+      ],
+      "isPlaylist": false,
+      "challenges": [
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2443315975,
+          "dummyRewards": [
+            {
+              "itemHash": 3114385605,
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2498962144,
+          "dummyRewards": [
+            {
+              "itemHash": 73143230,
+              "quantity": 0
+            }
+          ]
+        }
+      ],
+      "optionalUnlockStrings": [],
+      "inheritFromFreeRoam": false,
+      "suppressOtherRewards": false,
+      "playlistItems": [],
+      "matchmaking": {
+        "isMatchmade": false,
+        "minParty": 1,
+        "maxParty": 3,
+        "maxPlayers": 3,
+        "requiresGuardianOath": false
+      },
+      "directActivityModeHash": 547513715,
+      "directActivityModeType": 46,
+      "loadouts": [],
+      "activityModeHashes": [
+        547513715,
+        2394616003,
+        1164760493
+      ],
+      "activityModeTypes": [
+        46,
+        18,
+        7
+      ],
+      "isPvP": false,
+      "insertionPoints": [],
+      "activityLocationMappings": [],
+      "hash": 2136458567,
+      "index": 15,
+      "redacted": false,
+      "blacklisted": false
+    },
+    {
+      "displayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: The Ordeal: Hero",
+        "icon": "/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png",
+        "hasIcon": true
+      },
+      "originalDisplayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: The Ordeal",
+        "icon": "/img/misc/missing_icon_d2.png",
+        "hasIcon": false
+      },
+      "selectionScreenDisplayProperties": {
+        "description": "Be the hero you were born to be.\n\nMatchmaking: ON",
+        "name": "Hero",
+        "hasIcon": false
+      },
+      "releaseIcon": "/img/misc/missing_icon_d2.png",
+      "releaseTime": 0,
+      "completionUnlockHash": 0,
+      "activityLightLevel": 1220,
+      "destinationHash": 3990611421,
+      "placeHash": 3747705955,
+      "activityTypeHash": 575572995,
+      "tier": 2,
+      "pgcrImage": "/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg",
+      "rewards": [
+        {
+          "rewardItems": [
+            {
+              "itemHash": 2791741337,
+              "quantity": 0
+            },
+            {
+              "itemHash": 3710069945,
+              "quantity": 1
+            },
+            {
+              "itemHash": 2422680742,
+              "quantity": 0
+            }
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "hash": 605585258,
+          "redacted": false,
+          "displayProperties": {
+            "name": "Champions: Barrier",
+            "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+            "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+            "hasIcon": true,
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"
+                ]
+              }
+            ]
+          },
+          "index": 4,
+          "blacklisted": false
+        },
+        {
+          "activityModifierHash": 3831042173
+        },
+        {
+          "activityModifierHash": 2229336658
+        },
+        {
+          "activityModifierHash": 3933343183
+        },
+        {
+          "activityModifierHash": 3605663348
+        },
+        {
+          "index": 6,
+          "displayProperties": {
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+                  "/common/destiny2_content/icons/d581c9099f1d6183735a1ad6b71d3bb5.png"
+                ]
+              }
+            ],
+            "name": "Hero Modifiers",
+            "icon": "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+            "hasIcon": true,
+            "description": "Extra Shields"
+          },
+          "hash": 1151235761,
+          "blacklisted": false,
+          "redacted": false
+        },
+        {
+          "redacted": false,
+          "blacklisted": false,
+          "hash": 707502104,
+          "index": 7,
+          "displayProperties": {
+            "name": "Navôta's Abandon",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+                  "/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"
+                ]
+              }
+            ],
+            "icon": "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+            "description": "Incoming Arc and environmental damage increased.",
+            "hasIcon": true
+          }
+        }
+      ],
+      "isPlaylist": false,
+      "challenges": [
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2443315975,
+          "dummyRewards": [
+            {
+              "itemHash": 3114385605,
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2498962144,
+          "dummyRewards": [
+            {
+              "itemHash": 73143230,
+              "quantity": 0
+            }
+          ]
+        }
+      ],
+      "optionalUnlockStrings": [],
+      "inheritFromFreeRoam": false,
+      "suppressOtherRewards": false,
+      "playlistItems": [],
+      "matchmaking": {
+        "isMatchmade": false,
+        "minParty": 1,
+        "maxParty": 3,
+        "maxPlayers": 3,
+        "requiresGuardianOath": false
+      },
+      "directActivityModeHash": 547513715,
+      "directActivityModeType": 46,
+      "loadouts": [],
+      "activityModeHashes": [
+        547513715,
+        2394616003,
+        1164760493
+      ],
+      "activityModeTypes": [
+        46,
+        18,
+        7
+      ],
+      "isPvP": false,
+      "insertionPoints": [],
+      "activityLocationMappings": [],
+      "hash": 2136458567,
+      "index": 15,
+      "redacted": false,
+      "blacklisted": false
+    },
+    {
+      "displayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: The Ordeal: Hero",
+        "icon": "/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png",
+        "hasIcon": true
+      },
+      "originalDisplayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: The Ordeal",
+        "icon": "/img/misc/missing_icon_d2.png",
+        "hasIcon": false
+      },
+      "selectionScreenDisplayProperties": {
+        "description": "Be the hero you were born to be.\n\nMatchmaking: ON",
+        "name": "Hero",
+        "hasIcon": false
+      },
+      "releaseIcon": "/img/misc/missing_icon_d2.png",
+      "releaseTime": 0,
+      "completionUnlockHash": 0,
+      "activityLightLevel": 1220,
+      "destinationHash": 3990611421,
+      "placeHash": 3747705955,
+      "activityTypeHash": 575572995,
+      "tier": 2,
+      "pgcrImage": "/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg",
+      "rewards": [
+        {
+          "rewardItems": [
+            {
+              "itemHash": 2791741337,
+              "quantity": 0
+            },
+            {
+              "itemHash": 3710069945,
+              "quantity": 1
+            },
+            {
+              "itemHash": 2422680742,
+              "quantity": 0
+            }
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "hash": 605585258,
+          "redacted": false,
+          "displayProperties": {
+            "name": "Champions: Barrier",
+            "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+            "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+            "hasIcon": true,
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"
+                ]
+              }
+            ]
+          },
+          "index": 4,
+          "blacklisted": false
+        },
+        {
+          "activityModifierHash": 3831042173
+        },
+        {
+          "activityModifierHash": 2229336658
+        },
+        {
+          "activityModifierHash": 3933343183
+        },
+        {
+          "activityModifierHash": 3605663348
+        },
+        {
+          "index": 6,
+          "displayProperties": {
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+                  "/common/destiny2_content/icons/d581c9099f1d6183735a1ad6b71d3bb5.png"
+                ]
+              }
+            ],
+            "name": "Hero Modifiers",
+            "icon": "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+            "hasIcon": true,
+            "description": "Extra Shields"
+          },
+          "hash": 1151235761,
+          "blacklisted": false,
+          "redacted": false
+        },
+        {
+          "redacted": false,
+          "blacklisted": false,
+          "hash": 707502104,
+          "index": 7,
+          "displayProperties": {
+            "name": "Navôta's Abandon",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+                  "/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"
+                ]
+              }
+            ],
+            "icon": "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+            "description": "Incoming Arc and environmental damage increased.",
+            "hasIcon": true
+          }
+        }
+      ],
+      "isPlaylist": false,
+      "challenges": [
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2443315975,
+          "dummyRewards": [
+            {
+              "itemHash": 3114385605,
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2498962144,
+          "dummyRewards": [
+            {
+              "itemHash": 73143230,
+              "quantity": 0
+            }
+          ]
+        }
+      ],
+      "optionalUnlockStrings": [],
+      "inheritFromFreeRoam": false,
+      "suppressOtherRewards": false,
+      "playlistItems": [],
+      "matchmaking": {
+        "isMatchmade": false,
+        "minParty": 1,
+        "maxParty": 3,
+        "maxPlayers": 3,
+        "requiresGuardianOath": false
+      },
+      "directActivityModeHash": 547513715,
+      "directActivityModeType": 46,
+      "loadouts": [],
+      "activityModeHashes": [
+        547513715,
+        2394616003,
+        1164760493
+      ],
+      "activityModeTypes": [
+        46,
+        18,
+        7
+      ],
+      "isPvP": false,
+      "insertionPoints": [],
+      "activityLocationMappings": [],
+      "hash": 2136458567,
+      "index": 15,
+      "redacted": false,
+      "blacklisted": false
+    }
+  ]
+}

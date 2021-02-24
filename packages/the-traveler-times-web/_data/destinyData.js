@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
-const API_URL = "https://destiny-2-worker.kylefalk.workers.dev/";
+const API_URL = "https://destiny-2-worker.empatheticbot.workers.dev/";
+const nightfallMock = require("../mock-data/nightfall.json");
 
 async function getDestinyData() {
   try {
@@ -102,6 +103,7 @@ async function getMockApi() {
           ],
         },
       ],
+      nightfall: nightfallMock,
     });
   });
 }
