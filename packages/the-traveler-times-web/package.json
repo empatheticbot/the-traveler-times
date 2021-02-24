@@ -22,12 +22,10 @@
     "url": "https://github.com/sledsworth/the-traveler-times/issues"
   },
   "homepage": "https://github.com/sledsworth/the-traveler-times#readme",
-  "devDependencies": {
+  "dependencies": {
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-navigation": "^0.1.6",
-    "luxon": "^1.25.0"
-  },
-  "dependencies": {
+    "luxon": "^1.25.0",
     "moment": "^2.29.1",
     "node-fetch": "^2.6.1"
   }
