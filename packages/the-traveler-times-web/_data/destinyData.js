@@ -109,7 +109,7 @@ async function getMockApi() {
 }
 
 module.exports = async function () {
-  console.log(process.env.NODE_ENV);
+  // console.log(process.env.NODE_ENV);
   let destinyData = await getDestinyData();
   if (!destinyData) {
     if (process.env.NODE_ENV === "production") {
@@ -118,6 +118,7 @@ module.exports = async function () {
       destinyData = await getMockApi();
     }
   }
+
   console.log(destinyData);
   return destinyData;
 };

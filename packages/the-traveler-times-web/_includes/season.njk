@@ -7,6 +7,9 @@
 {% block content %}
   <p>Coming soon... (probably)</p>
   {% for item in destinyData.publicMilestones %}
+    {% set name = item.displayProperties.name %}
+    {% set icon = item.displayProperties.icon %}
+    {% set description = item.displayProperties.description %}
     {% include 'item.njk' %}
   {% endfor %}
 {% endblock %}

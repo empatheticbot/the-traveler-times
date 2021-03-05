@@ -21,7 +21,9 @@
         </header>
         <section class="item-description">
           {% for modifier in activity.modifiers %}
-            {% set item = modifier.displayProperties %}
+            {% set name = modifier.displayProperties.name %}
+            {% set icon = modifier.displayProperties.icon %}
+            {% set description = modifier.displayProperties.description %}
             {% include 'item.njk' %}
           {% endfor %}
         </section>
