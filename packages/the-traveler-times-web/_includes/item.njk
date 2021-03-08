@@ -2,7 +2,8 @@
   <header class="item-header">
     <section class="item-title">
       <h3 class="item-name">{{ name | safe }}</h3>
-      <h5 class="item-cost">{{ cost | safe }}</h5>
+      {% if cost %} <h5 class="item-cost">{{ cost | safe }}<img class="item-image item-image--small" src="https://www.bungie.net{{ costIcon }}"></h5>{% endif %}
+      {% if characterClass %}<h5 class="item-character-class">{{ characterClass | safe }} {{ armorType | safe }}</h5>{% endif %}
     </section>
     <img class="item-image" src="https://www.bungie.net{{ icon }}">
   </header>

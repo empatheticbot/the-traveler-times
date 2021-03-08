@@ -17,6 +17,9 @@
       {% set name = item.displayProperties.name %}
       {% set cost = item.price.cost.quantity %}
       {% set icon = item.displayProperties.icon %}
+      {% set characterClass = item.itemCategories[0].name %}
+      {% set armorType = item.itemCategories[1].name %}
+      {% set costIcon = item.price.currency.icon %}
       {% set description = item.displayProperties.description %}
       <li class="item-wrapper">{% include 'item.njk' %}</li>
     {% endfor %}
