@@ -5,11 +5,14 @@ eleventyNavigation:
 permalink: /
 ---
 {% extends 'base.njk' %}
-
 {% block content %}
-  {% include 'weekly.njk' %}
-  {% include 'season.njk' %}
-  {% include 'meta.njk' %}
+  {% if destinyData.ok %}
+    {% include 'weekly.njk' %}
+    {% include 'season.njk' %}
+    {% include 'meta.njk' %}
+  {% else %}
+    {% include 'error.njk' %}
+  {% endif %}
 {% endblock %}
 {#
 {% block aside %}

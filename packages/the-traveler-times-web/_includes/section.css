@@ -4,6 +4,18 @@
   flex: 10 10 300px;
 }
 
+.section-container__weekly {
+  flex: 6 1 500px;
+}
+
+.section-container__season {
+  flex: 2 2 300px;
+}
+
+.section-container__meta {
+  flex: 10 1 600px;
+}
+
 .section-header {
   display: flex;
   flex-wrap: wrap;

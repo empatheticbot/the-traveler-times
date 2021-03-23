@@ -10,7 +10,7 @@
     <h2 class="nightfall-heading">This Week's Nightfall Strike is <span class="nightfall-name xur-planet">{{ nightfall.activities[0].displayProperties.description | safe }}</span></h2>
   </header>
   <ol class="item-list">
-    {% for activity in nightfall.activities %}
+    {# {% for activity in nightfall.activities %}
       <li class="item-wrapper">
       <div class="item-container">
         <header class="item-header">
@@ -21,6 +21,26 @@
         </header>
         <section class="item-description">
           {% for modifier in activity.modifiers %}
+            {% set name = modifier.displayProperties.name %}
+            {% set icon = modifier.displayProperties.icon %}
+            {% set description = modifier.displayProperties.description %}
+            {% include 'item.njk' %}
+          {% endfor %}
+        </section>
+      </div>
+      </li>
+    {% endfor %} #}
+    {% for name, modifiers in nightfall.modifierGroups | groupby("name") %}
+      <li class="item-wrapper">
+      <div class="item-container">
+        <header class="item-header">
+          <section class="item-title">
+            <h3 class="item-name">{{ name | safe }}</h3>
+            {# <h5 class="item-cost">Light Level: {{ activity.activityLightLevel | safe }}</h5> #}
+          </section>
+        </header>
+        <section class="item-description">
+          {% for modifier in modifiers %}
             {% set name = modifier.displayProperties.name %}
             {% set icon = modifier.displayProperties.icon %}
             {% set description = modifier.displayProperties.description %}

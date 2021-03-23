@@ -111,7 +111,7 @@ async function getMockApi() {
 module.exports = async function () {
   // console.log(process.env.NODE_ENV);
   let destinyData = await getDestinyData();
-  if (!destinyData) {
+  if (!destinyData.ok) {
     if (process.env.NODE_ENV === "production") {
       throw new Error("Failed to fetch destiny data from worker.");
     } else {
