@@ -6,6 +6,7 @@
 {% extends 'section.njk' %}
 
 {% block content %}
+  {% include 'iron-banner.njk' %}
   {% include 'xur.njk' %}
   {% include 'nightfall.njk' %}
   {% for article in destinyData.articles %}

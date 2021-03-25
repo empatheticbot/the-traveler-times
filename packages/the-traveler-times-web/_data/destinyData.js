@@ -1,10 +1,15 @@
 const fetch = require("node-fetch");
-const API_URL = "https://destiny-2-worker.empatheticbot.workers.dev/";
+const API_URL =
+  "https://destiny-2-worker-production.empatheticbot.workers.dev/";
+const DEV_API_URL =
+  "https://destiny-2-worker-develop.empatheticbot.workers.dev/";
 const nightfallMock = require("../mock-data/nightfall.json");
 
 async function getDestinyData() {
   try {
-    const destinyApi = await fetch(API_URL);
+    const destinyApi = await fetch(
+      process.env.NODE_ENV === "production" ? API_URL : DEV_API_URL
+    );
     const json = await destinyApi.json();
     return json;
   } catch (e) {

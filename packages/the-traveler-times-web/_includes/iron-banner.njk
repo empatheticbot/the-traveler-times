@@ -1,0 +1,9 @@
+{% set ironBanner = destinyData.ironBanner %}
+{% if ironBanner.available %}
+<article class="article-container">
+  <header class="nightfall-header">
+    <img class="nightfall-image" src="https://bungie.net{{ ironBanner.image | safe}}" />
+    <h2 class="nightfall-title">{{ ironBanner.displayProperties.name | safe }}</span></h2>
+  </header>
+</article>
+{% endif %}
