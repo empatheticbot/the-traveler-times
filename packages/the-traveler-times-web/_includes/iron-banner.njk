@@ -3,7 +3,9 @@
 <article class="article-container">
   <header class="nightfall-header">
     <img class="nightfall-image" src="https://bungie.net{{ ironBanner.image | safe}}" />
-    <h2 class="nightfall-title">{{ ironBanner.displayProperties.name | safe }}</span></h2>
+    <h2 class="nightfall-heading">{{ ironBanner.displayProperties.name | safe }}</span></h2>
+    <img class="nightfall-icon" src="https://bungie.net{{ ironBanner.displayProperties.icon | safe }}" />
   </header>
+  <p>{{ ironBanner.displayProperties.description }}</p>
 </article>
 {% endif %}

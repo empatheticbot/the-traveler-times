@@ -8,6 +8,7 @@
     {# <img class="nightfall-icon" src="https://bungie.net{{ nightfall.activities[0].displayProperties.icon }}" /> #}
     <img class="nightfall-image" src="https://bungie.net{{ nightfall.activities[0].pgcrImage }}" />
     <h2 class="nightfall-heading">This Week's Nightfall Strike is <span class="nightfall-name xur-planet">{{ nightfall.activities[0].displayProperties.description | safe }}</span></h2>
+    <img class="nightfall-icon" src="https://bungie.net{{ nightfall.activities[0].displayProperties.icon | safe }}" />
   </header>
   <ol class="item-list">
     {# {% for activity in nightfall.activities %}
