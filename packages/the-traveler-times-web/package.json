@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf _site",
     "build": "DEBUG=* eleventy",
-    "start": "eleventy --serve"
+    "start": "NODE_ENV=develop eleventy --serve"
   },
   "repository": {
     "type": "git",
