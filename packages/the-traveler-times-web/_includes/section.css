@@ -21,6 +21,9 @@
   flex-wrap: wrap;
   align-items: center;
   margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  font-size: 1rem;
 }
 
 .section-title {
@@ -30,7 +33,7 @@
 .section-divider {
   height: 2px;
   flex: 10 10 8px;
-  background: var(--color-text);
+  background: var(--color-text-light);
   border-radius: 10px;
   margin: 0 0.5rem;
 }
