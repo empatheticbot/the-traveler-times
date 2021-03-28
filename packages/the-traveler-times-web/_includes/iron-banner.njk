@@ -1,11 +1,13 @@
 {% set ironBanner = destinyData.ironBanner %}
 {% if ironBanner.available %}
-<article class="article-container">
-  <header class="nightfall-header">
-    <img class="nightfall-image" src="https://bungie.net{{ ironBanner.image | safe}}" />
-    <h2 class="nightfall-heading">{{ ironBanner.displayProperties.name | safe }}</span></h2>
-    <img class="nightfall-icon" src="https://bungie.net{{ ironBanner.displayProperties.icon | safe }}" />
-  </header>
-  <p>{{ ironBanner.displayProperties.description }}</p>
+<article class="article-container iron-banner--container">
+  <section class="iron-banner--image-container">
+    <img class="iron-banner--image-container--image" src="https://bungie.net{{ ironBanner.image | safe}}" />
+    <img class="iron-banner--image-container--icon" src="https://bungie.net{{ ironBanner.displayProperties.icon | safe }}" />
+  </section>
+  <section class="">
+    <h2 class="">{{ ironBanner.displayProperties.name | safe }}</h2>
+    <p>{{ ironBanner.displayProperties.description }}</p>
+  </section>
 </article>
 {% endif %}

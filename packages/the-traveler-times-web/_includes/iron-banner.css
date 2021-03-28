@@ -1,0 +1,31 @@
+.iron-banner--container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.iron-banner--image-container {
+  display: grid;
+  grid-auto-columns: 1fr 33% 1fr;
+  flex: 2 4 200px;
+  margin: 0 1rem 1rem 0;
+}
+
+.iron-banner--image-container--image {
+  grid-area: 1 / 1 / 4 / 4;
+  border-radius: 8px;
+  width: 100%;
+  filter: brightness(0.6) sepia();
+}
+
+.iron-banner--image-container--icon {
+  grid-area: 2 / 2 / 3 / 3;
+  z-index: 10;
+  width: 100%;
+  align-self: center;
+  justify-self: center;
+}
+
+.iron-banner--text-container {
+  flex: 4 2 300px;
+}
