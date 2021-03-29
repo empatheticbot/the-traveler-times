@@ -32,3 +32,9 @@
 .nightfall-name {
   display: block;
 }
+
+.nightfall-modifier--icon {
+  height: 2rem;
+  width: 2rem;
+  filter: brightness(0);
+}

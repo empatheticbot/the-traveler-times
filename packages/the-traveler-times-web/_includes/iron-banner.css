@@ -2,13 +2,14 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  margin: 0 -1rem;
 }
 
 .iron-banner--image-container {
   display: grid;
   grid-auto-columns: 1fr 33% 1fr;
   flex: 2 4 200px;
-  margin: 0 1rem 1rem 0;
+  margin: 0 1rem 1rem;
 }
 
 .iron-banner--image-container--image {
@@ -28,4 +29,9 @@
 
 .iron-banner--text-container {
   flex: 4 2 300px;
+  margin: 0 1rem 1rem;
+}
+.iron-banner--heading {
+  margin-bottom: 1rem;
+  font-style: italic;
 }
