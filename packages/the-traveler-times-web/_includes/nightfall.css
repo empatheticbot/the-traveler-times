@@ -37,4 +37,37 @@
   height: 2rem;
   width: 2rem;
   filter: brightness(0);
+  margin-right: .5rem;
+}
+
+.nightfall--image-container.nightfall--image-container {
+  grid-auto-columns: 1fr 20% 1fr;
+}
+
+.nightfall--difficulty-container {
+  display: flex;
+  margin: .5rem 0;
+}
+
+.nightfall--difficulty-name {
+  transform: rotate(270deg);
+  width: 2rem;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+}
+
+.nightfall-modifier--container {
+  display: flex;
+  margin: 0 0 1rem;
+}
+
+.nightfall-modifier--header {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  flex: 0 0 140px;
+}
+
+.nightfall-modifier--heading {
+  font-weight: 800;
 }

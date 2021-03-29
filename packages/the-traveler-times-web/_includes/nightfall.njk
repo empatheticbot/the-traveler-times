@@ -1,15 +1,14 @@
 {% set nightfall = destinyData.nightfall %}
 {% if nightfall %}
-<article class="article-container">
-  <header class="nightfall-header">
-    {# <div class="article-line"></div>
-    <time class="article-date" datetime="{{ destinyData.weeklyReset | htmlDateString }}">
-    leaves {{ destinyData.weeklyReset | relativeDate }}</time> #}
-    {# <img class="nightfall-icon" src="https://bungie.net{{ nightfall.activities[0].displayProperties.icon }}" /> #}
-    <img class="nightfall-image" src="https://bungie.net{{ nightfall.activities[0].pgcrImage }}" />
-    <h2 class="nightfall-heading">This Week's Nightfall Strike is <span class="nightfall-name xur-planet">{{ nightfall.activities[0].displayProperties.description | safe }}</span></h2>
-    <img class="nightfall-icon" src="https://bungie.net{{ nightfall.activities[0].displayProperties.icon | safe }}" />
-  </header>
+<article class="article-container iron-banner--container">
+  <section class="iron-banner--image-container nightfall--image-container">
+    <img class="iron-banner--image-container--image" src="https://bungie.net{{ nightfall.activities[0].pgcrImage }}" />
+    <img class="iron-banner--image-container--icon" src="https://bungie.net{{ nightfall.activities[0].displayProperties.icon | safe }}" />
+  </section>
+  <section class="iron-banner--text-container">
+    <h2 class="iron-banner--heading">This Week's Nightfall Strike is <span class="xur-planet">{{ nightfall.activities[0].displayProperties.description | safe }}</span></h2>
+    <p>{{ ironBanner.displayProperties.description }}</p>
+  </section>
   <ol class="item-list">
     {# {% for activity in nightfall.activities %}
       <li class="item-wrapper">
@@ -33,10 +32,10 @@
     {% endfor %} #}
     {% for name, modifiers in nightfall.modifierGroups | groupby("name") %}
       <li class="item-wrapper">
-      <div class="item-container">
+      <div class="nightfall--difficulty-container">
         <header class="item-header">
           <section class="item-title">
-            <h3 class="item-name">{{ name | safe }}</h3>
+            <h3 class="nightfall--difficulty-name">{{ name | safe }}</h3>
             {# <h5 class="item-cost">Light Level: {{ activity.activityLightLevel | safe }}</h5> #}
           </section>
         </header>

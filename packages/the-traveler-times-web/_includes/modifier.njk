@@ -1,9 +1,7 @@
-<div class="item-container">
-  <header class="item-header">
-    <section class="item-title">
-      <h3 class="item-name">{{ name | safe }}</h3>
-    </section>
-    <img class="item-image nightfall-modifier--icon" src="https://www.bungie.net{{ icon }}">
+<div class="nightfall-modifier--container">
+  <header class="nightfall-modifier--header">
+    <img class="nightfall-modifier--icon" src="https://www.bungie.net{{ icon }}">
+    <h3 class="nightfall-modifier--heading">{{ name | safe }}</h3>
   </header>
-  <section class="item-description">{{ description | safe }}</section>
+  <section class="">{{ description | safe }}</section>
 </div>
