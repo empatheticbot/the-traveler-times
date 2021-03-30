@@ -64,14 +64,15 @@
 .nightfall--difficulty-name {
   transform: rotate(180deg);
   transform-origin: center;
-  /* width: 4rem; */
   text-transform: uppercase;
   color: var(--color-text-light);
   flex: 0 0 2rem;
   writing-mode: vertical-rl;
-  margin-right: 1rem;
+  margin-right: 0;
   margin-bottom: 0.5rem;
   margin-left: 1rem;
+  font-weight: 800;
+  font-size: 1rem;
 }
 
 .nightfall-modifier--container {
