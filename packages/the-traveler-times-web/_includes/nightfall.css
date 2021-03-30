@@ -37,7 +37,8 @@
   height: 2rem;
   width: 2rem;
   filter: brightness(0);
-  margin-right: .5rem;
+  margin-right: 0.5rem;
+  flex: 0 0 32px;
 }
 
 .nightfall--image-container.nightfall--image-container {
@@ -46,19 +47,44 @@
 
 .nightfall--difficulty-container {
   display: flex;
-  margin: .5rem 0;
+  margin: 1rem 2rem 1rem 1rem;
+  align-items: center;
+  width: 100%;
+}
+
+.nightfall--difficulty-modifiers {
+  width: 100%;
+}
+
+.nightfall--difficulty-container:not(:last-child)
+  .nightfall--difficulty-modifiers {
+  border-bottom: 1px solid var(--color-container);
 }
 
 .nightfall--difficulty-name {
-  transform: rotate(270deg);
-  width: 2rem;
+  transform: rotate(180deg);
+  transform-origin: center;
+  /* width: 4rem; */
   text-transform: uppercase;
   color: var(--color-text-light);
+  flex: 0 0 2rem;
+  writing-mode: vertical-rl;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
 }
 
 .nightfall-modifier--container {
   display: flex;
   margin: 0 0 1rem;
+  justify-items: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 500px) {
+  .nightfall-modifier--container {
+    flex-wrap: wrap;
+  }
 }
 
 .nightfall-modifier--header {
@@ -70,4 +96,12 @@
 
 .nightfall-modifier--heading {
   font-weight: 800;
+  flex: 0 0 160px;
+  margin-right: 1rem;
+  /* min-height: 32px; */
+  padding: 6px 0;
+}
+
+.nightfall-modifier--description {
+  padding: 6px 0;
 }

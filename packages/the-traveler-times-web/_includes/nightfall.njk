@@ -31,15 +31,9 @@
       </li>
     {% endfor %} #}
     {% for name, modifiers in nightfall.modifierGroups | groupby("name") %}
-      <li class="item-wrapper">
-      <div class="nightfall--difficulty-container">
-        <header class="item-header">
-          <section class="item-title">
-            <h3 class="nightfall--difficulty-name">{{ name | safe }}</h3>
-            {# <h5 class="item-cost">Light Level: {{ activity.activityLightLevel | safe }}</h5> #}
-          </section>
-        </header>
-        <section class="item-description">
+      <li class="nightfall--difficulty-container">
+        <h3 class="nightfall--difficulty-name">{{ name | safe }}</h3>
+        <section class="nightfall--difficulty-modifiers">
           {% for modifier in modifiers %}
             {% set name = modifier.displayProperties.name %}
             {% set icon = modifier.displayProperties.icon %}
@@ -47,7 +41,6 @@
             {% include 'modifier.njk' %}
           {% endfor %}
         </section>
-      </div>
       </li>
     {% endfor %}
   </ol>
