@@ -1,0 +1,26 @@
+{
+  "name": "bungie-api-gateway",
+  "version": "1.0.0",
+  "description": "Utilities used to call into Bungie's API",
+  "author": "Steve Ledsworth <sledsworth@gmail.com>",
+  "homepage": "https://github.com/empatheticbot/the-traveler-times/tree/main/packages/bungie-api-gateway#readme",
+  "license": "UNLICENSED",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/empatheticbot/the-traveler-times.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/empatheticbot/the-traveler-times/issues"
+  }
+}
