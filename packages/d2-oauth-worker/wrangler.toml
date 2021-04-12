@@ -1,0 +1,6 @@
+account_id = "a13a5016df895961431fb659d5d3a635"
+name = "d2-oauth-worker"
+route = ""
+type = "javascript"
+workers_dev = true
+zone_id = ""

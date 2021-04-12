@@ -1,11 +1,12 @@
 {
-  "name": "bungie-api-gateway",
+  "name": "@the-traveler-times/bungie-api-gateway",
   "version": "1.0.0",
   "description": "Utilities used to call into Bungie's API",
   "author": "Steve Ledsworth <sledsworth@gmail.com>",
   "homepage": "https://github.com/empatheticbot/the-traveler-times/tree/main/packages/bungie-api-gateway#readme",
   "license": "UNLICENSED",
   "main": "src/index.js",
+  "private": true,
   "directories": {
     "lib": "src"
   },

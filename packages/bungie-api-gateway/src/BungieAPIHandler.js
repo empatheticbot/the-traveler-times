@@ -2,12 +2,18 @@ import BungieAPIError from './BungieAPIError'
 import BungieAPICache from './BungieAPICache'
 
 export default class BungieAPIHandler {
-  constructor(apiKey, oauthToken) {
+  constructor({
+    apiKey,
+    oauthToken,
+    membershipId,
+    membershipType,
+    characterId,
+  }) {
     this.apiKey = apiKey
     this.oauthToken = oauthToken
-    this.defaultMembershipType = '3' //STEAM
-    this.defaultMembershipId = '4611686018467851845' //Vaporiz3d
-    this.defaultCharacter = '2305843009299787178' //Warlock
+    this.membershipId = membershipId
+    this.membershipType = membershipType
+    this.characterId = characterId
   }
 
   /**

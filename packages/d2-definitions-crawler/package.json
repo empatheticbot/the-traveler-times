@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "d2-definitions-crawler",
+  "name": "@the-traveler-times/d2-definitions-crawler",
   "version": "1.0.0",
   "description": "Scheduled worker that crawls the Bungie Destiny2*Definition endpoints and stores the values in KV DESTINY_2_DEFINITIONS",
   "module": "index.js",
