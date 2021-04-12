@@ -11,7 +11,7 @@
   "author": "Steve Ledsworth <sledsworth@gmail.com>",
   "license": "UNLICENSED",
   "dependencies": {
-    "bungie-api-gateway": "^1.0.0"
+    "@the-traveler-times/bungie-api-gateway": "^1.0.0"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

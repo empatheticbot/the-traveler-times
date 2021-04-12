@@ -10,6 +10,9 @@
     "publish": "wrangler publish --env production"
   },
   "author": "Steve Ledsworth <steve@empatheticbot.com>",
+  "dependencies": {
+    "@the-traveler-times/bungie-api-gateway": "^1.0.0"
+  },
   "devDependencies": {
     "prettier": "^1.18.2"
   }

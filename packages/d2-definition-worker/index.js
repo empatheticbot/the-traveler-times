@@ -1,4 +1,4 @@
-import { BungieAPIHandler } from 'bungie-api-gateway'
+import { BungieAPIHandler } from '@the-traveler-times/bungie-api-gateway'
 
 export default {
   async fetch(request, env) {
@@ -6,7 +6,7 @@ export default {
     const definitionUrl = searchParams.get('definitionUrl')
 
     if (!definitionUrl) {
-      return new Response('`definition` query parameter is required.', {
+      return new Response('`definitionUrl` query parameter is required.', {
         status: 500,
       })
     }
