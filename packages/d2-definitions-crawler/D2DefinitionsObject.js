@@ -1,6 +1,6 @@
 const blacklist = ['DestinyInventoryItemDefinition']
 
-export class DestinyDefinitions {
+export class Destiny2DefinitionsDurableObject {
   constructor(state, env) {
     this.state = state
   }

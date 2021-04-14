@@ -3,17 +3,27 @@
   "name": "@the-traveler-times/d2-definitions-crawler",
   "version": "1.0.0",
   "description": "Scheduled worker that crawls the Bungie Destiny2*Definition endpoints and stores the values in KV DESTINY_2_DEFINITIONS",
-  "main": "index.js",
+  "module": "./dist/index.mjs",
   "scripts": {
-    "format": "prettier --write '**/*.{js,css,json,md}'",
-    "start": "wrangler dev --env develop",
-    "publish": "wrangler publish --env production"
+    "clean": "rm -R dist",
+    "build": "npm run clean && rollup -c",
+    "publish": "wrangler publish -e production",
+    "publish:dev": "wrangler publish -e develop",
+    "start": "wrangler dev -e develop",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '**/*.{js,css,json,md}'"
   },
   "author": "Steve Ledsworth <steve@empatheticbot.com>",
   "dependencies": {
-    "@the-traveler-times/bungie-api-gateway": "file:../bungie-api-gateway"
+    "@the-traveler-times/bungie-api-gateway": "file:../bungie-api-gateway",
+    "@the-traveler-times/utils": "file:../utils"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "prettier": "^1.19.1",
+    "rollup": "^2.36.1",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }

@@ -8,11 +8,7 @@ command = "npm install && npm run build"
 upload_exclude = ["*.map"]
 upload_format = "modules"
 
-[durable_objects]
-bindings = [{name = "D2_DEFINITIONS_OBJECT", class_name = "Destiny2DefinitionsDurableObject"}]
-
 [env.develop]
-command = "npm install && npm run build"
 kv_namespaces = [
   {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
   {binding = "DESTINY_2_DEFINITIONS", id = "74f0df8897634be895e79a0a3e22f586", preview_id = "74f0df8897634be895e79a0a3e22f586"},
@@ -20,7 +16,6 @@ kv_namespaces = [
 name = "d2-definition-worker-develop"
 
 [env.production]
-command = "npm install && npm run build"
 kv_namespaces = [
   {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
   {binding = "DESTINY_2_DEFINITIONS", id = "74f0df8897634be895e79a0a3e22f586", preview_id = "74f0df8897634be895e79a0a3e22f586"},
