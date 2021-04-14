@@ -3,8 +3,13 @@
   "name": "@the-traveler-times/d2-definition-worker",
   "version": "1.0.0",
   "description": "A template for kick starting a Cloudflare Workers project",
-  "main": "index.js",
+  "module": "./dist/index.mjs",
   "scripts": {
+    "clean": "rm -R dist",
+    "build": "npm run clean && rollup -c",
+    "publish": "wrangler publish -e production",
+    "publish:dev": "wrangler publish -e develop",
+    "start": "wrangler dev -e develop",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write '**/*.{js,css,json,md}'"
   },
@@ -14,6 +19,11 @@
     "@the-traveler-times/bungie-api-gateway": "file:../bungie-api-gateway"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "prettier": "^1.19.1",
+    "rollup": "^2.36.1",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }
