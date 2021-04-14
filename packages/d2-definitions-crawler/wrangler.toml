@@ -1,6 +1,20 @@
 account_id = "a13a5016df895961431fb659d5d3a635"
 name = "d2-definitions-crawler"
-route = ""
-type = "javascript"
+type = "webpack"
 workers_dev = true
 zone_id = ""
+
+[env.develop]
+kv_namespaces = [
+  {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
+  {binding = "DESTINY_2_DEFINITIONS", id = "74f0df8897634be895e79a0a3e22f586", preview_id = "74f0df8897634be895e79a0a3e22f586"},
+]
+route = ""
+webpack_config = "dev.webpack.config.js"
+
+[env.production]
+kv_namespaces = [
+  {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
+  {binding = "DESTINY_2_DEFINITIONS", id = "74f0df8897634be895e79a0a3e22f586", preview_id = "74f0df8897634be895e79a0a3e22f586"},
+]
+route = ""

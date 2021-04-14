@@ -1,0 +1,28 @@
+{
+  "name": "@the-traveler-times/utils",
+  "version": "1.0.0",
+  "description": "The Traveler Times Utility Functions",
+  "author": "Steve Ledsworth <sledsworth@gmail.com>",
+  "homepage": "https://github.com/empatheticbot/the-traveler-times/tree/main/packages/utils#readme",
+  "license": "UNLICENSED",
+  "module": "src/index.js",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/empatheticbot/the-traveler-times.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/empatheticbot/the-traveler-times/issues"
+  }
+}

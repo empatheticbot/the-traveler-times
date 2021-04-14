@@ -1,5 +1,4 @@
 import BungieAPIError from './BungieAPIError'
-import BungieAPICache from './BungieAPICache'
 
 export default class BungieAPIHandler {
   constructor({
@@ -44,15 +43,21 @@ export default class BungieAPIHandler {
       console.error(`Failed to call bungie platform api ${e}`)
       throw e
     }
-    if (!resp.ok) {
+    if (resp.status === 401) {
+      console.error(
+        'Unauthorized from Bungie API. Check to make sure credentials are updated.'
+      )
+    } else if (!resp.ok) {
       throw new BungieAPIError(resp.url, resp.headers)
     }
-
     return resp.json()
   }
 
   async callBungieNet(options) {
     let resp = await fetch('https://www.bungie.net/' + options.path)
+    if (!resp.ok) {
+      throw new BungieAPIError(resp.url, resp.headers)
+    }
     return resp.json()
   }
 

@@ -1,5 +1,5 @@
 export default class BungieAPICache {
-  async static getItemFromCache(hash) {
+  async getItemFromCache(hash) {
     const item = await DESTINY_HASH_CACHE.get(hash)
     if (item) {
       console.log('DESTINY_HASH_CACHE GET SUCCESS: ' + hash)
@@ -9,7 +9,7 @@ export default class BungieAPICache {
     return null
   }
 
-  static setItemInCache(hash, item, expiration) {
+  setItemInCache(hash, item, expiration) {
     console.log('DESTINY_HASH_CACHE PUT (Exp: ' + expiration + '): ' + hash)
     let exp
     if (expiration) {
@@ -22,4 +22,3 @@ export default class BungieAPICache {
     }
   }
 }
-
