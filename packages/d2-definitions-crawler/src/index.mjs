@@ -40,9 +40,8 @@ export default {
 
     const chunkedDefinitions = chunkArray(definitions, 5)
     const definitionRequests = []
-
     for (const defs of chunkedDefinitions) {
-      definitionRequests(
+      definitionRequests.push(
         fetch(definitionWorkerUrl, {
           method: 'POST',
           headers: {
