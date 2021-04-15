@@ -5,7 +5,7 @@
   "description": "A template for kick starting a Cloudflare Workers project",
   "module": "./dist/index.mjs",
   "scripts": {
-    "clean": "rm -R dist",
+    "clean": "rm -rf dist",
     "build": "npm run clean && rollup -c",
     "publish": "wrangler publish -e production",
     "publish:dev": "wrangler publish -e develop",
