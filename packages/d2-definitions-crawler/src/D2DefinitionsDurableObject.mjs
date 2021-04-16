@@ -47,6 +47,7 @@ export class Destiny2DefinitionsDurableObject {
       },
       []
     )
+    console.log(definitions.length)
 
     const chunkedDefinitions = chunkArray(definitions, 5)
     const definitionRequests = []
@@ -62,11 +63,21 @@ export class Destiny2DefinitionsDurableObject {
       )
     }
 
-    const allDefinitions = await Promise.all(definitionRequests)
-    return new Response(JSON.stringify({ definitions: allDefinitions }), {
-      status: 200,
-      'content-type': 'application/json;charset=utf-8',
-    })
+    const response = await Promise.all(definitionRequests)
+    const flattenedResponse = response.reduce((acc, value) => {
+      return [...acc, ...value]
+    }, [])
+    return new Response(
+      JSON.stringify({
+        definitions: flattenedResponse,
+        resultLength: flattenedResponse.length,
+        inputLength: definitions.length,
+      }),
+      {
+        status: 200,
+        'content-type': 'application/json;charset=utf-8',
+      }
+    )
   }
 
   // Handle HTTP requests from clients.

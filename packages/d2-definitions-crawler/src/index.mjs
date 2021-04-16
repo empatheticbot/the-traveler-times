@@ -68,12 +68,13 @@ export { Destiny2DefinitionsDurableObject } from './D2DefinitionsDurableObject.m
 export default {
   async fetch(request, env) {
     try {
-      console.log(request, env, env.D2_DEFINITIONS_OBJECT)
       const id = env.D2_DEFINITIONS_OBJECT.idFromName(
         'definition-durable-object'
       )
       const stub = env.D2_DEFINITIONS_OBJECT.get(id)
+      console.log(stub.name, stub.id, stub.fetch)
       const response = await stub.fetch(request)
+      console.log(response)
       return response
     } catch (e) {
       return new Response(e.message)

@@ -67,7 +67,6 @@ export default {
       const settledDefinitions = await Promise.all(definitionRequests)
       settledDefinitions.forEach((definition, index) => {
         const defData = definitions[index]
-
         env.DESTINY_2_DEFINITIONS.put(
           defData.definition,
           JSON.stringify(definition),
