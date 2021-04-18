@@ -11,7 +11,8 @@
     "publish:dev": "wrangler publish -e develop",
     "start": "wrangler dev -e develop",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write '**/*.{js,css,json,md}'"
+    "format": "prettier --write '**/*.{js,css,json,md}'",
+    "clean:defintions": "wrangler kv:bulk delete --binding=DESTINY_2_DEFINITIONS definitions-bulk-delete.json"
   },
   "author": "Steve Ledsworth <steve@empatheticbot.com>",
   "dependencies": {
