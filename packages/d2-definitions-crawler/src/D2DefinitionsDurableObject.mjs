@@ -59,19 +59,21 @@ export class Destiny2DefinitionsDurableObject {
             'content-type': 'application/json;charset=utf-8',
           },
           body: JSON.stringify({ definitions: defs }),
-        })
+        }).then(res => res.json())
       )
     }
 
     const response = await Promise.all(definitionRequests)
+
     const flattenedResponse = response.reduce((acc, value) => {
-      return [...acc, ...value]
+      return [...acc, ...value.definitions]
     }, [])
     return new Response(
       JSON.stringify({
         definitions: flattenedResponse,
         resultLength: flattenedResponse.length,
         inputLength: definitions.length,
+        response: response,
       }),
       {
         status: 200,

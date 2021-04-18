@@ -64,15 +64,26 @@ export default {
     }
 
     try {
+      const responseData = []
       const settledDefinitions = await Promise.all(definitionRequests)
-      settledDefinitions.forEach((definition, index) => {
-        const defData = definitions[index]
-        env.DESTINY_2_DEFINITIONS.put(
-          defData.definition,
-          JSON.stringify(definition),
-        )
-      })
-      return new Response(JSON.stringify({ ok: true }), {
+      const storedDefinitions = await Promise.all(
+        settledDefinitions.map(async (definition, index) => {
+          const defData = definitions[index]
+          const date = new Date()
+          try {
+            await env.DESTINY_2_DEFINITIONS.put(
+              defData.definition,
+              JSON.stringify(definition),
+              { metadata: { date } },
+            )
+          } catch (e) {
+            return { ...defData, date, ok: false, error: e }
+          }
+
+          return { ...defData, date, ok: true }
+        }),
+      )
+      return new Response(JSON.stringify({ definitions: storedDefinitions }), {
         headers: {
           'content-type': 'application/json;charset=UTF-8',
           status: 200,
