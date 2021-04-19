@@ -1,6 +1,12 @@
-export function bungieGetAuthHandler() {
-  return new Response.redirect(
-    `https://www.bungie.net/en/oauth/authorize?client_id=${BUNGIE_API.CLIENT_ID}&response_type=code`,
-    302,
-  )
+export async function bungieGetAuthHandler(request, env) {
+  const clientId = await env.BUNGIE_API.get('CLIENT_ID', { type: 'text' })
+  const url = new URL('https://www.bungie.net/en/OAuth/Authorize')
+  url.searchParams.append('client_id', clientId)
+  url.searchParams.append('response_type', 'code')
+  console.log(clientId)
+  try {
+    return Response.redirect(url, 302)
+  } catch (e) {
+    console.error(e.message)
+  }
 }

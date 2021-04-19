@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
+    "publish": "lerna run publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
