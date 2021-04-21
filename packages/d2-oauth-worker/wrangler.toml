@@ -1,6 +1,6 @@
 account_id = "a13a5016df895961431fb659d5d3a635"
 type = "javascript"
-usage_model = ""
+usage_model = "bundled"
 workers_dev = true
 
 [build]
