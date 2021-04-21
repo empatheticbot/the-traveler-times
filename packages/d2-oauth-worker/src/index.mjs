@@ -3,10 +3,6 @@ import { bungieRedirectHandler } from './bungie-post-redirect-handler'
 
 export default {
   async fetch(request, env) {
-    console.log(
-      request.method,
-      await env.BUNGIE_API.get('CLIENT_ID', { type: 'text' }),
-    )
     if (request.method === 'OPTIONS') {
       return new Response(null, {
         headers: {
@@ -16,17 +12,13 @@ export default {
         },
       })
     }
+    const { searchParams } = new URL(request.url)
+    const code = searchParams.get('code')
 
-    if (request.method === 'GET') {
-      return bungieGetAuthHandler(request, env)
-    }
-
-    if (request.method === 'POST') {
+    if (code) {
       return bungieRedirectHandler(request, env)
     }
 
-    return new Response('Hello worker!', {
-      headers: { 'content-type': 'text/plain' },
-    })
+    return bungieGetAuthHandler(request, env)
   },
 }

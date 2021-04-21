@@ -1,17 +1,14 @@
 export async function bungieRedirectHandler(request, env) {
   try {
-    const clientId = await env.BUNGIE_API.get('CLIENT_ID', { type: 'text' })
-    const clientSecret = await env.BUNGIE_API.get('CLIENT_SECRET', {
-      type: 'text',
-    })
-    console.log('redirect ahndler')
+    const clientId = await env.BUNGIE_API.get('CLIENT_ID')
+    const clientSecret = await env.BUNGIE_API.get('CLIENT_SECRET')
+    console.log('redirect handler')
 
     const { searchParams } = new URL(request.url)
     const code = searchParams.get('code')
 
-    const auth = Buffer.from(`${clientId}:${clientSecret}`, 'utf-8').toString(
-      'base64',
-    )
+    const auth = btoa(`${clientId}:${clientSecret}`)
+    console.log(auth)
     const response = await fetch(
       'https://www.bungie.net/platform/app/oauth/token/',
       {
@@ -29,6 +26,7 @@ export async function bungieRedirectHandler(request, env) {
     const headers = {
       'Access-Control-Allow-Origin': '*',
     }
+    console.log(result.error)
 
     if (result.error) {
       return new Response(JSON.stringify(result), {
