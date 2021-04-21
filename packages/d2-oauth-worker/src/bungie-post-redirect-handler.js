@@ -2,13 +2,11 @@ export async function bungieRedirectHandler(request, env) {
   try {
     const clientId = await env.BUNGIE_API.get('CLIENT_ID')
     const clientSecret = await env.BUNGIE_API.get('CLIENT_SECRET')
-    console.log('redirect handler')
 
     const { searchParams } = new URL(request.url)
     const code = searchParams.get('code')
 
     const auth = btoa(`${clientId}:${clientSecret}`)
-    console.log(auth)
     const response = await fetch(
       'https://www.bungie.net/platform/app/oauth/token/',
       {
@@ -26,7 +24,6 @@ export async function bungieRedirectHandler(request, env) {
     const headers = {
       'Access-Control-Allow-Origin': '*',
     }
-    console.log(result.error)
 
     if (result.error) {
       return new Response(JSON.stringify(result), {
@@ -35,12 +32,14 @@ export async function bungieRedirectHandler(request, env) {
       })
     }
 
-    for (const key in result) {
-      console.log(key)
-      await env.BUNGIE_API.put(key, result[key])
-    }
+    await env.BUNGIE_API.put('REFRESH_TOKEN', result.refresh_token)
+    await env.BUNGIE_API.put('OAUTH_TOKEN', result.access_token)
+    await env.BUNGIE_API.put(
+      'REFRESH_TOKEN_EXPIRATION',
+      result.refresh_expires_in,
+    )
 
-    return new Response(JSON.stringify(result), {
+    return new Response('Successfully updated tokens!', {
       status: 201,
       headers,
     })

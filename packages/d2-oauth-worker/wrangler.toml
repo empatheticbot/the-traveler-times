@@ -8,6 +8,9 @@ command = "npm install && npm run build"
 upload_exclude = ["*.map"]
 upload_format = "modules"
 
+[triggers]
+crons = ["*/30 * * * *"]
+
 [env.develop]
 kv_namespaces = [
   {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},

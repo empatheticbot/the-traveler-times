@@ -1,83 +1,25 @@
-// import { BungieAPIHandler } from '@the-traveler-times/bungie-api-gateway'
-// import { chunkArray } from '@the-traveler-times/utils'
-
-// const blacklist = ['DestinyInventoryItemDefinition']
-
-// export default {
-//   async fetch(request, env) {
-//     const definitionWorkerUrl = await env.DESTINY_2_DEFINITIONS.get(
-//       'DEFINITION_WORKER_URL'
-//     )
-
-//     const apiKey = await env.BUNGIE_API.get('KEY')
-//     const oauthToken = await env.BUNGIE_API.get('OAUTH_TOKEN')
-//     const membershipId = await env.BUNGIE_API.get('MEMBERSHIP_ID')
-//     const membershipType = await env.BUNGIE_API.get('MEMBERSHIP_TYPE')
-//     const characterId = await env.BUNGIE_API.get('CHARACTER_ID')
-
-//     const bungieAPIHandler = new BungieAPIHandler({
-//       apiKey,
-//       oauthToken,
-//       membershipId,
-//       membershipType,
-//       characterId,
-//     })
-
-//     const manifest = await bungieAPIHandler.getManifest()
-//     const definitionsObject = { ...manifest.jsonWorldComponentContentPaths.en }
-
-//     const definitions = Object.entries(definitionsObject).reduce(
-//       (arr, pair) => {
-//         const [definition, url] = pair
-//         if (blacklist.includes(definition)) {
-//           return arr
-//         }
-//         arr.push({ definition, url })
-//         return arr
-//       },
-//       []
-//     )
-
-//     const chunkedDefinitions = chunkArray(definitions, 5)
-//     const definitionRequests = []
-//     for (const defs of chunkedDefinitions) {
-//       definitionRequests.push(
-//         fetch(definitionWorkerUrl, {
-//           method: 'POST',
-//           headers: {
-//             'content-type': 'application/json;charset=utf-8',
-//           },
-//           body: JSON.stringify({ definitions: defs }),
-//         })
-//       )
-//     }
-
-//     const allDefinitions = await Promise.all(definitionRequests)
-
-//     return new Response(JSON.stringify({ definitions: allDefinitions }), {
-//       headers: {
-//         'content-type': 'application/json;charset=UTF-8',
-//         status: 200,
-//       },
-//     })
-//   },
-// }
-
 export { Destiny2DefinitionsDurableObject } from './D2DefinitionsDurableObject.mjs'
+
+async function handleDefintionFetch(request, env) {
+  try {
+    const id = env.D2_DEFINITIONS_OBJECT.idFromName('definition-durable-object')
+    const stub = env.D2_DEFINITIONS_OBJECT.get(id)
+    const response = await stub.fetch(request)
+    if (request.method) {
+      return response
+    }
+  } catch (e) {
+    if (request.method) {
+      return new Response(e.message)
+    }
+  }
+}
 
 export default {
   async fetch(request, env) {
-    try {
-      const id = env.D2_DEFINITIONS_OBJECT.idFromName(
-        'definition-durable-object'
-      )
-      const stub = env.D2_DEFINITIONS_OBJECT.get(id)
-      console.log(stub.name, stub.id, stub.fetch)
-      const response = await stub.fetch(request)
-      console.log(response)
-      return response
-    } catch (e) {
-      return new Response(e.message)
-    }
+    return await handleDefintionFetch(request, env)
+  },
+  async scheduled(event, env) {
+    return await handleDefintionFetch({}, env)
   },
 }

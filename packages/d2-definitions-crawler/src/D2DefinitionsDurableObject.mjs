@@ -14,7 +14,7 @@ export class Destiny2DefinitionsDurableObject {
   //   this.value = stored || 0
   // }
 
-  async fetch(request) {
+  async fetch() {
     const definitionWorkerUrl = await this.env.DESTINY_2_DEFINITIONS.get(
       'DEFINITION_WORKER_URL'
     )

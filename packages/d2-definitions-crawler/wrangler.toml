@@ -1,4 +1,8 @@
 account_id = "a13a5016df895961431fb659d5d3a635"
+kv_namespaces = [
+  {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
+  {binding = "DESTINY_2_DEFINITIONS", id = "74f0df8897634be895e79a0a3e22f586", preview_id = "74f0df8897634be895e79a0a3e22f586"},
+]
 type = "javascript"
 usage_model = ""
 workers_dev = true
@@ -10,6 +14,9 @@ upload_format = "modules"
 
 [durable_objects]
 bindings = [{name = "D2_DEFINITIONS_OBJECT", class_name = "Destiny2DefinitionsDurableObject"}]
+
+[triggers]
+crons = ["1 17 * * *"]
 
 [env.develop]
 kv_namespaces = [
