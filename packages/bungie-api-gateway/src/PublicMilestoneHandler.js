@@ -1,8 +1,9 @@
 import BungieAPIHandler from './BungieAPIHandler'
 
 export default class PublicMilestoneHandler {
-  constructor(bungieAPIHandlerEnv) {
-    this.bungieAPIHandler = new BungieAPIHandler(bungieAPIHandlerEnv)
+  async init(bungieApiEnv) {
+    this.bungieAPIHandler = new BungieAPIHandler()
+    await this.bungieAPIHandler.init(bungieApiEnv)
   }
 
   async getPublicMilestones() {

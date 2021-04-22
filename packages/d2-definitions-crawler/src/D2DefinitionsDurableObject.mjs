@@ -19,19 +19,8 @@ export class Destiny2DefinitionsDurableObject {
       'DEFINITION_WORKER_URL'
     )
 
-    const apiKey = await this.env.BUNGIE_API.get('KEY')
-    const oauthToken = await this.env.BUNGIE_API.get('OAUTH_TOKEN')
-    const membershipId = await this.env.BUNGIE_API.get('MEMBERSHIP_ID')
-    const membershipType = await this.env.BUNGIE_API.get('MEMBERSHIP_TYPE')
-    const characterId = await this.env.BUNGIE_API.get('CHARACTER_ID')
-
-    const bungieAPIHandler = new BungieAPIHandler({
-      apiKey,
-      oauthToken,
-      membershipId,
-      membershipType,
-      characterId,
-    })
+    const bungieAPIHandler = new BungieAPIHandler()
+    await bungieAPIHandler.init(this.env.BUNGIE_API)
 
     const manifest = await bungieAPIHandler.getManifest()
     const definitionsObject = { ...manifest.jsonWorldComponentContentPaths.en }

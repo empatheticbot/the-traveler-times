@@ -1,18 +1,16 @@
 import BungieAPIError from './BungieAPIError'
 
 export default class BungieAPIHandler {
-  constructor({
-    apiKey,
-    oauthToken,
-    membershipId,
-    membershipType,
-    characterId,
-  }) {
-    this.apiKey = apiKey
-    this.oauthToken = oauthToken
-    this.membershipId = membershipId
-    this.membershipType = membershipType
-    this.characterId = characterId
+  async init(bungieApiEnv) {
+    try {
+      this.apiKey = await bungieApiEnv.get('KEY')
+      this.oauthToken = await bungieApiEnv.get('OAUTH_TOKEN')
+      this.membershipId = await bungieApiEnv.get('MEMBERSHIP_ID')
+      this.membershipType = await bungieApiEnv.get('MEMBERSHIP_TYPE')
+      this.characterId = await bungieApiEnv.get('CHARACTER_ID')
+    } catch (e) {
+      console.error(`BungieAPIHandler init failed. ${e}`)
+    }
   }
 
   /**
