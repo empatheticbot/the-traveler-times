@@ -19,4 +19,19 @@ export default class PublicMilestoneHandler {
 
     return response.Response
   }
+
+  async getPublicMilestoneByHash(hash) {
+    try {
+      const milestones = await this.getPublicMilestones()
+
+      const milestone = milestones[hash]
+
+      if (milestone) {
+        return milestone
+      }
+      throw new Error('Milestone hash id not found.')
+    } catch (e) {
+      console.error(`Error in 'getPublicMilestoneByHash: ${e}`)
+    }
+  }
 }
