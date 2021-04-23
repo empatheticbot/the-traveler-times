@@ -1,109 +1,41 @@
-import BungieAPIHandler from './BungieAPIHandler'
+import DefinitionHandler from './DefinitionHandler'
 
 export default class ActivityHandler {
-  async init(bungieApiEnv) {
-    this.bungieAPIHandler = new BungieAPIHandler()
-    await this.bungieAPIHandler.init(bungieApiEnv)
-  }
-
-  async fetchActivityFromApi(hash) {
-    try {
-      let activity = await this.getManifestDefinition(
-        'DestinyActivityDefinition',
-        hash
-      )
-      return activity.Response
-    } catch (e) {
-      console.error(`Failed to fetch activity data. ${e}`)
-      return null
-    }
-  }
-
-  async getActivityByHash(hash, definitionEnv) {
-    return this.getActivitiesByHash([hash], definitionEnv)
-  }
-
-  async getActivitiesByHash(hashes, definitionEnv) {
-    let allActivities = await definitionEnv.get('DestinyActivityDefinition', {
-      type: 'json',
-    })
-    if (!allActivities) {
-      throw new Error(
-        'Could not find DestinyActivityDefinition in definitionEnv'
-      )
-    }
-    return await Promise.all(
-      hashes.map(async (hash) => {
-        let activity = allActivities[hash]
-
-        if (activity) {
-          return activity
-        }
-
-        return fetchActivityFromApi(hash)
-      })
+  async init(bungieApiEnv, definitionEnv) {
+    this.activityHandler = new DefinitionHandler()
+    await this.activityHandler.init(
+      bungieApiEnv,
+      definitionEnv,
+      'DestinyActivityDefinition'
     )
-
-    // return
-
-    // let modifiers
-
-    // if (withModifiers) {
-    //   modifiers = await this.getActivityModifiers(
-    //     activityShell.modifierHashes || activity.modifiers,
-    //     withModifiers
-    //   )
-    // }
-    // return { ...activity, modifiers }
+    this.modifierHandler = new DefinitionHandler()
+    await this.modifierHandler.init(
+      bungieApiEnv,
+      definitionEnv,
+      'DestinyActivityModifierDefinition'
+    )
   }
 
-  async getActivityModifier(hash) {
-    let modifier = await getItemFromCache(hash)
-    if (modifier === null) {
-      try {
-        modifier = await this.getManifestDefinition(
-          'DestinyActivityModifierDefinition',
-          hash
-        )
-      } catch (e) {
-        console.error(`Failed to fetch activity modifier data. ${e}`)
-        return null
-      }
-      modifier = modifier.Response
-      let exp = await this.getWeeklyReset()
-      await setItemInCache(hash, modifier, exp)
-    }
-    return modifier
+  async getActivity(activity) {
+    const fetchedActivity = await this.activityHandler.getItemByHash(
+      activity.activityHash
+    )
+    const modifiers = await this.getActivityModifiers(fetchedActivity)
+
+    return { ...fetchedActivity, modifiers }
   }
 
-  // getActivityModifiers(modifiers = [], limit) {
-  //   return Promise.all(
-  //     modifiers.map((modifier, index) => {
-  //       if (modifier.activityModifierHash && index < limit) {
-  //         return this.getActivityModifier(modifier.activityModifierHash)
-  //       } else if (
-  //         typeof modifier === 'number' ||
-  //         typeof modifier === 'string'
-  //       ) {
-  //         return this.getActivityModifier(modifier)
-  //       }
-  //       return Promise.resolve(modifier)
-  //     })
-  //   )
-  // }
+  async getActivities(activities) {
+    return Promise.all(activities.map((activity) => this.getActivity(activity)))
+  }
 
-  // getActivities(activities = [], activityLimit = 5, withModifiers = 0) {
-  //   return Promise.all(
-  //     activities.map(async (activity, index) => {
-  //       let expandedActivity = activity
-  //       // I just wanted to see if I could get more activity info back for milestones.
-  //       // Turns out one can, but cloudflare workers are limited to 50 subrequests per
-  //       // request. That is why the limit exists.
-  //       if (activity.activityHash && index < activityLimit) {
-  //         expandedActivity = await this.getActivity(activity, withModifiers)
-  //       }
-  //       return expandedActivity
-  //     })
-  //   )
-  // }
+  async getActivityModifiers(activity) {
+    return Promise.all(
+      activity.modifiers.map((modifier) => this.getActivityModifier(modifier))
+    )
+  }
+
+  async getActivityModifier(modifier) {
+    return this.modifierHandler.getItemByHash(modifier.activityModifierHash)
+  }
 }

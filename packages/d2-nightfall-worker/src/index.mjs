@@ -8,16 +8,15 @@ export default {
     const publicMilestoneHandler = new PublicMilestoneHandler()
     await publicMilestoneHandler.init(env.BUNGIE_API)
     const activityHandler = new ActivityHandler()
-    await activityHandler.init(env.BUNGIE_API)
+    await activityHandler.init(env.BUNGIE_API, env.DESTINY_2_DEFINITIONS)
 
     try {
       const nightfallMilestone = await publicMilestoneHandler.getPublicMilestoneByHash(
         '1942283261',
       )
-      console.log(env.DESTINY_2_DEFINITIONS)
-      const activities = await activityHandler.getActivitiesByHash(
-        nightfallMilestone.activities.map(activity => activity.activityHash),
-        env.DESTINY_2_DEFINITIONS,
+
+      const activities = await activityHandler.getActivities(
+        nightfallMilestone.activities,
       )
 
       return new Response(
@@ -27,7 +26,7 @@ export default {
         },
       )
     } catch (e) {
-      return new Response(e, {
+      return new Response(e.message, {
         status: 500,
       })
     }
