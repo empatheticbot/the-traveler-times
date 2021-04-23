@@ -7,9 +7,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && rollup -c",
-    "publish": "wrangler publish -e production",
-    "publish:develop": "wrangler publish -e develop",
-    "start": "wrangler dev -e develop",
+    "publish": "wrangler publish",
+    "start": "wrangler dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write '**/*.{js,css,json,md}'",
     "clean:definitions": "wrangler kv:bulk delete --binding=DESTINY_2_DEFINITIONS definitions-bulk-delete.json"
