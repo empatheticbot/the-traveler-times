@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
+    "develop:xur": "lerna run --scope @the-traveler-times/d2-xur-worker start",
     "publish": "lerna run publish",
     "version": "lerna version",
     "build": "lerna run build",

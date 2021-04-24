@@ -9,7 +9,7 @@ export default class BungieAPIHandler {
       this.membershipType = await bungieApiEnv.get('MEMBERSHIP_TYPE')
       this.characterId = await bungieApiEnv.get('CHARACTER_ID')
     } catch (e) {
-      console.error(`BungieAPIHandler init failed. ${e}`)
+      throw new Error(`BungieAPIHandler init failed. ${e}`)
     }
   }
 
