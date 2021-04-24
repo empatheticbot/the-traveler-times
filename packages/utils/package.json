@@ -6,12 +6,9 @@
   "author": "Steve Ledsworth <sledsworth@gmail.com>",
   "homepage": "https://github.com/empatheticbot/the-traveler-times/tree/main/packages/utils#readme",
   "license": "UNLICENSED",
-  "module": "src/index.js",
-  "directories": {
-    "src": "src"
-  },
+  "module": "src/index.mjs",
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -21,9 +18,20 @@
     "url": "git+https://github.com/empatheticbot/the-traveler-times.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '**/*.{js,css,json,md}'"
   },
   "bugs": {
     "url": "https://github.com/empatheticbot/the-traveler-times/issues"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "prettier": "^1.19.1",
+    "rollup": "^2.36.1",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }

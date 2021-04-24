@@ -2,6 +2,7 @@ import {
   PublicMilestoneHandler,
   ActivityHandler,
 } from '@the-traveler-times/bungie-api-gateway'
+import { getModifiersOrderedByDifficulty } from './NightfallTransformer'
 
 export default {
   async fetch(request, env) {
@@ -19,8 +20,10 @@ export default {
         nightfallMilestone.activities,
       )
 
+      const modifierGroups = getModifiersOrderedByDifficulty(activities)
+
       return new Response(
-        JSON.stringify({ ...nightfallMilestone, activities }),
+        JSON.stringify({ ...nightfallMilestone, activities, modifierGroups }),
         {
           status: 200,
         },

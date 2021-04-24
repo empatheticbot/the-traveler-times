@@ -7,6 +7,7 @@
     "publish": "lerna run publish",
     "version": "lerna version",
     "build": "lerna run build",
+    "bootstrap": "lerna bootstrap",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
