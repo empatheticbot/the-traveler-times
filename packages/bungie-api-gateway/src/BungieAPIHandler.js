@@ -30,13 +30,14 @@ export default class BungieAPIHandler {
    * Calls the api for passed in options and parses into JSON response;
    */
   async callApi(options) {
-    console.log('CALL: ' + options.path)
+    const url = new URL(`https://www.bungie.net/Platform${options.path}`)
+    if (options.components) {
+      url.searchParams.set('components', options.components.join(','))
+    }
+    console.log('CALL: ' + url)
     let resp
     try {
-      resp = await fetch(
-        'https://www.bungie.net/Platform' + options.path,
-        this.addApiKeyToHeader(options)
-      )
+      resp = await fetch(url, this.addApiKeyToHeader(options))
     } catch (e) {
       console.error(`Failed to call bungie platform api ${e}`)
       throw e

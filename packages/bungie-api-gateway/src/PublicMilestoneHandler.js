@@ -8,7 +8,7 @@ export default class PublicMilestoneHandler {
 
   async getPublicMilestones() {
     let response = await this.bungieAPIHandler.callApi({
-      path: `/Destiny2/Milestones`,
+      path: `/Destiny2/Milestones/`,
       method: 'GET',
     })
 
