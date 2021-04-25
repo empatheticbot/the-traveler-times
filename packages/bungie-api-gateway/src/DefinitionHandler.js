@@ -17,11 +17,14 @@ export default class DefinitionHandler {
 
   async fetchDefintionFromApi(hash) {
     try {
-      let item = await this.getManifestDefinition(definitionName, hash)
+      let item = await this.bungieAPIHandler.getManifestDefinition(
+        this.definitionName,
+        hash
+      )
       return item.Response
     } catch (e) {
       console.error(
-        `Failed to fetch item (${hash}) from ${definitionName} data. ${e}`
+        `Failed to fetch item (${hash}) from ${this.definitionName} data. ${e}`
       )
       return null
     }

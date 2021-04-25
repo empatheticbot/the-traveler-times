@@ -11,7 +11,7 @@ export default {
       await vendorHandler.init(env.BUNGIE_API, env.DESTINY_2_DEFINITIONS)
       const twitterHandler = new TwitterHandler()
       await twitterHandler.init(env.TWITTER_API)
-      const xur = await vendorHandler.getVendorByHash('2190858386')
+      const xur = await vendorHandler.getStrippedDownVendorByHash('2190858386')
 
       const date = new Date()
       date.setDate(date.getDate() - 1)
