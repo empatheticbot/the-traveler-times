@@ -1,46 +1,85 @@
 import BungieAPIHandler from './BungieAPIHandler'
 
 export default class DefinitionHandler {
-  async init(bungieApiEnv, definitionEnv, definitionName) {
+  async init(bungieApiEnv, definitionEnv) {
     this.bungieAPIHandler = new BungieAPIHandler()
     await this.bungieAPIHandler.init(bungieApiEnv)
 
-    this.definitionName = definitionName
-    this.definitions = await definitionEnv.get(definitionName, {
-      type: 'json',
-    })
+    this.definitionEnv = definitionEnv
 
-    if (!this.definitions) {
-      throw new Error(`Could not find ${definitionName} in definitionEnv`)
+    if (!this.definitionEnv) {
+      throw new Error(`'definitionEnv' is required on init.`)
     }
   }
 
-  async fetchDefintionFromApi(hash) {
+  async fetchDefintionFromApi(hash, definitionName) {
     try {
       let item = await this.bungieAPIHandler.getManifestDefinition(
-        this.definitionName,
+        definitionName,
         hash
       )
       return item.Response
     } catch (e) {
       console.error(
-        `Failed to fetch item (${hash}) from ${this.definitionName} data. ${e}`
+        `Failed to fetch item (${hash}) from ${definitionName} data. ${e}`
       )
       return null
     }
   }
 
-  async getItemByHash(hash) {
-    let item = this.definitions[hash]
+  async getDefinitions(definitionName) {
+    const definitions = await this.definitionEnv.get(definitionName, {
+      type: 'json',
+    })
 
-    if (item) {
-      return item
+    if (!definitions) {
+      throw new Error(`Could not find ${definitionName} in definitionEnv`)
     }
-
-    return this.fetchDefintionFromApi(hash)
+    return definitions
   }
 
-  async getItemsByHash(hashes) {
-    return await Promise.all(hashes.map((hash) => this.getItemByHash(hash)))
+  async getHashKeyedDefinitions(hashes, definitions) {
+    return hashes.reduce(
+      (obj, hash) => ({
+        ...obj,
+        [hash]: definitions[hash],
+      }),
+      {}
+    )
+  }
+
+  async getVendors(...hashes) {
+    const vendors = await this.getDefinitions('DestinyVendorDefinition')
+    return this.getHashKeyedDefinitions(hashes, vendors)
+  }
+
+  async getInventoryItems(...hashes) {
+    const items = await this.getDefinitions(
+      'DestinyInventoryItemLiteDefinition'
+    )
+    return this.getHashKeyedDefinitions(hashes, items)
+  }
+
+  async getActivities(...hashes) {
+    console.log('act: ' + hashes)
+    const activities = await this.getDefinitions('DestinyActivityDefinition')
+    return this.getHashKeyedDefinitions(hashes, activities)
+  }
+
+  async getActivityModifiers(...hashes) {
+    console.log('mod: ' + hashes)
+
+    const modifiers = await this.getDefinitions(
+      'DestinyActivityModifierDefinition'
+    )
+    return this.getHashKeyedDefinitions(hashes, modifiers)
+  }
+
+  async getCharacterClasses() {
+    return this.getDefinitions('DestinyClassDefinition')
+  }
+
+  async getDamageTypes() {
+    return this.getDefinitions('DestinyDamageTypeDefinition')
   }
 }

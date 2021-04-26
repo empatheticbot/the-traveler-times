@@ -5,18 +5,8 @@ export default class VendorHandler {
   async init(bungieApiEnv, definitionEnv) {
     this.bungieAPIHandler = new BungieAPIHandler()
     await this.bungieAPIHandler.init(bungieApiEnv)
-    this.vendorHandler = new DefinitionHandler()
-    await this.vendorHandler.init(
-      bungieApiEnv,
-      definitionEnv,
-      'DestinyVendorDefinition'
-    )
-    this.itemHandler = new DefinitionHandler()
-    await this.itemHandler.init(
-      bungieApiEnv,
-      definitionEnv,
-      'DestinyInventoryItemLiteDefinition'
-    )
+    this.definitionHandler = new DefinitionHandler()
+    await this.definitionHandler.init(bungieApiEnv, definitionEnv)
   }
 
   // TODO: This function is fairly gnarly, split out some of the item sales code it's own module
@@ -36,7 +26,9 @@ export default class VendorHandler {
       sales = await Promise.all(
         Object.values(saleItems).map(async (sale) => {
           console.log(sale)
-          const item = await this.itemHandler.getItemByHash(sale.itemHash)
+          const item = await this.definitionHandler.getInventoryItems(
+            sale.itemHash
+          )
           return { ...sale, ...item }
         })
       )
@@ -53,7 +45,7 @@ export default class VendorHandler {
   async getVendorByHash(hash) {
     try {
       const vendorLiveData = await this.getVendorLiveData(hash)
-      const vendorStaticData = await this.vendorHandler.getItemByHash(hash)
+      const vendorStaticData = await this.definitionHandler.getVendors(hash)
 
       if (vendorLiveData && vendorStaticData) {
         return { ...vendorStaticData, ...vendorLiveData }
@@ -74,7 +66,14 @@ export default class VendorHandler {
       smallTransparentIcon,
     } = completeVendorData.displayProperties
     const { nextRefreshDate, enabled, sales } = completeVendorData
-
+    const salesStripped = sales.map((sale) => {
+      return {
+        name: sale.displayProperties.name,
+        icon: sale.displayProperties.icon,
+        subtitle: sale.itemTypeAndTierDisplayName,
+        sort: sale.itemType,
+      }
+    })
     return {
       name,
       description,
@@ -84,7 +83,7 @@ export default class VendorHandler {
       nextRefreshDate,
       hash,
       enabled,
-      sales,
+      sales: salesStripped,
     }
   }
 }
