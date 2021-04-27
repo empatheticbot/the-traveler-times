@@ -6,6 +6,7 @@ export default class DefinitionHandler {
     await this.bungieAPIHandler.init(bungieApiEnv)
 
     this.definitionEnv = definitionEnv
+    this.definitionCache = {}
 
     if (!this.definitionEnv) {
       throw new Error(`'definitionEnv' is required on init.`)
@@ -28,13 +29,18 @@ export default class DefinitionHandler {
   }
 
   async getDefinitions(definitionName) {
-    const definitions = await this.definitionEnv.get(definitionName, {
-      type: 'json',
-    })
+    let definitions = this.definitionCache[definitionName]
+
+    if (!definitions) {
+      definitions = await this.definitionEnv.get(definitionName, {
+        type: 'json',
+      })
+    }
 
     if (!definitions) {
       throw new Error(`Could not find ${definitionName} in definitionEnv`)
     }
+    this.definitionCache[definitionName] = definitions
     return definitions
   }
 
