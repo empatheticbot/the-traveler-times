@@ -10,8 +10,10 @@ workers_dev = true
 
 [build]
 command = "npm install && npm run build"
-upload_exclude = ["*.map"]
-upload_format = "modules"
+
+[build.upload]
+format = "modules"
+main = "./index.mjs"
 
 [triggers]
 crons = ["*/30 * * * *"]
