@@ -5,7 +5,6 @@
   "main": "_site/index.js",
   "scripts": {
     "clean": "rm -rf _site",
-    "build": "DEBUG=* eleventy",
     "start": "NODE_ENV=develop eleventy --serve"
   },
   "repository": {

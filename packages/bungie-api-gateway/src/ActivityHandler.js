@@ -7,37 +7,35 @@ export default class ActivityHandler {
   }
 
   async getActivity(activity) {
-    const fetchedActivity = await this.definitionHandler.getActivities(
+    const fetchedActivities = await this.definitionHandler.getActivities(
       activity.activityHash
     )
+    console.log(fetchedActivities)
+    const fetchedActivity = fetchedActivities[0]
     console.log(fetchedActivity)
     const modifiers = await this.getActivityModifiers(fetchedActivity)
+    console.log('mmod  ::', modifiers)
 
     return { ...fetchedActivity, modifiers }
   }
 
   async getActivities(activities) {
-    const activityHashes = activities.map((activity) => activity.activityHash)
-    const fetchedActivities = await this.definitionHandler.getActivities(
-      ...activityHashes
-    )
-    const modifiers = await this.getActivityModifiers(fetchedActivity)
-
+    console.log('act: ', activities)
     return Promise.all(activities.map((activity) => this.getActivity(activity)))
   }
 
   async getActivityModifiers(activity) {
-    console.log('am' + Object.keys(activity))
+    console.log('am' + activity)
     const modifierHashes = activity.modifiers.map(
       (modifier) => modifier.activityModifierHash
     )
-
     return this.definitionHandler.getActivityModifiers(...modifierHashes)
   }
 
   async getActivityModifier(modifier) {
-    return this.definitionHandler.getActivityModifiers(
+    const modifiers = this.definitionHandler.getActivityModifiers(
       modifier.activityModifierHash
     )
+    return modifiers[0]
   }
 }

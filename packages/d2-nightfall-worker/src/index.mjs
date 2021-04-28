@@ -19,6 +19,7 @@ export default {
       const activities = await activityHandler.getActivities(
         nightfallMilestone.activities,
       )
+      console.log('tt', activities[0])
 
       const modifierGroups = getModifiersOrderedByDifficulty(activities)
 
