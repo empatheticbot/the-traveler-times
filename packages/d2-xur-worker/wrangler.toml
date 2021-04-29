@@ -6,7 +6,7 @@ kv_namespaces = [
 ]
 name = "d2-xur-worker"
 type = "javascript"
-usage_model = "bundled"
+usage_model = "unbound"
 workers_dev = true
 
 [build]

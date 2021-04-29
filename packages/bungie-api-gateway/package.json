@@ -17,6 +17,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && rollup -c",
+    "start": "npm run clean && rollup -c --watch",
     "test": "echo \"Error: run tests from root\" && exit 1",
     "format": "prettier --write '**/*.{js,css,json,md}'"
   },

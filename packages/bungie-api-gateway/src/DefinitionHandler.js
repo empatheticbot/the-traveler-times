@@ -63,6 +63,11 @@ export default class DefinitionHandler {
     return this.getArrayOfDefinitions(hashes, vendors)
   }
 
+  async getVendor(hash) {
+    const vendors = await this.getVendors(hash)
+    return vendors[0]
+  }
+
   async getInventoryItems(...hashes) {
     const items = await this.getDefinitions(
       'DestinyInventoryItemLiteDefinition'
@@ -70,10 +75,20 @@ export default class DefinitionHandler {
     return this.getArrayOfDefinitions(hashes, items)
   }
 
+  async getInventoryItem(hash) {
+    const inventory = await this.getInventoryItems(hash)
+    return inventory[0]
+  }
+
   async getActivities(...hashes) {
     console.log('act: ' + hashes)
     const activities = await this.getDefinitions('DestinyActivityDefinition')
     return this.getArrayOfDefinitions(hashes, activities)
+  }
+
+  async getActivity(hash) {
+    const activities = await this.getActivities(hash)
+    return activities[0]
   }
 
   async getActivityModifiers(...hashes) {
@@ -83,6 +98,11 @@ export default class DefinitionHandler {
       'DestinyActivityModifierDefinition'
     )
     return this.getArrayOfDefinitions(hashes, modifiers)
+  }
+
+  async getActivityModifier(hash) {
+    const modifiers = await this.getActivityModifiers(hash)
+    return modifiers[0]
   }
 
   async getCharacterClasses() {

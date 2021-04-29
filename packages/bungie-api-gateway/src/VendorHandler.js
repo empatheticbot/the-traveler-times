@@ -1,5 +1,6 @@
 import BungieAPIHandler from './BungieAPIHandler'
 import DefinitionHandler from './DefinitionHandler'
+import { XUR } from './Hashes'
 
 export default class VendorHandler {
   async init(bungieApiEnv, definitionEnv) {
@@ -25,8 +26,7 @@ export default class VendorHandler {
     if (saleItems) {
       sales = await Promise.all(
         Object.values(saleItems).map(async (sale) => {
-          console.log(sale)
-          const item = await this.definitionHandler.getInventoryItems(
+          const item = await this.definitionHandler.getInventoryItem(
             sale.itemHash
           )
           return { ...sale, ...item }
@@ -34,21 +34,30 @@ export default class VendorHandler {
       )
     }
     return { ...vendor, sales }
-    // return Object.keys(vendors).reduce((vendorsObject, currentHash) => {
-    //   const vendor = vendors[currentHash]
-    //   const sales = salesData[currentHash].saleItems
-
-    //   return { ...vendorsObject, [currentHash]: { ...vendor, sales } }
-    // }, {})
   }
 
   async getVendorByHash(hash) {
     try {
       const vendorLiveData = await this.getVendorLiveData(hash)
-      const vendorStaticData = await this.definitionHandler.getVendors(hash)
+      const vendorStaticData = await this.definitionHandler.getVendor(hash)
+
+      // TODO: Bungie's API is wrong. Xur does not show up at 4AM... so we need to adjust that to make sure Twitter
+      // stuff works correctly... (https://github.com/Bungie-net/api/issues/353)
+      let nextRefreshDate = vendorLiveData.nextRefreshDate
+      if (hash === XUR) {
+        const nextRefreshDateXur = new Date(nextRefreshDate)
+        nextRefreshDateXur.setUTCHours(17)
+        nextRefreshDate = nextRefreshDateXur.toISOString()
+      }
+      const lastRefreshDate = this.getVendorLastRefreshDate(nextRefreshDate)
 
       if (vendorLiveData && vendorStaticData) {
-        return { ...vendorStaticData, ...vendorLiveData }
+        return {
+          ...vendorStaticData,
+          ...vendorLiveData,
+          lastRefreshDate,
+          nextRefreshDate,
+        }
       }
       throw new Error('Vendor hash id not found.')
     } catch (e) {
@@ -56,8 +65,15 @@ export default class VendorHandler {
     }
   }
 
+  getVendorLastRefreshDate(nextRefreshDate) {
+    const lastRefreshDate = new Date(nextRefreshDate)
+    lastRefreshDate.setDate(lastRefreshDate.getDate() - 7)
+    return lastRefreshDate.toISOString()
+  }
+
   async getStrippedDownVendorByHash(hash) {
     const completeVendorData = await this.getVendorByHash(hash)
+
     const {
       name,
       description,
@@ -65,7 +81,13 @@ export default class VendorHandler {
       subtitle,
       smallTransparentIcon,
     } = completeVendorData.displayProperties
-    const { nextRefreshDate, enabled, sales } = completeVendorData
+    let {
+      nextRefreshDate,
+      lastRefreshDate,
+      enabled,
+      sales,
+    } = completeVendorData
+
     const salesStripped = sales.map((sale) => {
       return {
         name: sale.displayProperties.name,
@@ -80,6 +102,7 @@ export default class VendorHandler {
       icon,
       subtitle,
       smallTransparentIcon,
+      lastRefreshDate,
       nextRefreshDate,
       hash,
       enabled,

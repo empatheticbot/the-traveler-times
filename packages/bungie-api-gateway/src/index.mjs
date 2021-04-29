@@ -3,6 +3,7 @@ import BungieAPIHandler from './BungieAPIHandler'
 import PublicMilestoneHandler from './PublicMilestoneHandler'
 import TwitterHandler from './TwitterHandler'
 import VendorHandler from './VendorHandler'
+import * as Hashes from './Hashes'
 
 export {
   ActivityHandler,
@@ -10,4 +11,5 @@ export {
   PublicMilestoneHandler,
   TwitterHandler,
   VendorHandler,
+  Hashes,
 }

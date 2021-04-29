@@ -1,6 +1,5 @@
 export default class TwitterHandler {
   async init(twitterEnv) {
-    console.log((await twitterEnv.list()).keys.map((key) => key.name))
     try {
       this.twitterToken = await twitterEnv.get('BEARER_TOKEN')
       this.xurLocations = await twitterEnv.get('XUR_LOCATIONS', {
@@ -31,21 +30,41 @@ export default class TwitterHandler {
       }
     }
   */
-  async queryRecentTweetsFromTwitter(query, startDate, maxResults = 100) {
+  async queryRecentTweetsFromTwitter(
+    query,
+    startDate,
+    endDate,
+    maxResults = 100
+  ) {
     const url = new URL(`https://api.twitter.com/2/tweets/search/recent`)
-    let date
+    let startingDate
     if (startDate instanceof Date) {
-      date = startDate
+      startingDate = startDate
     } else if (typeof startDate === 'string') {
-      date = new Date(startDate)
+      startingDate = new Date(startDate)
     } else {
-      // Just arbitrarily set date to 30 minutes ago 🤷‍♀️
-      date = new Date()
-      date.setMinutes(date.getMinutes() - 30)
+      // Just arbitrarily set startingDate to 30 minutes ago 🤷‍♀️
+      startingDate = new Date()
+      startingDate.setMinutes(startingDate.getMinutes() - 30)
     }
+
+    if (startingDate) {
+      url.searchParams.set('start_time', startingDate.toISOString())
+    }
+
+    let endingDate
+    if (endDate instanceof Date) {
+      endingDate = endDate
+    } else if (typeof endDate === 'string') {
+      endingDate = new Date(endDate)
+    }
+
+    if (endingDate) {
+      url.searchParams.set('end_time', endingDate.toISOString())
+    }
+
     url.searchParams.set('query', query)
     url.searchParams.set('max_results', maxResults)
-    url.searchParams.set('start_time', date.toISOString())
     try {
       const response = await fetch(url, {
         headers: {
@@ -61,12 +80,13 @@ export default class TwitterHandler {
     }
   }
 
-  async getXurLocation(searchStartDate) {
+  async getXurLocation(searchStartDate, searchEndDate) {
     const xurLocationQueries = await Promise.all(
       this.xurLocations.map(async (location) => {
         const twitterQueryResult = await this.queryRecentTweetsFromTwitter(
           location.twitterQuery,
-          searchStartDate
+          searchStartDate,
+          searchEndDate
         )
         return { ...location, results: twitterQueryResult.meta.result_count }
       })
@@ -82,6 +102,7 @@ export default class TwitterHandler {
     xurLocationQueries.forEach((location, index) => {
       if (location.results > currentHighestCount) {
         bestGuessLocation = location
+        currentHighestCount = location.results
       }
     })
     return {

@@ -2,6 +2,7 @@ import {
   PublicMilestoneHandler,
   VendorHandler,
   TwitterHandler,
+  Hashes,
 } from '@the-traveler-times/bungie-api-gateway'
 
 export default {
@@ -11,13 +12,12 @@ export default {
       await vendorHandler.init(env.BUNGIE_API, env.DESTINY_2_DEFINITIONS)
       const twitterHandler = new TwitterHandler()
       await twitterHandler.init(env.TWITTER_API)
-      const xur = await vendorHandler.getStrippedDownVendorByHash('2190858386')
+      const xur = await vendorHandler.getStrippedDownVendorByHash(Hashes.XUR)
 
-      const date = new Date()
-      date.setDate(date.getDate() - 1)
-      const location = await twitterHandler.getXurLocation(date)
+      const searchDate = new Date(xur.lastRefreshDate)
+      const location = await twitterHandler.getXurLocation(searchDate)
 
-      return new Response(JSON.stringify({ xur, location }), {
+      return new Response(JSON.stringify({ ...xur, location }), {
         status: 200,
       })
     } catch (e) {
