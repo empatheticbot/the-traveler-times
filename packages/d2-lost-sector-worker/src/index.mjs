@@ -1,19 +1,52 @@
-import {
-  PublicMilestoneHandler,
-  TwitterHandler,
-  Hashes,
-} from '@the-traveler-times/bungie-api-gateway'
+import { DefinitionHandler } from '@the-traveler-times/bungie-api-gateway'
+import { getCurrentLostSectorHashes } from './LostSectorHandler'
+
+async function getLostSectorData(lostSector, definitionHandler) {
+  const activity = await definitionHandler.getActivity(lostSector.hash)
+  const modifiers = await definitionHandler.getActivityModifiers(
+    ...activity.modifiers.map(modifier => modifier.activityModifierHash),
+  )
+  const rewards = await definitionHandler.getInventoryItems(
+    ...lostSector.rewards.map(reward => reward.hash),
+  )
+
+  return { ...lostSector, ...activity, modifiers, rewards }
+}
 
 export default {
   async fetch(request, env) {
     try {
-      return new Response(JSON.stringify({ isAvailable: true }), {
-        status: 200,
-      })
+      const lostSectors = getCurrentLostSectorHashes()
+
+      const definitionHandler = new DefinitionHandler()
+      await definitionHandler.init(env.BUNGIE_API, env.DESTINY_2_DEFINITIONS)
+
+      const legend = await getLostSectorData(
+        lostSectors.legend,
+        definitionHandler,
+      )
+      const master = await getLostSectorData(
+        lostSectors.master,
+        definitionHandler,
+      )
+
+      return new Response(
+        JSON.stringify({
+          isAvailable: true,
+          master,
+          legend,
+        }),
+        {
+          status: 200,
+        },
+      )
     } catch (e) {
-      return new Response(e.message, {
-        status: 500,
-      })
+      return new Response(
+        JSON.stringify({ isAvailable: false, error: e.message }),
+        {
+          status: 500,
+        },
+      )
     }
   },
 }

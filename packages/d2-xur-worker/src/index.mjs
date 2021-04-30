@@ -1,5 +1,4 @@
 import {
-  PublicMilestoneHandler,
   VendorHandler,
   TwitterHandler,
   Hashes,
