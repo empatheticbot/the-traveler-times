@@ -36,7 +36,6 @@ export class Destiny2DefinitionsDurableObject {
       },
       []
     )
-    console.log(definitions.length)
 
     const chunkedDefinitions = chunkArray(definitions, 5)
     const definitionRequests = []

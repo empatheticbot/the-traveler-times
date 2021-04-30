@@ -81,7 +81,6 @@ export default class DefinitionHandler {
   }
 
   async getActivities(...hashes) {
-    console.log('act: ' + hashes)
     const activities = await this.getDefinitions('DestinyActivityDefinition')
     return this.getArrayOfDefinitions(hashes, activities)
   }
@@ -92,8 +91,6 @@ export default class DefinitionHandler {
   }
 
   async getActivityModifiers(...hashes) {
-    console.log('mod: ' + hashes)
-
     const modifiers = await this.getDefinitions(
       'DestinyActivityModifierDefinition'
     )

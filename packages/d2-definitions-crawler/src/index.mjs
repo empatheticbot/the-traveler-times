@@ -17,7 +17,6 @@ async function handleDefintionFetch(request, env) {
 
 export default {
   async fetch(request, env) {
-    console.log(Object.keys(env))
     return await handleDefintionFetch(request, env)
   },
   async scheduled(event, env) {
