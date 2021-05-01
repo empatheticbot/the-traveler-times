@@ -1,6 +1,6 @@
 import BungieAPIHandler from './BungieAPIHandler'
 import DefinitionHandler from './DefinitionHandler'
-import { XUR } from './Hashes'
+import { XUR, ZAVALA } from './Hashes'
 
 export default class VendorHandler {
   async init(bungieApiEnv, definitionEnv) {
@@ -107,6 +107,18 @@ export default class VendorHandler {
       hash,
       enabled,
       sales: salesStripped,
+    }
+  }
+
+  async getWeeklyResets() {
+    // TODO: factor out the api call so I can grab two vendors in one call.
+    // This is currently dumb and really inefficient--we don't need all this data.
+    const xur = await this.getVendorByHash(XUR)
+    const zavala = await this.getVendorByHash(ZAVALA)
+
+    return {
+      weeklyReset: zavala.nextRefreshDate,
+      weekendReset: xur.nextRefreshDate,
     }
   }
 }
