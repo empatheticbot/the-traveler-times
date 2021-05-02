@@ -32,9 +32,7 @@ export default class DefinitionHandler {
     let definitions = this.definitionCache[definitionName]
 
     if (!definitions) {
-      definitions = await this.definitionEnv.get(definitionName, {
-        type: 'json',
-      })
+      definitions = await this.definitionEnv.get(definitionName)
     }
 
     if (!definitions) {
@@ -108,5 +106,10 @@ export default class DefinitionHandler {
 
   async getDamageTypes() {
     return this.getDefinitions('DestinyDamageTypeDefinition')
+  }
+
+  async getMilestone(hash) {
+    const defintions = await this.getDefinitions('DestinyMilestoneDefinition')
+    return defintions[hash]
   }
 }

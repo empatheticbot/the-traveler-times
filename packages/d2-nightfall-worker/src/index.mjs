@@ -1,6 +1,7 @@
 import {
   PublicMilestoneHandler,
   ActivityHandler,
+  Hashes,
 } from '@the-traveler-times/bungie-api-gateway'
 import { getModifiersOrderedByDifficulty } from './NightfallTransformer'
 
@@ -13,7 +14,7 @@ export default {
 
     try {
       const nightfallMilestone = await publicMilestoneHandler.getPublicMilestoneByHash(
-        '1942283261',
+        Hashes.NIGHTFALL,
       )
 
       const activities = await activityHandler.getActivities(
