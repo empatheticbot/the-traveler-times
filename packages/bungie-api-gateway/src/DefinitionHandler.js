@@ -32,7 +32,9 @@ export default class DefinitionHandler {
     let definitions = this.definitionCache[definitionName]
 
     if (!definitions) {
-      definitions = await this.definitionEnv.get(definitionName)
+      definitions = await this.definitionEnv.get(definitionName, {
+        type: 'json',
+      })
     }
 
     if (!definitions) {
