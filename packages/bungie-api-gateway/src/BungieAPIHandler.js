@@ -16,14 +16,14 @@ export default class BungieAPIHandler {
   /**
    * Adds the API Key to the request header.
    */
-  addApiKeyToHeader(options) {
-    const update = { ...options }
-    update.headers = {
-      ...update.headers,
-      Authorization: 'Bearer ' + this.oauthToken,
-      'X-API-Key': this.apiKey,
+  addApiKeyToHeader(headers = {}) {
+    return {
+      headers: {
+        ...headers,
+        // Authorization: 'Bearer ' + this.oauthToken,
+        'X-API-Key': this.apiKey,
+      },
     }
-    return update
   }
 
   /**
@@ -37,7 +37,7 @@ export default class BungieAPIHandler {
     console.log('CALL: ' + url)
     let resp
     try {
-      resp = await fetch(url, this.addApiKeyToHeader(options))
+      resp = await fetch(url, this.addApiKeyToHeader(options.headers))
     } catch (e) {
       console.error(`Failed to call bungie platform api ${e}`)
       throw e
@@ -112,5 +112,36 @@ export default class BungieAPIHandler {
     }
 
     return this.callBungieNet({ path: definitionPath })
+  }
+
+  async getPostGameCarnageReport(id) {
+    const url = new URL(
+      `https://stats.bungie.net/Platform/Destiny2/Stats/PostGameCarnageReport/${id}/`
+    )
+    console.log('CALL: ' + url)
+    let resp
+    try {
+      resp = await fetch(
+        url,
+        this.addApiKeyToHeader({ 'Content-Type': 'application/json' })
+      )
+      // console.log(Object.keys(resp), await resp.text(), url)
+    } catch (e) {
+      console.error(`Failed to call bungie platform api ${e}`)
+      throw e
+    }
+    if (resp.status === 401) {
+      console.error(
+        'Unauthorized from Bungie API. Check to make sure credentials are updated.'
+      )
+    } else if (!resp.ok) {
+      throw new Error(
+        `Test: \n\n${Object.entries(resp.headers)
+          .map(([key, value]) => `${key}: ${value}`)
+          .join('\n\n')}\n`
+      )
+      // throw new BungieAPIError(resp.url, resp.headers)
+    }
+    return resp.json()
   }
 }

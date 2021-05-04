@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "@the-traveler-times/d2-pgcr-crawler",
+  "version": "0.7.1",
+  "description": "Scheduled worker that crawls the Bungie Destiny2*Definition endpoints and stores the values in KV DESTINY_2_DEFINITIONS",
+  "module": "./dist/index.mjs",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup -c",
+    "publish": "wrangler publish",
+    "start": "wrangler dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '**/*.{js,css,json,md}'",
+    "clean:definitions": "wrangler kv:bulk delete --binding=DESTINY_2_DEFINITIONS definitions-bulk-delete.json"
+  },
+  "author": "Steve Ledsworth <steve@empatheticbot.com>",
+  "dependencies": {
+    "@the-traveler-times/bungie-api-gateway": "file:../bungie-api-gateway",
+    "@the-traveler-times/utils": "file:../utils"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "prettier": "^1.19.1",
+    "rollup": "^2.36.1",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
