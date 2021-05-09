@@ -106,6 +106,11 @@ export default class DefinitionHandler {
     return this.getDefinitions('DestinyClassDefinition')
   }
 
+  async getCharacterClass(classId) {
+    const classes = await this.getCharacterClasses()
+    return classes[classId]
+  }
+
   async getDamageTypes() {
     return this.getDefinitions('DestinyDamageTypeDefinition')
   }

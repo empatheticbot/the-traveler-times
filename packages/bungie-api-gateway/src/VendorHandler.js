@@ -29,7 +29,14 @@ export default class VendorHandler {
           const item = await this.definitionHandler.getInventoryItem(
             sale.itemHash
           )
-          return { ...sale, ...item }
+          const classType = await this.definitionHandler.getCharacterClass(item.classType)
+          const costs = await Promise.all(
+            item.costs.map((cost) => {
+              const currencyDetails = await this.definitionHandler.getInventoryItem(cost.itemHash)
+              return { ...currencyDetails, ...cost }
+            })
+          )
+          return { ...sale, ...item, classType, costs }
         })
       )
     }
@@ -94,6 +101,15 @@ export default class VendorHandler {
         icon: sale.displayProperties.icon,
         subtitle: sale.itemTypeAndTierDisplayName,
         sort: sale.itemType,
+        costs: sale.costs.map(cost => {
+          return {
+            name: cost.displayProperties.name,
+            icon: cost.displayProperties.icon,
+            description: cost.displayProperties.description,
+            source: cost.displaySource,
+            quantity: cost.quantity,
+          }
+        }),
       }
     })
     return {
