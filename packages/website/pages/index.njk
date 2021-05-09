@@ -6,13 +6,9 @@ permalink: /
 ---
 {% extends 'base.njk' %}
 {% block content %}
-  {% if destinyData.ok %}
-    {% include 'weekly.njk' %}
-    {% include 'season.njk' %}
-    {% include 'meta.njk' %}
-  {% else %}
-    {% include 'error.njk' %}
-  {% endif %}
+  {% include 'weekly.njk' %}
+  {% include 'season.njk' %}
+  {# {% include 'meta.njk' %} #}
 {% endblock %}
 {#
 {% block aside %}

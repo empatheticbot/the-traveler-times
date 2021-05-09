@@ -68,5 +68,6 @@ module.exports = async function () {
       weeklyData = await getMockWeeklyData();
     }
   }
+  console.log(weeklyData);
   return weeklyData;
 };

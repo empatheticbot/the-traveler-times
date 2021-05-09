@@ -1,11 +1,10 @@
-{% set xur = destinyData.xur %}
-{% if xur.available %}
+{% if xur.isAvailable %}
 <article class="article-container">
   <header class="article-header">
     {# <div class="article-line"></div>
     <time class="article-date" datetime="{{ destinyData.weeklyReset | htmlDateString }}">
     leaves {{ destinyData.weeklyReset | relativeDate }}</time> #}
-    {% if xur.location.confidence > 4 %}
+    {% if xur.location.results > 4 %}
     <h2 class="article-title">Xûr Spotted on <span class="xur-planet">{{ xur.location.planet | safe }}</span></h2>
     <h3 class="article-subtitle">Last seen at <span class="xur-location">{{ xur.location.area | safe }}</span></h3>
     {% else %}
@@ -13,17 +12,13 @@
     {% endif %}
   </header>
   <ol class="item-list">
-    {% for item in xur.items %}
-      {% set name = item.displayProperties.name %}
-      {% set cost = item.price.cost.quantity %}
-      {% set icon = item.displayProperties.icon %}
-      {% if item.itemCategories.length === 3 %}
-        {% set characterClass = item.itemCategories[0].shortTitle + ' ' + item.itemCategories[1].shortTitle + ' ' + item.itemCategories[2].shortTitle %}
-      {% else %}
-        {% set characterClass = item.itemCategories[0].shortTitle %}
-      {% endif %}
+    {% for item in xur.sales %}
+      {% set name = item.name %}
+      {% set cost = item.price %}
+      {% set icon = item.icon %}
+      {% set characterClass = item.subtitle %}
       {% set costIcon = item.price.currency.icon %}
-      {% set description = item.displayProperties.description %}
+      {% set description = item.description %}
       <li class="item-wrapper">{% include 'item.njk' %}</li>
     {% endfor %}
   </ol>
