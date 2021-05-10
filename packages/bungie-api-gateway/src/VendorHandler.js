@@ -29,13 +29,20 @@ export default class VendorHandler {
           const item = await this.definitionHandler.getInventoryItem(
             sale.itemHash
           )
-          const classType = await this.definitionHandler.getCharacterClass(item.classType)
-          const costs = await Promise.all(
-            item.costs.map((cost) => {
-              const currencyDetails = await this.definitionHandler.getInventoryItem(cost.itemHash)
-              return { ...currencyDetails, ...cost }
-            })
+          const classType = await this.definitionHandler.getCharacterClass(
+            item.classType
           )
+          let costs = []
+          if (sale.costs) {
+            costs = await Promise.all(
+              sale.costs.map(async (cost) => {
+                const currencyDetails = await this.definitionHandler.getInventoryItem(
+                  cost.itemHash
+                )
+                return { ...currencyDetails, ...cost }
+              })
+            )
+          }
           return { ...sale, ...item, classType, costs }
         })
       )
@@ -100,8 +107,13 @@ export default class VendorHandler {
         name: sale.displayProperties.name,
         icon: sale.displayProperties.icon,
         subtitle: sale.itemTypeAndTierDisplayName,
+        classType: sale.classType,
+        description:
+          sale.displayProperties.description ||
+          sale.displaySource ||
+          sale.flavorText,
         sort: sale.itemType,
-        costs: sale.costs.map(cost => {
+        costs: sale.costs.map((cost) => {
           return {
             name: cost.displayProperties.name,
             icon: cost.displayProperties.icon,
