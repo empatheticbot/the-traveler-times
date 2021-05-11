@@ -5,7 +5,8 @@
   "main": "_site/index.js",
   "scripts": {
     "clean": "rm -rf _site",
-    "start": "NODE_ENV=develop eleventy --serve"
+    "start": "NODE_ENV=develop eleventy --serve",
+    "build": "NODE_ENV=production eleventy"
   },
   "repository": {
     "type": "git",
