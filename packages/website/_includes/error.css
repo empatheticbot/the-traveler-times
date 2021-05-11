@@ -6,4 +6,5 @@
 
 .error-image {
   filter: brightness(0.2) grayscale(1);
+  width: 100%;
 }
