@@ -6,8 +6,12 @@ permalink: /
 ---
 {% extends 'base.njk' %}
 {% block content %}
-  {% include 'weekly.njk' %}
-  {% include 'season.njk' %}
+  {% if not weekly.isAvailable %}
+    {% include 'error.njk' %}
+  {% else %}
+    {% include 'weekly.njk' %}
+    {% include 'season.njk' %}
+  {% endif %}
   {# {% include 'meta.njk' %} #}
 {% endblock %}
 {#
