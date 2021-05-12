@@ -43,13 +43,17 @@ export default {
       },
     )
 
-    let text = await response.json()
+    let data = await response.json()
 
-    let access_token = text.access_token
-    let new_refresh_token = text.refresh_token
+    let access_token = data.access_token
+    let new_refresh_token = data.refresh_token
 
-    await env.BUNGIE_API.put('OAUTH_TOKEN', access_token)
-    await env.BUNGIE_API.put('REFRESH_TOKEN', new_refresh_token)
+    if (access_token) {
+      await env.BUNGIE_API.put('OAUTH_TOKEN', access_token)
+    }
+    if (new_refresh_token) {
+      await env.BUNGIE_API.put('REFRESH_TOKEN', new_refresh_token)
+    }
 
     return new Response('Tokens updated!', { status: 200 })
   },
