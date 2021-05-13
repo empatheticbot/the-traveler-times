@@ -47,7 +47,7 @@ export default class BungieAPIHandler {
         'Unauthorized from Bungie API. Check to make sure credentials are updated.'
       )
     } else if (!resp.ok) {
-      throw new BungieAPIError(resp.url, resp.headers)
+      throw new BungieAPIError(resp)
     }
     return resp.json()
   }
@@ -55,7 +55,7 @@ export default class BungieAPIHandler {
   async callBungieNet(options) {
     let resp = await fetch('https://www.bungie.net/' + options.path)
     if (!resp.ok) {
-      throw new BungieAPIError(resp.url, resp.headers)
+      throw new BungieAPIError(resp)
     }
     return resp.json()
   }
