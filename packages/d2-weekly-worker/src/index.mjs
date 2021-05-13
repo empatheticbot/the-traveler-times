@@ -1,4 +1,9 @@
-import { DefinitionHandler, VendorHandler, PublicMilestoneHandler, Hashes } from '@the-traveler-times/bungie-api-gateway'
+import {
+  DefinitionHandler,
+  VendorHandler,
+  PublicMilestoneHandler,
+  Hashes,
+} from '@the-traveler-times/bungie-api-gateway'
 
 export default {
   async fetch(request, env) {
@@ -11,26 +16,34 @@ export default {
 
     try {
       const weeklyInfo = await vendorHandler.getWeeklyResets()
-      const ironBannerMilestone = await publicMilestoneHandler.getPublicMilestoneByHash(Hashes.IRON_BANNER)
+      const ironBannerMilestone = await publicMilestoneHandler.getPublicMilestoneByHash(
+        Hashes.IRON_BANNER,
+      )
       let ironBanner
 
       if (ironBannerMilestone) {
-        const ironBannerDefinition = await definitionHandler.getMilestone(ironBannerMilestone.milestoneHash)
-        ironBanner = { isAvailable: true, ...ironBannerDefinition, ...ironBannerMilestone }
+        const ironBannerDefinition = await definitionHandler.getMilestone(
+          ironBannerMilestone.milestoneHash,
+        )
+        ironBanner = {
+          isAvailable: true,
+          ...ironBannerDefinition,
+          ...ironBannerMilestone,
+        }
       } else {
         ironBanner = { isAvailable: false }
       }
-      
+
       return new Response(
-        JSON.stringify({ ...weeklyInfo, ironBanner }),
+        JSON.stringify({ ...weeklyInfo, ironBanner, isAvailable: true }),
         {
           status: 200,
         },
       )
     } catch (e) {
-      return new Response(e.message, {
-        status: 500,
-      })
+      return new Response(
+        JSON.stringify({ isAvailable: false, error: e.message }),
+      )
     }
   },
 }
