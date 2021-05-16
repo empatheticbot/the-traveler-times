@@ -6,11 +6,15 @@ async function getLostSectorData(lostSector, definitionHandler) {
   const modifiers = await definitionHandler.getActivityModifiers(
     ...activity.modifiers.map(modifier => modifier.activityModifierHash),
   )
+
+  const destination = await definitionHandler.getDestination(
+    ...activity.modifiers.map(modifier => modifier.activityModifierHash),
+  )
   const rewards = await definitionHandler.getInventoryItems(
     ...lostSector.rewards.map(reward => reward.hash),
   )
 
-  return { ...lostSector, ...activity, modifiers, rewards }
+  return { ...lostSector, ...activity, modifiers, rewards, destination }
 }
 
 export default {

@@ -119,4 +119,9 @@ export default class DefinitionHandler {
     const defintions = await this.getDefinitions('DestinyMilestoneDefinition')
     return defintions[hash]
   }
+
+  async getDestination(hash) {
+    const defintions = await this.getDefinitions('DestinyDestinationDefinition')
+    return defintions[hash]
+  }
 }
