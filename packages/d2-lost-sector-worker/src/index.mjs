@@ -11,8 +11,10 @@ async function getLostSectorData(lostSector, definitionHandler) {
     activity.destinationHash,
   )
 
-  const rewards = await definitionHandler.getInventoryItems(
-    ...lostSector.rewards.map(reward => reward.hash),
+  const rewards = await Promise.all(
+    lostSector.reward.map(reward =>
+      definitionHandler.getInventoryItem(reward.hash),
+    ),
   )
 
   return { ...lostSector, ...activity, modifiers, rewards, destination }
