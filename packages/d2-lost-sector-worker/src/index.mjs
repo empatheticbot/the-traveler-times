@@ -8,8 +8,9 @@ async function getLostSectorData(lostSector, definitionHandler) {
   )
 
   const destination = await definitionHandler.getDestination(
-    ...activity.modifiers.map(modifier => modifier.activityModifierHash),
+    activity.destinationHash,
   )
+
   const rewards = await definitionHandler.getInventoryItems(
     ...lostSector.rewards.map(reward => reward.hash),
   )
