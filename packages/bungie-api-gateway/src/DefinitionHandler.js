@@ -118,7 +118,16 @@ export default class DefinitionHandler {
 
   async getCharacterClass(classId) {
     const classes = await this.getCharacterClasses()
-    return classes[classId]
+    const classesKeyedById = Object.values(classes).reduce(
+      (previousValue, currentValue) => {
+        return {
+          ...previousValue,
+          [currentValue.classType]: currentValue.displayProperties.name,
+        }
+      },
+      {}
+    )
+    return classesKeyedById[classId]
   }
 
   async getDamageTypes() {
