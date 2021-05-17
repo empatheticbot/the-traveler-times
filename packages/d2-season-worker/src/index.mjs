@@ -47,8 +47,8 @@ export default {
       const weeklyRecords = await Promise.all(
         allWeekNodes.map(async weekNode => {
           const challenges = await Promise.all(
-            weekNode.children.records.map(recordHash =>
-              definitionHandler.getRecord(recordHash),
+            weekNode.children.records.map(record =>
+              definitionHandler.getRecord(record.recordHash),
             ),
           )
           return { name: weekNode.displayProperties.name, challenges }
