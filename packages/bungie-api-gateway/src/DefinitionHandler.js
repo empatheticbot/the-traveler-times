@@ -143,4 +143,14 @@ export default class DefinitionHandler {
     const defintions = await this.getDefinitions('DestinyDestinationDefinition')
     return defintions[hash]
   }
+
+  async getPresentationNode(hash) {
+    const nodes = await this.getDefinitions('DestinyPresentationNodeDefinition')
+    return nodes[hash]
+  }
+
+  async getRecord(hash) {
+    const record = await this.getDefinitions('DestinyRecordDefinition')
+    return record[hash]
+  }
 }

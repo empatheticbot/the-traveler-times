@@ -30,8 +30,43 @@ export default {
         }
       }
 
+      const seasonalNode = await definitionHandler.getPresentationNode(
+        '3443694067',
+      )
+      const weeklyNode = await definitionHandler.getPresentationNode(
+        seasonalNode.children.presentationNodes[0].presentationNodeHash,
+      )
+      const allWeekNodes = await Promise.all(
+        weeklyNode.children.presentationNodes.map(node => {
+          return definitionHandler.getPresentationNode(
+            node.presentationNodeHash,
+          )
+        }),
+      )
+      allWeekNodes.shift()
+      const weeklyRecords = await Promise.all(
+        allWeekNodes.map(async weekNode => {
+          const challenges = await Promise.all(
+            weekNode.children.records.map(recordHash =>
+              definitionHandler.getRecord(recordHash),
+            ),
+          )
+          return { name: weekNode.displayProperties.name, challenges }
+        }),
+      )
+
       return new Response(
-        JSON.stringify({ currentSeason, nextSeason, allSeasons: seasonsInfo }),
+        JSON.stringify({
+          currentSeason,
+          nextSeason,
+          allSeasons: seasonsInfo,
+          seasonalChallenges: {
+            weeks: weeklyRecords,
+            name: seasonalNode.displayProperties.name,
+            icon: seasonalNode.displayProperties.icon,
+            description: seasonalNode.displayProperties.description,
+          },
+        }),
         {
           status: 200,
         },
