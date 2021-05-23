@@ -1,6 +1,6 @@
 async function buildTravelerTimesWebsite(request, env) {
-  const account_id = env.ENV_ACCOUNT_ID
-  const pages_id = env.ENV_PAGES_ID
+  const account_id = env.ACCOUNT_ID
+  const pages_id = env.PAGES_ID
   const init = {
     method: 'POST',
     headers: {
