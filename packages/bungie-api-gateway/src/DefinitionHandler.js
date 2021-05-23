@@ -130,8 +130,9 @@ export default class DefinitionHandler {
     return classesKeyedById[classId]
   }
 
-  async getDamageTypes() {
-    return this.getDefinitions('DestinyDamageTypeDefinition')
+  async getDamageType(hash) {
+    const damageTypes = await this.getDefinitions('DestinyDamageTypeDefinition')
+    return damageTypes[hash]
   }
 
   async getMilestone(hash) {
@@ -152,5 +153,14 @@ export default class DefinitionHandler {
   async getRecord(hash) {
     const record = await this.getDefinitions('DestinyRecordDefinition')
     return record[hash]
+  }
+
+  async getSaleItemCosts(saleCosts) {
+    return Promise.all(
+      saleCosts.map(async (cost) => {
+        const currencyDetails = await this.getInventoryItem(cost.itemHash)
+        return { ...currencyDetails, ...cost }
+      })
+    )
   }
 }

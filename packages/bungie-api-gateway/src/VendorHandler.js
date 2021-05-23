@@ -29,21 +29,21 @@ export default class VendorHandler {
           const item = await this.definitionHandler.getInventoryItem(
             sale.itemHash
           )
+
           const classType = await this.definitionHandler.getCharacterClass(
             item.classType
           )
+
+          const damageType = await this.definitionHandler.getDamageType(
+            item.defaultDamageTypeHash
+          )
+
           let costs = []
           if (sale.costs) {
-            costs = await Promise.all(
-              sale.costs.map(async (cost) => {
-                const currencyDetails = await this.definitionHandler.getInventoryItem(
-                  cost.itemHash
-                )
-                return { ...currencyDetails, ...cost }
-              })
-            )
+            costs = await this.definitionHandler.getSaleItemCosts(sale.costs)
           }
-          return { ...sale, ...item, classType, costs }
+
+          return { ...sale, ...item, classType, damageType, costs }
         })
       )
     }
@@ -106,12 +106,19 @@ export default class VendorHandler {
       return {
         name: sale.displayProperties.name,
         icon: sale.displayProperties.icon,
-        subtitle: sale.itemTypeAndTierDisplayName,
-        classType: sale.classType,
+        itemType: sale.itemTypeAndTierDisplayName,
+        classType: sale.classType || '',
+        damageType:
+          (sale.damageType && sale.damageType.displayProperties) || '',
+        subtitle: `${(sale.damageType &&
+          sale.damageType.displayProperties.name) ||
+          sale.classType ||
+          ''} ${sale.itemTypeAndTierDisplayName}`.trim(),
         description:
           sale.displayProperties.description ||
           sale.displaySource ||
-          sale.flavorText,
+          sale.flavorText ||
+          '',
         sort: sale.itemType,
         costs: sale.costs.map((cost) => {
           return {
