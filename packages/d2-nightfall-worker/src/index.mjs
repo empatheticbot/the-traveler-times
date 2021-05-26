@@ -24,15 +24,23 @@ export default {
       const modifierGroups = getModifiersOrderedByDifficulty(activities)
 
       return new Response(
-        JSON.stringify({ ...nightfallMilestone, activities, modifierGroups }),
+        JSON.stringify({
+          ...nightfallMilestone,
+          activities,
+          modifierGroups,
+          isAvailable: true,
+        }),
         {
           status: 200,
         },
       )
     } catch (e) {
-      return new Response(e.message, {
-        status: 500,
-      })
+      return new Response(
+        JSON.stringify({ message: e.message, isAvailable: false }),
+        {
+          status: 500,
+        },
+      )
     }
   },
 }
