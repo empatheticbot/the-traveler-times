@@ -16,6 +16,12 @@ const modifierIgnoreList = [
   '376634891', // Limited Revives
 ]
 
+const commonModifiers = [
+  '939324719', // Equipment Locked
+  '3859784314', // Match Game
+  '376634891', // Limited Revives
+]
+
 const modifierDetailsMap = {
   'Desolate Charge': {
     damageType: 'arc',
@@ -36,11 +42,11 @@ const modifierDetailsMap = {
 
 function getModifiersOfInterest(modifiers) {
   const modifiersOfInterest = modifiers.filter(
-    modifier => !modifierIgnoreList.includes(modifier.hash),
+    (modifier) => !modifierIgnoreList.includes(modifier.hash),
   )
   const champions = modifiersOfInterest
-    .filter(modifier => modifier.displayProperties.name.includes('Champions'))
-    .map(modifier => ({
+    .filter((modifier) => modifier.displayProperties.name.includes('Champions'))
+    .map((modifier) => ({
       name: modifier.displayProperties.name.replace('Champions: ', ''),
       icon: modifier.displayProperties.icon,
       description: modifier.displayProperties.description,
@@ -48,10 +54,32 @@ function getModifiersOfInterest(modifiers) {
     }))
 
   const damage = modifiersOfInterest
-    .filter(modifier => modifier.displayProperties.name.includes('+50%'))
-    .map(modifier => ({
+    .filter((modifier) => modifier.displayProperties.name.includes('+50%'))
+    .map((modifier) => ({
       ...modifierDetailsMap[modifier.displayProperties.name],
       name: modifier.displayProperties.name.replace('Champions: ', ''),
+      icon: modifier.displayProperties.icon,
+      description: modifier.displayProperties.description,
+      hash: modifier.hash,
+    }))
+
+  const misc = modifiersOfInterest
+    .filter(
+      (modifier) =>
+        modifier.displayProperties.name.includes('Champions') ||
+        modifier.displayProperties.name.includes('+50%'),
+    )
+    .map((modifier) => ({
+      name: modifier.displayProperties.name,
+      icon: modifier.displayProperties.icon,
+      description: modifier.displayProperties.description,
+      hash: modifier.hash,
+    }))
+
+  const common = modifiers
+    .filter((modifier) => commonModifiers.includes(modifier.hash))
+    .map((modifier) => ({
+      name: modifier.displayProperties.name,
       icon: modifier.displayProperties.icon,
       description: modifier.displayProperties.description,
       hash: modifier.hash,
@@ -60,13 +88,15 @@ function getModifiersOfInterest(modifiers) {
   return {
     champions,
     damage,
+    misc,
+    common,
   }
 }
 
 async function getLostSectorData(lostSector, definitionHandler) {
   const activity = await definitionHandler.getActivity(lostSector.hash)
   const modifiers = await definitionHandler.getActivityModifiers(
-    ...activity.modifiers.map(modifier => modifier.activityModifierHash),
+    ...activity.modifiers.map((modifier) => modifier.activityModifierHash),
   )
 
   const modifiersOfInterest = getModifiersOfInterest(modifiers)
@@ -78,7 +108,7 @@ async function getLostSectorData(lostSector, definitionHandler) {
   let rewards = []
   if (lostSector.rewards) {
     rewards = await Promise.all(
-      lostSector.rewards.map(reward =>
+      lostSector.rewards.map((reward) =>
         definitionHandler.getInventoryItem(reward.hash),
       ),
     )
