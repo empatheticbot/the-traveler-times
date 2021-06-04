@@ -9,6 +9,8 @@
     "start:trials": "cd packages/d2-trials-worker && npm run start",
     "start:oauth": "cd packages/d2-oauth-worker && npm run start",
     "start:definition": "cd packages/d2-definition-worker && npm run start",
+    "start:web": "cd packages/website && npm run start",
+    "build:web": "cd packages/website && npm run build",
     "publish": "lerna run build && lerna run publish",
     "version": "lerna version",
     "build": "lerna run build",

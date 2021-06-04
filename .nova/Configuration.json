@@ -1,4 +1,8 @@
 {
+  "apexskier.eslint.config.fixOnSave" : "Enable",
+  "prettier.default-config.tabWidth" : 2,
   "workspace.color" : 2,
-  "workspace.name" : "📰 Traveler Times"
+  "workspace.name" : "📰 Traveler Times",
+  "workspace.preview_type" : "custom",
+  "workspace.preview_url" : "http:\/\/192.168.4.30:8080"
 }
