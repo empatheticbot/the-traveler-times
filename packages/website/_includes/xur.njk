@@ -14,10 +14,10 @@
   <ol class="item-list">
     {% for item in xur.sales %}
       {% set name = item.name %}
-      {% set cost = item.price %}
+      {% set cost = item.costs[0].quantity %}
       {% set icon = item.icon %}
       {% set characterClass = item.subtitle %}
-      {% set costIcon = item.price.currency.icon %}
+      {% set costIcon = item.costs[0].icon %}
       {% set description = item.description %}
       <li class="item-wrapper">{% include 'item.njk' %}</li>
     {% endfor %}

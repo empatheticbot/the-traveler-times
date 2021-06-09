@@ -1,5 +1,4 @@
-{% set nightfall = destinyData.nightfall %}
-{% if nightfall %}
+{# {% if nightfall %} #}
 <article class="article-container iron-banner--container">
   <section class="iron-banner--image-container nightfall--image-container">
     <img class="iron-banner--image-container--image" src="https://bungie.net{{ nightfall.activities[0].pgcrImage }}" />
@@ -7,7 +6,7 @@
   </section>
   <section class="iron-banner--text-container">
     <h2 class="iron-banner--heading">This Week's Nightfall Strike is <span class="xur-planet">{{ nightfall.activities[0].displayProperties.description | safe }}</span></h2>
-    <p>{{ ironBanner.displayProperties.description }}</p>
+    <p>{{ nightfall.displayProperties.description }}</p>
   </section>
   <ol class="item-list">
     {# {% for activity in nightfall.activities %}
@@ -45,4 +44,4 @@
     {% endfor %}
   </ol>
 </article>
-{% endif %}
+{# {% endif %} #}
