@@ -42,9 +42,9 @@ const modifierDetailsMap = {
 
 function getModifiersOfInterest(modifiers) {
   const modifiersOfInterest = modifiers.filter(
-    (modifier) => !modifierIgnoreList.includes(modifier.hash),
+    (modifier) => !modifierIgnoreList.includes(modifier.hash.toString()),
   )
-  const champions = modifiersOfInterest
+  const champions = modifiers
     .filter((modifier) => modifier.displayProperties.name.includes('Champions'))
     .map((modifier) => ({
       name: modifier.displayProperties.name.replace('Champions: ', ''),
@@ -53,11 +53,13 @@ function getModifiersOfInterest(modifiers) {
       hash: modifier.hash,
     }))
 
-  const damage = modifiersOfInterest
-    .filter((modifier) => modifier.displayProperties.name.includes('+50%'))
+  const damage = modifiers
+    .filter((modifier) =>
+      modifier.displayProperties.description.includes('+50%'),
+    )
     .map((modifier) => ({
       ...modifierDetailsMap[modifier.displayProperties.name],
-      name: modifier.displayProperties.name.replace('Champions: ', ''),
+      name: modifier.displayProperties.name,
       icon: modifier.displayProperties.icon,
       description: modifier.displayProperties.description,
       hash: modifier.hash,
@@ -66,8 +68,11 @@ function getModifiersOfInterest(modifiers) {
   const misc = modifiersOfInterest
     .filter(
       (modifier) =>
-        modifier.displayProperties.name.includes('Champions') ||
-        modifier.displayProperties.name.includes('+50%'),
+        !(
+          modifier.displayProperties.name.includes('Champions') ||
+          modifier.displayProperties.description.includes('+50%') ||
+          commonModifiers.includes(modifier.hash.toString())
+        ),
     )
     .map((modifier) => ({
       name: modifier.displayProperties.name,
@@ -77,7 +82,7 @@ function getModifiersOfInterest(modifiers) {
     }))
 
   const common = modifiers
-    .filter((modifier) => commonModifiers.includes(modifier.hash))
+    .filter((modifier) => commonModifiers.includes(modifier.hash.toString()))
     .map((modifier) => ({
       name: modifier.displayProperties.name,
       icon: modifier.displayProperties.icon,
