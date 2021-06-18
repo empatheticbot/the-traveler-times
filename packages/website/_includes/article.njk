@@ -1,11 +1,16 @@
-<article class="article-container">
+<article class="article-container {{article.class}}">
   <header class="article-header">
     <time class="article-date" datetime="{{ article.date | htmlDateString }}">
     {{ article.date | relativeDate }}</time>
+    <!-- TODO: Figure out what all needs to be set for accessible images (height, width, aspect ratio, etc -->
+    <img src="{{ article.image.src }}" alt="{{ article.image.alt}}">
+    <p class="article-tag">{{ article.tag | safe }}</p>
     <h2 class="article-title">{{ article.title | safe }}</h2>
     <h3 class="article-subtitle">{{ article.subtitle | safe }}</h3>
   </header>
   <section class="article-body">
-    {{ article.body | safe }}
+    {% block content %}
+     {{ content | safe }}
+   {% endblock %}
   </section>
 </article>
