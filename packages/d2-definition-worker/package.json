@@ -18,6 +18,7 @@
     "@the-traveler-times/bungie-api-gateway": "file:../bungie-api-gateway"
   },
   "devDependencies": {
+    "@cloudflare/wrangler": "1.17.0",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
     "prettier": "^1.19.1",

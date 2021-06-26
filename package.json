@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "workspaces": [
+    "./packages/*"
+  ],
   "scripts": {
     "start:xur": "cd packages/d2-xur-worker && npm run start",
     "start:nightfall": "cd packages/d2-nightfall-worker && npm run start",
@@ -28,6 +31,7 @@
   },
   "homepage": "https://github.com/empatheticbot/the-traveler-times#readme",
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "@cloudflare/wrangler": "1.17.0"
   }
 }
