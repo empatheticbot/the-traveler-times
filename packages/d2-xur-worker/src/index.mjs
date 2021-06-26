@@ -3,6 +3,9 @@ import {
   TwitterHandler,
   Hashes,
 } from '@the-traveler-times/bungie-api-gateway'
+import { getBanshee } from './banshee'
+import { getSpider } from './spider'
+import { getXur } from './xur'
 
 export default {
   async fetch(request, env) {
@@ -11,23 +14,17 @@ export default {
       await vendorHandler.init(env.BUNGIE_API, env.DESTINY_2_DEFINITIONS)
       const twitterHandler = new TwitterHandler()
       await twitterHandler.init(env.TWITTER_API)
-      const xur = await vendorHandler.getStrippedDownVendorByHash(Hashes.XUR)
-
-      const currentDate = new Date()
-      const xurLeaveDate = new Date(xur.lastRefreshDate)
-      xurLeaveDate.setDate(xurLeaveDate.getDate() + 4)
-
-      if (currentDate > xurLeaveDate) {
-        return new Response(JSON.stringify({ ...xur, isAvailable: false }), {
-          status: 200,
-        })
-      }
-
-      const searchDate = new Date(xur.lastRefreshDate)
-      const location = await twitterHandler.getXurLocation(searchDate)
+      
+      // const banshee = await getBanshee(vendorHandler)
+      // const spider = await getSpider(venderHandler)
+      const xur = await getXur(vendorHandler, twitterHandler)
 
       return new Response(
-        JSON.stringify({ ...xur, location, isAvailable: true }),
+        JSON.stringify({
+          // banshee, 
+          // spider,
+          ...xur,
+         }),
         {
           status: 200,
         },
