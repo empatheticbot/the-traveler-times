@@ -1,7 +1,7 @@
 import { BungieAPIHandler } from '@the-traveler-times/bungie-api-gateway'
 import { chunkArray } from '@the-traveler-times/utils'
 
-const blacklist = ['DestinyInventoryItemDefinition']
+const blacklist = ['DestinyInventoryItemLiteDefinition']
 
 export class Destiny2DefinitionsDurableObject {
   constructor(state, env) {
