@@ -70,24 +70,14 @@ export default class DefinitionHandler {
 
   async getInventoryItems(...hashes) {
     const items = await this.getDefinitions(
-      'DestinyInventoryItemLiteDefinition'
+      'DestinyInventoryItemDefinition'
     )
     return this.getArrayOfDefinitions(hashes, items)
   }
 
   async getInventoryItem(hash) {
-    let item
-    try {
-      return await this.fetchDefintionFromApi(
-        hash,
-        'DestinyInventoryItemDefinition'
-      )
-    } catch (e) {
-      const items = await this.getDefinitions(
-        'DestinyInventoryItemLiteDefinition'
-      )
-      return items[hash]
-    }
+    const items = await this.getInventoryItems(hash)
+    return items[0]
   }
 
   async getActivities(...hashes) {
