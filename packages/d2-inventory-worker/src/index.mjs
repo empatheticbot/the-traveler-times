@@ -10,7 +10,7 @@ export default {
     const manifest = await bungieAPIHandler.getManifest()
     const definitionURLs = { ...manifest.jsonWorldComponentContentPaths.en }
     const definitionURL = definitionURLs.DestinyInventoryItemDefinition
-    const date = new Date()
+
     let items
     try {
       items = await bungieAPIHandler.callBungieNet({ path: definitionURL })
@@ -28,7 +28,8 @@ export default {
       )
     }
 
-    const selectedItems = hashes.map((hash) => items[hash])
+    const selectedItems = hashes.map((hash) => items[new Number(hash)])
+
     if (selectedItems) {
       return new Response(JSON.stringify({ items: selectedItems, hashes }), {
         headers: {
@@ -37,7 +38,7 @@ export default {
         },
       })
     }
-    return new Response(JSON.stringify({ items }), {
+    return new Response(JSON.stringify({ items, hashes }), {
       headers: {
         'content-type': 'application/json;charset=UTF-8',
         status: 200,

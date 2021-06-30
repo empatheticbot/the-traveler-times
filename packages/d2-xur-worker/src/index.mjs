@@ -16,17 +16,17 @@ export default {
       const twitterHandler = new TwitterHandler()
       await twitterHandler.init(env.TWITTER_API)
 
-      // const getAda = await getAda(vendorHandler)
-      // const banshee = await getBanshee(vendorHandler)
-      // const spider = await getSpider(venderHandler)
+      const ada = await getAda(vendorHandler)
+      const banshee = await getBanshee(vendorHandler)
+      const spider = await getSpider(venderHandler)
       const xur = await getXur(vendorHandler, twitterHandler)
 
       return new Response(
         JSON.stringify({
-          // ada,
-          // banshee,
-          // spider,
-          ...xur,
+          ada,
+          banshee,
+          spider,
+          xur,
         }),
         {
           status: 200,

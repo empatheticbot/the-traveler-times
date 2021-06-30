@@ -21,25 +21,33 @@ export default class VendorHandler {
       throw new Error(`Failed to get vendors with error: ${response.Message}`);
     }
     const vendor = response.Response.vendors.data[hash];
-    const saleItems = response.Response.sales.data[hash].saleItems;
+    const saleObject = response.Response.sales.data[hash].saleItems;
     let sales = [];
-    if (saleItems) {
+    if (saleObject) {
+      const saleItems = Object.values(saleObject);
       const url = new URL(
         "https://d2-inventory-worker.empatheticbot.workers.dev/"
       );
-      const itemHashes = Object.values(saleItems).forEach((sale) => {
+      const itemHashes = saleItems.forEach((sale) => {
         url.searchParams.append("hashes", sale.itemHash);
       });
-
+      console.log(url, url.href);
       const itemResponse = await fetch(url);
+      console.log(
+        itemResponse,
+        itemResponse.ok,
+        await itemResponse.text(),
+        itemResponse.status
+      );
       if (!itemResponse.ok) {
         return { ...vendor };
       }
-
       const items = (await itemResponse.json()).items;
-
+      console.log(items);
       sales = await Promise.all(
         items.map(async (item, index) => {
+          const sale = saleItems.find((i) => i.itemHash === item.itemHash);
+
           const classType = await this.definitionHandler.getCharacterClass(
             item.classType
           );
@@ -85,7 +93,7 @@ export default class VendorHandler {
       }
       throw new Error("Vendor hash id not found.");
     } catch (e) {
-      throw new Error(`Error in 'getVendorByHash: ${e}`);
+      throw new Error(`Error in 'getVendorByHash [${hash}]: ${e}`);
     }
   }
 
