@@ -4,7 +4,7 @@ kv_namespaces = [
   {binding = "DESTINY_2_DEFINITIONS", id = "74f0df8897634be895e79a0a3e22f586", preview_id = "74f0df8897634be895e79a0a3e22f586"},
   {binding = "TWITTER_API", id = "fb5926d96ac7431c8632b5c4413f7821", preview_id = "fb5926d96ac7431c8632b5c4413f7821"},
 ]
-name = "d2-xur-worker"
+name = "d2-vendors-worker"
 type = "javascript"
 usage_model = "unbound"
 workers_dev = true

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@the-traveler-times/d2-xur-worker",
+  "name": "@the-traveler-times/d2-vendors-worker",
   "version": "0.10.0",
   "description": "A template for kick starting a Cloudflare Workers project",
   "module": "./dist/index.mjs",

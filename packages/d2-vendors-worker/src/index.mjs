@@ -18,7 +18,7 @@ export default {
 
       const ada = await getAda(vendorHandler)
       const banshee = await getBanshee(vendorHandler)
-      const spider = await getSpider(venderHandler)
+      const spider = await getSpider(vendorHandler)
       const xur = await getXur(vendorHandler, twitterHandler)
 
       return new Response(
