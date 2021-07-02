@@ -5,7 +5,7 @@ kv_namespaces = [
 ]
 name = "d2-definitions-crawler"
 type = "javascript"
-usage_model = ""
+usage_model = "unbound"
 workers_dev = true
 
 [dev]

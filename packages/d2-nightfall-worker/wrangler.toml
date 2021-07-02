@@ -5,7 +5,7 @@ kv_namespaces = [
 ]
 name = "d2-nightfall-worker"
 type = "javascript"
-usage_model = "bundled"
+usage_model = "unbound"
 workers_dev = true
 
 [dev]
