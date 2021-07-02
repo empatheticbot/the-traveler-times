@@ -1,9 +1,9 @@
 const { fetchDataFromEndpoint } = require('../data-loader')
 
-const LOST_SECTOR_ENDPOINT =
+const TRIALS_ENDPOINT =
   'https://d2-lost-sector-worker.empatheticbot.workers.dev'
-const DEV_LOST_SECTOR_ENDPOINT = 'localhost:3002'
+const DEV_TRIALS_ENDPOINT = 'localhost:3006'
 
 module.exports = async function () {
-  return fetchDataFromEndpoint(LOST_SECTOR_ENDPOINT, DEV_LOST_SECTOR_ENDPOINT)
+  return fetchDataFromEndpoint(TRIALS_ENDPOINT, DEV_TRIALS_ENDPOINT)
 }

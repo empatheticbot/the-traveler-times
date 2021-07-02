@@ -6,6 +6,9 @@ workers_dev = true
 
 vars = {ACCOUNT_ID = "a13a5016df895961431fb659d5d3a635", PAGES_ID = "the-traveler-times"}
 
+[dev]
+port = 3009
+
 [build]
 command = "npm install && npm run build"
 

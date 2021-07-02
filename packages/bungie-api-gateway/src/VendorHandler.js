@@ -1,6 +1,6 @@
-import BungieAPIHandler from "./BungieAPIHandler"
-import DefinitionHandler from "./DefinitionHandler"
-import { XUR, ZAVALA } from "./Hashes"
+import BungieAPIHandler from './BungieAPIHandler'
+import DefinitionHandler from './DefinitionHandler'
+import { XUR, ZAVALA } from './Hashes'
 
 export default class VendorHandler {
   async init(bungieApiEnv, definitionEnv) {
@@ -11,13 +11,13 @@ export default class VendorHandler {
   }
 
   // TODO: This function is fairly gnarly, split out some of the item sales code it's own module
-  async getVendorLiveData(hash, components = ["Vendors", "VendorSales"]) {
+  async getVendorLiveData(hash, components = ['Vendors', 'VendorSales']) {
     let response = await this.bungieAPIHandler.callApi({
       path: `/Destiny2/${this.bungieAPIHandler.membershipType}/Profile/${this.bungieAPIHandler.membershipId}/Character/${this.bungieAPIHandler.characterId}/Vendors/`,
       components,
-      method: "GET",
+      method: 'GET',
     })
-    if (response.Message !== "Ok") {
+    if (response.Message !== 'Ok') {
       throw new Error(`Failed to get vendors with error: ${response.Message}`)
     }
     const vendor = response.Response.vendors.data[hash]
@@ -78,7 +78,7 @@ export default class VendorHandler {
           nextRefreshDate,
         }
       }
-      throw new Error("Vendor hash id not found.")
+      throw new Error('Vendor hash id not found.')
     } catch (e) {
       throw new Error(`Error in 'getVendorByHash [${hash}]: ${e}`)
     }
@@ -93,29 +93,37 @@ export default class VendorHandler {
   async getStrippedDownVendorByHash(hash) {
     const completeVendorData = await this.getVendorByHash(hash)
 
-    const { name, description, icon, subtitle, smallTransparentIcon } =
-      completeVendorData.displayProperties
-    let { nextRefreshDate, lastRefreshDate, enabled, sales } =
-      completeVendorData
+    const {
+      name,
+      description,
+      icon,
+      subtitle,
+      smallTransparentIcon,
+    } = completeVendorData.displayProperties
+    let {
+      nextRefreshDate,
+      lastRefreshDate,
+      enabled,
+      sales,
+    } = completeVendorData
 
     const salesStripped = sales.map((sale) => {
       return {
         name: sale.displayProperties.name,
         icon: sale.displayProperties.icon,
         itemType: sale.itemTypeAndTierDisplayName,
-        classType: sale.classType || "",
+        classType: sale.classType || '',
         damageType:
-          (sale.damageType && sale.damageType.displayProperties) || "",
-        subtitle: `${
-          (sale.damageType && sale.damageType.displayProperties.name) ||
+          (sale.damageType && sale.damageType.displayProperties) || '',
+        subtitle: `${(sale.damageType &&
+          sale.damageType.displayProperties.name) ||
           sale.classType ||
-          ""
-        } ${sale.itemTypeAndTierDisplayName}`.trim(),
+          ''} ${sale.itemTypeAndTierDisplayName}`.trim(),
         description:
           sale.displayProperties.description ||
           sale.displaySource ||
           sale.flavorText ||
-          "",
+          '',
         sort: sale.itemType,
         costs: sale.costs.map((cost) => {
           return {

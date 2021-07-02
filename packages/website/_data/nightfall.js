@@ -1,14 +1,14 @@
-const mockNightfallData = require("../mock-data/nightfall.json");
-const { fetchDataFromEndpoint } = require("../data-loader");
+const mockNightfallData = require('../mock-data/nightfall.json')
+const { fetchDataFromEndpoint } = require('../data-loader')
 
-//TODO: add dev env endpoint
 const NIGHTFALL_ENDPOINT =
-  "https://d2-nightfall-worker.empatheticbot.workers.dev";
+  'https://d2-nightfall-worker.empatheticbot.workers.dev'
+const DEV_NIGHTFALL_ENDPOINT = 'localhost:3003'
 
 module.exports = async function () {
   return fetchDataFromEndpoint(
     NIGHTFALL_ENDPOINT,
-    NIGHTFALL_ENDPOINT,
+    DEV_NIGHTFALL_ENDPOINT,
     mockNightfallData
-  );
-};
+  )
+}

@@ -2,8 +2,7 @@ const fetch = require("node-fetch");
 
 async function getDataFrom(endpoint, developEndpoint = endpoint) {
   const data = await fetch(
-    //TODO: add dev env endpoint
-    process.env.NODE_ENV === "production" ? endpoint : developEndpoint
+    process.env.NODE_ENV !== "production" ? developEndpoint : endpoint
   );
   const json = await data.json();
   return json;

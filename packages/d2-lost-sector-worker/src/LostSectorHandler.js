@@ -26,7 +26,7 @@ const rewards = [
 export function getCurrentLostSectorHashes() {
   const today = new Date()
   const daysFromStart = Math.ceil(
-    (today - startingDate) / (1000 * 60 * 60 * 24),
+    (today - startingDate) / (1000 * 60 * 60 * 24)
   )
 
   const masterLostSectorIndex = daysFromStart % availableLostSectors.length
@@ -43,7 +43,7 @@ export function getCurrentLostSectorHashes() {
     startingDate.toISOString(),
     today.toISOString(),
     today - startingDate,
-    (today - startingDate) / (1000 * 60 * 60 * 24),
+    (today - startingDate) / (1000 * 60 * 60 * 24)
   )
   return {
     master: {

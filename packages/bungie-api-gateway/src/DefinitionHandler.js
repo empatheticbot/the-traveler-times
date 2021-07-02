@@ -1,4 +1,4 @@
-import BungieAPIHandler from "./BungieAPIHandler"
+import BungieAPIHandler from './BungieAPIHandler'
 
 export default class DefinitionHandler {
   async init(bungieApiEnv) {
@@ -28,9 +28,9 @@ export default class DefinitionHandler {
   getArrayOfDefinitions(hashes, definitions) {
     return hashes.map((hash) => definitions[hash])
   }
-  
+
   async getVendors(...hashes) {
-    const vendors = await this.getDefinitions("DestinyVendorDefinition")
+    const vendors = await this.getDefinitions('DestinyVendorDefinition')
     return this.getArrayOfDefinitions(hashes, vendors)
   }
 
@@ -40,7 +40,7 @@ export default class DefinitionHandler {
   }
 
   async getInventoryItems(...hashes) {
-    const items = await this.getDefinitions("DestinyInventoryItemDefinition")
+    const items = await this.getDefinitions('DestinyInventoryItemDefinition')
     return this.getArrayOfDefinitions(hashes, items)
   }
 
@@ -50,7 +50,7 @@ export default class DefinitionHandler {
   }
 
   async getActivities(...hashes) {
-    const activities = await this.getDefinitions("DestinyActivityDefinition")
+    const activities = await this.getDefinitions('DestinyActivityDefinition')
     return this.getArrayOfDefinitions(hashes, activities)
   }
 
@@ -61,7 +61,7 @@ export default class DefinitionHandler {
 
   async getActivityModifiers(...hashes) {
     const modifiers = await this.getDefinitions(
-      "DestinyActivityModifierDefinition"
+      'DestinyActivityModifierDefinition'
     )
     return this.getArrayOfDefinitions(hashes, modifiers)
   }
@@ -72,7 +72,7 @@ export default class DefinitionHandler {
   }
 
   async getCharacterClasses() {
-    return this.getDefinitions("DestinyClassDefinition")
+    return this.getDefinitions('DestinyClassDefinition')
   }
 
   async getCharacterClass(classId) {
@@ -90,27 +90,27 @@ export default class DefinitionHandler {
   }
 
   async getDamageType(hash) {
-    const damageTypes = await this.getDefinitions("DestinyDamageTypeDefinition")
+    const damageTypes = await this.getDefinitions('DestinyDamageTypeDefinition')
     return damageTypes[hash]
   }
 
   async getMilestone(hash) {
-    const defintions = await this.getDefinitions("DestinyMilestoneDefinition")
+    const defintions = await this.getDefinitions('DestinyMilestoneDefinition')
     return defintions[hash]
   }
 
   async getDestination(hash) {
-    const defintions = await this.getDefinitions("DestinyDestinationDefinition")
+    const defintions = await this.getDefinitions('DestinyDestinationDefinition')
     return defintions[hash]
   }
 
   async getPresentationNode(hash) {
-    const nodes = await this.getDefinitions("DestinyPresentationNodeDefinition")
+    const nodes = await this.getDefinitions('DestinyPresentationNodeDefinition')
     return nodes[hash]
   }
 
   async getRecord(hash) {
-    const record = await this.getDefinitions("DestinyRecordDefinition")
+    const record = await this.getDefinitions('DestinyRecordDefinition')
     return record[hash]
   }
 

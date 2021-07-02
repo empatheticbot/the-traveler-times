@@ -1,15 +1,15 @@
-import BungieAPIError from "./BungieAPIError"
+import BungieAPIError from './BungieAPIError'
 
 export default class BungieAPIHandler {
   manifest = undefined
 
   async init(bungieApiEnv) {
     try {
-      this.apiKey = await bungieApiEnv.get("KEY")
-      this.oauthToken = await bungieApiEnv.get("OAUTH_TOKEN")
-      this.membershipId = await bungieApiEnv.get("MEMBERSHIP_ID")
-      this.membershipType = await bungieApiEnv.get("MEMBERSHIP_TYPE")
-      this.characterId = await bungieApiEnv.get("CHARACTER_ID")
+      this.apiKey = await bungieApiEnv.get('KEY')
+      this.oauthToken = await bungieApiEnv.get('OAUTH_TOKEN')
+      this.membershipId = await bungieApiEnv.get('MEMBERSHIP_ID')
+      this.membershipType = await bungieApiEnv.get('MEMBERSHIP_TYPE')
+      this.characterId = await bungieApiEnv.get('CHARACTER_ID')
     } catch (e) {
       throw new Error(`BungieAPIHandler init failed. ${e}`)
     }
@@ -22,8 +22,8 @@ export default class BungieAPIHandler {
     const update = { ...options }
     update.headers = {
       ...update.headers,
-      Authorization: "Bearer " + this.oauthToken,
-      "X-API-Key": this.apiKey,
+      Authorization: 'Bearer ' + this.oauthToken,
+      'X-API-Key': this.apiKey,
     }
     return update
   }
@@ -34,9 +34,9 @@ export default class BungieAPIHandler {
   async callApi(options) {
     const url = new URL(`https://www.bungie.net/Platform${options.path}`)
     if (options.components) {
-      url.searchParams.set("components", options.components.join(","))
+      url.searchParams.set('components', options.components.join(','))
     }
-    console.log("CALL: " + url)
+    console.log('CALL: ' + url)
     let resp
     try {
       resp = await fetch(url, this.addApiKeyToHeader(options))
@@ -46,7 +46,7 @@ export default class BungieAPIHandler {
     }
     if (resp.status === 401) {
       console.error(
-        "Unauthorized from Bungie API. Check to make sure credentials are updated."
+        'Unauthorized from Bungie API. Check to make sure credentials are updated.'
       )
     } else if (!resp.ok) {
       throw new BungieAPIError(resp)
@@ -55,7 +55,7 @@ export default class BungieAPIHandler {
   }
 
   async callBungieNet(options) {
-    let resp = await fetch("https://www.bungie.net/" + options.path)
+    let resp = await fetch('https://www.bungie.net/' + options.path)
     if (!resp.ok) {
       throw new BungieAPIError(resp)
     }
@@ -72,8 +72,8 @@ export default class BungieAPIHandler {
       return this.manifest
     }
     let options = {
-      path: "/Destiny2/Manifest/",
-      method: "GET",
+      path: '/Destiny2/Manifest/',
+      method: 'GET',
     }
     let manifestResponse = await this.callApi(options)
     this.manifest = manifestResponse.Response
@@ -88,7 +88,7 @@ export default class BungieAPIHandler {
   async getManifestDefinition(entityType, hash) {
     let options = {
       path: `/Destiny2/Manifest/${entityType}/${hash}/`,
-      method: "GET",
+      method: 'GET',
     }
     return await this.callApi(options)
   }
@@ -100,9 +100,9 @@ export default class BungieAPIHandler {
   }
 
   async getDefinitionFromManifest(definition) {
-    if (typeof definition !== "string") {
+    if (typeof definition !== 'string') {
       throw new Error(
-        "Parameter `definition` is required and must be of type string."
+        'Parameter `definition` is required and must be of type string.'
       )
     }
 
