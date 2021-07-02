@@ -8,21 +8,6 @@ export default class DefinitionHandler {
     this.definitionCache = {}
   }
 
-  async fetchDefintionFromApi(hash, definitionName) {
-    try {
-      let item = await this.bungieAPIHandler.getManifestDefinition(
-        definitionName,
-        hash
-      )
-      return item.Response
-    } catch (e) {
-      console.error(
-        `Failed to fetch item (${hash}) from ${definitionName} data. ${e}`
-      )
-      return null
-    }
-  }
-
   async getDefinitions(definitionName) {
     let definitions = this.definitionCache[definitionName]
 
@@ -40,20 +25,10 @@ export default class DefinitionHandler {
     return definitions
   }
 
-  getHashKeyedDefinitions(hashes, definitions) {
-    return hashes.reduce(
-      (obj, hash) => ({
-        ...obj,
-        [hash]: definitions[hash],
-      }),
-      {}
-    )
-  }
-
   getArrayOfDefinitions(hashes, definitions) {
     return hashes.map((hash) => definitions[hash])
   }
-
+  
   async getVendors(...hashes) {
     const vendors = await this.getDefinitions("DestinyVendorDefinition")
     return this.getArrayOfDefinitions(hashes, vendors)
