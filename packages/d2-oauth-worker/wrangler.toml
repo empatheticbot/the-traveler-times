@@ -8,6 +8,9 @@ type = "javascript"
 usage_model = "bundled"
 workers_dev = true
 
+[dev]
+port = 3004
+
 [build]
 command = "npm install && npm run build"
 

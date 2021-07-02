@@ -8,6 +8,9 @@ type = "javascript"
 usage_model = ""
 workers_dev = true
 
+[dev]
+port = 3001
+
 [build]
 command = "npm install && npm run build"
 

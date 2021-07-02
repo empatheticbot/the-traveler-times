@@ -9,6 +9,9 @@ type = "javascript"
 usage_model = "unbound"
 workers_dev = true
 
+[dev]
+port = 3008
+
 [build]
 command = "npm install && npm run build"
 
