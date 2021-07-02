@@ -3,7 +3,7 @@ const { fetchDataFromEndpoint } = require('../data-loader')
 
 const NIGHTFALL_ENDPOINT =
   'https://d2-nightfall-worker.empatheticbot.workers.dev'
-const DEV_NIGHTFALL_ENDPOINT = 'localhost:3003'
+const DEV_NIGHTFALL_ENDPOINT = 'http://localhost:3003'
 
 module.exports = async function () {
   return fetchDataFromEndpoint(
