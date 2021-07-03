@@ -10,12 +10,16 @@ export default class DefinitionHandler {
 
   async getDefinitions(definitionName) {
     let definitions = this.definitionCache[definitionName]
-
-    if (!definitions) {
-      definitions = await this.bungieAPIHandler.getDefinitionFromManifest(
-        definitionName
-      )
+    console.log(Object.keys(this.definitionCache))
+    if (definitions) {
+      console.log('Found ', definitionName)
+      return definitions
     }
+
+    definitions = await this.bungieAPIHandler.getDefinitionFromManifest(
+      definitionName
+    )
+    console.log(definitions, definitionName)
 
     if (!definitions) {
       throw new Error(`Could not find ${definitionName} in definitionEnv`)
@@ -110,7 +114,12 @@ export default class DefinitionHandler {
   }
 
   async getRecord(hash) {
+    if (this.records) {
+      return this.records[hash]
+    }
     const record = await this.getDefinitions('DestinyRecordDefinition')
+    console.log(record, record[hash])
+    this.records = record
     return record[hash]
   }
 

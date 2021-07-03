@@ -88,6 +88,8 @@ export default class TwitterHandler {
           searchStartDate,
           searchEndDate
         )
+        console.log(twitterQueryResult)
+
         return { ...location, results: twitterQueryResult.meta.result_count }
       })
     )
