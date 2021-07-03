@@ -10,15 +10,14 @@ export default {
     const publicMilestoneHandler = new PublicMilestoneHandler()
     await publicMilestoneHandler.init(env.BUNGIE_API)
     const activityHandler = new ActivityHandler()
-    await activityHandler.init(env.BUNGIE_API, env.DESTINY_2_DEFINITIONS)
+    await activityHandler.init(env.BUNGIE_API)
 
     try {
-      const nightfallMilestone = await publicMilestoneHandler.getPublicMilestoneByHash(
-        Hashes.NIGHTFALL,
-      )
+      const nightfallMilestone =
+        await publicMilestoneHandler.getPublicMilestoneByHash(Hashes.NIGHTFALL)
 
       const activities = await activityHandler.getActivities(
-        nightfallMilestone.activities,
+        nightfallMilestone.activities
       )
 
       const modifierGroups = getModifiersOrderedByDifficulty(activities)
@@ -32,14 +31,14 @@ export default {
         }),
         {
           status: 200,
-        },
+        }
       )
     } catch (e) {
       return new Response(
         JSON.stringify({ message: e.message, isAvailable: false }),
         {
           status: 500,
-        },
+        }
       )
     }
   },

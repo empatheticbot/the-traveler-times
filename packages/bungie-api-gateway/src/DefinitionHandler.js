@@ -1,27 +1,32 @@
 import BungieAPIHandler from './BungieAPIHandler'
 
 export default class DefinitionHandler {
+  inFlightDefinitionRequests = {}
+
   async init(bungieApiEnv) {
     this.bungieAPIHandler = new BungieAPIHandler()
     await this.bungieAPIHandler.init(bungieApiEnv)
-
-    this.definitionCache = {}
   }
 
   async getDefinitions(definitionName) {
-    let definitions = this.definitionCache[definitionName]
+    let definitions = this.inFlightDefinitionRequests[definitionName]
+
+    if (definitions) {
+      return definitions
+    }
+
+    const request = this.bungieAPIHandler.getDefinitionFromManifest(
+      definitionName
+    )
+    this.inFlightDefinitionRequests[definitionName] = request
+    definitions = await request
 
     if (!definitions) {
-      definitions = await this.bungieAPIHandler.getDefinitionFromManifest(
-        definitionName
+      throw new Error(
+        `Could not find ${definitionName} in cache or retrieve from bungie.net`
       )
     }
 
-    if (!definitions) {
-      throw new Error(`Could not find ${definitionName} in definitionEnv`)
-    }
-
-    this.definitionCache[definitionName] = definitions
     return definitions
   }
 
@@ -110,8 +115,8 @@ export default class DefinitionHandler {
   }
 
   async getRecord(hash) {
-    const record = await this.getDefinitions('DestinyRecordDefinition')
-    return record[hash]
+    const records = await this.getDefinitions('DestinyRecordDefinition')
+    return records[hash]
   }
 
   async getSaleItemCosts(saleCosts) {

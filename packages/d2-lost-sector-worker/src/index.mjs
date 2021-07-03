@@ -42,7 +42,7 @@ const modifierDetailsMap = {
 
 function getModifiersOfInterest(modifiers) {
   const modifiersOfInterest = modifiers.filter(
-    (modifier) => !modifierIgnoreList.includes(modifier.hash.toString()),
+    (modifier) => !modifierIgnoreList.includes(modifier.hash.toString())
   )
   const champions = modifiers
     .filter((modifier) => modifier.displayProperties.name.includes('Champions'))
@@ -55,7 +55,7 @@ function getModifiersOfInterest(modifiers) {
 
   const damage = modifiers
     .filter((modifier) =>
-      modifier.displayProperties.description.includes('+50%'),
+      modifier.displayProperties.description.includes('+50%')
     )
     .map((modifier) => ({
       ...modifierDetailsMap[modifier.displayProperties.name],
@@ -72,7 +72,7 @@ function getModifiersOfInterest(modifiers) {
           modifier.displayProperties.name.includes('Champions') ||
           modifier.displayProperties.description.includes('+50%') ||
           commonModifiers.includes(modifier.hash.toString())
-        ),
+        )
     )
     .map((modifier) => ({
       name: modifier.displayProperties.name,
@@ -101,21 +101,21 @@ function getModifiersOfInterest(modifiers) {
 async function getLostSectorData(lostSector, definitionHandler) {
   const activity = await definitionHandler.getActivity(lostSector.hash)
   const modifiers = await definitionHandler.getActivityModifiers(
-    ...activity.modifiers.map((modifier) => modifier.activityModifierHash),
+    ...activity.modifiers.map((modifier) => modifier.activityModifierHash)
   )
 
   const modifiersOfInterest = getModifiersOfInterest(modifiers)
 
   const destination = await definitionHandler.getDestination(
-    activity.destinationHash,
+    activity.destinationHash
   )
 
   let rewards = []
   if (lostSector.rewards) {
     rewards = await Promise.all(
       lostSector.rewards.map((reward) =>
-        definitionHandler.getInventoryItem(reward.hash),
-      ),
+        definitionHandler.getInventoryItem(reward.hash)
+      )
     )
   }
 
@@ -135,15 +135,15 @@ export default {
       const lostSectors = getCurrentLostSectorHashes()
 
       const definitionHandler = new DefinitionHandler()
-      await definitionHandler.init(env.BUNGIE_API, env.DESTINY_2_DEFINITIONS)
+      await definitionHandler.init(env.BUNGIE_API)
 
       const legend = await getLostSectorData(
         lostSectors.legend,
-        definitionHandler,
+        definitionHandler
       )
       const master = await getLostSectorData(
         lostSectors.master,
-        definitionHandler,
+        definitionHandler
       )
 
       return new Response(
@@ -154,14 +154,14 @@ export default {
         }),
         {
           status: 200,
-        },
+        }
       )
     } catch (e) {
       return new Response(
         JSON.stringify({ isAvailable: false, error: e.message }),
         {
           status: 500,
-        },
+        }
       )
     }
   },

@@ -18,28 +18,35 @@ export default class BungieAPIHandler {
   /**
    * Adds the API Key to the request header.
    */
-  addApiKeyToHeader(options) {
-    const update = { ...options }
-    update.headers = {
-      ...update.headers,
-      Authorization: 'Bearer ' + this.oauthToken,
-      'X-API-Key': this.apiKey,
+  addApiKeyToHeader({ headers = {}, ...rest }) {
+    return {
+      headers: {
+        ...headers,
+        Authorization: 'Bearer ' + this.oauthToken,
+        'X-API-Key': this.apiKey,
+      },
+      ...rest,
     }
-    return update
   }
 
   /**
    * Calls the api for passed in options and parses into JSON response;
    */
-  async callApi(options) {
-    const url = new URL(`https://www.bungie.net/Platform${options.path}`)
-    if (options.components) {
-      url.searchParams.set('components', options.components.join(','))
-    }
-    console.log('CALL: ' + url)
+  async callApi({
+    headers,
+    components,
+    path,
+    baseUrl = 'https://www.bungie.net/Platform',
+  }) {
     let resp
+    const url = new URL(`${baseUrl}${path}`)
+    if (components) {
+      url.searchParams.set('components', components.join(','))
+    }
+
+    console.log('CALL: ' + url)
     try {
-      resp = await fetch(url, this.addApiKeyToHeader(options))
+      resp = await fetch(url, this.addApiKeyToHeader({ headers }))
     } catch (e) {
       console.error(`Failed to call bungie platform api ${e}`)
       throw e
@@ -55,11 +62,7 @@ export default class BungieAPIHandler {
   }
 
   async callBungieNet(options) {
-    let resp = await fetch('https://www.bungie.net/' + options.path)
-    if (!resp.ok) {
-      throw new BungieAPIError(resp)
-    }
-    return resp.json()
+    return this.callApi({ ...options, baseUrl: 'https://www.bungie.net/' })
   }
 
   /**

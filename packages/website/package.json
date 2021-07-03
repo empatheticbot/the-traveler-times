@@ -1,11 +1,12 @@
 {
   "name": "@the-traveler-times/website",
-  "version": "0.11.0",
+  "version": "1.0.0",
   "description": "The web front-end to The Traveler Times site.",
   "main": "_site/index.js",
   "scripts": {
     "clean": "rm -rf _site",
     "start": "NODE_ENV=develop eleventy --serve",
+    "start:prod": "NODE_ENV=production eleventy --serve",
     "build": "NODE_ENV=production eleventy"
   },
   "repository": {

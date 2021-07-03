@@ -12,7 +12,7 @@ export default {
   async fetch(request, env) {
     try {
       const vendorHandler = new VendorHandler()
-      await vendorHandler.init(env.BUNGIE_API, env.DESTINY_2_DEFINITIONS)
+      await vendorHandler.init(env.BUNGIE_API)
       const twitterHandler = new TwitterHandler()
       await twitterHandler.init(env.TWITTER_API)
 
@@ -30,7 +30,7 @@ export default {
         }),
         {
           status: 200,
-        },
+        }
       )
     } catch (e) {
       return new Response(e.message, {
