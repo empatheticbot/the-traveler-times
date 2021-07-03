@@ -3,11 +3,11 @@ import DefinitionHandler from './DefinitionHandler'
 import { XUR, ZAVALA } from './Hashes'
 
 export default class VendorHandler {
-  async init(bungieApiEnv, definitionEnv) {
+  async init(bungieApiEnv) {
     this.bungieAPIHandler = new BungieAPIHandler()
     await this.bungieAPIHandler.init(bungieApiEnv)
     this.definitionHandler = new DefinitionHandler()
-    await this.definitionHandler.init(bungieApiEnv, definitionEnv)
+    await this.definitionHandler.init(bungieApiEnv)
   }
 
   // TODO: This function is fairly gnarly, split out some of the item sales code it's own module

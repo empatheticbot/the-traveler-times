@@ -18,11 +18,14 @@ export default class BungieAPIHandler {
   /**
    * Adds the API Key to the request header.
    */
-  addApiKeyToHeader({ headers }) {
+  addApiKeyToHeader({ headers = {}, ...rest }) {
     return {
-      ...headers,
-      Authorization: 'Bearer ' + this.oauthToken,
-      'X-API-Key': this.apiKey,
+      headers: {
+        ...headers,
+        Authorization: 'Bearer ' + this.oauthToken,
+        'X-API-Key': this.apiKey,
+      },
+      ...rest,
     }
   }
 
@@ -35,21 +38,15 @@ export default class BungieAPIHandler {
     path,
     baseUrl = 'https://www.bungie.net/Platform',
   }) {
+    let resp
     const url = new URL(`${baseUrl}${path}`)
     if (components) {
       url.searchParams.set('components', components.join(','))
-    }
-    const cache = caches.default
-    let resp = await cache.match(url)
-    console.log(resp)
-    if (resp) {
-      return resp.json()
     }
 
     console.log('CALL: ' + url)
     try {
       resp = await fetch(url, this.addApiKeyToHeader({ headers }))
-      console.log(resp, resp.status)
     } catch (e) {
       console.error(`Failed to call bungie platform api ${e}`)
       throw e
@@ -111,7 +108,7 @@ export default class BungieAPIHandler {
         'Parameter `definition` is required and must be of type string.'
       )
     }
-    console.log(definition)
+
     const manifest = await this.getManifest()
     const definitionPath =
       manifest.jsonWorldComponentContentPaths.en[definition]

@@ -5,7 +5,7 @@ export default {
     const publicMilestoneHandler = new PublicMilestoneHandler()
     await publicMilestoneHandler.init(env.BUNGIE_API)
     // const activityHandler = new ActivityHandler()
-    // await activityHandler.init(env.BUNGIE_API, env.DESTINY_2_DEFINITIONS)
+    // await activityHandler.init(env.BUNGIE_API)
 
     try {
       //       const nightfallMilestone = await publicMilestoneHandler.getPublicMilestoneByHash(

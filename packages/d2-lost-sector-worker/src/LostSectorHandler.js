@@ -38,13 +38,7 @@ export function getCurrentLostSectorHashes() {
   const masterRewardIndex = daysFromStart % rewards.length
   const legendRewardIndex =
     masterRewardIndex === rewards.length - 1 ? 0 : masterRewardIndex + 1
-  console.log(
-    'day: ',
-    startingDate.toISOString(),
-    today.toISOString(),
-    today - startingDate,
-    (today - startingDate) / (1000 * 60 * 60 * 24)
-  )
+
   return {
     master: {
       name: availableLostSectors[masterLostSectorIndex].name,

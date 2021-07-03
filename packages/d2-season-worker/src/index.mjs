@@ -44,9 +44,6 @@ export default {
         })
       )
       allWeekNodes.shift()
-      console.log(
-        allWeekNodes.map((weekNode) => weekNode.children.records.map((r) => r))
-      )
       const weeklyRecords = await Promise.all(
         allWeekNodes.map(async (weekNode) => {
           const challenges = await Promise.all(

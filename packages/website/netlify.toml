@@ -1,4 +1,0 @@
-[build]
-  publish = "_site"
-  command = "npm run build"
-  environment = { NODE_ENV = "production" }
