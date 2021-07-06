@@ -3,17 +3,27 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "workspaces": [
+    "./packages/*"
+  ],
   "scripts": {
-    "start:xur": "cd packages/d2-xur-worker && npm run start",
+    "start": "lerna run start --parallel --scope @the-traveler-times/*-worker",
+    "start:web": "lerna run start --scope @the-traveler-times/website",
+    "start:web:prod": "lerna run start:prod --scope @the-traveler-times/website",
+    "start:vendors": "cd packages/d2-vendors-worker && npm run start",
     "start:nightfall": "cd packages/d2-nightfall-worker && npm run start",
     "start:trials": "cd packages/d2-trials-worker && npm run start",
     "start:oauth": "cd packages/d2-oauth-worker && npm run start",
     "start:definition": "cd packages/d2-definition-worker && npm run start",
-    "publish": "lerna run publish",
+    "start:season": "cd packages/d2-season-worker && npm run start",
+    "publish": "lerna run build && lerna run publish",
     "version": "lerna version",
     "build": "lerna run build",
+    "build:web": "lerna run build --scope @the-traveler-times/website",
     "bootstrap": "lerna bootstrap",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "lerna run test",
+    "format": "lerna run format --parallel",
+    "clean": "lerna run clean"
   },
   "repository": {
     "type": "git",
@@ -26,6 +36,7 @@
   },
   "homepage": "https://github.com/empatheticbot/the-traveler-times#readme",
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "@cloudflare/wrangler": "1.17.0"
   }
 }

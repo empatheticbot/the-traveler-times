@@ -13,5 +13,5 @@ export default {
     file: 'dist/index.mjs',
     sourcemap: true,
   },
-  plugins: [commonjs(), nodeResolve({ browser: true })],
+  plugins: [commonjs(), nodeResolve({ browser: true }), terser()],
 }

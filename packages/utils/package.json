@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@the-traveler-times/utils",
-  "version": "0.7.0",
+  "version": "1.0.0",
   "description": "The Traveler Times Utility Functions",
   "author": "Steve Ledsworth <sledsworth@gmail.com>",
   "homepage": "https://github.com/empatheticbot/the-traveler-times/tree/main/packages/utils#readme",
@@ -27,11 +27,12 @@
     "url": "https://github.com/empatheticbot/the-traveler-times/issues"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-node-resolve": "^11.1.0",
-    "prettier": "^1.19.1",
-    "rollup": "^2.36.1",
-    "rollup-plugin-copy": "^3.3.0",
-    "rollup-plugin-terser": "^7.0.2"
+    "@rollup/plugin-commonjs": "19.0.0",
+    "@rollup/plugin-node-resolve": "13.0.0",
+    "eslint": "7.29.0",
+    "prettier": "2.3.2",
+    "rollup": "2.52.6",
+    "rollup-plugin-copy": "3.4.0",
+    "rollup-plugin-terser": "7.0.2"
   }
 }

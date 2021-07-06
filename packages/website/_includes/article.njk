@@ -1,11 +1,38 @@
-<article class="article-container">
+<article class="article-container {{article.class | safe }}">
   <header class="article-header">
-    <time class="article-date" datetime="{{ article.date | htmlDateString }}">
-    {{ article.date | relativeDate }}</time>
+
+    {% if article.mainTitle %}
+    <h2 class="article-title--main">{{ article.mainTitle | safe }}</h2>
+    {% endif %}
+
+    <!-- TODO: Figure out what all needs to be set for accessible images (height, width, aspect ratio, etc -->
+    <section class="article-image--container">
+      <img
+        class="article-image--feature"
+        src="https://bungie.net{{ article.image.url | safe}}"
+        alt="{{article.image.altText}}" />
+      <img
+        class="article-image--icon"
+        src="https://bungie.net{{ article.icon.url | safe }}"
+        alt="{{aticle.icon.altText}}" />
+    </section>
+
+    {% if article.title %}
+    <h3 class="article-title">{{ article.title | safe }}</h3>
+    {% endif %}
+
+    <p class="article-tag">{{ article.tag | safe }}</p>
     <h2 class="article-title">{{ article.title | safe }}</h2>
     <h3 class="article-subtitle">{{ article.subtitle | safe }}</h3>
   </header>
   <section class="article-body">
-    {{ article.body | safe }}
+    {% block content %}
+     {{ content | safe }}
+   {% endblock %}
   </section>
+  <footer class="article-footer">
+    {% block footer %}
+     {{ footer | safe }}
+   {% endblock %}
+  </footer>
 </article>

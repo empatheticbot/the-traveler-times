@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@the-traveler-times/d2-oauth-worker",
-  "version": "0.7.1",
+  "version": "1.0.0",
   "description": "A template for kick starting a Cloudflare Workers project",
   "module": "./dist/index.mjs",
   "scripts": {
@@ -18,11 +18,13 @@
     "@the-traveler-times/utils": "file:../utils"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-node-resolve": "^11.1.0",
-    "prettier": "^1.19.1",
-    "rollup": "^2.36.1",
-    "rollup-plugin-copy": "^3.3.0",
-    "rollup-plugin-terser": "^7.0.2"
+    "@cloudflare/wrangler": "1.17.0",
+    "@rollup/plugin-commonjs": "19.0.0",
+    "@rollup/plugin-node-resolve": "13.0.0",
+    "eslint": "7.29.0",
+    "prettier": "2.3.2",
+    "rollup": "2.52.6",
+    "rollup-plugin-copy": "3.4.0",
+    "rollup-plugin-terser": "7.0.2"
   }
 }

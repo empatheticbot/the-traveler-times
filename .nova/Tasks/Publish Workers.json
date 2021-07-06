@@ -1,0 +1,9 @@
+{
+  "actions" : {
+    "run" : {
+      "enabled" : true,
+      "script" : "npm run publish"
+    }
+  },
+  "identifier" : "74CE1935-A36F-4346-9633-50D51E7D9608"
+}

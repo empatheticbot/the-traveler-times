@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "name": "@the-traveler-times/d2-vendors-worker",
+  "version": "1.0.0",
+  "description": "A template for kick starting a Cloudflare Workers project",
+  "module": "./dist/index.mjs",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup -c",
+    "publish": "wrangler publish",
+    "start": "wrangler dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '**/*.{js,css,json,md}'"
+  },
+  "author": "Steve Ledsworth <steve@empatheticbot.com>",
+  "dependencies": {
+    "@the-traveler-times/bungie-api-gateway": "file:../bungie-api-gateway",
+    "@the-traveler-times/utils": "file:../utils"
+  },
+  "devDependencies": {
+    "@cloudflare/wrangler": "1.17.0",
+    "@rollup/plugin-commonjs": "19.0.0",
+    "@rollup/plugin-node-resolve": "13.0.0",
+    "eslint": "7.29.0",
+    "prettier": "2.3.2",
+    "rollup": "2.52.6",
+    "rollup-plugin-copy": "3.4.0",
+    "rollup-plugin-terser": "7.0.2"
+  }
+}

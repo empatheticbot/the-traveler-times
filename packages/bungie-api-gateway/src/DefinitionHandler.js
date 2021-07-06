@@ -1,57 +1,33 @@
 import BungieAPIHandler from './BungieAPIHandler'
 
 export default class DefinitionHandler {
-  async init(bungieApiEnv, definitionEnv) {
+  inFlightDefinitionRequests = {}
+
+  async init(bungieApiEnv) {
     this.bungieAPIHandler = new BungieAPIHandler()
     await this.bungieAPIHandler.init(bungieApiEnv)
-
-    this.definitionEnv = definitionEnv
-    this.definitionCache = {}
-
-    if (!this.definitionEnv) {
-      throw new Error(`'definitionEnv' is required on init.`)
-    }
-  }
-
-  async fetchDefintionFromApi(hash, definitionName) {
-    try {
-      let item = await this.bungieAPIHandler.getManifestDefinition(
-        definitionName,
-        hash
-      )
-      return item.Response
-    } catch (e) {
-      console.error(
-        `Failed to fetch item (${hash}) from ${definitionName} data. ${e}`
-      )
-      return null
-    }
   }
 
   async getDefinitions(definitionName) {
-    let definitions = this.definitionCache[definitionName]
+    let definitions = this.inFlightDefinitionRequests[definitionName]
 
-    if (!definitions) {
-      definitions = await this.definitionEnv.get(definitionName, {
-        type: 'json',
-      })
+    if (definitions) {
+      return definitions
     }
 
-    if (!definitions) {
-      throw new Error(`Could not find ${definitionName} in definitionEnv`)
-    }
-    this.definitionCache[definitionName] = definitions
-    return definitions
-  }
-
-  getHashKeyedDefinitions(hashes, definitions) {
-    return hashes.reduce(
-      (obj, hash) => ({
-        ...obj,
-        [hash]: definitions[hash],
-      }),
-      {}
+    const request = this.bungieAPIHandler.getDefinitionFromManifest(
+      definitionName
     )
+    this.inFlightDefinitionRequests[definitionName] = request
+    definitions = await request
+
+    if (!definitions) {
+      throw new Error(
+        `Could not find ${definitionName} in cache or retrieve from bungie.net`
+      )
+    }
+
+    return definitions
   }
 
   getArrayOfDefinitions(hashes, definitions) {
@@ -69,15 +45,13 @@ export default class DefinitionHandler {
   }
 
   async getInventoryItems(...hashes) {
-    const items = await this.getDefinitions(
-      'DestinyInventoryItemLiteDefinition'
-    )
+    const items = await this.getDefinitions('DestinyInventoryItemDefinition')
     return this.getArrayOfDefinitions(hashes, items)
   }
 
   async getInventoryItem(hash) {
-    const inventory = await this.getInventoryItems(hash)
-    return inventory[0]
+    const items = await this.getInventoryItems(hash)
+    return items[0]
   }
 
   async getActivities(...hashes) {
@@ -106,12 +80,51 @@ export default class DefinitionHandler {
     return this.getDefinitions('DestinyClassDefinition')
   }
 
-  async getDamageTypes() {
-    return this.getDefinitions('DestinyDamageTypeDefinition')
+  async getCharacterClass(classId) {
+    const classes = await this.getCharacterClasses()
+    const classesKeyedById = Object.values(classes).reduce(
+      (previousValue, currentValue) => {
+        return {
+          ...previousValue,
+          [currentValue.classType]: currentValue.displayProperties.name,
+        }
+      },
+      {}
+    )
+    return classesKeyedById[classId]
+  }
+
+  async getDamageType(hash) {
+    const damageTypes = await this.getDefinitions('DestinyDamageTypeDefinition')
+    return damageTypes[hash]
   }
 
   async getMilestone(hash) {
     const defintions = await this.getDefinitions('DestinyMilestoneDefinition')
     return defintions[hash]
+  }
+
+  async getDestination(hash) {
+    const defintions = await this.getDefinitions('DestinyDestinationDefinition')
+    return defintions[hash]
+  }
+
+  async getPresentationNode(hash) {
+    const nodes = await this.getDefinitions('DestinyPresentationNodeDefinition')
+    return nodes[hash]
+  }
+
+  async getRecord(hash) {
+    const records = await this.getDefinitions('DestinyRecordDefinition')
+    return records[hash]
+  }
+
+  async getSaleItemCosts(saleCosts) {
+    return Promise.all(
+      saleCosts.map(async (cost) => {
+        const currencyDetails = await this.getInventoryItem(cost.itemHash)
+        return { ...currencyDetails, ...cost }
+      })
+    )
   }
 }

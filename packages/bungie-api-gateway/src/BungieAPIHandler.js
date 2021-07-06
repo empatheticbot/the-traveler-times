@@ -1,6 +1,8 @@
 import BungieAPIError from './BungieAPIError'
 
 export default class BungieAPIHandler {
+  manifest = undefined
+
   async init(bungieApiEnv) {
     try {
       this.apiKey = await bungieApiEnv.get('KEY')
@@ -16,28 +18,35 @@ export default class BungieAPIHandler {
   /**
    * Adds the API Key to the request header.
    */
-  addApiKeyToHeader(headers = {}) {
+  addApiKeyToHeader({ headers = {}, ...rest }) {
     return {
       headers: {
         ...headers,
-        // Authorization: 'Bearer ' + this.oauthToken,
+        Authorization: 'Bearer ' + this.oauthToken,
         'X-API-Key': this.apiKey,
       },
+      ...rest,
     }
   }
 
   /**
    * Calls the api for passed in options and parses into JSON response;
    */
-  async callApi(options) {
-    const url = new URL(`https://www.bungie.net/Platform${options.path}`)
-    if (options.components) {
-      url.searchParams.set('components', options.components.join(','))
-    }
-    console.log('CALL: ' + url)
+  async callApi({
+    headers,
+    components,
+    path,
+    baseUrl = 'https://www.bungie.net/Platform',
+  }) {
     let resp
+    const url = new URL(`${baseUrl}${path}`)
+    if (components) {
+      url.searchParams.set('components', components.join(','))
+    }
+
+    console.log('CALL: ' + url)
     try {
-      resp = await fetch(url, this.addApiKeyToHeader(options.headers))
+      resp = await fetch(url, this.addApiKeyToHeader({ headers }))
     } catch (e) {
       console.error(`Failed to call bungie platform api ${e}`)
       throw e
@@ -47,17 +56,13 @@ export default class BungieAPIHandler {
         'Unauthorized from Bungie API. Check to make sure credentials are updated.'
       )
     } else if (!resp.ok) {
-      throw new BungieAPIError(resp.url, resp.headers)
+      throw new BungieAPIError(resp)
     }
     return resp.json()
   }
 
   async callBungieNet(options) {
-    let resp = await fetch('https://www.bungie.net/' + options.path)
-    if (!resp.ok) {
-      throw new BungieAPIError(resp.url, resp.headers)
-    }
-    return resp.json()
+    return this.callApi({ ...options, baseUrl: 'https://www.bungie.net/' })
   }
 
   /**
@@ -66,13 +71,16 @@ export default class BungieAPIHandler {
    * Useful for large/frequent requests for item information and other things.
    */
   async getManifest() {
+    if (this.manifest) {
+      return this.manifest
+    }
     let options = {
       path: '/Destiny2/Manifest/',
       method: 'GET',
     }
     let manifestResponse = await this.callApi(options)
-
-    return manifestResponse.Response
+    this.manifest = manifestResponse.Response
+    return this.manifest
   }
 
   /**

@@ -1,5 +1,5 @@
-{% set ironBanner = destinyData.ironBanner %}
-{% if ironBanner.available %}
+{% set ironBanner = weekly.ironBanner %}
+{% if ironBanner.isAvailable %}
 <article class="article-container iron-banner--container">
   <section class="iron-banner--image-container">
     <img class="iron-banner--image-container--image" src="https://bungie.net{{ ironBanner.image | safe}}" />

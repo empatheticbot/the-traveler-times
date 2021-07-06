@@ -13,8 +13,8 @@ export default class PublicMilestoneHandler {
     })
 
     if (response.Message !== 'Ok') {
-      return new Response(
-        `Failed to get public milestones with error: ${response.Error}`
+      throw new Error(
+        `Failed to get public milestones with error: ${response.Message}`
       )
     }
 
@@ -22,17 +22,13 @@ export default class PublicMilestoneHandler {
   }
 
   async getPublicMilestoneByHash(hash) {
-    try {
-      const milestones = await this.getPublicMilestones()
+    const milestones = await this.getPublicMilestones()
 
-      const milestone = milestones[hash]
+    const milestone = milestones[hash]
 
-      if (milestone) {
-        return milestone
-      }
-      throw new Error('Milestone hash id not found.')
-    } catch (e) {
-      console.error(`Error in 'getPublicMilestoneByHash: ${e}`)
+    if (milestone) {
+      return milestone
     }
+    throw new Error('Milestone hash id not found.')
   }
 }

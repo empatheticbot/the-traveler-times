@@ -17,7 +17,7 @@ export async function bungieRedirectHandler(request, env) {
           Authorization: `Basic ${auth}`,
         },
         body: `grant_type=authorization_code&client_id=${clientId}&code=${code}`,
-      },
+      }
     )
 
     const result = await response.json()
@@ -36,7 +36,7 @@ export async function bungieRedirectHandler(request, env) {
     await env.BUNGIE_API.put('OAUTH_TOKEN', result.access_token)
     await env.BUNGIE_API.put(
       'REFRESH_TOKEN_EXPIRATION',
-      result.refresh_expires_in,
+      result.refresh_expires_in
     )
 
     return new Response('Successfully updated tokens!', {

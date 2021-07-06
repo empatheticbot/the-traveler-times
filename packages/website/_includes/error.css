@@ -1,3 +1,16 @@
-.error__text {
-  
+.error-container {
+  max-width: 400px;
+  width: 75vw;
+  margin: auto;
+}
+
+.error-text {
+  font-weight: 700;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.error-image {
+  filter: brightness(0.4) sepia(1);
+  width: 100%;
 }
