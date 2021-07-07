@@ -2,6 +2,7 @@ async function buildTravelerTimesWebsite(request, env) {
   const account_id = env.ACCOUNT_ID
   const pages_id = env.PAGES_ID
   const init = {
+    'content-type': 'application/json;charset=UTF-8',
     method: 'POST',
     headers: {
       'X-Auth-Key': env.SECRET_AUTH_KEY,
@@ -10,7 +11,7 @@ async function buildTravelerTimesWebsite(request, env) {
   }
   return fetch(
     `https://api.cloudflare.com/client/v4/accounts/${account_id}/pages/projects/${pages_id}/deployments`,
-    init,
+    init
   )
 }
 
