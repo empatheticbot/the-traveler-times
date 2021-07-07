@@ -68,7 +68,7 @@ async function handlePostGameCarnageReportParsing(request, env) {
     }
   }
   await env.DESTINY_2_PGCR.put('CURRENT_ACTIVITY_INDEX', currentActivityId)
-  return new pgcrData(`Parsed to activity: ${currentActivityId}`)
+  return new Response(`Parsed to activity: ${currentActivityId}`)
 }
 
 export default {
