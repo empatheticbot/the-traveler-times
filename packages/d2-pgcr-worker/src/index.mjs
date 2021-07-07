@@ -1,7 +1,7 @@
 import { BungieAPIHandler } from '@the-traveler-times/bungie-api-gateway'
 import { getWeaponDataFromPGCR } from './crucible'
 
-async function getPostGameCarnageReport(request, env) {
+async function handlePostGameCarnageReportParsing(request, env) {
   const bungieAPIHandler = new BungieAPIHandler()
   bungieAPIHandler.init(env.BUNGIE_API)
   const collectedWeaponData = {}
@@ -9,16 +9,15 @@ async function getPostGameCarnageReport(request, env) {
 
   for (let i = 0; i < 50; i++) {
     try {
-      console.log(currentActivityId, env)
-      const response = await bungieAPIHandler.getPostGameCarnageReport(
+      const pgcrData = await bungieAPIHandler.getPostGameCarnageReport(
         currentActivityId
       )
-      console.log('here', response)
       if (
-        response.activityDetails.modes.includes(5) &&
-        !response.activityDetails.isPrivate
+        pgcrData &&
+        pgcrData.activityDetails.modes.includes(5) &&
+        !pgcrData.activityDetails.isPrivate
       ) {
-        const weaponData = getWeaponDataFromPGCR(response, env)
+        const weaponData = getWeaponDataFromPGCR(pgcrData, env)
         weaponData.forEach((weapon) => {
           let data = collectedWeaponData[weapon.id]
           if (data) {
@@ -38,7 +37,6 @@ async function getPostGameCarnageReport(request, env) {
           }
         })
       }
-      console.log(response)
     } catch (e) {
       console.error(e.message)
     }
@@ -47,30 +45,37 @@ async function getPostGameCarnageReport(request, env) {
   for (const [key, value] of Object.entries(collectedWeaponData)) {
     const storedWeaponData = await env.DESTINY_2_PGCR.get(key, { type: 'json' })
     if (storedWeaponData) {
-      await env.DESTINY_2_PGCR.put(key, {
-        id: key,
-        kills: storedWeaponData.kills + value.kills,
-        precisionKills: storedWeaponData.precisionKills + value.precisionKills,
-        usage: storedWeaponData.usage + 1,
-      })
+      await env.DESTINY_2_PGCR.put(
+        key,
+        JSON.stringify({
+          id: key,
+          kills: storedWeaponData.kills + value.kills,
+          precisionKills:
+            storedWeaponData.precisionKills + value.precisionKills,
+          usage: storedWeaponData.usage + 1,
+        })
+      )
     } else {
-      await env.DESTINY_2_PGCR.put(key, {
-        id: key,
-        kills: value.kills,
-        precisionKills: value.precisionKills,
-        usage: 1,
-      })
+      await env.DESTINY_2_PGCR.put(
+        key,
+        JSON.stringify({
+          id: key,
+          kills: value.kills,
+          precisionKills: value.precisionKills,
+          usage: 1,
+        })
+      )
     }
   }
   await env.DESTINY_2_PGCR.put('CURRENT_ACTIVITY_INDEX', currentActivityId)
-  return new Response(`Parsed to activity: ${currentActivityId}`)
+  return new pgcrData(`Parsed to activity: ${currentActivityId}`)
 }
 
 export default {
   async fetch(request, env) {
-    return await getPostGameCarnageReport(request, env)
+    return await handlePostGameCarnageReportParsing(request, env)
   },
   async scheduled(event, env) {
-    return await getPostGameCarnageReport({}, env)
+    return await handlePostGameCarnageReportParsing({}, env)
   },
 }

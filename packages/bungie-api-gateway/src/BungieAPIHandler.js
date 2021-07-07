@@ -18,7 +18,7 @@ export default class BungieAPIHandler {
   /**
    * Adds the API Key to the request header.
    */
-  addApiKeyToHeader({ headers = {}, ...rest = {} }) {
+  addApiKeyToHeader({ headers = {}, ...rest }) {
     return {
       headers: {
         ...headers,
@@ -134,18 +134,8 @@ export default class BungieAPIHandler {
       console.error(`Failed to call bungie platform api ${e}`)
       throw e
     }
-    if (resp.status === 401) {
-      console.error(
-        'Unauthorized from Bungie API. Check to make sure credentials are updated.'
-      )
-    } else if (!resp.ok) {
-      throw new Error(
-        `Test: \n\n${Object.entries(resp.headers)
-          .map(([key, value]) => `${key}: ${value}`)
-          .join('\n\n')}\n`
-      )
-      // throw new BungieAPIError(resp.url, resp.headers)
+    if (resp.Message === 'Ok') {
+      return resp.Response
     }
-    return resp.json()
   }
 }
