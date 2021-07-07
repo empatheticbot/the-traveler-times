@@ -18,7 +18,7 @@ export default class BungieAPIHandler {
   /**
    * Adds the API Key to the request header.
    */
-  addApiKeyToHeader({ headers = {}, ...rest }) {
+  addApiKeyToHeader({ headers = {}, ...rest = {} }) {
     return {
       headers: {
         ...headers,
@@ -33,9 +33,9 @@ export default class BungieAPIHandler {
    * Calls the api for passed in options and parses into JSON response;
    */
   async callApi({
-    headers,
+    headers = {},
     components,
-    path,
+    path = '',
     baseUrl = 'https://www.bungie.net/Platform',
   }) {
     let resp
@@ -123,16 +123,12 @@ export default class BungieAPIHandler {
   }
 
   async getPostGameCarnageReport(id) {
-    const url = new URL(
-      `https://stats.bungie.net/Platform/Destiny2/Stats/PostGameCarnageReport/${id}/`
-    )
-    console.log('CALL: ' + url)
     let resp
     try {
-      resp = await fetch(
-        url,
-        this.addApiKeyToHeader({ 'Content-Type': 'application/json' })
-      )
+      resp = await this.callApi({
+        path: `/Platform/Destiny2/Stats/PostGameCarnageReport/${id}/`,
+        baseUrl: `https://stats.bungie.net`,
+      })
       // console.log(Object.keys(resp), await resp.text(), url)
     } catch (e) {
       console.error(`Failed to call bungie platform api ${e}`)
