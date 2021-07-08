@@ -1,5 +1,10 @@
 import { BungieAPIHandler } from '@the-traveler-times/bungie-api-gateway'
-import { getWeaponDataFromPGCR } from './crucible'
+import {
+  getWeaponDataFromPGCR,
+  getTopWeaponsBasedOnKills,
+  getTopWeaponsBasedOnUse,
+  getWeapons,
+} from './crucible'
 
 async function handlePostGameCarnageReportParsing(request, env) {
   const bungieAPIHandler = new BungieAPIHandler()
@@ -73,7 +78,13 @@ async function handlePostGameCarnageReportParsing(request, env) {
 
 export default {
   async fetch(request, env) {
-    return await handlePostGameCarnageReportParsing(request, env)
+    const weapons = await getWeapons(env)
+    return new Response(
+      JSON.stringify({
+        kills: await getTopWeaponsBasedOnKills(weapons),
+        usage: await getTopWeaponsBasedOnUse(weapons),
+      })
+    )
   },
   async scheduled(event, env) {
     return await handlePostGameCarnageReportParsing({}, env)
