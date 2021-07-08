@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@the-traveler-times/utils",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The Traveler Times Utility Functions",
   "author": "Steve Ledsworth <sledsworth@gmail.com>",
   "homepage": "https://github.com/empatheticbot/the-traveler-times/tree/main/packages/utils#readme",
