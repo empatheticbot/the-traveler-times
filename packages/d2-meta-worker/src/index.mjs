@@ -1,12 +1,9 @@
 import { BungieAPIHandler } from '@the-traveler-times/bungie-api-gateway'
-import {
-  getWeaponDataFromPGCR,
-  getTopWeaponsBasedOnKills,
-  getTopWeaponsBasedOnUse,
-  getWeapons,
-} from './crucible'
+import { getWeaponDataFromPGCR } from './crucible'
 
-async function handlePostGameCarnageReportParsing(request, env) {
+export { D2PostGameCarnageReportObject } from './D2PostGameCarnageReportObject'
+
+async function getCurrentMeta(request, env) {
   const bungieAPIHandler = new BungieAPIHandler()
   bungieAPIHandler.init(env.BUNGIE_API)
   const collectedWeaponData = {}
@@ -47,7 +44,6 @@ async function handlePostGameCarnageReportParsing(request, env) {
     }
     currentActivityId++
   }
-
   for (const [key, value] of Object.entries(collectedWeaponData)) {
     const storedWeaponData = await env.DESTINY_2_PGCR.get(key, { type: 'json' })
     if (storedWeaponData) {
@@ -79,15 +75,9 @@ async function handlePostGameCarnageReportParsing(request, env) {
 
 export default {
   async fetch(request, env) {
-    const weapons = await getWeapons(env)
-    return new Response(
-      JSON.stringify({
-        kills: await getTopWeaponsBasedOnKills(weapons),
-        usage: await getTopWeaponsBasedOnUse(weapons),
-      })
-    )
+    return await getCurrentMeta(request, env)
   },
   async scheduled(event, env) {
-    return await handlePostGameCarnageReportParsing({}, env)
+    return await updateMetaStats({}, env)
   },
 }
