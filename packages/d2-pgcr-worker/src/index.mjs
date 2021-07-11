@@ -1,18 +1,32 @@
 import { BungieAPIHandler } from '@the-traveler-times/bungie-api-gateway'
-import {
-  getWeaponDataFromPGCR,
-  getTopWeaponsBasedOnKills,
-  getTopWeaponsBasedOnUse,
-  getWeapons,
-} from './crucible'
+import { getWeaponDataFromPGCR } from './crucible'
 
 async function handlePostGameCarnageReportParsing(request, env) {
+  const url = new URL(request.url)
+  const activitiesToFetch = url.searchParams.get('activitiesToFetch')
+  const firstActivityId = url.searchParams.get('firstActivityId')
+
+  if (!firstActivityId) {
+    return new Response(
+      'Missing parameter `firstActivityId`, which is required.',
+      { status: 400 }
+    )
+  }
+
+  if (!activitiesToFetch) {
+    return new Response(
+      'Missing parameter `activitiesToFetch`, which is required.',
+      { status: 400 }
+    )
+  }
+
+  let activityData = []
   const bungieAPIHandler = new BungieAPIHandler()
   bungieAPIHandler.init(env.BUNGIE_API)
   const collectedWeaponData = {}
-  let currentActivityId = await env.DESTINY_2_PGCR.get('CURRENT_ACTIVITY_INDEX')
+  let currentActivityId = firstActivityId
 
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < activitiesToFetch; i++) {
     try {
       const pgcrData = await bungieAPIHandler.getPostGameCarnageReport(
         currentActivityId
@@ -72,22 +86,32 @@ async function handlePostGameCarnageReportParsing(request, env) {
         })
       )
     }
+    activityData.push({
+      id: key,
+      kills: value.kills,
+      precisionKills: value.precisionKills,
+    })
   }
   await env.DESTINY_2_PGCR.put('CURRENT_ACTIVITY_INDEX', currentActivityId)
-  return new Response(`Parsed to activity: ${currentActivityId}`)
+  return new Response(
+    JSON.stringify({
+      activities: activityData,
+    })
+  )
 }
 
 export default {
   async fetch(request, env) {
-    const weapons = await getWeapons(env)
-    return new Response(
-      JSON.stringify({
-        kills: await getTopWeaponsBasedOnKills(weapons),
-        usage: await getTopWeaponsBasedOnUse(weapons),
-      })
-    )
+    // const weapons = await getWeapons(env)
+    // return new Response(
+    //   JSON.stringify({
+    //     kills: await getTopWeaponsBasedOnKills(weapons),
+    //     usage: await getTopWeaponsBasedOnUse(weapons),
+    //   })
+    // )
+    return handlePostGameCarnageReportParsing(request, env)
   },
   async scheduled(event, env) {
-    return await handlePostGameCarnageReportParsing({}, env)
+    return handlePostGameCarnageReportParsing({}, env)
   },
 }
