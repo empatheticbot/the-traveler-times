@@ -18,9 +18,10 @@ export default {
       const weeklyInfo = await vendorHandler.getWeeklyResets()
       let ironBannerMilestone
       try {
-        ironBannerMilestone = await publicMilestoneHandler.getPublicMilestoneByHash(
-          Hashes.IRON_BANNER
-        )
+        ironBannerMilestone =
+          await publicMilestoneHandler.getPublicMilestoneByHash(
+            Hashes.IRON_BANNER
+          )
       } catch (e) {
         console.log('Iron Banner not available.')
       }

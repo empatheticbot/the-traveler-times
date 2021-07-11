@@ -3,81 +3,33 @@ import { getWeaponDataFromPGCR } from './crucible'
 
 export { D2PostGameCarnageReportObject } from './D2PostGameCarnageReportObject'
 
-async function getCurrentMeta(request, env) {
-  const bungieAPIHandler = new BungieAPIHandler()
-  bungieAPIHandler.init(env.BUNGIE_API)
-  const collectedWeaponData = {}
-  let currentActivityId = await env.DESTINY_2_PGCR.get('CURRENT_ACTIVITY_INDEX')
+async function getPGCRDurableObject(env) {
+  let id = env.PGCR_DURABLE_OBJECT.idFromName('PGCR_DURABLE_OBJECT')
+  let stub = await env.PGCR_DURABLE_OBJECT.get(id)
+  return stub
+}
 
-  for (let i = 0; i < 50; i++) {
-    try {
-      const pgcrData = await bungieAPIHandler.getPostGameCarnageReport(
-        currentActivityId
-      )
-      if (
-        pgcrData &&
-        pgcrData.activityDetails.modes.includes(5) &&
-        !pgcrData.activityDetails.isPrivate
-      ) {
-        const weaponData = getWeaponDataFromPGCR(pgcrData, env)
-        weaponData.forEach((weapon) => {
-          let data = collectedWeaponData[weapon.id]
-          if (data) {
-            collectedWeaponData[weapon.id] = {
-              id: weapon.id,
-              kills: data.kills + weapon.kills,
-              precisionKills: data.precisionKills + weapon.precisionKills,
-              usage: data.usage + 1,
-            }
-          } else {
-            collectedWeaponData[weapon.id] = {
-              id: weapon.id,
-              kills: weapon.kills,
-              precisionKills: weapon.precisionKills,
-              usage: 1,
-            }
-          }
-        })
-      }
-    } catch (e) {
-      console.error(e.message)
-    }
-    currentActivityId++
-  }
-  for (const [key, value] of Object.entries(collectedWeaponData)) {
-    const storedWeaponData = await env.DESTINY_2_PGCR.get(key, { type: 'json' })
-    if (storedWeaponData) {
-      await env.DESTINY_2_PGCR.put(
-        key,
-        JSON.stringify({
-          id: key,
-          kills: storedWeaponData.kills + value.kills,
-          precisionKills:
-            storedWeaponData.precisionKills + value.precisionKills,
-          usage: storedWeaponData.usage + 1,
-        })
-      )
-    } else {
-      await env.DESTINY_2_PGCR.put(
-        key,
-        JSON.stringify({
-          id: key,
-          kills: value.kills,
-          precisionKills: value.precisionKills,
-          usage: 1,
-        })
-      )
-    }
-  }
-  await env.DESTINY_2_PGCR.put('CURRENT_ACTIVITY_INDEX', currentActivityId)
-  return new Response(`Parsed to activity: ${currentActivityId}`)
+async function getCurrentMeta(request, env) {
+  let durableObject = await getPGCRDurableObject(env)
+
+  let response = await durableObject.fetch(
+    'https://d2-meta-worker.empatheticbot.workers.dev/meta'
+  )
+}
+
+async function updateMetaStats(request, env) {
+  let durableObject = await getPGCRDurableObject(env)
+
+  let response = await durableObject.fetch(
+    'https://d2-meta-worker.empatheticbot.workers.dev/'
+  )
 }
 
 export default {
-  async fetch(request, env) {
-    return await getCurrentMeta(request, env)
+  fetch(request, env) {
+    return getCurrentMeta(request, env)
   },
-  async scheduled(event, env) {
-    return await updateMetaStats({}, env)
+  scheduled(event, env) {
+    return updateMetaStats(env)
   },
 }

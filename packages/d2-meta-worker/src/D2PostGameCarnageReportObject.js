@@ -2,7 +2,7 @@ export class D2PostGameCarnageReportObject {
   PGCR_ENDPOINT = 'https://d2-pgcr-worker.empatheticbot.workers.dev'
   REQUEST_LIMIT = 49
   LAST_ACTIVITY_ID = 'LAST_ACTIVITY_ID'
-  SUBCALLS = 10
+  SUBCALLS = 20
 
   constructor(state, env) {}
 
@@ -14,7 +14,8 @@ export class D2PostGameCarnageReportObject {
 
   async fetch(request) {
     let url = new URL(request.url)
-    let lastActivityId = await this.state.storage.get(this.LAST_ACTIVITY_ID)
+    let lastActivityId =
+      (await this.state.storage.get(this.LAST_ACTIVITY_ID)) || 8811166282
     //   if (!this.initializePromise) {
     //     this.initializePromise = this.initialize();
     // }
@@ -23,7 +24,7 @@ export class D2PostGameCarnageReportObject {
     switch (url.pathname) {
       case '/meta':
         break
-      default:
+      default: {
         let activityResults = []
         for (let i = 0; i < this.REQUEST_LIMIT; i++) {
           const activityBatchStartingId = lastActivityId + i * this.SUBCALLS
@@ -36,16 +37,21 @@ export class D2PostGameCarnageReportObject {
           const response = await fetch(this.PGCR_ENDPOINT)
           if (response.ok) {
             const result = await response.json()
-            activityResults.push(result)
+            console.log(result)
+            activityResults = activityResults.concat(result)
           }
         }
-
         await this.state.storage.put(
           this.LAST_ACTIVITY_ID,
           lastActivityId + this.SUBCALLS * (this.REQUEST_LIMIT - 1)
         )
+        return new Response(
+          JSON.stringify({
+            activities: activityResults,
+          })
+        )
+      }
     }
-
-    return new Response('Hello World')
+    return new Response('Not implemented.')
   }
 }
