@@ -20,7 +20,7 @@ async function handlePostGameCarnageReportParsing(request, env) {
     )
   }
 
-  let activityData = []
+  let weaponData = []
   const bungieAPIHandler = new BungieAPIHandler()
   bungieAPIHandler.init(env.BUNGIE_API)
   const collectedWeaponData = {}
@@ -45,6 +45,7 @@ async function handlePostGameCarnageReportParsing(request, env) {
               kills: data.kills + weapon.kills,
               precisionKills: data.precisionKills + weapon.precisionKills,
               usage: data.usage + 1,
+              period: pgcrData.period,
             }
           } else {
             collectedWeaponData[weapon.id] = {
@@ -52,6 +53,7 @@ async function handlePostGameCarnageReportParsing(request, env) {
               kills: weapon.kills,
               precisionKills: weapon.precisionKills,
               usage: 1,
+              period: pgcrData.period,
             }
           }
         })
@@ -86,16 +88,18 @@ async function handlePostGameCarnageReportParsing(request, env) {
         })
       )
     }
-    activityData.push({
+    weaponData.push({
       id: key,
       kills: value.kills,
       precisionKills: value.precisionKills,
+      period: value.period,
     })
   }
   await env.DESTINY_2_PGCR.put('CURRENT_ACTIVITY_INDEX', currentActivityId)
   return new Response(
     JSON.stringify({
-      activities: activityData,
+      weaponData,
+      lastId: currentActivityId,
     })
   )
 }

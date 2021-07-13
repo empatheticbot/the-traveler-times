@@ -1,10 +1,13 @@
 export class D2PostGameCarnageReportObject {
   PGCR_ENDPOINT = 'https://d2-pgcr-worker.empatheticbot.workers.dev'
-  REQUEST_LIMIT = 49
+  REQUEST_LIMIT = 48
   LAST_ACTIVITY_ID = 'LAST_ACTIVITY_ID'
-  SUBCALLS = 20
+  SUBCALLS = 50
 
-  constructor(state, env) {}
+  constructor(state, env) {
+    this.state = state
+    this.env = env
+  }
 
   //   async initialize() {
   //     let stored = await this.state.storage.get("value");
@@ -12,8 +15,30 @@ export class D2PostGameCarnageReportObject {
   //     this.value = stored || 0;
   // }
 
+  async handlePGCRRequest(firstActivityId) {
+    const fetchURL = new URL(this.PGCR_ENDPOINT)
+    fetchURL.searchParams.append('firstActivityId', firstActivityId)
+    fetchURL.searchParams.append('activitiesToFetch', this.SUBCALLS)
+    const response = await fetch(fetchURL)
+    if (response.ok) {
+      const result = await response.json()
+      return {
+        ...result,
+        fetchURL: fetchURL.toString(),
+        firstActivityId,
+      }
+    } else {
+      return {
+        status: response.statusText,
+        fetchURL: fetchURL.toString(),
+        firstActivityId,
+      }
+    }
+  }
+
   async fetch(request) {
     let url = new URL(request.url)
+    console.log(url.pathname)
     let lastActivityId =
       (await this.state.storage.get(this.LAST_ACTIVITY_ID)) || 8811166282
     //   if (!this.initializePromise) {
@@ -25,31 +50,40 @@ export class D2PostGameCarnageReportObject {
       case '/meta':
         break
       default: {
-        let activityResults = []
-        for (let i = 0; i < this.REQUEST_LIMIT; i++) {
-          const activityBatchStartingId = lastActivityId + i * this.SUBCALLS
-          const fetchURL = new URL(this.PGCR_ENDPOINT)
-          fetchURL.searchParams.append(
-            'firstActivityId',
-            activityBatchStartingId
-          )
-          fetchURL.searchParams.append('activitiesToFetch', this.SUBCALLS)
-          const response = await fetch(this.PGCR_ENDPOINT)
-          if (response.ok) {
-            const result = await response.json()
-            console.log(result)
-            activityResults = activityResults.concat(result)
+        try {
+          let activityResultsPromise = []
+          for (let i = 0; i < this.REQUEST_LIMIT; i++) {
+            let dateKey = new Date().toLocaleDateString('en', {
+              month: '2-digit',
+              year: 'numeric',
+              day: '2-digit',
+            })
+            let dateData = (await this.state.storage.get(dateKey)) || []
+            const activityBatchStartingId = lastActivityId + i * this.SUBCALLS
+            activityResultsPromise.push(
+              this.handlePGCRRequest(activityBatchStartingId)
+            )
           }
-        }
-        await this.state.storage.put(
-          this.LAST_ACTIVITY_ID,
-          lastActivityId + this.SUBCALLS * (this.REQUEST_LIMIT - 1)
-        )
-        return new Response(
-          JSON.stringify({
-            activities: activityResults,
+          const activityResults = await Promise.all(activityResultsPromise)
+
+          await this.state.storage.put(
+            this.LAST_ACTIVITY_ID,
+            lastActivityId + this.SUBCALLS * (this.REQUEST_LIMIT - 1)
+          )
+
+          // await this.state.storage.put(dateKey, activityResults)
+
+          return new Response(
+            JSON.stringify({
+              activities: activityResults,
+              lastActivityId,
+            })
+          )
+        } catch (e) {
+          return new Response(JSON.stringify({ error: e.message }), {
+            status: 500,
           })
-        )
+        }
       }
     }
     return new Response('Not implemented.')
