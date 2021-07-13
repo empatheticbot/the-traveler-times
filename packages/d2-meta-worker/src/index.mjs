@@ -11,23 +11,42 @@ async function getPGCRDurableObject(env) {
 
 async function getCurrentMeta(request, env) {
   let durableObject = await getPGCRDurableObject(env)
-
-  let response = await durableObject.fetch(
-    'https://d2-meta-worker.empatheticbot.workers.dev/meta'
-  )
-}
-
-async function updateMetaStats(request, env) {
-  let durableObject = await getPGCRDurableObject(env)
+  console.log(durableObject)
 
   let response = await durableObject.fetch(
     'https://d2-meta-worker.empatheticbot.workers.dev/'
   )
+  console.log(response)
+  if (response.ok) {
+    return response.json()
+  }
+  const contents = await response.json()
+  throw new Error(contents.error)
+}
+
+async function updateMetaStats(request, env) {
+  let durableObject = await getPGCRDurableObject(env)
+  console.log(durableObject)
+  let response = await durableObject.fetch(
+    'https://d2-meta-worker.empatheticbot.workers.dev/'
+  )
+  console.log(response)
+  if (response.ok) {
+    return response
+  }
 }
 
 export default {
-  fetch(request, env) {
-    return getCurrentMeta(request, env)
+  async fetch(request, env) {
+    console.log(env)
+    try {
+      const meta = await getCurrentMeta(request, env)
+      return new Response(JSON.stringify({ meta }))
+    } catch (e) {
+      return new Response(JSON.stringify({ error: e.message, env }), {
+        status: 500,
+      })
+    }
   },
   scheduled(event, env) {
     return updateMetaStats(env)

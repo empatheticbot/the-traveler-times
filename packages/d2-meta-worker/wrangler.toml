@@ -9,7 +9,7 @@ usage_model = "unbound"
 workers_dev = true
 
 [dev]
-port = 3010
+port = 3011
 
 [build]
 command = "npm install && npm run build"
@@ -18,10 +18,10 @@ command = "npm install && npm run build"
 format = "modules"
 main = "./index.mjs"
 
-[durable_object]
+[durable_objects]
 bindings = [
 { name = "PGCR_DURABLE_OBJECT", class_name = "D2PostGameCarnageReportObject" } # Binding to our DurableObjectExample class
 ]
 
-[triggers]
-crons = ["*/1 * * * *"]
+# [triggers]
+# crons = ["*/1 * * * *"]
