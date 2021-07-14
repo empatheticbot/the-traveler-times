@@ -32,7 +32,7 @@ export default class VendorHandler {
       )
 
       sales = await Promise.all(
-        items.map(async (item, i) => {
+        items.map(async (item) => {
           const sale = saleItems.find((i) => i.itemHash === item.hash)
 
           const classType = await this.definitionHandler.getCharacterClass(
@@ -93,19 +93,10 @@ export default class VendorHandler {
   async getStrippedDownVendorByHash(hash) {
     const completeVendorData = await this.getVendorByHash(hash)
 
-    const {
-      name,
-      description,
-      icon,
-      subtitle,
-      smallTransparentIcon,
-    } = completeVendorData.displayProperties
-    let {
-      nextRefreshDate,
-      lastRefreshDate,
-      enabled,
-      sales,
-    } = completeVendorData
+    const { name, description, icon, subtitle, smallTransparentIcon } =
+      completeVendorData.displayProperties
+    let { nextRefreshDate, lastRefreshDate, enabled, sales } =
+      completeVendorData
 
     const salesStripped = sales.map((sale) => {
       return {
@@ -115,10 +106,11 @@ export default class VendorHandler {
         classType: sale.classType || '',
         damageType:
           (sale.damageType && sale.damageType.displayProperties) || '',
-        subtitle: `${(sale.damageType &&
-          sale.damageType.displayProperties.name) ||
+        subtitle: `${
+          (sale.damageType && sale.damageType.displayProperties.name) ||
           sale.classType ||
-          ''} ${sale.itemTypeAndTierDisplayName}`.trim(),
+          ''
+        } ${sale.itemTypeAndTierDisplayName}`.trim(),
         description:
           sale.displayProperties.description ||
           sale.displaySource ||
