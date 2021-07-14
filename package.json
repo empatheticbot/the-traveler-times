@@ -39,5 +39,6 @@
   "devDependencies": {
     "lerna": "^4.0.0",
     "@cloudflare/wrangler": "1.17.0"
-  }
+  },
+  "dependencies": {}
 }

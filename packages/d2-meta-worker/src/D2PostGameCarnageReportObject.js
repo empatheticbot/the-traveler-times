@@ -36,6 +36,19 @@ export class D2PostGameCarnageReportObject {
     }
   }
 
+  async handleStoringResult(result) {
+    const date = new Date(result.period)
+    const dateString = date.toLocaleDateString('en', {
+      month: '2-digit',
+      year: 'numeric',
+      day: '2-digit',
+    })
+    let data = await this.state.storage.get(dateString)
+    for (const [key, value] of Object.entries(collectedWeaponData)) {
+    }
+    await this.state.storage.put(dateKey, activityResults)
+  }
+
   async fetch(request) {
     let url = new URL(request.url)
     console.log(url.pathname)
@@ -53,18 +66,75 @@ export class D2PostGameCarnageReportObject {
         try {
           let activityResultsPromise = []
           for (let i = 0; i < this.REQUEST_LIMIT; i++) {
-            let dateKey = new Date().toLocaleDateString('en', {
-              month: '2-digit',
-              year: 'numeric',
-              day: '2-digit',
-            })
-            let dateData = (await this.state.storage.get(dateKey)) || []
+            // let dateKey = new Date().toLocaleDateString('en', {
+            //   month: '2-digit',
+            //   year: 'numeric',
+            //   day: '2-digit',
+            // })
+            // let dateData = (await this.state.storage.get(dateKey)) || []
             const activityBatchStartingId = lastActivityId + i * this.SUBCALLS
             activityResultsPromise.push(
               this.handlePGCRRequest(activityBatchStartingId)
             )
           }
           const activityResults = await Promise.all(activityResultsPromise)
+
+          const mappedResults = activityResults.reduce((acc, value) => {
+            if (!value.period) {
+              return
+            }
+            const dateString = value.period.split('T')[0]
+
+            let currentDateData = acc[dateString] || {}
+            let dateWeaponData = currentDateData[value.id]
+            if (dateWeaponData) {
+              dateWeaponData = {
+                kills: dateWeaponData.kills + value.kills,
+                precisionKills:
+                  dateWeaponData.precisionKills + value.precisionKills,
+                usage: dateWeaponData.usage + 1,
+                id: value.id,
+                period: dateString,
+              }
+            } else {
+              dateWeaponData = {
+                kills: value.kills,
+                precisionKills: value.precisionKills,
+                usage: 1,
+                id: value.id,
+                period: dateString,
+              }
+            }
+            currentDateData[dateWeaponData.id] = dateWeaponData
+            acc[dateString] = currentDateData
+            return acc
+          }, {})
+
+          for (const [date, data] of Object.entries(mappedResults)) {
+            const storedData = await this.state.storage.get(date)
+
+            if (storedData) {
+              for (const [id, weaponData] of Object.entries(data)) {
+                const d = storedData[id]
+                if (d) {
+                  let mergedData = {
+                    kills: d.kills + weaponData.kills,
+                    precisionKills:
+                      d.precisionKills + weaponData.precisionKills,
+                    usage: d.usage + weaponData.usage,
+                    id: d.id,
+                    period: d.period,
+                  }
+                  storedData[id] = mergedData
+                } else {
+                  storedData[id] = weaponData
+                }
+              }
+              await this.state.storage.put(date, storedData)
+            } else {
+              await this.state.storage.put(date, data)
+            }
+          }
 
           await this.state.storage.put(
             this.LAST_ACTIVITY_ID,
@@ -75,7 +145,7 @@ export class D2PostGameCarnageReportObject {
 
           return new Response(
             JSON.stringify({
-              activities: activityResults,
+              activities: mappedResults,
               lastActivityId,
             })
           )
