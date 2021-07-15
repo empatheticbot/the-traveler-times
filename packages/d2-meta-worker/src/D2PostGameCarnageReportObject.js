@@ -3,6 +3,7 @@ export class D2PostGameCarnageReportObject {
   REQUEST_LIMIT = 48
   LAST_ACTIVITY_ID = 'LAST_ACTIVITY_ID'
   SUBCALLS = 50
+  LOG = 'initial'
 
   constructor(state, env) {
     this.state = state
@@ -36,18 +37,18 @@ export class D2PostGameCarnageReportObject {
     }
   }
 
-  async handleStoringResult(result) {
-    const date = new Date(result.period)
-    const dateString = date.toLocaleDateString('en', {
-      month: '2-digit',
-      year: 'numeric',
-      day: '2-digit',
-    })
-    let data = await this.state.storage.get(dateString)
-    for (const [key, value] of Object.entries(collectedWeaponData)) {
-    }
-    await this.state.storage.put(dateKey, activityResults)
-  }
+  // async handleStoringResult(result) {
+  //   const date = new Date(result.period)
+  //   const dateString = date.toLocaleDateString('en', {
+  //     month: '2-digit',
+  //     year: 'numeric',
+  //     day: '2-digit',
+  //   })
+  //   let data = await this.state.storage.get(dateString)
+  //   for (const [key, value] of Object.entries(collectedWeaponData)) {
+  //   }
+  //   await this.state.storage.put(dateKey, activityResults)
+  // }
 
   async fetch(request) {
     let url = new URL(request.url)
@@ -81,7 +82,7 @@ export class D2PostGameCarnageReportObject {
 
           const mappedResults = activityResults.reduce((acc, value) => {
             if (!value.period) {
-              return
+              return {}
             }
             const dateString = value.period.split('T')[0]
 
@@ -110,11 +111,14 @@ export class D2PostGameCarnageReportObject {
             return acc
           }, {})
 
+          this.LOG = `mappedResults`
+
           for (const [date, data] of Object.entries(mappedResults)) {
             const storedData = await this.state.storage.get(date)
-
+            this.LOG = 'storedData'
             if (storedData) {
               for (const [id, weaponData] of Object.entries(data)) {
+                this.LOG = 'data'
                 const d = storedData[id]
                 if (d) {
                   let mergedData = {
@@ -145,12 +149,12 @@ export class D2PostGameCarnageReportObject {
 
           return new Response(
             JSON.stringify({
-              activities: mappedResults,
+              activities: activityResults,
               lastActivityId,
             })
           )
         } catch (e) {
-          return new Response(JSON.stringify({ error: e.message }), {
+          return new Response(JSON.stringify({ error: e.message + this.LOG }), {
             status: 500,
           })
         }
