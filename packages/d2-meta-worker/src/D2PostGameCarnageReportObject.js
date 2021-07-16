@@ -52,6 +52,7 @@ export class D2PostGameCarnageReportObject {
 
   async fetch(request) {
     let url = new URL(request.url)
+    const dates = {}
     console.log(url.pathname)
     let lastActivityId =
       (await this.state.storage.get(this.LAST_ACTIVITY_ID)) || 8839666282
@@ -126,7 +127,7 @@ export class D2PostGameCarnageReportObject {
           this.LOG = `mappedResults`
 
           for (const [date, data] of Object.entries(mappedResults)) {
-            const storedData = await this.state.storage.get(date)
+            const storedData = await this.env.DESTINY_2_PGCR.get(date, 'json')
             this.LOG = 'storedData'
             if (storedData) {
               for (const [id, weaponData] of Object.entries(data)) {
@@ -146,9 +147,11 @@ export class D2PostGameCarnageReportObject {
                   storedData[id] = weaponData
                 }
               }
-              await this.state.storage.put(date, storedData)
+              dates[date] = storedData
+              // await this.state.storage.put(date, storedData)
             } else {
-              await this.state.storage.put(date, data)
+              dates[date] = data
+              // await this.state.storage.put(date, data)
             }
           }
 
@@ -163,6 +166,7 @@ export class D2PostGameCarnageReportObject {
             JSON.stringify({
               weaponData,
               lastActivityId,
+              dates,
             })
           )
         } catch (e) {
@@ -172,6 +176,5 @@ export class D2PostGameCarnageReportObject {
         }
       }
     }
-    return new Response('Not implemented.')
   }
 }

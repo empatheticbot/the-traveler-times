@@ -10,18 +10,21 @@ async function getPGCRDurableObject(env) {
 }
 
 async function getCurrentMeta(request, env) {
-  let durableObject = await getPGCRDurableObject(env)
-  console.log(durableObject)
-
-  let response = await durableObject.fetch(
-    'https://d2-meta-worker.empatheticbot.workers.dev/meta'
-  )
-  console.log(response)
-  if (response.ok) {
-    return response.json()
+  const dates = []
+  for (let i = 0; i < 8; i++) {
+    const currentDate = new Date()
+    currentDate.setDate(currentDate.getDate() - i)
+    const currentPeriodKey = currentDate.toISOString().split('T')[0]
+    dates.push(currentPeriodKey)
   }
-  const contents = await response.json()
-  throw new Error(contents.error)
+  console.log(dates[0])
+  const weaponData = await Promise.all(
+    dates.map(async (date) => {
+      const data = await env.DESTINY_2_PGCR.get(date, 'json')
+      return data
+    })
+  )
+  return weaponData
 }
 
 async function updateMetaStats(request, env) {
@@ -33,7 +36,12 @@ async function updateMetaStats(request, env) {
   )
   console.log(response.ok)
   if (response.ok) {
-    return response.json()
+    const { dates } = await response.json()
+
+    for (const [date, weaponData] of Object.entries(dates)) {
+      await env.DESTINY_2_PGCR.put(date, JSON.stringify(weaponData))
+    }
+    return 'Success'
   }
   const contents = await response.json()
   throw new Error(contents.error)
@@ -55,7 +63,8 @@ export default {
         }
       }
       default: {
-        return updateMetaStats({}, env)
+        const meta = await updateMetaStats({}, env)
+        return new Response(JSON.stringify(meta))
       }
     }
   },
