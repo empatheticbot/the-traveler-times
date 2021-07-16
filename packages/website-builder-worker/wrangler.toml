@@ -1,7 +1,7 @@
 account_id = "a13a5016df895961431fb659d5d3a635"
 name = "website-builder-worker"
 type = "javascript"
-usage_model = "unbound"
+usage_model = "bundled"
 workers_dev = true
 
 vars = {ACCOUNT_ID = "a13a5016df895961431fb659d5d3a635", PAGES_ID = "the-traveler-times"}
