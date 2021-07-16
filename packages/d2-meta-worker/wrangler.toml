@@ -20,7 +20,7 @@ main = "./index.mjs"
 
 [durable_objects]
 bindings = [
-{ name = "PGCR_DURABLE_OBJECT", class_name = "D2PostGameCarnageReportObject" } # Binding to our DurableObjectExample class
+  {name = "PGCR_DURABLE_OBJECT", class_name = "D2PostGameCarnageReportObject"}, # Binding to our DurableObjectExample class
 ]
 
 # [triggers]

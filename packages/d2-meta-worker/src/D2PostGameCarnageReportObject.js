@@ -54,25 +54,33 @@ export class D2PostGameCarnageReportObject {
     let url = new URL(request.url)
     console.log(url.pathname)
     let lastActivityId =
-      (await this.state.storage.get(this.LAST_ACTIVITY_ID)) || 8811166282
+      (await this.state.storage.get(this.LAST_ACTIVITY_ID)) || 8839666282
     //   if (!this.initializePromise) {
     //     this.initializePromise = this.initialize();
     // }
     // await this.initializePromise;
 
     switch (url.pathname) {
-      case '/meta':
-        break
+      case '/meta': {
+        const dates = []
+        for (let i = 0; i < 8; i++) {
+          const currentDate = new Date()
+          currentDate.setDate(currentDate.getDate() - 1)
+          const currentPeriodKey = currentDate.toISOString().split('T')[0]
+          dates.push(currentPeriodKey)
+        }
+        const weaponData = await Promise.all(
+          dates.map(async (date) => {
+            const data = await this.state.storage.get(date)
+            return data
+          })
+        )
+        return new Response(JSON.stringify(weaponData))
+      }
       default: {
         try {
           let activityResultsPromise = []
           for (let i = 0; i < this.REQUEST_LIMIT; i++) {
-            // let dateKey = new Date().toLocaleDateString('en', {
-            //   month: '2-digit',
-            //   year: 'numeric',
-            //   day: '2-digit',
-            // })
-            // let dateData = (await this.state.storage.get(dateKey)) || []
             const activityBatchStartingId = lastActivityId + i * this.SUBCALLS
             activityResultsPromise.push(
               this.handlePGCRRequest(activityBatchStartingId)
@@ -80,7 +88,11 @@ export class D2PostGameCarnageReportObject {
           }
           const activityResults = await Promise.all(activityResultsPromise)
 
-          const mappedResults = activityResults.reduce((acc, value) => {
+          const weaponData = activityResults
+            .map((activity) => activity.weaponData)
+            .flat()
+
+          const mappedResults = weaponData.reduce((acc, value) => {
             if (!value.period) {
               return {}
             }
@@ -149,7 +161,7 @@ export class D2PostGameCarnageReportObject {
 
           return new Response(
             JSON.stringify({
-              activities: activityResults,
+              weaponData,
               lastActivityId,
             })
           )
