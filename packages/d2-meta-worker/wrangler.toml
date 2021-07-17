@@ -1,7 +1,7 @@
 account_id = "a13a5016df895961431fb659d5d3a635"
 kv_namespaces = [
   {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
-  {binding = "DESTINY_2_CRUCIBLE_META", id = "ae40a0ee5ec649f5b0a98e7aef5deab0", preview_id = "60c98a0c878e44a08f02434de9cbfaa4"},
+  {binding = "DESTINY_2_CRUCIBLE_META", id = "ae40a0ee5ec649f5b0a98e7aef5deab0", preview_id = "ae40a0ee5ec649f5b0a98e7aef5deab0"},
 ]
 name = "d2-meta-worker"
 type = "javascript"
