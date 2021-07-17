@@ -35,6 +35,7 @@ export class D2PostGameCarnageReportObject {
     let lastActivityId = parseInt(
       await this.env.DESTINY_2_CRUCIBLE_META.get(this.LAST_ACTIVITY_ID)
     )
+    console.log(lastActivityId)
 
     try {
       let activityResultsPromise = []
@@ -50,6 +51,7 @@ export class D2PostGameCarnageReportObject {
         .map((activity) => activity.weaponData)
         .flat()
 
+      console.log(weaponData)
       const mappedResults = weaponData.reduce((acc, value) => {
         if (!value.period) {
           return {}
@@ -99,7 +101,6 @@ export class D2PostGameCarnageReportObject {
                 precisionKills: d.precisionKills + weaponData.precisionKills,
                 usage: d.usage + weaponData.usage,
                 id: d.id,
-                period: d.period,
               }
               storedData[id] = mergedData
             } else {
