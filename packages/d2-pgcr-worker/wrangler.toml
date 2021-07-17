@@ -17,6 +17,3 @@ command = "npm install && npm run build"
 [build.upload]
 format = "modules"
 main = "./index.mjs"
-
-# [triggers]
-# crons = ["*/1 * * * *"]

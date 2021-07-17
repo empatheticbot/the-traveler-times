@@ -23,5 +23,5 @@ bindings = [
   {name = "PGCR_DURABLE_OBJECT", class_name = "D2PostGameCarnageReportObject"}, # Binding to our DurableObjectExample class
 ]
 
-# [triggers]
-# crons = ["*/1 * * * *"]
+[triggers]
+crons = ["*/10 * * * *"]
