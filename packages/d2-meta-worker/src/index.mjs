@@ -71,12 +71,16 @@ async function updateMetaStats(request, env) {
   )
 
   if (response.ok) {
-    const { dates } = await response.json()
-
+    const { dates, activityResults, lastActivityId } = await response.json()
     for (const [date, weaponData] of Object.entries(dates)) {
+      console.log(weaponData)
       await env.DESTINY_2_CRUCIBLE_META.put(date, JSON.stringify(weaponData))
     }
-    return 'Success'
+    return {
+      lastActivityId,
+      dates,
+      activityResults,
+    }
   }
   const contents = await response.json()
   throw new Error(contents.error)

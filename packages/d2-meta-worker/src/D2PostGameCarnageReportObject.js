@@ -53,7 +53,7 @@ export class D2PostGameCarnageReportObject {
 
       console.log(weaponData)
       const mappedResults = weaponData.reduce((acc, value) => {
-        if (!value.period) {
+        if (!value || !value.period) {
           return {}
         }
         const dateString = value.period.split('T')[0]
@@ -122,6 +122,7 @@ export class D2PostGameCarnageReportObject {
           weaponData,
           lastActivityId,
           dates,
+          activityResults,
         })
       )
     } catch (e) {
