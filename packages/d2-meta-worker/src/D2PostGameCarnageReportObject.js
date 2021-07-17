@@ -32,7 +32,9 @@ export class D2PostGameCarnageReportObject {
 
   async fetch(request) {
     const dates = {}
-    let lastActivityId = await this.env.get(this.LAST_ACTIVITY_ID)
+    let lastActivityId = await this.env.DESTINY_2_CRUCIBLE_META.get(
+      this.LAST_ACTIVITY_ID
+    )
 
     try {
       let activityResultsPromise = []
@@ -109,7 +111,7 @@ export class D2PostGameCarnageReportObject {
           dates[date] = data
         }
       }
-      await this.env.put(
+      await this.env.DESTINY_2_CRUCIBLE_META.put(
         this.LAST_ACTIVITY_ID,
         astActivityId + this.SUBCALLS * (this.REQUEST_LIMIT - 1)
       )
