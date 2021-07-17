@@ -31,6 +31,9 @@ async function handlePostGameCarnageReportParsing(request, env) {
       const pgcrData = await bungieAPIHandler.getPostGameCarnageReport(
         currentActivityId
       )
+      if (pgcrData === null) {
+        break
+      }
       if (
         pgcrData &&
         pgcrData.activityDetails.modes.includes(5) &&
