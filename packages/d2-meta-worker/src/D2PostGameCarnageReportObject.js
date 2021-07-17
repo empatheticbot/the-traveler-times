@@ -127,7 +127,10 @@ export class D2PostGameCarnageReportObject {
           this.LOG = `mappedResults`
 
           for (const [date, data] of Object.entries(mappedResults)) {
-            const storedData = await this.env.DESTINY_2_PGCR.get(date, 'json')
+            const storedData = await this.env.DESTINY_2_CRUCIBLE_META.get(
+              date,
+              'json'
+            )
             this.LOG = 'storedData'
             if (storedData) {
               for (const [id, weaponData] of Object.entries(data)) {

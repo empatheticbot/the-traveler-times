@@ -1,7 +1,6 @@
 account_id = "a13a5016df895961431fb659d5d3a635"
 kv_namespaces = [
   {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
-  {binding = "TWITTER_API", id = "fb5926d96ac7431c8632b5c4413f7821", preview_id = "fb5926d96ac7431c8632b5c4413f7821"},
 ]
 name = "d2-lost-sector-worker"
 type = "javascript"

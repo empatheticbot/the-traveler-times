@@ -65,29 +65,6 @@ async function handlePostGameCarnageReportParsing(request, env) {
   }
 
   for (const [key, value] of Object.entries(collectedWeaponData)) {
-    const storedWeaponData = await env.DESTINY_2_PGCR.get(key, { type: 'json' })
-    if (storedWeaponData) {
-      await env.DESTINY_2_PGCR.put(
-        key,
-        JSON.stringify({
-          id: key,
-          kills: storedWeaponData.kills + value.kills,
-          precisionKills:
-            storedWeaponData.precisionKills + value.precisionKills,
-          usage: storedWeaponData.usage + 1,
-        })
-      )
-    } else {
-      await env.DESTINY_2_PGCR.put(
-        key,
-        JSON.stringify({
-          id: key,
-          kills: value.kills,
-          precisionKills: value.precisionKills,
-          usage: 1,
-        })
-      )
-    }
     weaponData.push({
       id: key,
       kills: value.kills,
@@ -95,7 +72,6 @@ async function handlePostGameCarnageReportParsing(request, env) {
       period: value.period,
     })
   }
-  await env.DESTINY_2_PGCR.put('CURRENT_ACTIVITY_INDEX', currentActivityId)
   return new Response(
     JSON.stringify({
       weaponData,
@@ -106,13 +82,6 @@ async function handlePostGameCarnageReportParsing(request, env) {
 
 export default {
   async fetch(request, env) {
-    // const weapons = await getWeapons(env)
-    // return new Response(
-    //   JSON.stringify({
-    //     kills: await getTopWeaponsBasedOnKills(weapons),
-    //     usage: await getTopWeaponsBasedOnUse(weapons),
-    //   })
-    // )
     return handlePostGameCarnageReportParsing(request, env)
   },
   async scheduled(event, env) {

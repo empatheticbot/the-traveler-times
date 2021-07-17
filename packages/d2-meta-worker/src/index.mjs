@@ -19,7 +19,7 @@ async function getCurrentMeta(request, env) {
   }
   const weaponData = await Promise.all(
     dates.map(async (date) => {
-      const data = await env.DESTINY_2_PGCR.get(date, 'json')
+      const data = await env.DESTINY_2_CRUCIBLE_META.get(date, 'json')
       return data
     })
   )
@@ -65,17 +65,16 @@ async function getCurrentMeta(request, env) {
 
 async function updateMetaStats(request, env) {
   let durableObject = await getPGCRDurableObject(env)
-  console.log(durableObject)
 
   let response = await durableObject.fetch(
     'https://d2-meta-worker.empatheticbot.workers.dev/'
   )
-  console.log(response.ok)
+
   if (response.ok) {
     const { dates } = await response.json()
 
     for (const [date, weaponData] of Object.entries(dates)) {
-      await env.DESTINY_2_PGCR.put(date, JSON.stringify(weaponData))
+      await env.DESTINY_2_CRUCIBLE_META.put(date, JSON.stringify(weaponData))
     }
     return 'Success'
   }
