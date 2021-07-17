@@ -1,7 +1,6 @@
 import {
   VendorHandler,
   TwitterHandler,
-  Hashes,
 } from '@the-traveler-times/bungie-api-gateway'
 import { getAda } from './ada'
 import { getBanshee } from './banshee'

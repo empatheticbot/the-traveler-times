@@ -3,14 +3,14 @@ export async function getWeapons(env) {
   let cursor = true
 
   while (cursor) {
-    const list = await env.DESTINY_2_PGCR.list(
+    const list = await env.DESTINY_2_CRUCIBLE_META.list(
       cursor === true ? {} : { cursor: cursor }
     )
 
     cursor = list.list_complete ? false : list.cursor
 
     for (const key of list.keys) {
-      weapons.push(await env.DESTINY_2_PGCR.get(key.name, 'json'))
+      weapons.push(await env.DESTINY_2_CRUCIBLE_META.get(key.name, 'json'))
     }
   }
   return weapons
