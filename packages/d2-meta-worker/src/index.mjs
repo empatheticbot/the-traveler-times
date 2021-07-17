@@ -11,20 +11,56 @@ async function getPGCRDurableObject(env) {
 
 async function getCurrentMeta(request, env) {
   const dates = []
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 7; i++) {
     const currentDate = new Date()
     currentDate.setDate(currentDate.getDate() - i)
     const currentPeriodKey = currentDate.toISOString().split('T')[0]
     dates.push(currentPeriodKey)
   }
-  console.log(dates[0])
   const weaponData = await Promise.all(
     dates.map(async (date) => {
       const data = await env.DESTINY_2_PGCR.get(date, 'json')
       return data
     })
   )
-  return weaponData
+  let completeUsage = {}
+  let totalKills = 0
+  let totalPrecisionKills = 0
+  let totalUsage = 0
+  weaponData.forEach((data) => {
+    if (!data) {
+      return
+    }
+    Object.values(data).forEach((weapon) => {
+      totalKills += weapon.kills
+      totalPrecisionKills += weapon.precisionKills
+      totalUsage += weapon.usage
+      const current = completeUsage[weapon.id]
+      if (current) {
+        completeUsage[weapon.id] = {
+          id: current.id,
+          period: current.period,
+          kills: weapon.kills + current.kills,
+          precisionKills: weapon.precisionKills + current.precisionKills,
+          usage: weapon.usage + current.usage,
+        }
+      } else {
+        completeUsage[weapon.id] = weapon
+      }
+    })
+  })
+  const allWeapons = Object.values(completeUsage)
+  return {
+    topKills: allWeapons.sort((a, b) => b.kills - a.kills).slice(0, 10),
+    topUsage: allWeapons.sort((a, b) => b.usage - a.usage).slice(0, 10),
+    allWeapons,
+    topPrecisionKills: allWeapons
+      .sort((a, b) => b.precisionKills - a.precisionKills)
+      .slice(0, 10),
+    totalUsage,
+    totalKills,
+    totalPrecisionKills,
+  }
 }
 
 async function updateMetaStats(request, env) {
