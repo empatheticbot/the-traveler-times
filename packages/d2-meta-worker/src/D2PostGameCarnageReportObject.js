@@ -1,8 +1,8 @@
 export class D2PostGameCarnageReportObject {
   PGCR_ENDPOINT = 'https://d2-pgcr-worker.empatheticbot.workers.dev'
-  REQUEST_LIMIT = 48
+  REQUEST_LIMIT = 49
   LAST_ACTIVITY_ID = 'CURRENT_ACTIVITY_ID'
-  SUBCALLS = 50
+  SUBCALLS = 49
   LOG = 'initial'
 
   constructor(state, env) {
