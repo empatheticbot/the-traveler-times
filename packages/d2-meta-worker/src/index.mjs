@@ -70,6 +70,13 @@ async function getCurrentMeta(request, env) {
     topPrecisionKills: allWeaponsWithDetails
       .sort((a, b) => b.precisionKills - a.precisionKills)
       .slice(0, 10),
+    topEfficiency: allWeaponsWithDetails
+      .sort((a, b) => {
+        const aEff = a.kills / a.usage
+        const bEff = b.kills / b.usage
+        return bEff - aEff
+      })
+      .slice(0, 10),
     totalUsage,
     totalKills,
     totalPrecisionKills,

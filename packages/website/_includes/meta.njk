@@ -5,5 +5,14 @@
 {% extends 'section.njk' %}
 
 {% block content %}
-  <p>Coming soon... (hopefully)</p>
+  <h3>Top Usage</h3>
+  <ul>
+    {% for weapon in meta.topUsage %}
+      <li>
+        <h4>{{weapon.displayProperties.name}}</h4>
+        <img src="https://bungie.net{{ weapon.displayProperties.icon | safe }}" alt="{{weapon.displayProperties.name}} weapon icon.">
+        <p>{{ weapon.kills / meta.totalKills}}</p>
+      </li>
+    {% endfor %}
+  </ul>
 {% endblock %}
