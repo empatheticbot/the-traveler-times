@@ -1,5 +1,4 @@
-import { BungieAPIHandler } from '@the-traveler-times/bungie-api-gateway'
-import { getWeaponDataFromPGCR } from './crucible'
+import { DefinitionHandler } from '@the-traveler-times/bungie-api-gateway'
 
 export { D2PostGameCarnageReportObject } from './D2PostGameCarnageReportObject'
 
@@ -10,6 +9,8 @@ async function getPGCRDurableObject(env) {
 }
 
 async function getCurrentMeta(request, env) {
+  const definitionHandler = new DefinitionHandler()
+  await definitionHandler.init(env.BUNGIE_API)
   const dates = []
   for (let i = 0; i < 7; i++) {
     const currentDate = new Date()
@@ -38,8 +39,7 @@ async function getCurrentMeta(request, env) {
       const current = completeUsage[weapon.id]
       if (current) {
         completeUsage[weapon.id] = {
-          id: current.id,
-          period: current.period,
+          ...current,
           kills: weapon.kills + current.kills,
           precisionKills: weapon.precisionKills + current.precisionKills,
           usage: weapon.usage + current.usage,
@@ -50,11 +50,24 @@ async function getCurrentMeta(request, env) {
     })
   })
   const allWeapons = Object.values(completeUsage)
+  const allWeaponsWithDetails = await Promise.all(
+    allWeapons.map(async (weapon) => {
+      const details = await definitionHandler.getInventoryItem(weapon.id)
+      return {
+        ...weapon,
+        ...details,
+      }
+    })
+  )
   return {
-    topKills: allWeapons.sort((a, b) => b.kills - a.kills).slice(0, 10),
-    topUsage: allWeapons.sort((a, b) => b.usage - a.usage).slice(0, 10),
-    allWeapons,
-    topPrecisionKills: allWeapons
+    topKills: allWeaponsWithDetails
+      .sort((a, b) => b.kills - a.kills)
+      .slice(0, 10),
+    topUsage: allWeaponsWithDetails
+      .sort((a, b) => b.usage - a.usage)
+      .slice(0, 10),
+    allWeaponsWithDetails,
+    topPrecisionKills: allWeaponsWithDetails
       .sort((a, b) => b.precisionKills - a.precisionKills)
       .slice(0, 10),
     totalUsage,
