@@ -1,6 +1,6 @@
 {
   "name": "@the-traveler-times/website",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "The web front-end to The Traveler Times site.",
   "main": "_site/index.js",
   "scripts": {
