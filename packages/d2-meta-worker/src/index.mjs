@@ -59,18 +59,19 @@ async function getCurrentMeta(request, env) {
       }
     })
   )
+  const topUsage = allWeaponsWithDetails
+    .sort((a, b) => b.usage - a.usage)
+    .slice(0, 100)
   return {
     topKills: allWeaponsWithDetails
       .sort((a, b) => b.kills - a.kills)
       .slice(0, 10),
-    topUsage: allWeaponsWithDetails
-      .sort((a, b) => b.usage - a.usage)
-      .slice(0, 10),
+    topUsage: topUsage.slice(0, 10),
     // allWeaponsWithDetails,
     topPrecisionKills: allWeaponsWithDetails
       .sort((a, b) => b.precisionKills - a.precisionKills)
       .slice(0, 10),
-    topEfficiency: allWeaponsWithDetails
+    topEfficiency: topUsage
       .sort((a, b) => {
         const aEff = a.kills / a.usage
         const bEff = b.kills / b.usage

@@ -5,14 +5,12 @@
 {% extends 'section.njk' %}
 
 {% block content %}
-  <h3>Top Usage</h3>
-  <ul>
-    {% for weapon in meta.topUsage %}
-      <li>
-        <h4>{{weapon.displayProperties.name}}</h4>
-        <img src="https://bungie.net{{ weapon.displayProperties.icon | safe }}" alt="{{weapon.displayProperties.name}} weapon icon.">
-        <p>{{ weapon.kills / meta.totalKills}}</p>
-      </li>
+  <h3>Top Efficiency</h3>
+  <ol>
+    {% for weapon in meta.topEfficiency %}
+      {% set name = weapon.displayProperties.name %}
+      {% set icon = weapon.displayProperties.icon  %}
+      <li class="item-wrapper">{% include 'item.njk' %}</li>
     {% endfor %}
-  </ul>
+  </ol>
 {% endblock %}
