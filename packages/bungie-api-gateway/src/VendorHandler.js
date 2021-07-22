@@ -93,8 +93,15 @@ export default class VendorHandler {
   async getStrippedDownVendorByHash(hash) {
     const completeVendorData = await this.getVendorByHash(hash)
 
-    const { name, description, icon, subtitle, smallTransparentIcon } =
-      completeVendorData.displayProperties
+    const {
+      name,
+      description,
+      icon,
+      subtitle,
+      smallTransparentIcon,
+      largeTransparentIcon,
+      largeIcon,
+    } = completeVendorData.displayProperties
     let { nextRefreshDate, lastRefreshDate, enabled, sales } =
       completeVendorData
 
@@ -134,6 +141,8 @@ export default class VendorHandler {
       icon,
       subtitle,
       smallTransparentIcon,
+      largeIcon,
+      largeTransparentIcon,
       lastRefreshDate,
       nextRefreshDate,
       hash,

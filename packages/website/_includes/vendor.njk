@@ -1,6 +1,6 @@
 <article class="vendor">
   <img 
-    src="https://bungie.net{{vendor.icon | safe}}" 
+    src="https://bungie.net{{vendor.largeIcon | safe}}" 
     alt="Image of the Destiny 2 vendor {{vendor.name | safe}}."
     class="vendor-image">
   <h2 class="vendor-name">{{vendor.name | safe}}</h2>
@@ -8,12 +8,18 @@
   <ul class="vendor-sales-list">
   {% for item in vendor.sales %}
     <li class="vendor-item">
+      <header class="vendor-item-header">
       <h3 class="vendor-item-name">{{item.name | safe}}</h3>
       <p class="vendor-item-description">{{item.subtitle | safe}}</p>
+      </header>
+            <img 
+        src="https://www.bungie.net{{ item.icon | safe }}"
+        alt="Icon for {{icon.name | safe}} item."
+        class="vendor-item-icon">
       <ul class="vendor-item-cost-list">
       {% for cost in item.costs %}
         <li class="vendor-item-cost">
-          <span>{{cost.quantity | safe}}</span>
+          <span class="vendor-item-cost-quantity">{{cost.quantity | safe}}</span>
           <img 
             src="https://www.bungie.net{{ cost.icon | safe }}"
             alt="Image of {{cost.name | safe}}, a cost to purchase {{item.name | safe}}."
@@ -21,11 +27,6 @@
         </li>
       {% endfor %}
       </ul>
-      <p class="vendor-item-cost">{{item.cost | safe}}</p>
-      <img 
-        src="https://www.bungie.net{{ item.icon | safe }}"
-        alt="Icon for {{icon.name | safe}} item."
-        class="vendor-item-icon">
     </li>
   {% endfor %}
   </ul>

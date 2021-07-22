@@ -1,9 +1,16 @@
 
 <section class="vendor-container">
+  {% set vendor = vendors.xur %}
+  {% if vendor.isAvailable %}
+    {% include 'vendor.njk' %}
+  {% endif %}
+
   {% set vendor = vendors.banshee %}
   {% include 'vendor.njk' %}
+  
   {% set vendor = vendors.ada %}
   {% include 'vendor.njk' %}
+  
   {% set vendor = vendors.spider %}
   {% include 'vendor.njk' %}
 </section>

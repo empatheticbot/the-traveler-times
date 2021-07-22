@@ -1,0 +1,63 @@
+.vendor {
+  max-width: 400px;
+}
+
+.vendor-image {
+  width: 100%;
+}
+
+.vendor-sales-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vendor-item {
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vendor-item-header {
+  flex: 4 1;
+  align-self: center;
+}
+
+.vendor-item-name {
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+
+.vendor-item-icon {
+  height: 64px;
+  width: 64px;
+  border-radius: 8px;
+}
+
+.vendor-item-cost-list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.vendor-item-cost {
+  display: flex;
+  margin: 0.5rem;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.vendor-item-cost-quantity {
+  font-weight: bold;
+  /* margin-right: .25rem; */
+  font-size: 1.2rem;
+  margin-top: 0.25rem;
+}
+
+.vendor-item-cost-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+}
