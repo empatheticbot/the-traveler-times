@@ -7,10 +7,10 @@
 {% block content %}
   <h3>Top Efficiency</h3>
   <ol>
-    {% for weapon in meta.topEfficiency %}
-      {% set name = weapon.displayProperties.name %}
-      {% set icon = weapon.displayProperties.icon  %}
-      <li class="item-wrapper">{% include 'item.njk' %}</li>
+    {% for item in meta.topEfficiency %}
+      {# {% set name = weapon.displayProperties.name %}
+      {% set icon = weapon.displayProperties.icon  %} #}
+      <li class="item-wrapper">{% include 'inventory-item.njk' %}</li>
     {% endfor %}
   </ol>
 {% endblock %}

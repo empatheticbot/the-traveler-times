@@ -7,27 +7,7 @@
   <p class="vendor-subtitle">{{vendor.subtitle | safe}}</p>
   <ul class="vendor-sales-list">
   {% for item in vendor.sales %}
-    <li class="vendor-item">
-      <header class="vendor-item-header">
-      <h3 class="vendor-item-name">{{item.name | safe}}</h3>
-      <p class="vendor-item-description">{{item.subtitle | safe}}</p>
-      </header>
-            <img 
-        src="https://www.bungie.net{{ item.icon | safe }}"
-        alt="Icon for {{icon.name | safe}} item."
-        class="vendor-item-icon">
-      <ul class="vendor-item-cost-list">
-      {% for cost in item.costs %}
-        <li class="vendor-item-cost">
-          <span class="vendor-item-cost-quantity">{{cost.quantity | safe}}</span>
-          <img 
-            src="https://www.bungie.net{{ cost.icon | safe }}"
-            alt="Image of {{cost.name | safe}}, a cost to purchase {{item.name | safe}}."
-            class="vendor-item-cost-icon">
-        </li>
-      {% endfor %}
-      </ul>
-    </li>
+    {% include "inventory-item.njk" %}
   {% endfor %}
   </ul>
 </article>

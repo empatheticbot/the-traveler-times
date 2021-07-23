@@ -1,0 +1,23 @@
+<li class="vendor-item">
+  <header class="vendor-item-header">
+  <h3 class="vendor-item-name">{{item.name or item.displayProperties.name | safe}}</h3>
+  <p class="vendor-item-description">{{item.subtitle | safe}}</p>
+  </header>
+        <img 
+    src="https://www.bungie.net{{ item.icon | safe }}"
+    alt="Icon for {{item.name | safe}} item."
+    class="vendor-item-icon">
+  {% if item.costs %}
+  <ul class="vendor-item-cost-list">
+  {% for cost in item.costs %}
+    <li class="vendor-item-cost">
+      <span class="vendor-item-cost-quantity">{{cost.quantity | safe}}</span>
+      <img 
+        src="https://www.bungie.net{{ cost.icon | safe }}"
+        alt="Image of {{cost.name | safe}}, a cost to purchase {{item.name | safe}}."
+        class="vendor-item-cost-icon">
+    </li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+</li>

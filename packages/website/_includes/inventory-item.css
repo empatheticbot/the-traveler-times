@@ -1,16 +1,4 @@
-.vendor-container {
-  max-width: 400px;
-}
-
-.vendor {
-  margin-bottom: 2rem;
-}
-
-.vendor-image {
-  width: 100%;
-}
-
-/* .vendor-sales-list {
+.vendor-sales-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -66,4 +54,4 @@
   width: 32px;
   height: 32px;
   border-radius: 4px;
-} */
+}
