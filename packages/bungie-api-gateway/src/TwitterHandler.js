@@ -72,7 +72,9 @@ export default class TwitterHandler {
           Authorization: `Bearer ${this.twitterToken}`,
         },
       })
-
+      if (!response.ok) {
+        throw new Error(response.statusText)
+      }
       return response.json()
     } catch (e) {
       console.error(`Failed to query twitter for recent tweets: ${e}`)
@@ -88,7 +90,7 @@ export default class TwitterHandler {
           searchStartDate,
           searchEndDate
         )
-        console.log(twitterQueryResult)
+        console.log('twitterQueryResult', twitterQueryResult)
 
         return { ...location, results: twitterQueryResult.meta.result_count }
       })
