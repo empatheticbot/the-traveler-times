@@ -1,6 +1,6 @@
 import BungieAPIHandler from './BungieAPIHandler'
 import DefinitionHandler from './DefinitionHandler'
-import { XUR, ZAVALA } from './Hashes'
+import { XUR, ZAVALA, SPIDER, ADA, BANSHEE } from './Hashes'
 
 export default class VendorHandler {
   async init(bungieApiEnv) {
@@ -68,7 +68,10 @@ export default class VendorHandler {
         nextRefreshDateXur.setUTCHours(17)
         nextRefreshDate = nextRefreshDateXur.toISOString()
       }
-      const lastRefreshDate = this.getVendorLastRefreshDate(nextRefreshDate)
+      const lastRefreshDate = this.getVendorLastRefreshDate(
+        hash,
+        nextRefreshDate
+      )
 
       if (vendorLiveData && vendorStaticData) {
         return {
@@ -84,9 +87,23 @@ export default class VendorHandler {
     }
   }
 
-  getVendorLastRefreshDate(nextRefreshDate) {
+  getVendorLastRefreshDate(hash, nextRefreshDate) {
     const lastRefreshDate = new Date(nextRefreshDate)
-    lastRefreshDate.setDate(lastRefreshDate.getDate() - 7)
+    const refreshIntervalMap = {
+      [BANSHEE]: 1,
+      [XUR]: 7,
+      [ADA]: 7,
+      [SPIDER]: 7,
+      [ZAVALA]: 7,
+    }
+    const refreshInterval = refreshIntervalMap[hash] || 1
+    const currentDate = new Date()
+    // This is fairly dumb, but occasionsally Bungie will update the nextRefreshDate before
+    // the current nextRefreshDate is reached. This can cause a couple hours where subtracting
+    // a week will still be ahead of the current date.
+    while (currentDate < lastRefreshDate) {
+      lastRefreshDate.setDate(lastRefreshDate.getDate() - refreshInterval)
+    }
     return lastRefreshDate.toISOString()
   }
 
