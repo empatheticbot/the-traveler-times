@@ -1,5 +1,9 @@
-.vendor {
+.vendor-container {
   max-width: 400px;
+}
+
+.vendor {
+  margin-bottom: 2rem;
 }
 
 .vendor-image {
@@ -13,9 +17,11 @@
 }
 
 .vendor-item {
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
   display: flex;
   flex-wrap: wrap;
+  border-top: 1px solid #888;
+  padding: 0.5rem 0 1rem;
 }
 
 .vendor-item-header {
@@ -29,8 +35,8 @@
 }
 
 .vendor-item-icon {
-  height: 64px;
-  width: 64px;
+  height: 48px;
+  width: 48px;
   border-radius: 8px;
 }
 
@@ -44,16 +50,16 @@
 
 .vendor-item-cost {
   display: flex;
-  margin: 0.5rem;
-  flex-direction: column-reverse;
+  margin: 0.5rem 1rem 0.5rem 0;
+  flex-direction: row-reverse;
   align-items: center;
 }
 
 .vendor-item-cost-quantity {
   font-weight: bold;
-  /* margin-right: .25rem; */
   font-size: 1.2rem;
-  margin-top: 0.25rem;
+  margin-left: 0.25rem;
+  min-width: 1.5rem;
 }
 
 .vendor-item-cost-icon {
