@@ -1,4 +1,11 @@
+{% set sectionTitle = 'Vendors' %}
+{% set sectionDate = null %}
+{% set sectionTimeDescripter = '' %}
+{% set sectionId = 'vendors' %}
+{% set sectionClass = 'vendor-container' %}
+{% extends 'section.njk' %}
 
+{% block content %}
 <section class="vendor-container">
   {% set vendor = vendors.xur %}
   {% if vendor.isAvailable %}
@@ -14,3 +21,4 @@
   {% set vendor = vendors.spider %}
   {% include 'vendor.njk' %}
 </section>
+{% endblock %}
