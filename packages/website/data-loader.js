@@ -16,7 +16,7 @@ async function getDataFrom(endpoint) {
   return JSON.parse(mockData)
 }
 
-async function fetchDataFromEndpoint(endpoint) {
+async function fetchDataFromEndpoint(endpoint, localEndpoint) {
   try {
     const data = await getDataFrom(endpoint)
     return data

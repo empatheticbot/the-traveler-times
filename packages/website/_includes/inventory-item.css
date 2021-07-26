@@ -1,15 +1,44 @@
-.vendor-sales-list {
+.meta-item-list {
+  counter-reset: inventory-item-list;
   list-style-type: none;
-  padding: 0;
-  margin: 0;
 }
 
-.vendor-item {
+.meta-item-list .meta-item {
+  counter-increment: inventory-item-list;
+}
+
+.inventory-item-number-separater {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.inventory-item-number-separater::before {
+  content: counter(inventory-item-list);
+  display: inline-block;
+  color: #ddd;
+  width: 1.25rem;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.inventory-item-number-separater::after {
+  content: ' ';
+  height: 2px;
+  width: 100%;
+  display: inline-block;
+  background: #ddd;
+  border-radius: 20px;
+}
+
+.inventory-item {
   /* margin: 1rem 0; */
   display: flex;
   flex-wrap: wrap;
-  border-top: 1px solid #bbb;
+  /* border-top: 1px solid #bbb; */
   padding: 0.5rem 0 1rem;
+  margin: 0 0 1rem 1.25rem;
+  align-items: flex-start;
 }
 
 .vendor-item-header {
@@ -26,7 +55,7 @@
   height: 48px;
   width: 48px;
   border-radius: 8px;
-  margin-right: 0.5rem;
+  /* margin-right: 0.5rem; */
 }
 
 .vendor-item-cost-list {

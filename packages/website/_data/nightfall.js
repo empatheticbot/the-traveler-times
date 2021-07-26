@@ -1,4 +1,3 @@
-const mockNightfallData = require('../mock-data/nightfall.json')
 const { fetchDataFromEndpoint } = require('../data-loader')
 
 const NIGHTFALL_ENDPOINT =
@@ -6,9 +5,5 @@ const NIGHTFALL_ENDPOINT =
 const DEV_NIGHTFALL_ENDPOINT = 'http://localhost:3003'
 
 module.exports = async function () {
-  return fetchDataFromEndpoint(
-    NIGHTFALL_ENDPOINT,
-    DEV_NIGHTFALL_ENDPOINT,
-    mockNightfallData
-  )
+  return fetchDataFromEndpoint(NIGHTFALL_ENDPOINT, DEV_NIGHTFALL_ENDPOINT)
 }

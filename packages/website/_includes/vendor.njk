@@ -7,7 +7,7 @@
   <p class="vendor-subtitle">{{vendor.subtitle | safe}}</p>
   <ul class="vendor-sales-list">
   {% for item in vendor.sales %}
-    {% include "inventory-item.njk" %}
+    <li class="vendor-item">{% include "inventory-item.njk" %}</li>
   {% endfor %}
   </ul>
 </article>
