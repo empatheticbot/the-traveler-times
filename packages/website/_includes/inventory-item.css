@@ -8,24 +8,25 @@
   /* margin: 1rem 0; */
   display: flex;
   flex-wrap: wrap;
-  border-top: 1px solid #888;
+  border-top: 1px solid #bbb;
   padding: 0.5rem 0 1rem;
 }
 
 .vendor-item-header {
   flex: 4 1;
-  align-self: center;
+  /* align-self: center; */
 }
 
 .vendor-item-name {
   font-weight: bold;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 .vendor-item-icon {
   height: 48px;
   width: 48px;
   border-radius: 8px;
+  margin-right: 0.5rem;
 }
 
 .vendor-item-cost-list {

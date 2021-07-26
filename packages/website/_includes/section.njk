@@ -1,15 +1,5 @@
 <section class="section-container {{ sectionClass }}">
-<header class="section-header">
-  <h3 class="section-title">{{ sectionTitle }}</h3>
-  <div class="section-divider"></div>
-  <p class="section-date">{% if sectionTimeDescripter %}
-  {{ sectionTimeDescripter + ' ' }}
-  {% endif %}
-  {% if sectionDate %}
-  <time id="{{ sectionId }}" datetime="{{ sectionDate | htmlDateString }}">{{ sectionDate | relativeDate }}</time>
-  {% endif %}
-  </p>
-</header>
+  <h2 class="section-title">{{ sectionTitle }}</h2>
  {% block content %}
    {{ content | safe }}
  {% endblock %}

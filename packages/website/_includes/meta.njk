@@ -5,12 +5,29 @@
 {% extends 'section.njk' %}
 
 {% block content %}
-  <h3>Top Efficiency</h3>
-  <ol>
+    <h3>Usage</h3>
+  <ol class="vendor-sales-list">
+    {% for item in meta.topUsage %}
+      {# {% set name = weapon.displayProperties.name %}
+      {% set icon = weapon.displayProperties.icon  %} #}
+      {% include 'inventory-item.njk' %}
+    {% endfor %}
+  </ol>
+      <h3>Kills</h3>
+
+  <ol class="vendor-sales-list">
+    {% for item in meta.topKills %}
+      {# {% set name = weapon.displayProperties.name %}
+      {% set icon = weapon.displayProperties.icon  %} #}
+      {% include 'inventory-item.njk' %}
+    {% endfor %}
+  </ol>
+  <h3>Efficiency</h3>
+  <ol class="vendor-sales-list">
     {% for item in meta.topEfficiency %}
       {# {% set name = weapon.displayProperties.name %}
       {% set icon = weapon.displayProperties.icon  %} #}
-      <li class="item-wrapper">{% include 'inventory-item.njk' %}</li>
+      {% include 'inventory-item.njk' %}
     {% endfor %}
   </ol>
 {% endblock %}

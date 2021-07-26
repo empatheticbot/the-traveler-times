@@ -1,11 +1,12 @@
 .section-container {
   /* margin: 2rem 0; */
-  margin: 1rem;
+  /* margin: 1rem; */
   flex: 10 10 300px;
+  padding: 0 1rem;
 }
 
 .section-container__weekly {
-  flex: 6 1 500px;
+  flex: 6 1 400px;
 }
 
 .section-container__season {
@@ -13,21 +14,26 @@
 }
 
 .section-container__meta {
-  flex: 10 1 600px;
+  flex: 1 260px;
+  border-right: 2px solid #333;
 }
 
 .section-header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   text-transform: uppercase;
   color: var(--color-text-light);
   font-size: 1rem;
 }
 
 .section-title {
-  font-weight: 800;
+  font-weight: bold;
+  font-family: 'Landmark Inline A', 'Landmark Inline B';
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
 }
 
 .section-divider {
