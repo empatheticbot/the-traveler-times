@@ -1,20 +1,24 @@
 const fetch = require('node-fetch')
+const fs = require('fs')
 
-async function getDataFrom(endpoint, developEndpoint = endpoint) {
-  const data = await fetch(
-    process.env.NODE_ENV !== 'production' ? developEndpoint : endpoint
-  )
-  const json = await data.json()
-  return json
+function getMockDataLocation(endpoint) {
+  return `mock-data/${endpoint.split('.')[0].substring(8)}.json`
 }
 
-async function fetchDataFromEndpoint(
-  endpoint,
-  developEndpoint = endpoint,
-  mockData = { isAvailable: false }
-) {
+async function getDataFrom(endpoint) {
+  if (process.env.NODE_ENV === 'production') {
+    const data = await fetch(endpoint)
+    const json = await data.json()
+    fs.writeFileSync(getMockDataLocation(endpoint), JSON.stringify(json))
+    return json
+  }
+  const mockData = fs.readFileSync(getMockDataLocation(endpoint))
+  return JSON.parse(mockData)
+}
+
+async function fetchDataFromEndpoint(endpoint) {
   try {
-    const data = await getDataFrom(endpoint, developEndpoint)
+    const data = await getDataFrom(endpoint)
     return data
   } catch (e) {
     if (process.env.NODE_ENV === 'production') {
@@ -22,7 +26,7 @@ async function fetchDataFromEndpoint(
       return { isAvailable: false }
     } else {
       console.error(
-        `Failed to fetch data from local endpoint: ${developEndpoint} \n ${e}`
+        `Failed to fetch data from local endpoint: ${endpoint} \n ${e}`
       )
     }
     return { ...mockData, isMockData: true }
