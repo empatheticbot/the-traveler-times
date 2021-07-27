@@ -4,6 +4,7 @@
   <header class="vendor-item-header">
     <h3 class="vendor-item-name">{{item.name or item.displayProperties.name | safe}}</h3>
     <p class="vendor-item-description">{{item.subtitle or subtitle | safe}}</p>
+    <p class="vendor-item-description">{{item.quantity | safe}}</p>
   </header>
   <img
     src="https://www.bungie.net{{ item.icon or item.displayProperties.icon | safe }}"

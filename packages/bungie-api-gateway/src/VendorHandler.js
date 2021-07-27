@@ -135,6 +135,7 @@ export default class VendorHandler {
           sale.classType ||
           ''
         } ${sale.itemTypeAndTierDisplayName}`.trim(),
+        quantity: sale.quantity,
         description:
           sale.displayProperties.description ||
           sale.displaySource ||
