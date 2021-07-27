@@ -1,0 +1,34 @@
+.meta {
+  flex: 1 260px;
+  padding: 0 1rem;
+  border-left: 3px solid var(--color-separater-primary);
+}
+
+.meta-title {
+  font-weight: bold;
+  font-family: 'Landmark Inline A', 'Landmark Inline B';
+  font-size: 2.5rem;
+  margin: 0 0 2rem 1.25rem;
+}
+
+.meta-subtitle {
+  font-size: 2rem;
+  margin: 3rem 0 0 1.25rem;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.meta-subtitle::before,
+.meta-subtitle::after {
+  content: '';
+  border-top: 3px solid var(--color-separater-secondary);
+  width: 100%;
+  margin-right: 1rem;
+}
+
+.meta-subtitle::after {
+  margin-right: 0;
+  margin-left: 1rem;
+}

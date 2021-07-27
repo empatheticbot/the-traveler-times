@@ -6,9 +6,9 @@ permalink: /
 ---
 {% extends 'base.njk' %}
 {% block content %}
-  {% include 'meta.njk' %}
-  {% include 'main.njk' %}
   {% include 'vendors.njk' %}
+  {% include 'main.njk' %}
+  {% include 'meta.njk' %}
   {% if not weekly.isAvailable %}
     {% include 'error.njk' %}
   {% endif %}

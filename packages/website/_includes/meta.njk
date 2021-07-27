@@ -1,37 +1,27 @@
-{% set sectionTitle = 'The Meta' %}
-{% set sectionTimeDescripter = 'Last 7 days' %}
-{% set sectionId = 'meta' %}
-{% set sectionClass = 'section-container__meta' %}
-{% extends 'section.njk' %}
+<article class="meta">
+  <h2 class="meta-title">The Meta</h2>
 
-{% block content %}
-    <h3>Usage</h3>
-  <ol class="meta-item-list">
+  <h3 class="meta-subtitle">Usage</h3>
+  <ol class="inventory-item-list">
     {% for item in meta.topUsage %}
-      {# {% set name = weapon.displayProperties.name %}
-      {% set icon = weapon.displayProperties.icon  %} #}
       {% set subtitle = [item.usage, meta.totalUsage] | getPrettyRatios %}
-      <li class="meta-item">{% include 'inventory-item.njk' %}</li>
+      <li class="inventory-item-container">{% include 'inventory-item.njk' %}</li>
     {% endfor %}
   </ol>
-      <h3>Kills</h3>
 
-  <ol class="meta-item-list">
+  <h3 class="meta-subtitle">Kills</h3>
+  <ol class="inventory-item-list">
     {% for item in meta.topKills %}
-      {# {% set name = weapon.displayProperties.name %}
-      {% set icon = weapon.displayProperties.icon  %} #}
       {% set subtitle = [item.kills, meta.totalKills] | getPrettyRatios %}
-      <li class="meta-item">{% include 'inventory-item.njk' %}</li>
+      <li class="inventory-item-container">{% include 'inventory-item.njk' %}</li>
     {% endfor %}
   </ol>
-  <h3>Efficiency</h3>
-  <ol class="meta-item-list">
+
+  <h3 class="meta-subtitle">Efficiency</h3>
+  <ol class="inventory-item-list">
     {% for item in meta.topEfficiency %}
-      {# {% set name = weapon.displayProperties.name %}
-      {% set icon = weapon.displayProperties.icon  %} #}
-      {# {% set item.subtitle = item.efficiency %} #}
       {% set subtitle = [item.kills, item.usage] | getEfficiency %}
-      <li class="meta-item">{% include 'inventory-item.njk' %}</li>
+      <li class="inventory-item-container">{% include 'inventory-item.njk' %}</li>
     {% endfor %}
   </ol>
-{% endblock %}
+</article>
