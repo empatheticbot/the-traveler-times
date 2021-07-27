@@ -9,7 +9,7 @@
     {% endfor %}
   </ol>
 
-  <h3 class="meta-subtitle">Kills</h3>
+  <h3 class="section-subtitle">Kills</h3>
   <ol class="inventory-item-list">
     {% for item in meta.topKills %}
       {% set subtitle = [item.kills, meta.totalKills] | getPrettyRatios %}
@@ -17,7 +17,7 @@
     {% endfor %}
   </ol>
 
-  <h3 class="meta-subtitle">Efficiency</h3>
+  <h3 class="section-subtitle">Efficiency</h3>
   <ol class="inventory-item-list">
     {% for item in meta.topEfficiency %}
       {% set subtitle = [item.kills, item.usage] | getEfficiency %}
