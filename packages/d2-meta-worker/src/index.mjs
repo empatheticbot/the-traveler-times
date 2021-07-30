@@ -59,25 +59,8 @@ async function getCurrentMeta(request, env) {
       }
     })
   )
-  const topUsage = allWeaponsWithDetails
-    .sort((a, b) => b.usage - a.usage)
-    .slice(0, 100)
   return {
-    topKills: allWeaponsWithDetails
-      .sort((a, b) => b.kills - a.kills)
-      .slice(0, 10),
-    topUsage: topUsage.slice(0, 10),
-    // allWeaponsWithDetails,
-    topPrecisionKills: allWeaponsWithDetails
-      .sort((a, b) => b.precisionKills - a.precisionKills)
-      .slice(0, 10),
-    topEfficiency: topUsage
-      .sort((a, b) => {
-        const aEff = a.kills / a.usage
-        const bEff = b.kills / b.usage
-        return bEff - aEff
-      })
-      .slice(0, 10),
+    weapons: allWeaponsWithDetails,
     totalUsage,
     totalKills,
     totalPrecisionKills,
@@ -115,7 +98,7 @@ export default {
       case '/meta': {
         try {
           const meta = await getCurrentMeta(request, env)
-          return new Response(JSON.stringify({ meta }))
+          return new Response(JSON.stringify({ ...meta, isAvailable: true }))
         } catch (e) {
           return new Response(JSON.stringify({ error: e.message, env }), {
             status: 500,

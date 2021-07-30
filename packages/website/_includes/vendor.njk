@@ -1,12 +1,12 @@
 <article class="vendor">
   <h3 class="section-subtitle">{{vendor.name | safe}}</h3>
   <p class="vendor-subtitle">{{vendor.subtitle | safe}}</p>
-  <img 
-    src="https://bungie.net{{vendor.largeIcon | safe}}" 
+  <img
+    src="https://bungie.net{{vendor.largeIcon | safe}}"
     alt="Image of the Destiny 2 vendor {{vendor.name | safe}}."
     class="vendor-image">
   <ul class="inventory-item-list">
-  {% for item in vendor.sales %}
+  {% for item in vendor.sales | vendorItems(vendor.name) %}
     <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
   {% endfor %}
   </ul>

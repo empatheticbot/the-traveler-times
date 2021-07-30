@@ -17,6 +17,11 @@ module.exports = function (eleventyConfig) {
     )
   })
 
+  eleventyConfig.addFilter('prettyNumber', (number) => {
+    console.log(number)
+    return number.toLocaleString()
+  })
+
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     let date = dateObj
@@ -46,6 +51,33 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('getEfficiency', ([kills, usage]) => {
     const ratio = kills / usage
     return `${ratio.toFixed(2)}`
+  })
+
+  eleventyConfig.addFilter('vendorItems', (sales, name) => {
+    switch (name) {
+      case 'Ada-1':
+      case 'Banshee-44':
+        return sales.filter((sale) => {
+          return (
+            sale.subtitle.includes('Mod') || sale.subtitle.includes('Material')
+          )
+        })
+      case 'Spider':
+        let includedGlimmerTradeSale = false
+        return sales.filter((sale) => {
+          let includeGlimmerSale = false
+          if (
+            sale.subtitle.includes('Basic Currency') &&
+            !includedGlimmerTradeSale
+          ) {
+            includeGlimmerSale = true
+            includedGlimmerTradeSale = true
+          }
+          return sale.name.includes('Purchase') || includeGlimmerSale
+        })
+      default:
+        return sales
+    }
   })
 
   // Get the first `n` elements of a collection.

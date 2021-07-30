@@ -1,9 +1,14 @@
 .vendors {
   display: flex;
   flex-wrap: wrap;
-  flex: 3 3 600px;
+  flex: 1 2 300px;
+  align-content: flex-start;
   padding: 0 1rem;
   border-right: 3px solid var(--color-separater-primary);
+}
+
+.vendors .section-title {
+  margin-bottom: 0;
 }
 
 .vendor {
@@ -27,4 +32,12 @@
 .vendor-image {
   width: 100%;
   padding-left: 1.25rem;
+}
+
+.vendor-item-quantity {
+  align-self: center;
+  margin: 0 0.5rem;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--color-text-secondary);
 }
