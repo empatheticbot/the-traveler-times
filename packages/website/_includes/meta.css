@@ -1,5 +1,16 @@
 .meta {
-  flex: 1 260px;
-  padding: 0 1rem;
-  border-left: 3px solid var(--color-separater-primary);
+  grid-area: meta;
+  margin: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  /* border-left: 3px solid var(--color-separater-primary); */
+}
+
+.meta-description {
+  width: 100%;
+}
+
+.meta-section {
+  flex: 1 1 200px;
+  margin: 0 2rem;
 }

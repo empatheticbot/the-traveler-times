@@ -2,7 +2,7 @@
   <summary>
     {{ list.name }}
   </summary>
-  <ol class="item-list">
+  <ol role="list" role="list" class="item-list">
     {% for item in list.items %}
       <li class="item-wrapper">{% include 'item.njk' %}</li>
     {% endfor %}

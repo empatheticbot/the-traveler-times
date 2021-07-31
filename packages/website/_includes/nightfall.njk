@@ -8,7 +8,7 @@
     <h2 class="iron-banner--heading">This Week's Nightfall Strike is <span class="xur-planet">{{ nightfall.activities[0].displayProperties.description | safe }}</span></h2>
     <p>{{ nightfall.displayProperties.description }}</p>
   </section>
-  <ol class="item-list">
+  <ol role="list" class="item-list">
     {# {% for activity in nightfall.activities %}
       <li class="item-wrapper">
       <div class="item-container">

@@ -5,7 +5,12 @@
     src="https://bungie.net{{vendor.largeIcon | safe}}"
     alt="Image of the Destiny 2 vendor {{vendor.name | safe}}."
     class="vendor-image">
-  <ul class="inventory-item-list">
+  <p class="vendor-text">{{vendor.description}}</p>
+  {% if vendor.location %}
+    <p class="">{{vendor.location.planet}}</p>
+    <p class="">{{vendor.location.area}}</p>
+  {% endif %}
+  <ul role="list" class="inventory-item-list">
   {% for item in vendor.sales | vendorItems(vendor.name) %}
     <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
   {% endfor %}

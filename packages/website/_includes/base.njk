@@ -23,18 +23,10 @@
       <img class="warning--icon" alt="Caution icon triangle with exclamation mark" src="/assets/warning.svg" /><p>This site is clearly not done. Some things are inaccurate or flat out broken. Keep this in mind when Xur's location is wrong! 😅</p>
     </div>
     {% include 'header.njk' %}
-    <main class="{% if templateClass %}{{ templateClass }}{% else %}main-container{% endif %}">
-      <section class="page-main-content">
-        {% block content %}
-          {{ content | safe }}
-        {% endblock %}
-      </section>
-      {# <hr class="line-separator-vertical--thick-light">
-      <section class="page-side-content">
-        {% block aside %}
-          {{ aside | safe }}
-        {% endblock %}
-      </section> #}
+    <main class="main-container">
+      {% block content %}
+        {{ content | safe }}
+      {% endblock %}
     </main>
     {% include 'footer.njk' %}
     <script>

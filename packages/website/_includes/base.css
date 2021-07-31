@@ -148,7 +148,7 @@ body {
 
 html,
 body {
-  font-family: "Verlag Cond A", "Verlag Cond B";
+  font-family: 'Verlag Cond A', 'Verlag Cond B';
   font-style: normal;
   font-weight: 500;
   color: var(--color-text);
@@ -183,9 +183,26 @@ h2 {
 }
 
 .main-container {
-  margin: 2rem;
-  display: flex;
-  flex-wrap: wrap;
+  /* margin: 2rem; */
+  display: grid;
+  grid-template: 'vendors today today meta';
+}
+
+@media screen and (max-width: 1000px) {
+  .main-container {
+    grid-template:
+      'vendors today today'
+      'meta meta meta';
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .main-container {
+    grid-template:
+      'vendors'
+      'today'
+      'meta';
+  }
 }
 
 .line-separator--thick-light,
@@ -200,14 +217,6 @@ h2 {
   width: 0;
   height: initial;
   margin: 0 1rem;
-}
-
-.page-main-content {
-  /* flex: 2 1 400px; */
-  flex: 6 2 500px;
-  display: flex;
-  margin: -1rem;
-  flex-wrap: wrap;
 }
 
 .page-side-content {

@@ -13,7 +13,7 @@
     alt="Icon for {{item.name or item.displayProperties.name | safe}} item."
     class="vendor-item-icon">
   {% if item.costs %}
-  <ul class="vendor-item-cost-list">
+  <ul role="list" class="vendor-item-cost-list">
   {% for cost in item.costs %}
     <li class="vendor-item-cost">
       <span class="vendor-item-cost-quantity">{{cost.quantity | prettyNumber | safe}}</span>

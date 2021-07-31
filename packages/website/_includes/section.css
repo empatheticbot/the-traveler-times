@@ -6,7 +6,7 @@
 }
 
 .section-container__weekly {
-  flex: 6 1 400px;
+  grid-area: today;
 }
 
 .section-container__season {
@@ -22,7 +22,7 @@
   font-weight: bold;
   font-family: 'Landmark Inline A', 'Landmark Inline B';
   font-size: 2.5rem;
-  margin: 0 0 2rem 1.25rem;
+  margin: 0 0 2rem;
   width: 100%;
 }
 
@@ -32,7 +32,7 @@
   color: var(--color-text-primary);
   display: flex;
   align-items: center;
-  padding: 1rem 0 1rem 1.25rem;
+  padding: 1rem 0;
   white-space: nowrap;
   width: 100%;
 }

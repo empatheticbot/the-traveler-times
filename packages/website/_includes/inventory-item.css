@@ -18,10 +18,11 @@ ul .inventory-item-number-separater::before {
   content: counter(inventory-item-list);
   display: inline-block;
   color: var(--color-text-secondary);
-  width: 1.25rem;
+  width: 1rem;
   font-size: 1rem;
   font-weight: 900;
   height: 1rem;
+  margin-left: -1rem;
 }
 
 ul .inventory-item-number-separater::before {
@@ -44,8 +45,12 @@ ul .inventory-item-number-separater::before {
   flex-wrap: wrap;
   /* border-top: 1px solid #bbb; */
   /* padding: 0.5rem 0 1rem; */
-  margin: 0 0 1rem 1.25rem;
+  margin: 0 0 1rem;
   align-items: flex-start;
+}
+
+.vendor .inventory-item {
+  margin: 0;
 }
 
 .vendor-item-header {
@@ -66,11 +71,13 @@ ul .inventory-item-number-separater::before {
   height: 48px;
   width: 48px;
   border-radius: 8px;
+  /* margin-left: 0.5rem; */
   /* margin-right: 0.5rem; */
 }
 
 .vendor-item-cost-list {
   display: flex;
+  flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
   margin: 0;

@@ -12,7 +12,7 @@
     <h2 class="article-title">Xûr Arrived, Location Unknown</h2>
     {% endif %}
   </header>
-  <ol class="item-list">
+  <ol role="list" class="item-list">
     {% for item in xur.sales %}
       {% set name = item.name %}
       {% set cost = item.costs[0].quantity %}

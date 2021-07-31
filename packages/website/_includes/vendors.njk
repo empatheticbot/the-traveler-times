@@ -1,6 +1,6 @@
 <article class="vendors">
   <h2 class="section-title">Vendors</h2>
-
+  <p class="vendor-text">Stay up to date on the  most interesting items vendors are currently offering.</p>
   {% set vendor = vendors.xur %}
   {% if vendor.isAvailable %}
     {% include 'vendor.njk' %}
@@ -8,10 +8,10 @@
 
   {% set vendor = vendors.banshee %}
   {% include 'vendor.njk' %}
-  
+
   {% set vendor = vendors.ada %}
   {% include 'vendor.njk' %}
-  
+
   {% set vendor = vendors.spider %}
   {% include 'vendor.njk' %}
 </article>
