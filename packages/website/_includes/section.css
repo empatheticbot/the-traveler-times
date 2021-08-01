@@ -7,6 +7,8 @@
 
 .section-container__weekly {
   grid-area: today;
+  border-right: 2px solid var(--color-separater-secondary);
+  border-left: 2px solid var(--color-separater-secondary);
 }
 
 .section-container__season {

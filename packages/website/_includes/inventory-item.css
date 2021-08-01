@@ -16,24 +16,22 @@
 ol .inventory-item-number-separater::before,
 ul .inventory-item-number-separater::before {
   content: counter(inventory-item-list);
-  display: inline-block;
   color: var(--color-text-secondary);
-  width: 1rem;
   font-size: 1rem;
   font-weight: 900;
-  height: 1rem;
-  margin-left: -1rem;
+  margin-right: 0.5rem;
 }
 
 ul .inventory-item-number-separater::before {
   content: '';
+  margin-right: 0;
+  height: 1rem;
 }
 
 .inventory-item-number-separater::after {
   content: '';
   height: 2px;
   width: 100%;
-  display: inline-block;
   background: var(--color-separater-secondary);
   border-radius: 20px;
 }

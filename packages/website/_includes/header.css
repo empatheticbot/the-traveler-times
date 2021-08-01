@@ -1,6 +1,14 @@
 .page-header {
-  display: flex;
-  align-items: flex-end;
+  margin: 2rem;
+}
+
+@media screen and (max-width: 1000px) {
+}
+
+@media screen and (max-width: 700px) {
+  .page-header {
+    margin: 1rem;
+  }
 }
 
 .page-header-left-section,
@@ -37,13 +45,13 @@
   margin: 3rem 2rem;
 }
 
-.page-header-heading-title {
+.page-header-title {
   grid-area: header;
   z-index: 10;
-  font-family: "Landmark Dimensional A", "Landmark Dimensional B";
+  font-family: 'Landmark Dimensional A', 'Landmark Dimensional B';
   font-style: normal;
   font-weight: 400;
-  letter-spacing: 0.5rem;
+  /* font-size: 4rem; */
 }
 
 .heading-title-logo {

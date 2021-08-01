@@ -183,9 +183,10 @@ h2 {
 }
 
 .main-container {
-  /* margin: 2rem; */
+  margin: 2rem;
   display: grid;
   grid-template: 'vendors today today meta';
+  gap: 2rem;
 }
 
 @media screen and (max-width: 1000px) {
@@ -194,14 +195,22 @@ h2 {
       'vendors today today'
       'meta meta meta';
   }
+
+  main .section-container__weekly {
+    border-right: none;
+  }
 }
 
 @media screen and (max-width: 700px) {
   .main-container {
+    margin: 1rem;
     grid-template:
       'vendors'
       'today'
       'meta';
+  }
+  main .section-container__weekly {
+    border-left: none;
   }
 }
 

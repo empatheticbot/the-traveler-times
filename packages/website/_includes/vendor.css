@@ -4,7 +4,8 @@
   flex-wrap: wrap;
   /* flex: 1 2 300px; */
   align-content: flex-start;
-  margin: 0 1rem;
+  gap: 2rem;
+  /* margin: 0 1rem; */
   /* border-right: 3px solid var(--color-separater-primary); */
 }
 
@@ -13,7 +14,7 @@
 } */
 
 .vendor {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   flex: 1 1 300px;
   flex-wrap: wrap;
   /* width: 300px; */
