@@ -11,6 +11,14 @@
         alt="Image of the Destiny 2 vendor {{vendor.name | safe}}."
         class="vendor-image">
       <p class="vendor-text">Lost sector found on <strong>{{ lostSector.master.destination.displayProperties.name | safe }}</strong>.</p>
+      <section class="lost-sector-modifiers-group">
+        <h4 class="lost-sector-modifier-heading">Rewards</h4>
+        <ul role="list" class="inventory-item-list lost-sector-list lost-sector-rewards-list">
+        {% for item in lostSector.master.rewards %}
+          <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+        {% endfor %}
+        </ul>
+      </section>
       <section class="lost-sector-modifiers-container">
         <section class="lost-sector-modifiers-group">
           <h4 class="lost-sector-modifier-heading">Champions</h4>
@@ -48,6 +56,14 @@
         alt="Image of the Destiny 2 vendor {{vendor.name | safe}}."
         class="vendor-image">
       <p class="vendor-text">Lost sector found on <strong>{{ lostSector.legend.destination.displayProperties.name | safe }}</strong>.</p>
+        <section class="lost-sector-modifiers-group">
+          <h4 class="lost-sector-modifier-heading">Rewards</h4>
+          <ul role="list" class="inventory-item-list lost-sector-list lost-sector-rewards-list">
+          {% for item in lostSector.legend.rewards %}
+            <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+          {% endfor %}
+          </ul>
+        </section>
       <section class="lost-sector-modifiers-container">
         <section class="lost-sector-modifiers-group">
           <h4 class="lost-sector-modifier-heading">Champions</h4>

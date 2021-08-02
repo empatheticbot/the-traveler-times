@@ -25,7 +25,18 @@
 }
 
 .lost-sector-list .inventory-item {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.lost-sector-rewards-list .vendor-item-icon {
+  width: 32px;
+  height: 32px;
+  filter: none;
+}
+
+.lost-sector-rewards-list .inventory-item {
+  margin-bottom: 0.5rem;
+  align-items: center;
 }
 
 .lost-sectors-container {
