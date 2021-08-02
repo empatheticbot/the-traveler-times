@@ -3,25 +3,78 @@
     <h2 class="section-title">Lost Sectors</h2>
     <p class="section-description">Today's lost sector locations and rewards.</p>
 
-    <article class="vendor">
-      <h3 class="section-subtitle">{{ lostSector.legend.displayProperties.name | safe}}</h3>
-      <p class="vendor-subtitle">{{ lostSector.legend.destination.displayProperties.name | safe}}</p>
+    <article class="vendor lost-sectors-container">
+      <h3 class="section-subtitle">{{ lostSector.master.name | safe}}</h3>
+      <p class="vendor-subtitle">{{ lostSector.master.difficulty | safe}}</p>
+      <img
+        src="https://bungie.net{{lostSector.master.pgcrImage | safe}}"
+        alt="Image of the Destiny 2 vendor {{vendor.name | safe}}."
+        class="vendor-image">
+      <p class="vendor-text">Lost sector found on <strong>{{ lostSector.master.destination.displayProperties.name | safe }}</strong>.</p>
+      <section class="lost-sector-modifiers-container">
+        <section class="lost-sector-modifiers-group">
+          <h4 class="lost-sector-modifier-heading">Champions</h4>
+          <ul role="list" class="inventory-item-list lost-sector-list">
+          {% for item in lostSector.master.modifiersOfInterest.champions %}
+            {% set subtitle = item.description %}
+            <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+          {% endfor %}
+          </ul>
+        </section>
+        <section class="lost-sector-modifiers-group">
+          <h4 class="lost-sector-modifier-heading">Damage</h4>
+          <ul role="list" class="inventory-item-list lost-sector-list">
+          {% for item in lostSector.master.modifiersOfInterest.damage %}
+            {% set subtitle = item.description %}
+            <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+          {% endfor %}
+          </ul>
+          <h4 class="lost-sector-modifier-heading">Misc</h4>
+          <ul role="list" class="inventory-item-list lost-sector-list">
+          {% for item in lostSector.master.modifiersOfInterest.misc %}
+            {% set subtitle = item.description %}
+            <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+          {% endfor %}
+          </ul>
+        </section>
+      </section>
+    </article>
+
+    <article class="vendor lost-sectors-container">
+      <h3 class="section-subtitle">{{ lostSector.legend.name | safe}}</h3>
+      <p class="vendor-subtitle">{{ lostSector.legend.difficulty | safe}}</p>
       <img
         src="https://bungie.net{{lostSector.legend.pgcrImage | safe}}"
         alt="Image of the Destiny 2 vendor {{vendor.name | safe}}."
         class="vendor-image">
-      <p class="vendor-text">{{vendor.description}}</p>
-      {% if vendor.location %}
-        <p class="vendor-text">Lost sector found on <strong>{{ lostSector.legend.destination.displayProperties.name | safe }}</strong>.</p>
-      {% endif %}
-      <ul role="list" class="inventory-item-list">
-      {% for modifier in lostSector.legend.modifiersOfInterest %}
-          {% set name = modifier.displayProperties.name %}
-          {% set icon = modifier.displayProperties.icon %}
-          {% set description = modifier.displayProperties.description %}
-        <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
-      {% endfor %}
-      </ul>
+      <p class="vendor-text">Lost sector found on <strong>{{ lostSector.legend.destination.displayProperties.name | safe }}</strong>.</p>
+      <section class="lost-sector-modifiers-container">
+        <section class="lost-sector-modifiers-group">
+          <h4 class="lost-sector-modifier-heading">Champions</h4>
+          <ul role="list" class="inventory-item-list lost-sector-list">
+          {% for item in lostSector.legend.modifiersOfInterest.champions %}
+            {% set subtitle = item.description %}
+            <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+          {% endfor %}
+          </ul>
+        </section>
+        <section class="lost-sector-modifiers-group">
+          <h4 class="lost-sector-modifier-heading">Damage</h4>
+          <ul role="list" class="inventory-item-list lost-sector-list">
+          {% for item in lostSector.legend.modifiersOfInterest.damage %}
+            {% set subtitle = item.description %}
+            <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+          {% endfor %}
+          </ul>
+          <h4 class="lost-sector-modifier-heading">Misc</h4>
+          <ul role="list" class="inventory-item-list lost-sector-list">
+          {% for item in lostSector.legend.modifiersOfInterest.misc %}
+            {% set subtitle = item.description %}
+            <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+          {% endfor %}
+          </ul>
+        </section>
+      </section>
     </article>
   </article>
 {% endif %}

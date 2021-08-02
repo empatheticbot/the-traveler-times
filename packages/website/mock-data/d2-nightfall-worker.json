@@ -1,1 +1,1863 @@
-{"milestoneHash":1942283261,"activities":[{"displayProperties":{"description":"The Disgraced","name":"Nightfall: Adept","icon":"/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png","hasIcon":true},"originalDisplayProperties":{"description":"The Disgraced","name":"Nightfall","icon":"/img/misc/missing_icon_d2.png","hasIcon":false},"selectionScreenDisplayProperties":{"description":"Show them the meaning of strength.\n\nMatchmaking: ON","name":"Adept","hasIcon":false},"releaseIcon":"/img/misc/missing_icon_d2.png","releaseTime":0,"completionUnlockHash":0,"activityLightLevel":1050,"destinationHash":3990611421,"placeHash":3747705955,"activityTypeHash":575572995,"tier":2,"pgcrImage":"/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg","rewards":[{"rewardItems":[{"itemHash":413607848,"quantity":0,"hasConditionalVisibility":false},{"itemHash":3632457717,"quantity":1,"hasConditionalVisibility":false},{"itemHash":2446280465,"quantity":0,"hasConditionalVisibility":false}]}],"modifiers":[{"displayProperties":{"description":"When defeated, Acolytes spawn fire pools that cause damage over time.","name":"Fire Pit","icon":"/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png","iconSequences":[{"frames":["/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png","/common/destiny2_content/icons/a88ff34ec69cd18c775b0fb140926359.png"]}],"hasIcon":true},"hash":3831042173,"index":1,"redacted":false,"blacklisted":false}],"isPlaylist":false,"challenges":[{"rewardSiteHash":0,"inhibitRewardsUnlockHash":0,"objectiveHash":2443315975,"dummyRewards":[{"itemHash":3114385605,"quantity":1,"hasConditionalVisibility":false}]},{"rewardSiteHash":0,"inhibitRewardsUnlockHash":0,"objectiveHash":2498962144,"dummyRewards":[{"itemHash":73143230,"quantity":0,"hasConditionalVisibility":false}]}],"optionalUnlockStrings":[],"inheritFromFreeRoam":false,"suppressOtherRewards":false,"playlistItems":[],"matchmaking":{"isMatchmade":false,"minParty":1,"maxParty":3,"maxPlayers":3,"requiresGuardianOath":false},"directActivityModeHash":547513715,"directActivityModeType":46,"loadouts":[],"activityModeHashes":[547513715,2394616003,1164760493],"activityModeTypes":[46,18,7],"isPvP":false,"insertionPoints":[],"activityLocationMappings":[],"hash":2136458564,"index":14,"redacted":false,"blacklisted":false,"activityHash":2136458564,"challengeObjectiveHashes":[],"modifierHashes":[3831042173],"booleanActivityOptions":{"889816721":true,"1118409995":true,"1658489738":false,"1724944068":true,"2988353107":false}},{"displayProperties":{"description":"The Disgraced","name":"Nightfall: Hero","icon":"/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png","hasIcon":true},"originalDisplayProperties":{"description":"The Disgraced","name":"Nightfall","icon":"/img/misc/missing_icon_d2.png","hasIcon":false},"selectionScreenDisplayProperties":{"description":"Be the hero you were born to be.\n\nMatchmaking: ON","name":"Hero","hasIcon":false},"releaseIcon":"/img/misc/missing_icon_d2.png","releaseTime":0,"completionUnlockHash":0,"activityLightLevel":1220,"destinationHash":3990611421,"placeHash":3747705955,"activityTypeHash":575572995,"tier":2,"pgcrImage":"/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg","rewards":[{"rewardItems":[{"itemHash":2791741337,"quantity":0,"hasConditionalVisibility":false},{"itemHash":3710069945,"quantity":1,"hasConditionalVisibility":false},{"itemHash":2422680742,"quantity":0,"hasConditionalVisibility":false},{"itemHash":3959886874,"quantity":0,"hasConditionalVisibility":false}]}],"modifiers":[{"displayProperties":{"description":"When defeated, Acolytes spawn fire pools that cause damage over time.","name":"Fire Pit","icon":"/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png","iconSequences":[{"frames":["/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png","/common/destiny2_content/icons/a88ff34ec69cd18c775b0fb140926359.png"]}],"hasIcon":true},"hash":3831042173,"index":1,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains Unstoppable Champions, which cannot be stopped without an Unstoppable mod.","name":"Champions: Unstoppable","icon":"/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png","iconSequences":[{"frames":["/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"]},{"frames":["/common/destiny2_content/icons/b86924e3d18708f40bdff3d41a4fc96b.png"]}],"hasIcon":true},"hash":3933343183,"index":3,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.","name":"Champions: Barrier","icon":"/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png","iconSequences":[{"frames":["/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"]},{"frames":["/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"]}],"hasIcon":true},"hash":605585258,"index":4,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains both Barrier and Unstoppable Champions, which cannot be stopped without an Anti-Barrier or Unstoppable mod, respectively.","name":"Champions: Hive","icon":"/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png","iconSequences":[{"frames":["/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"]},{"frames":["/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"]}],"hasIcon":true},"hash":3605663348,"index":5,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Extra Shields","name":"Hero Modifiers","icon":"/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png","iconSequences":[{"frames":["/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png","/common/destiny2_content/icons/d581c9099f1d6183735a1ad6b71d3bb5.png"]}],"hasIcon":true},"hash":1151235761,"index":6,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Incoming Arc and environmental damage increased.","name":"Navôta's Abandon","icon":"/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png","iconSequences":[{"frames":["/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png","/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"]}],"hasIcon":true},"hash":707502104,"index":7,"redacted":false,"blacklisted":false}],"isPlaylist":false,"challenges":[{"rewardSiteHash":0,"inhibitRewardsUnlockHash":0,"objectiveHash":2443315975,"dummyRewards":[{"itemHash":3114385605,"quantity":1,"hasConditionalVisibility":false}]},{"rewardSiteHash":0,"inhibitRewardsUnlockHash":0,"objectiveHash":2498962144,"dummyRewards":[{"itemHash":73143230,"quantity":0,"hasConditionalVisibility":false}]}],"optionalUnlockStrings":[],"inheritFromFreeRoam":false,"suppressOtherRewards":false,"playlistItems":[],"matchmaking":{"isMatchmade":false,"minParty":1,"maxParty":3,"maxPlayers":3,"requiresGuardianOath":false},"directActivityModeHash":547513715,"directActivityModeType":46,"loadouts":[],"activityModeHashes":[547513715,2394616003,1164760493],"activityModeTypes":[46,18,7],"isPvP":false,"insertionPoints":[],"activityLocationMappings":[],"hash":2136458567,"index":15,"redacted":false,"blacklisted":false,"activityHash":2136458567,"challengeObjectiveHashes":[],"modifierHashes":[3831042173,3933343183,605585258,3605663348,1151235761,707502104],"booleanActivityOptions":{"889816721":true,"1118409995":true,"1658489738":false,"1724944068":true,"2988353107":false}},{"displayProperties":{"description":"The Disgraced","name":"Nightfall: Legend","icon":"/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png","hasIcon":true},"originalDisplayProperties":{"description":"The Disgraced","name":"Nightfall","icon":"/img/misc/missing_icon_d2.png","hasIcon":false},"selectionScreenDisplayProperties":{"description":"Become legend. A strong fireteam is recommended to overcome this challenge.\n\nMatchmaking: OFF","name":"Legend","hasIcon":false},"releaseIcon":"/img/misc/missing_icon_d2.png","releaseTime":0,"completionUnlockHash":0,"activityLightLevel":1250,"destinationHash":3990611421,"placeHash":3747705955,"activityTypeHash":575572995,"tier":2,"pgcrImage":"/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg","rewards":[{"rewardItems":[{"itemHash":3311376862,"quantity":0,"hasConditionalVisibility":false},{"itemHash":914966308,"quantity":1,"hasConditionalVisibility":false},{"itemHash":94544133,"quantity":0,"hasConditionalVisibility":false}]}],"modifiers":[{"displayProperties":{"description":"When defeated, Acolytes spawn fire pools that cause damage over time.","name":"Fire Pit","icon":"/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png","iconSequences":[{"frames":["/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png","/common/destiny2_content/icons/a88ff34ec69cd18c775b0fb140926359.png"]}],"hasIcon":true},"hash":3831042173,"index":1,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains Unstoppable Champions, which cannot be stopped without an Unstoppable mod.","name":"Champions: Unstoppable","icon":"/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png","iconSequences":[{"frames":["/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"]},{"frames":["/common/destiny2_content/icons/b86924e3d18708f40bdff3d41a4fc96b.png"]}],"hasIcon":true},"hash":3933343183,"index":3,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.","name":"Champions: Barrier","icon":"/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png","iconSequences":[{"frames":["/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"]},{"frames":["/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"]}],"hasIcon":true},"hash":605585258,"index":4,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains both Barrier and Unstoppable Champions, which cannot be stopped without an Anti-Barrier or Unstoppable mod, respectively.","name":"Champions: Hive","icon":"/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png","iconSequences":[{"frames":["/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"]},{"frames":["/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"]}],"hasIcon":true},"hash":3605663348,"index":5,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"You will not be able to change your equipment after this activity starts.","name":"Equipment Locked","icon":"/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png","iconSequences":[{"frames":["/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png","/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png"]},{"frames":["/common/destiny2_content/icons/e1aaed9cfbf632293c6adfd6b72aff20.png"]}],"hasIcon":true},"hash":939324719,"index":8,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Enemy shields are highly resistant to all unmatched elemental damage.","name":"Match Game","icon":"/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png","iconSequences":[{"frames":["/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png"]},{"frames":["/common/destiny2_content/icons/bccf16e06ea092dcc13250a3c9b8786f.png"]}],"hasIcon":true},"hash":3859784314,"index":9,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Locked Loadout\nMatch Game\nExtra Shields","name":"Legend Modifiers","icon":"/common/destiny2_content/icons/45f40693f3014d50ea78d5f3f8fe2e04.png","iconSequences":[{"frames":["/common/destiny2_content/icons/45f40693f3014d50ea78d5f3f8fe2e04.png","/common/destiny2_content/icons/ffd3ac18af4d4e9320b12189c278d092.png"]}],"hasIcon":true},"hash":2301442403,"index":10,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Incoming Arc and environmental damage increased.","name":"Navôta's Abandon","icon":"/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png","iconSequences":[{"frames":["/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png","/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"]}],"hasIcon":true},"hash":707502104,"index":7,"redacted":false,"blacklisted":false}],"isPlaylist":false,"challenges":[{"rewardSiteHash":0,"inhibitRewardsUnlockHash":0,"objectiveHash":2443315975,"dummyRewards":[{"itemHash":3114385605,"quantity":1,"hasConditionalVisibility":false}]},{"rewardSiteHash":0,"inhibitRewardsUnlockHash":0,"objectiveHash":2498962144,"dummyRewards":[{"itemHash":73143230,"quantity":0,"hasConditionalVisibility":false}]}],"optionalUnlockStrings":[],"inheritFromFreeRoam":false,"suppressOtherRewards":false,"playlistItems":[],"matchmaking":{"isMatchmade":false,"minParty":1,"maxParty":3,"maxPlayers":3,"requiresGuardianOath":false},"directActivityModeHash":547513715,"directActivityModeType":46,"loadouts":[],"activityModeHashes":[547513715,2394616003,1164760493],"activityModeTypes":[46,18,7],"isPvP":false,"insertionPoints":[],"activityLocationMappings":[],"hash":2136458566,"index":16,"redacted":false,"blacklisted":false,"activityHash":2136458566,"challengeObjectiveHashes":[],"modifierHashes":[3831042173,3933343183,605585258,3605663348,939324719,3859784314,2301442403,707502104],"booleanActivityOptions":{"889816721":true,"1118409995":true,"1658489738":true,"1724944068":true,"2988353107":false}},{"displayProperties":{"description":"The Disgraced","name":"Nightfall: Master","icon":"/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png","hasIcon":true},"originalDisplayProperties":{"description":"The Disgraced","name":"Nightfall","icon":"/img/misc/missing_icon_d2.png","hasIcon":false},"selectionScreenDisplayProperties":{"description":"Masterful, like everything you do. Only the most powerful will not find instant defeat.\n\nMatchmaking: OFF","name":"Master","hasIcon":false},"releaseIcon":"/img/misc/missing_icon_d2.png","releaseTime":0,"completionUnlockHash":0,"activityLightLevel":1280,"destinationHash":3990611421,"placeHash":3747705955,"activityTypeHash":575572995,"tier":2,"pgcrImage":"/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg","rewards":[{"rewardItems":[{"itemHash":470135362,"quantity":0,"hasConditionalVisibility":false},{"itemHash":1800059134,"quantity":1,"hasConditionalVisibility":false},{"itemHash":116309391,"quantity":0,"hasConditionalVisibility":false},{"itemHash":94544133,"quantity":0,"hasConditionalVisibility":false}]}],"modifiers":[{"displayProperties":{"description":"When defeated, Acolytes spawn fire pools that cause damage over time.","name":"Fire Pit","icon":"/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png","iconSequences":[{"frames":["/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png","/common/destiny2_content/icons/a88ff34ec69cd18c775b0fb140926359.png"]}],"hasIcon":true},"hash":3831042173,"index":1,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains Unstoppable Champions, which cannot be stopped without an Unstoppable mod.","name":"Champions: Unstoppable","icon":"/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png","iconSequences":[{"frames":["/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"]},{"frames":["/common/destiny2_content/icons/b86924e3d18708f40bdff3d41a4fc96b.png"]}],"hasIcon":true},"hash":3933343183,"index":3,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.","name":"Champions: Barrier","icon":"/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png","iconSequences":[{"frames":["/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"]},{"frames":["/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"]}],"hasIcon":true},"hash":605585258,"index":4,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains both Barrier and Unstoppable Champions, which cannot be stopped without an Anti-Barrier or Unstoppable mod, respectively.","name":"Champions: Hive","icon":"/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png","iconSequences":[{"frames":["/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"]},{"frames":["/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"]}],"hasIcon":true},"hash":3605663348,"index":5,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Radar is disabled.","name":"Chaff","icon":"/common/destiny2_content/icons/256f65f21e36787d0dc5088f0ad38bae.png","iconSequences":[{"frames":["/common/destiny2_content/icons/256f65f21e36787d0dc5088f0ad38bae.png"]},{"frames":["/common/destiny2_content/icons/92cec07a31fd53abdd562800d7d41d12.png"]}],"hasIcon":true},"hash":98716109,"index":14,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"You will not be able to change your equipment after this activity starts.","name":"Equipment Locked","icon":"/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png","iconSequences":[{"frames":["/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png","/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png"]},{"frames":["/common/destiny2_content/icons/e1aaed9cfbf632293c6adfd6b72aff20.png"]}],"hasIcon":true},"hash":939324719,"index":8,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Enemy shields are highly resistant to all unmatched elemental damage.","name":"Match Game","icon":"/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png","iconSequences":[{"frames":["/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png"]},{"frames":["/common/destiny2_content/icons/bccf16e06ea092dcc13250a3c9b8786f.png"]}],"hasIcon":true},"hash":3859784314,"index":9,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Champions: Mob\nLocked Loadout\nMatch Game\nExtra Shields","name":"Master Modifiers","icon":"/common/destiny2_content/icons/05546f508343b402f6499fee3b29ed5c.png","iconSequences":[{"frames":["/common/destiny2_content/icons/05546f508343b402f6499fee3b29ed5c.png","/common/destiny2_content/icons/68efd8aad39b5de9733c214dfb48d2fc.png"]}],"hasIcon":true},"hash":2821775453,"index":15,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains additional Champions.","name":"Champions: Mob","icon":"/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png","iconSequences":[{"frames":["/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"]},{"frames":["/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"]}],"hasIcon":true},"hash":2834348323,"index":16,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Incoming Arc and environmental damage increased.","name":"Navôta's Abandon","icon":"/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png","iconSequences":[{"frames":["/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png","/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"]}],"hasIcon":true},"hash":707502104,"index":7,"redacted":false,"blacklisted":false}],"isPlaylist":false,"challenges":[{"rewardSiteHash":0,"inhibitRewardsUnlockHash":0,"objectiveHash":2443315975,"dummyRewards":[{"itemHash":3114385605,"quantity":1,"hasConditionalVisibility":false}]},{"rewardSiteHash":0,"inhibitRewardsUnlockHash":0,"objectiveHash":2498962144,"dummyRewards":[{"itemHash":73143230,"quantity":0,"hasConditionalVisibility":false}]}],"optionalUnlockStrings":[],"inheritFromFreeRoam":false,"suppressOtherRewards":false,"playlistItems":[],"matchmaking":{"isMatchmade":false,"minParty":1,"maxParty":3,"maxPlayers":3,"requiresGuardianOath":false},"directActivityModeHash":547513715,"directActivityModeType":46,"loadouts":[],"activityModeHashes":[547513715,2394616003,1164760493],"activityModeTypes":[46,18,7],"isPvP":false,"insertionPoints":[],"activityLocationMappings":[],"hash":2136458561,"index":17,"redacted":false,"blacklisted":false,"activityHash":2136458561,"challengeObjectiveHashes":[],"modifierHashes":[3831042173,3933343183,605585258,3605663348,98716109,939324719,3859784314,2821775453,2834348323,707502104],"booleanActivityOptions":{"494695110":true,"889816721":true,"1118409995":true,"1658489738":true,"1724944068":true,"2988353107":false}},{"displayProperties":{"description":"The Disgraced","name":"Nightfall: Grandmaster","icon":"/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png","hasIcon":true},"originalDisplayProperties":{"description":"The Disgraced","name":"Nightfall","icon":"/img/misc/missing_icon_d2.png","hasIcon":false},"selectionScreenDisplayProperties":{"description":"Good luck.\n\nMatchmaking: OFF","name":"Grandmaster","hasIcon":false},"releaseIcon":"/img/misc/missing_icon_d2.png","releaseTime":0,"completionUnlockHash":0,"activityLightLevel":1300,"destinationHash":3990611421,"placeHash":3747705955,"activityTypeHash":575572995,"tier":2,"pgcrImage":"/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg","rewards":[{"rewardItems":[{"itemHash":470135362,"quantity":0,"hasConditionalVisibility":false},{"itemHash":771478467,"quantity":1,"hasConditionalVisibility":false},{"itemHash":2119974556,"quantity":0,"hasConditionalVisibility":false}]}],"modifiers":[{"displayProperties":{"description":"When defeated, Acolytes spawn fire pools that cause damage over time.","name":"Fire Pit","icon":"/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png","iconSequences":[{"frames":["/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png","/common/destiny2_content/icons/a88ff34ec69cd18c775b0fb140926359.png"]}],"hasIcon":true},"hash":3831042173,"index":1,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains Unstoppable Champions, which cannot be stopped without an Unstoppable mod.","name":"Champions: Unstoppable","icon":"/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png","iconSequences":[{"frames":["/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"]},{"frames":["/common/destiny2_content/icons/b86924e3d18708f40bdff3d41a4fc96b.png"]}],"hasIcon":true},"hash":3933343183,"index":3,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.","name":"Champions: Barrier","icon":"/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png","iconSequences":[{"frames":["/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"]},{"frames":["/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"]}],"hasIcon":true},"hash":605585258,"index":4,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains both Barrier and Unstoppable Champions, which cannot be stopped without an Anti-Barrier or Unstoppable mod, respectively.","name":"Champions: Hive","icon":"/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png","iconSequences":[{"frames":["/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"]},{"frames":["/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"]}],"hasIcon":true},"hash":3605663348,"index":5,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Radar is disabled.","name":"Chaff","icon":"/common/destiny2_content/icons/256f65f21e36787d0dc5088f0ad38bae.png","iconSequences":[{"frames":["/common/destiny2_content/icons/256f65f21e36787d0dc5088f0ad38bae.png"]},{"frames":["/common/destiny2_content/icons/92cec07a31fd53abdd562800d7d41d12.png"]}],"hasIcon":true},"hash":98716109,"index":14,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Extinguish\nLimited Revives\nContest\nJoin In Progress Disabled\nChampions: Mob\nLocked Loadout\nMatch Game\nExtra Shields","name":"Grandmaster Modifiers","icon":"/common/destiny2_content/icons/11d1851959f173b417cccb8be23719d2.png","iconSequences":[{"frames":["/common/destiny2_content/icons/11d1851959f173b417cccb8be23719d2.png","/common/destiny2_content/icons/adfe01c37d57558a839e6b602340a9db.png"]}],"hasIcon":true},"hash":2265680717,"index":17,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Enemy shields are highly resistant to all unmatched elemental damage.","name":"Match Game","icon":"/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png","iconSequences":[{"frames":["/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png"]},{"frames":["/common/destiny2_content/icons/bccf16e06ea092dcc13250a3c9b8786f.png"]}],"hasIcon":true},"hash":3859784314,"index":9,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"You will not be able to change your equipment after this activity starts.","name":"Equipment Locked","icon":"/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png","iconSequences":[{"frames":["/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png","/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png"]},{"frames":["/common/destiny2_content/icons/e1aaed9cfbf632293c6adfd6b72aff20.png"]}],"hasIcon":true},"hash":939324719,"index":8,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"If your fireteam falls in a Restricted Zone, everyone is returned to orbit.","name":"Extinguish","icon":"/common/destiny2_content/icons/36a40c8c5becb4c848e0dea562259b5a.png","iconSequences":[{"frames":["/common/destiny2_content/icons/36a40c8c5becb4c848e0dea562259b5a.png"]},{"frames":["/common/destiny2_content/icons/2d9e9fb8ba4d012fad06924db9beff56.png"]}],"hasIcon":true},"hash":945795273,"index":18,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Limited fireteam revives. Gain additional revives by defeating Champions.","name":"Limited Revives","icon":"/common/destiny2_content/icons/be42fd65184d2a22579a170ff1abed28.png","iconSequences":[{"frames":["/common/destiny2_content/icons/be42fd65184d2a22579a170ff1abed28.png","/common/destiny2_content/icons/38b7463eb439f539efdbb121bd70cb82.png"]}],"hasIcon":true},"hash":376634891,"index":19,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"This mode contains additional Champions.","name":"Champions: Mob","icon":"/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png","iconSequences":[{"frames":["/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"]},{"frames":["/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"]}],"hasIcon":true},"hash":2834348323,"index":16,"redacted":false,"blacklisted":false},{"displayProperties":{"description":"Incoming Arc and environmental damage increased.","name":"Navôta's Abandon","icon":"/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png","iconSequences":[{"frames":["/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png","/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"]}],"hasIcon":true},"hash":707502104,"index":7,"redacted":false,"blacklisted":false}],"isPlaylist":false,"challenges":[{"rewardSiteHash":0,"inhibitRewardsUnlockHash":0,"objectiveHash":2443315975,"dummyRewards":[{"itemHash":3114385605,"quantity":1,"hasConditionalVisibility":false}]},{"rewardSiteHash":0,"inhibitRewardsUnlockHash":0,"objectiveHash":2498962144,"dummyRewards":[{"itemHash":73143230,"quantity":0,"hasConditionalVisibility":false}]}],"optionalUnlockStrings":[],"inheritFromFreeRoam":false,"suppressOtherRewards":false,"playlistItems":[],"matchmaking":{"isMatchmade":false,"minParty":1,"maxParty":3,"maxPlayers":3,"requiresGuardianOath":false},"directActivityModeHash":547513715,"directActivityModeType":46,"loadouts":[],"activityModeHashes":[547513715,2394616003,1164760493],"activityModeTypes":[46,18,7],"isPvP":false,"insertionPoints":[],"activityLocationMappings":[],"hash":2136458560,"index":18,"redacted":false,"blacklisted":false,"activityHash":2136458560,"challengeObjectiveHashes":[],"modifierHashes":[3831042173,3933343183,605585258,3605663348,98716109,2265680717,3859784314,939324719,945795273,376634891,2834348323,707502104],"booleanActivityOptions":{"494695110":true,"701670507":true,"889816721":true,"1118409995":true,"1273646627":true,"1631522863":true,"1633278527":true,"1724944068":true,"2286717819":true,"2395430749":false,"2988353107":false}}],"startDate":"2021-07-27T17:00:00Z","endDate":"2021-08-03T17:00:00Z","order":5000,"modifierGroups":[{"displayProperties":{"description":"When defeated, Acolytes spawn fire pools that cause damage over time.","name":"Fire Pit","icon":"/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png","iconSequences":[{"frames":["/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png","/common/destiny2_content/icons/a88ff34ec69cd18c775b0fb140926359.png"]}],"hasIcon":true},"hash":3831042173,"index":1,"redacted":false,"blacklisted":false,"name":"Adept","isReusedInOtherDifficulties":true},{"displayProperties":{"description":"This mode contains Unstoppable Champions, which cannot be stopped without an Unstoppable mod.","name":"Champions: Unstoppable","icon":"/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png","iconSequences":[{"frames":["/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"]},{"frames":["/common/destiny2_content/icons/b86924e3d18708f40bdff3d41a4fc96b.png"]}],"hasIcon":true},"hash":3933343183,"index":3,"redacted":false,"blacklisted":false,"name":"Hero","isReusedInOtherDifficulties":true},{"displayProperties":{"description":"This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.","name":"Champions: Barrier","icon":"/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png","iconSequences":[{"frames":["/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"]},{"frames":["/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"]}],"hasIcon":true},"hash":605585258,"index":4,"redacted":false,"blacklisted":false,"name":"Hero","isReusedInOtherDifficulties":true},{"displayProperties":{"description":"This mode contains both Barrier and Unstoppable Champions, which cannot be stopped without an Anti-Barrier or Unstoppable mod, respectively.","name":"Champions: Hive","icon":"/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png","iconSequences":[{"frames":["/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"]},{"frames":["/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"]}],"hasIcon":true},"hash":3605663348,"index":5,"redacted":false,"blacklisted":false,"name":"Hero","isReusedInOtherDifficulties":true},{"displayProperties":{"description":"Extra Shields","name":"Hero Modifiers","icon":"/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png","iconSequences":[{"frames":["/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png","/common/destiny2_content/icons/d581c9099f1d6183735a1ad6b71d3bb5.png"]}],"hasIcon":true},"hash":1151235761,"index":6,"redacted":false,"blacklisted":false,"name":"Hero","isReusedInOtherDifficulties":false},{"displayProperties":{"description":"Incoming Arc and environmental damage increased.","name":"Navôta's Abandon","icon":"/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png","iconSequences":[{"frames":["/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png","/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"]}],"hasIcon":true},"hash":707502104,"index":7,"redacted":false,"blacklisted":false,"name":"Hero","isReusedInOtherDifficulties":true},{"displayProperties":{"description":"You will not be able to change your equipment after this activity starts.","name":"Equipment Locked","icon":"/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png","iconSequences":[{"frames":["/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png","/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png"]},{"frames":["/common/destiny2_content/icons/e1aaed9cfbf632293c6adfd6b72aff20.png"]}],"hasIcon":true},"hash":939324719,"index":8,"redacted":false,"blacklisted":false,"name":"Legend","isReusedInOtherDifficulties":true},{"displayProperties":{"description":"Enemy shields are highly resistant to all unmatched elemental damage.","name":"Match Game","icon":"/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png","iconSequences":[{"frames":["/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png"]},{"frames":["/common/destiny2_content/icons/bccf16e06ea092dcc13250a3c9b8786f.png"]}],"hasIcon":true},"hash":3859784314,"index":9,"redacted":false,"blacklisted":false,"name":"Legend","isReusedInOtherDifficulties":true},{"displayProperties":{"description":"Locked Loadout\nMatch Game\nExtra Shields","name":"Legend Modifiers","icon":"/common/destiny2_content/icons/45f40693f3014d50ea78d5f3f8fe2e04.png","iconSequences":[{"frames":["/common/destiny2_content/icons/45f40693f3014d50ea78d5f3f8fe2e04.png","/common/destiny2_content/icons/ffd3ac18af4d4e9320b12189c278d092.png"]}],"hasIcon":true},"hash":2301442403,"index":10,"redacted":false,"blacklisted":false,"name":"Legend","isReusedInOtherDifficulties":false},{"displayProperties":{"description":"Radar is disabled.","name":"Chaff","icon":"/common/destiny2_content/icons/256f65f21e36787d0dc5088f0ad38bae.png","iconSequences":[{"frames":["/common/destiny2_content/icons/256f65f21e36787d0dc5088f0ad38bae.png"]},{"frames":["/common/destiny2_content/icons/92cec07a31fd53abdd562800d7d41d12.png"]}],"hasIcon":true},"hash":98716109,"index":14,"redacted":false,"blacklisted":false,"name":"Master","isReusedInOtherDifficulties":true},{"displayProperties":{"description":"Champions: Mob\nLocked Loadout\nMatch Game\nExtra Shields","name":"Master Modifiers","icon":"/common/destiny2_content/icons/05546f508343b402f6499fee3b29ed5c.png","iconSequences":[{"frames":["/common/destiny2_content/icons/05546f508343b402f6499fee3b29ed5c.png","/common/destiny2_content/icons/68efd8aad39b5de9733c214dfb48d2fc.png"]}],"hasIcon":true},"hash":2821775453,"index":15,"redacted":false,"blacklisted":false,"name":"Master","isReusedInOtherDifficulties":false},{"displayProperties":{"description":"This mode contains additional Champions.","name":"Champions: Mob","icon":"/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png","iconSequences":[{"frames":["/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"]},{"frames":["/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"]}],"hasIcon":true},"hash":2834348323,"index":16,"redacted":false,"blacklisted":false,"name":"Master","isReusedInOtherDifficulties":true},{"displayProperties":{"description":"Extinguish\nLimited Revives\nContest\nJoin In Progress Disabled\nChampions: Mob\nLocked Loadout\nMatch Game\nExtra Shields","name":"Grandmaster Modifiers","icon":"/common/destiny2_content/icons/11d1851959f173b417cccb8be23719d2.png","iconSequences":[{"frames":["/common/destiny2_content/icons/11d1851959f173b417cccb8be23719d2.png","/common/destiny2_content/icons/adfe01c37d57558a839e6b602340a9db.png"]}],"hasIcon":true},"hash":2265680717,"index":17,"redacted":false,"blacklisted":false,"name":"Grandmaster","isReusedInOtherDifficulties":false},{"displayProperties":{"description":"If your fireteam falls in a Restricted Zone, everyone is returned to orbit.","name":"Extinguish","icon":"/common/destiny2_content/icons/36a40c8c5becb4c848e0dea562259b5a.png","iconSequences":[{"frames":["/common/destiny2_content/icons/36a40c8c5becb4c848e0dea562259b5a.png"]},{"frames":["/common/destiny2_content/icons/2d9e9fb8ba4d012fad06924db9beff56.png"]}],"hasIcon":true},"hash":945795273,"index":18,"redacted":false,"blacklisted":false,"name":"Grandmaster","isReusedInOtherDifficulties":false},{"displayProperties":{"description":"Limited fireteam revives. Gain additional revives by defeating Champions.","name":"Limited Revives","icon":"/common/destiny2_content/icons/be42fd65184d2a22579a170ff1abed28.png","iconSequences":[{"frames":["/common/destiny2_content/icons/be42fd65184d2a22579a170ff1abed28.png","/common/destiny2_content/icons/38b7463eb439f539efdbb121bd70cb82.png"]}],"hasIcon":true},"hash":376634891,"index":19,"redacted":false,"blacklisted":false,"name":"Grandmaster","isReusedInOtherDifficulties":false}],"isAvailable":true}
+{
+  "milestoneHash": 1942283261,
+  "activities": [
+    {
+      "displayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: Adept",
+        "icon": "/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png",
+        "hasIcon": true
+      },
+      "originalDisplayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall",
+        "icon": "/img/misc/missing_icon_d2.png",
+        "hasIcon": false
+      },
+      "selectionScreenDisplayProperties": {
+        "description": "Show them the meaning of strength.\n\nMatchmaking: ON",
+        "name": "Adept",
+        "hasIcon": false
+      },
+      "releaseIcon": "/img/misc/missing_icon_d2.png",
+      "releaseTime": 0,
+      "completionUnlockHash": 0,
+      "activityLightLevel": 1050,
+      "destinationHash": 3990611421,
+      "placeHash": 3747705955,
+      "activityTypeHash": 575572995,
+      "tier": 2,
+      "pgcrImage": "/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg",
+      "rewards": [
+        {
+          "rewardItems": [
+            {
+              "itemHash": 413607848,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            },
+            {
+              "itemHash": 3632457717,
+              "quantity": 1,
+              "hasConditionalVisibility": false
+            },
+            {
+              "itemHash": 2446280465,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            }
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "displayProperties": {
+            "description": "When defeated, Acolytes spawn fire pools that cause damage over time.",
+            "name": "Fire Pit",
+            "icon": "/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png",
+                  "/common/destiny2_content/icons/a88ff34ec69cd18c775b0fb140926359.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3831042173,
+          "index": 1,
+          "redacted": false,
+          "blacklisted": false
+        }
+      ],
+      "isPlaylist": false,
+      "challenges": [
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2443315975,
+          "dummyRewards": [
+            {
+              "itemHash": 3114385605,
+              "quantity": 1,
+              "hasConditionalVisibility": false
+            }
+          ]
+        },
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2498962144,
+          "dummyRewards": [
+            {
+              "itemHash": 73143230,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            }
+          ]
+        }
+      ],
+      "optionalUnlockStrings": [],
+      "inheritFromFreeRoam": false,
+      "suppressOtherRewards": false,
+      "playlistItems": [],
+      "matchmaking": {
+        "isMatchmade": false,
+        "minParty": 1,
+        "maxParty": 3,
+        "maxPlayers": 3,
+        "requiresGuardianOath": false
+      },
+      "directActivityModeHash": 547513715,
+      "directActivityModeType": 46,
+      "loadouts": [],
+      "activityModeHashes": [
+        547513715,
+        2394616003,
+        1164760493
+      ],
+      "activityModeTypes": [
+        46,
+        18,
+        7
+      ],
+      "isPvP": false,
+      "insertionPoints": [],
+      "activityLocationMappings": [],
+      "hash": 2136458564,
+      "index": 14,
+      "redacted": false,
+      "blacklisted": false,
+      "activityHash": 2136458564,
+      "challengeObjectiveHashes": [],
+      "modifierHashes": [
+        3831042173
+      ],
+      "booleanActivityOptions": {
+        "889816721": true,
+        "1118409995": true,
+        "1658489738": false,
+        "1724944068": true,
+        "2988353107": false
+      }
+    },
+    {
+      "displayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: Hero",
+        "icon": "/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png",
+        "hasIcon": true
+      },
+      "originalDisplayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall",
+        "icon": "/img/misc/missing_icon_d2.png",
+        "hasIcon": false
+      },
+      "selectionScreenDisplayProperties": {
+        "description": "Be the hero you were born to be.\n\nMatchmaking: ON",
+        "name": "Hero",
+        "hasIcon": false
+      },
+      "releaseIcon": "/img/misc/missing_icon_d2.png",
+      "releaseTime": 0,
+      "completionUnlockHash": 0,
+      "activityLightLevel": 1220,
+      "destinationHash": 3990611421,
+      "placeHash": 3747705955,
+      "activityTypeHash": 575572995,
+      "tier": 2,
+      "pgcrImage": "/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg",
+      "rewards": [
+        {
+          "rewardItems": [
+            {
+              "itemHash": 2791741337,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            },
+            {
+              "itemHash": 3710069945,
+              "quantity": 1,
+              "hasConditionalVisibility": false
+            },
+            {
+              "itemHash": 2422680742,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            },
+            {
+              "itemHash": 3959886874,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            }
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "displayProperties": {
+            "description": "When defeated, Acolytes spawn fire pools that cause damage over time.",
+            "name": "Fire Pit",
+            "icon": "/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png",
+                  "/common/destiny2_content/icons/a88ff34ec69cd18c775b0fb140926359.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3831042173,
+          "index": 1,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains Unstoppable Champions, which cannot be stopped without an Unstoppable mod.",
+            "name": "Champions: Unstoppable",
+            "icon": "/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/b86924e3d18708f40bdff3d41a4fc96b.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3933343183,
+          "index": 3,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+            "name": "Champions: Barrier",
+            "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 605585258,
+          "index": 4,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains both Barrier and Unstoppable Champions, which cannot be stopped without an Anti-Barrier or Unstoppable mod, respectively.",
+            "name": "Champions: Hive",
+            "icon": "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3605663348,
+          "index": 5,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Extra Shields",
+            "name": "Hero Modifiers",
+            "icon": "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+                  "/common/destiny2_content/icons/d581c9099f1d6183735a1ad6b71d3bb5.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 1151235761,
+          "index": 6,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Incoming Arc and environmental damage increased.",
+            "name": "Navôta's Abandon",
+            "icon": "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+                  "/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 707502104,
+          "index": 7,
+          "redacted": false,
+          "blacklisted": false
+        }
+      ],
+      "isPlaylist": false,
+      "challenges": [
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2443315975,
+          "dummyRewards": [
+            {
+              "itemHash": 3114385605,
+              "quantity": 1,
+              "hasConditionalVisibility": false
+            }
+          ]
+        },
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2498962144,
+          "dummyRewards": [
+            {
+              "itemHash": 73143230,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            }
+          ]
+        }
+      ],
+      "optionalUnlockStrings": [],
+      "inheritFromFreeRoam": false,
+      "suppressOtherRewards": false,
+      "playlistItems": [],
+      "matchmaking": {
+        "isMatchmade": false,
+        "minParty": 1,
+        "maxParty": 3,
+        "maxPlayers": 3,
+        "requiresGuardianOath": false
+      },
+      "directActivityModeHash": 547513715,
+      "directActivityModeType": 46,
+      "loadouts": [],
+      "activityModeHashes": [
+        547513715,
+        2394616003,
+        1164760493
+      ],
+      "activityModeTypes": [
+        46,
+        18,
+        7
+      ],
+      "isPvP": false,
+      "insertionPoints": [],
+      "activityLocationMappings": [],
+      "hash": 2136458567,
+      "index": 15,
+      "redacted": false,
+      "blacklisted": false,
+      "activityHash": 2136458567,
+      "challengeObjectiveHashes": [],
+      "modifierHashes": [
+        3831042173,
+        3933343183,
+        605585258,
+        3605663348,
+        1151235761,
+        707502104
+      ],
+      "booleanActivityOptions": {
+        "889816721": true,
+        "1118409995": true,
+        "1658489738": false,
+        "1724944068": true,
+        "2988353107": false
+      }
+    },
+    {
+      "displayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: Legend",
+        "icon": "/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png",
+        "hasIcon": true
+      },
+      "originalDisplayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall",
+        "icon": "/img/misc/missing_icon_d2.png",
+        "hasIcon": false
+      },
+      "selectionScreenDisplayProperties": {
+        "description": "Become legend. A strong fireteam is recommended to overcome this challenge.\n\nMatchmaking: OFF",
+        "name": "Legend",
+        "hasIcon": false
+      },
+      "releaseIcon": "/img/misc/missing_icon_d2.png",
+      "releaseTime": 0,
+      "completionUnlockHash": 0,
+      "activityLightLevel": 1250,
+      "destinationHash": 3990611421,
+      "placeHash": 3747705955,
+      "activityTypeHash": 575572995,
+      "tier": 2,
+      "pgcrImage": "/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg",
+      "rewards": [
+        {
+          "rewardItems": [
+            {
+              "itemHash": 3311376862,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            },
+            {
+              "itemHash": 914966308,
+              "quantity": 1,
+              "hasConditionalVisibility": false
+            },
+            {
+              "itemHash": 94544133,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            }
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "displayProperties": {
+            "description": "When defeated, Acolytes spawn fire pools that cause damage over time.",
+            "name": "Fire Pit",
+            "icon": "/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png",
+                  "/common/destiny2_content/icons/a88ff34ec69cd18c775b0fb140926359.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3831042173,
+          "index": 1,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains Unstoppable Champions, which cannot be stopped without an Unstoppable mod.",
+            "name": "Champions: Unstoppable",
+            "icon": "/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/b86924e3d18708f40bdff3d41a4fc96b.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3933343183,
+          "index": 3,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+            "name": "Champions: Barrier",
+            "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 605585258,
+          "index": 4,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains both Barrier and Unstoppable Champions, which cannot be stopped without an Anti-Barrier or Unstoppable mod, respectively.",
+            "name": "Champions: Hive",
+            "icon": "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3605663348,
+          "index": 5,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "You will not be able to change your equipment after this activity starts.",
+            "name": "Equipment Locked",
+            "icon": "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png",
+                  "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/e1aaed9cfbf632293c6adfd6b72aff20.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 939324719,
+          "index": 8,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Enemy shields are highly resistant to all unmatched elemental damage.",
+            "name": "Match Game",
+            "icon": "/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/bccf16e06ea092dcc13250a3c9b8786f.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3859784314,
+          "index": 9,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Locked Loadout\nMatch Game\nExtra Shields",
+            "name": "Legend Modifiers",
+            "icon": "/common/destiny2_content/icons/45f40693f3014d50ea78d5f3f8fe2e04.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/45f40693f3014d50ea78d5f3f8fe2e04.png",
+                  "/common/destiny2_content/icons/ffd3ac18af4d4e9320b12189c278d092.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 2301442403,
+          "index": 10,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Incoming Arc and environmental damage increased.",
+            "name": "Navôta's Abandon",
+            "icon": "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+                  "/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 707502104,
+          "index": 7,
+          "redacted": false,
+          "blacklisted": false
+        }
+      ],
+      "isPlaylist": false,
+      "challenges": [
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2443315975,
+          "dummyRewards": [
+            {
+              "itemHash": 3114385605,
+              "quantity": 1,
+              "hasConditionalVisibility": false
+            }
+          ]
+        },
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2498962144,
+          "dummyRewards": [
+            {
+              "itemHash": 73143230,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            }
+          ]
+        }
+      ],
+      "optionalUnlockStrings": [],
+      "inheritFromFreeRoam": false,
+      "suppressOtherRewards": false,
+      "playlistItems": [],
+      "matchmaking": {
+        "isMatchmade": false,
+        "minParty": 1,
+        "maxParty": 3,
+        "maxPlayers": 3,
+        "requiresGuardianOath": false
+      },
+      "directActivityModeHash": 547513715,
+      "directActivityModeType": 46,
+      "loadouts": [],
+      "activityModeHashes": [
+        547513715,
+        2394616003,
+        1164760493
+      ],
+      "activityModeTypes": [
+        46,
+        18,
+        7
+      ],
+      "isPvP": false,
+      "insertionPoints": [],
+      "activityLocationMappings": [],
+      "hash": 2136458566,
+      "index": 16,
+      "redacted": false,
+      "blacklisted": false,
+      "activityHash": 2136458566,
+      "challengeObjectiveHashes": [],
+      "modifierHashes": [
+        3831042173,
+        3933343183,
+        605585258,
+        3605663348,
+        939324719,
+        3859784314,
+        2301442403,
+        707502104
+      ],
+      "booleanActivityOptions": {
+        "889816721": true,
+        "1118409995": true,
+        "1658489738": true,
+        "1724944068": true,
+        "2988353107": false
+      }
+    },
+    {
+      "displayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: Master",
+        "icon": "/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png",
+        "hasIcon": true
+      },
+      "originalDisplayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall",
+        "icon": "/img/misc/missing_icon_d2.png",
+        "hasIcon": false
+      },
+      "selectionScreenDisplayProperties": {
+        "description": "Masterful, like everything you do. Only the most powerful will not find instant defeat.\n\nMatchmaking: OFF",
+        "name": "Master",
+        "hasIcon": false
+      },
+      "releaseIcon": "/img/misc/missing_icon_d2.png",
+      "releaseTime": 0,
+      "completionUnlockHash": 0,
+      "activityLightLevel": 1280,
+      "destinationHash": 3990611421,
+      "placeHash": 3747705955,
+      "activityTypeHash": 575572995,
+      "tier": 2,
+      "pgcrImage": "/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg",
+      "rewards": [
+        {
+          "rewardItems": [
+            {
+              "itemHash": 470135362,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            },
+            {
+              "itemHash": 1800059134,
+              "quantity": 1,
+              "hasConditionalVisibility": false
+            },
+            {
+              "itemHash": 116309391,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            },
+            {
+              "itemHash": 94544133,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            }
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "displayProperties": {
+            "description": "When defeated, Acolytes spawn fire pools that cause damage over time.",
+            "name": "Fire Pit",
+            "icon": "/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png",
+                  "/common/destiny2_content/icons/a88ff34ec69cd18c775b0fb140926359.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3831042173,
+          "index": 1,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains Unstoppable Champions, which cannot be stopped without an Unstoppable mod.",
+            "name": "Champions: Unstoppable",
+            "icon": "/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/b86924e3d18708f40bdff3d41a4fc96b.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3933343183,
+          "index": 3,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+            "name": "Champions: Barrier",
+            "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 605585258,
+          "index": 4,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains both Barrier and Unstoppable Champions, which cannot be stopped without an Anti-Barrier or Unstoppable mod, respectively.",
+            "name": "Champions: Hive",
+            "icon": "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3605663348,
+          "index": 5,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Radar is disabled.",
+            "name": "Chaff",
+            "icon": "/common/destiny2_content/icons/256f65f21e36787d0dc5088f0ad38bae.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/256f65f21e36787d0dc5088f0ad38bae.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/92cec07a31fd53abdd562800d7d41d12.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 98716109,
+          "index": 14,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "You will not be able to change your equipment after this activity starts.",
+            "name": "Equipment Locked",
+            "icon": "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png",
+                  "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/e1aaed9cfbf632293c6adfd6b72aff20.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 939324719,
+          "index": 8,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Enemy shields are highly resistant to all unmatched elemental damage.",
+            "name": "Match Game",
+            "icon": "/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/bccf16e06ea092dcc13250a3c9b8786f.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3859784314,
+          "index": 9,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Champions: Mob\nLocked Loadout\nMatch Game\nExtra Shields",
+            "name": "Master Modifiers",
+            "icon": "/common/destiny2_content/icons/05546f508343b402f6499fee3b29ed5c.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/05546f508343b402f6499fee3b29ed5c.png",
+                  "/common/destiny2_content/icons/68efd8aad39b5de9733c214dfb48d2fc.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 2821775453,
+          "index": 15,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains additional Champions.",
+            "name": "Champions: Mob",
+            "icon": "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 2834348323,
+          "index": 16,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Incoming Arc and environmental damage increased.",
+            "name": "Navôta's Abandon",
+            "icon": "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+                  "/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 707502104,
+          "index": 7,
+          "redacted": false,
+          "blacklisted": false
+        }
+      ],
+      "isPlaylist": false,
+      "challenges": [
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2443315975,
+          "dummyRewards": [
+            {
+              "itemHash": 3114385605,
+              "quantity": 1,
+              "hasConditionalVisibility": false
+            }
+          ]
+        },
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2498962144,
+          "dummyRewards": [
+            {
+              "itemHash": 73143230,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            }
+          ]
+        }
+      ],
+      "optionalUnlockStrings": [],
+      "inheritFromFreeRoam": false,
+      "suppressOtherRewards": false,
+      "playlistItems": [],
+      "matchmaking": {
+        "isMatchmade": false,
+        "minParty": 1,
+        "maxParty": 3,
+        "maxPlayers": 3,
+        "requiresGuardianOath": false
+      },
+      "directActivityModeHash": 547513715,
+      "directActivityModeType": 46,
+      "loadouts": [],
+      "activityModeHashes": [
+        547513715,
+        2394616003,
+        1164760493
+      ],
+      "activityModeTypes": [
+        46,
+        18,
+        7
+      ],
+      "isPvP": false,
+      "insertionPoints": [],
+      "activityLocationMappings": [],
+      "hash": 2136458561,
+      "index": 17,
+      "redacted": false,
+      "blacklisted": false,
+      "activityHash": 2136458561,
+      "challengeObjectiveHashes": [],
+      "modifierHashes": [
+        3831042173,
+        3933343183,
+        605585258,
+        3605663348,
+        98716109,
+        939324719,
+        3859784314,
+        2821775453,
+        2834348323,
+        707502104
+      ],
+      "booleanActivityOptions": {
+        "494695110": true,
+        "889816721": true,
+        "1118409995": true,
+        "1658489738": true,
+        "1724944068": true,
+        "2988353107": false
+      }
+    },
+    {
+      "displayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall: Grandmaster",
+        "icon": "/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png",
+        "hasIcon": true
+      },
+      "originalDisplayProperties": {
+        "description": "The Disgraced",
+        "name": "Nightfall",
+        "icon": "/img/misc/missing_icon_d2.png",
+        "hasIcon": false
+      },
+      "selectionScreenDisplayProperties": {
+        "description": "Good luck.\n\nMatchmaking: OFF",
+        "name": "Grandmaster",
+        "hasIcon": false
+      },
+      "releaseIcon": "/img/misc/missing_icon_d2.png",
+      "releaseTime": 0,
+      "completionUnlockHash": 0,
+      "activityLightLevel": 1300,
+      "destinationHash": 3990611421,
+      "placeHash": 3747705955,
+      "activityTypeHash": 575572995,
+      "tier": 2,
+      "pgcrImage": "/img/destiny_content/pgcr/cosmodrome-strike-gantry.jpg",
+      "rewards": [
+        {
+          "rewardItems": [
+            {
+              "itemHash": 470135362,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            },
+            {
+              "itemHash": 771478467,
+              "quantity": 1,
+              "hasConditionalVisibility": false
+            },
+            {
+              "itemHash": 2119974556,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            }
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "displayProperties": {
+            "description": "When defeated, Acolytes spawn fire pools that cause damage over time.",
+            "name": "Fire Pit",
+            "icon": "/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png",
+                  "/common/destiny2_content/icons/a88ff34ec69cd18c775b0fb140926359.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3831042173,
+          "index": 1,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains Unstoppable Champions, which cannot be stopped without an Unstoppable mod.",
+            "name": "Champions: Unstoppable",
+            "icon": "/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/b86924e3d18708f40bdff3d41a4fc96b.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3933343183,
+          "index": 3,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+            "name": "Champions: Barrier",
+            "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 605585258,
+          "index": 4,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains both Barrier and Unstoppable Champions, which cannot be stopped without an Anti-Barrier or Unstoppable mod, respectively.",
+            "name": "Champions: Hive",
+            "icon": "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3605663348,
+          "index": 5,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Radar is disabled.",
+            "name": "Chaff",
+            "icon": "/common/destiny2_content/icons/256f65f21e36787d0dc5088f0ad38bae.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/256f65f21e36787d0dc5088f0ad38bae.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/92cec07a31fd53abdd562800d7d41d12.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 98716109,
+          "index": 14,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Extinguish\nLimited Revives\nContest\nJoin In Progress Disabled\nChampions: Mob\nLocked Loadout\nMatch Game\nExtra Shields",
+            "name": "Grandmaster Modifiers",
+            "icon": "/common/destiny2_content/icons/11d1851959f173b417cccb8be23719d2.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/11d1851959f173b417cccb8be23719d2.png",
+                  "/common/destiny2_content/icons/adfe01c37d57558a839e6b602340a9db.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 2265680717,
+          "index": 17,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Enemy shields are highly resistant to all unmatched elemental damage.",
+            "name": "Match Game",
+            "icon": "/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/bccf16e06ea092dcc13250a3c9b8786f.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 3859784314,
+          "index": 9,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "You will not be able to change your equipment after this activity starts.",
+            "name": "Equipment Locked",
+            "icon": "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png",
+                  "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/e1aaed9cfbf632293c6adfd6b72aff20.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 939324719,
+          "index": 8,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "If your fireteam falls in a Restricted Zone, everyone is returned to orbit.",
+            "name": "Extinguish",
+            "icon": "/common/destiny2_content/icons/36a40c8c5becb4c848e0dea562259b5a.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/36a40c8c5becb4c848e0dea562259b5a.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/2d9e9fb8ba4d012fad06924db9beff56.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 945795273,
+          "index": 18,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Limited fireteam revives. Gain additional revives by defeating Champions.",
+            "name": "Limited Revives",
+            "icon": "/common/destiny2_content/icons/be42fd65184d2a22579a170ff1abed28.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/be42fd65184d2a22579a170ff1abed28.png",
+                  "/common/destiny2_content/icons/38b7463eb439f539efdbb121bd70cb82.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 376634891,
+          "index": 19,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "This mode contains additional Champions.",
+            "name": "Champions: Mob",
+            "icon": "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"
+                ]
+              },
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 2834348323,
+          "index": 16,
+          "redacted": false,
+          "blacklisted": false
+        },
+        {
+          "displayProperties": {
+            "description": "Incoming Arc and environmental damage increased.",
+            "name": "Navôta's Abandon",
+            "icon": "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+            "iconSequences": [
+              {
+                "frames": [
+                  "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+                  "/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"
+                ]
+              }
+            ],
+            "hasIcon": true
+          },
+          "hash": 707502104,
+          "index": 7,
+          "redacted": false,
+          "blacklisted": false
+        }
+      ],
+      "isPlaylist": false,
+      "challenges": [
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2443315975,
+          "dummyRewards": [
+            {
+              "itemHash": 3114385605,
+              "quantity": 1,
+              "hasConditionalVisibility": false
+            }
+          ]
+        },
+        {
+          "rewardSiteHash": 0,
+          "inhibitRewardsUnlockHash": 0,
+          "objectiveHash": 2498962144,
+          "dummyRewards": [
+            {
+              "itemHash": 73143230,
+              "quantity": 0,
+              "hasConditionalVisibility": false
+            }
+          ]
+        }
+      ],
+      "optionalUnlockStrings": [],
+      "inheritFromFreeRoam": false,
+      "suppressOtherRewards": false,
+      "playlistItems": [],
+      "matchmaking": {
+        "isMatchmade": false,
+        "minParty": 1,
+        "maxParty": 3,
+        "maxPlayers": 3,
+        "requiresGuardianOath": false
+      },
+      "directActivityModeHash": 547513715,
+      "directActivityModeType": 46,
+      "loadouts": [],
+      "activityModeHashes": [
+        547513715,
+        2394616003,
+        1164760493
+      ],
+      "activityModeTypes": [
+        46,
+        18,
+        7
+      ],
+      "isPvP": false,
+      "insertionPoints": [],
+      "activityLocationMappings": [],
+      "hash": 2136458560,
+      "index": 18,
+      "redacted": false,
+      "blacklisted": false,
+      "activityHash": 2136458560,
+      "challengeObjectiveHashes": [],
+      "modifierHashes": [
+        3831042173,
+        3933343183,
+        605585258,
+        3605663348,
+        98716109,
+        2265680717,
+        3859784314,
+        939324719,
+        945795273,
+        376634891,
+        2834348323,
+        707502104
+      ],
+      "booleanActivityOptions": {
+        "494695110": true,
+        "701670507": true,
+        "889816721": true,
+        "1118409995": true,
+        "1273646627": true,
+        "1631522863": true,
+        "1633278527": true,
+        "1724944068": true,
+        "2286717819": true,
+        "2395430749": false,
+        "2988353107": false
+      }
+    }
+  ],
+  "startDate": "2021-07-27T17:00:00Z",
+  "endDate": "2021-08-03T17:00:00Z",
+  "order": 5000,
+  "modifierGroups": [
+    {
+      "displayProperties": {
+        "description": "When defeated, Acolytes spawn fire pools that cause damage over time.",
+        "name": "Fire Pit",
+        "icon": "/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/66f87aaff067d692bb8de52b6888efef.png",
+              "/common/destiny2_content/icons/a88ff34ec69cd18c775b0fb140926359.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 3831042173,
+      "index": 1,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Adept",
+      "isReusedInOtherDifficulties": true
+    },
+    {
+      "displayProperties": {
+        "description": "This mode contains Unstoppable Champions, which cannot be stopped without an Unstoppable mod.",
+        "name": "Champions: Unstoppable",
+        "icon": "/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"
+            ]
+          },
+          {
+            "frames": [
+              "/common/destiny2_content/icons/b86924e3d18708f40bdff3d41a4fc96b.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 3933343183,
+      "index": 3,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Hero",
+      "isReusedInOtherDifficulties": true
+    },
+    {
+      "displayProperties": {
+        "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+        "name": "Champions: Barrier",
+        "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+            ]
+          },
+          {
+            "frames": [
+              "/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 605585258,
+      "index": 4,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Hero",
+      "isReusedInOtherDifficulties": true
+    },
+    {
+      "displayProperties": {
+        "description": "This mode contains both Barrier and Unstoppable Champions, which cannot be stopped without an Anti-Barrier or Unstoppable mod, respectively.",
+        "name": "Champions: Hive",
+        "icon": "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"
+            ]
+          },
+          {
+            "frames": [
+              "/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 3605663348,
+      "index": 5,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Hero",
+      "isReusedInOtherDifficulties": true
+    },
+    {
+      "displayProperties": {
+        "description": "Extra Shields",
+        "name": "Hero Modifiers",
+        "icon": "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png",
+              "/common/destiny2_content/icons/d581c9099f1d6183735a1ad6b71d3bb5.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 1151235761,
+      "index": 6,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Hero",
+      "isReusedInOtherDifficulties": false
+    },
+    {
+      "displayProperties": {
+        "description": "Incoming Arc and environmental damage increased.",
+        "name": "Navôta's Abandon",
+        "icon": "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/aa4dd90cec548c937c7aac0181996b42.png",
+              "/common/destiny2_content/icons/b6801d6038d1417ef4644cb18162c7b3.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 707502104,
+      "index": 7,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Hero",
+      "isReusedInOtherDifficulties": true
+    },
+    {
+      "displayProperties": {
+        "description": "You will not be able to change your equipment after this activity starts.",
+        "name": "Equipment Locked",
+        "icon": "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png",
+              "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png"
+            ]
+          },
+          {
+            "frames": [
+              "/common/destiny2_content/icons/e1aaed9cfbf632293c6adfd6b72aff20.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 939324719,
+      "index": 8,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Legend",
+      "isReusedInOtherDifficulties": true
+    },
+    {
+      "displayProperties": {
+        "description": "Enemy shields are highly resistant to all unmatched elemental damage.",
+        "name": "Match Game",
+        "icon": "/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png"
+            ]
+          },
+          {
+            "frames": [
+              "/common/destiny2_content/icons/bccf16e06ea092dcc13250a3c9b8786f.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 3859784314,
+      "index": 9,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Legend",
+      "isReusedInOtherDifficulties": true
+    },
+    {
+      "displayProperties": {
+        "description": "Locked Loadout\nMatch Game\nExtra Shields",
+        "name": "Legend Modifiers",
+        "icon": "/common/destiny2_content/icons/45f40693f3014d50ea78d5f3f8fe2e04.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/45f40693f3014d50ea78d5f3f8fe2e04.png",
+              "/common/destiny2_content/icons/ffd3ac18af4d4e9320b12189c278d092.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 2301442403,
+      "index": 10,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Legend",
+      "isReusedInOtherDifficulties": false
+    },
+    {
+      "displayProperties": {
+        "description": "Radar is disabled.",
+        "name": "Chaff",
+        "icon": "/common/destiny2_content/icons/256f65f21e36787d0dc5088f0ad38bae.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/256f65f21e36787d0dc5088f0ad38bae.png"
+            ]
+          },
+          {
+            "frames": [
+              "/common/destiny2_content/icons/92cec07a31fd53abdd562800d7d41d12.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 98716109,
+      "index": 14,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Master",
+      "isReusedInOtherDifficulties": true
+    },
+    {
+      "displayProperties": {
+        "description": "Champions: Mob\nLocked Loadout\nMatch Game\nExtra Shields",
+        "name": "Master Modifiers",
+        "icon": "/common/destiny2_content/icons/05546f508343b402f6499fee3b29ed5c.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/05546f508343b402f6499fee3b29ed5c.png",
+              "/common/destiny2_content/icons/68efd8aad39b5de9733c214dfb48d2fc.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 2821775453,
+      "index": 15,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Master",
+      "isReusedInOtherDifficulties": false
+    },
+    {
+      "displayProperties": {
+        "description": "This mode contains additional Champions.",
+        "name": "Champions: Mob",
+        "icon": "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"
+            ]
+          },
+          {
+            "frames": [
+              "/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 2834348323,
+      "index": 16,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Master",
+      "isReusedInOtherDifficulties": true
+    },
+    {
+      "displayProperties": {
+        "description": "Extinguish\nLimited Revives\nContest\nJoin In Progress Disabled\nChampions: Mob\nLocked Loadout\nMatch Game\nExtra Shields",
+        "name": "Grandmaster Modifiers",
+        "icon": "/common/destiny2_content/icons/11d1851959f173b417cccb8be23719d2.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/11d1851959f173b417cccb8be23719d2.png",
+              "/common/destiny2_content/icons/adfe01c37d57558a839e6b602340a9db.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 2265680717,
+      "index": 17,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Grandmaster",
+      "isReusedInOtherDifficulties": false
+    },
+    {
+      "displayProperties": {
+        "description": "If your fireteam falls in a Restricted Zone, everyone is returned to orbit.",
+        "name": "Extinguish",
+        "icon": "/common/destiny2_content/icons/36a40c8c5becb4c848e0dea562259b5a.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/36a40c8c5becb4c848e0dea562259b5a.png"
+            ]
+          },
+          {
+            "frames": [
+              "/common/destiny2_content/icons/2d9e9fb8ba4d012fad06924db9beff56.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 945795273,
+      "index": 18,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Grandmaster",
+      "isReusedInOtherDifficulties": false
+    },
+    {
+      "displayProperties": {
+        "description": "Limited fireteam revives. Gain additional revives by defeating Champions.",
+        "name": "Limited Revives",
+        "icon": "/common/destiny2_content/icons/be42fd65184d2a22579a170ff1abed28.png",
+        "iconSequences": [
+          {
+            "frames": [
+              "/common/destiny2_content/icons/be42fd65184d2a22579a170ff1abed28.png",
+              "/common/destiny2_content/icons/38b7463eb439f539efdbb121bd70cb82.png"
+            ]
+          }
+        ],
+        "hasIcon": true
+      },
+      "hash": 376634891,
+      "index": 19,
+      "redacted": false,
+      "blacklisted": false,
+      "name": "Grandmaster",
+      "isReusedInOtherDifficulties": false
+    }
+  ],
+  "isAvailable": true
+}
