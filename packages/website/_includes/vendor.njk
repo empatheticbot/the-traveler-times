@@ -7,8 +7,7 @@
     class="vendor-image">
   <p class="vendor-text">{{vendor.description}}</p>
   {% if vendor.location %}
-    <p class="">{{vendor.location.planet}}</p>
-    <p class="">{{vendor.location.area}}</p>
+    <p class="vendor-text">{{ vendor.name | safe }} was last spotted on <strong>{{vendor.location.planet}}</strong> around the <strong>{{vendor.location.area}}</strong>.</p>
   {% endif %}
   <ul role="list" class="inventory-item-list">
   {% for item in vendor.sales | vendorItems(vendor.name) %}

@@ -43,7 +43,6 @@
 }
 
 .vendor-text {
-  margin: 1rem 0;
   color: var(--color-text-secondary);
-  font-style: italic;
+  margin: 2rem 0;
 }

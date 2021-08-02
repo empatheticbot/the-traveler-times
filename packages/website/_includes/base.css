@@ -144,6 +144,7 @@ body {
   -webkit-font-smoothing: antialiased;
   /* font-feature-settings: "kern" 1, "liga" 1; */
   color: var(--color-text);
+  overflow-x: hidden;
 }
 
 html,
@@ -153,9 +154,9 @@ body {
   font-weight: 500;
   color: var(--color-text);
   background-color: var(--color-background);
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
   width: 100%;
 }
 
@@ -165,6 +166,11 @@ h1 {
 
 h2 {
   font-size: 2.3rem;
+}
+
+strong {
+  font-weight: bold;
+  color: var(--color-text-primary);
 }
 
 .button {
@@ -198,6 +204,7 @@ h2 {
 
   main .section-container__weekly {
     border-right: none;
+    padding: 0 0 0 2rem;
   }
 }
 
@@ -205,12 +212,14 @@ h2 {
   .main-container {
     margin: 1rem;
     grid-template:
-      'vendors'
       'today'
+      'vendors'
       'meta';
   }
+
   main .section-container__weekly {
     border-left: none;
+    padding: 0;
   }
 }
 
@@ -236,9 +245,10 @@ h2 {
   border-radius: 12px;
   background: #eee;
   padding: 0.5rem 1rem;
-  margin: 2rem;
+  margin: 2rem auto;
   display: flex;
   align-items: center;
+  max-width: 400px;
 }
 
 .warning {

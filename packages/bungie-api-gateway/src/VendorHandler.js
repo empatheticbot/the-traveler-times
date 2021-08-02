@@ -1,6 +1,7 @@
 import BungieAPIHandler from './BungieAPIHandler'
 import DefinitionHandler from './DefinitionHandler'
 import { XUR, ZAVALA, SPIDER, ADA, BANSHEE } from './Hashes'
+import { getStrippedItems } from './InventoryItemUtility'
 
 export default class VendorHandler {
   async init(bungieApiEnv) {
@@ -122,37 +123,8 @@ export default class VendorHandler {
     let { nextRefreshDate, lastRefreshDate, enabled, sales } =
       completeVendorData
 
-    const salesStripped = sales.map((sale) => {
-      return {
-        name: sale.displayProperties.name,
-        icon: sale.displayProperties.icon,
-        itemType: sale.itemTypeAndTierDisplayName,
-        classType: sale.classType || '',
-        damageType:
-          (sale.damageType && sale.damageType.displayProperties) || '',
-        subtitle: `${
-          (sale.damageType && sale.damageType.displayProperties.name) ||
-          sale.classType ||
-          ''
-        } ${sale.itemTypeAndTierDisplayName}`.trim(),
-        quantity: sale.quantity,
-        description:
-          sale.displayProperties.description ||
-          sale.displaySource ||
-          sale.flavorText ||
-          '',
-        sort: sale.itemType,
-        costs: sale.costs.map((cost) => {
-          return {
-            name: cost.displayProperties.name,
-            icon: cost.displayProperties.icon,
-            description: cost.displayProperties.description,
-            source: cost.displaySource,
-            quantity: cost.quantity,
-          }
-        }),
-      }
-    })
+    const salesStripped = getStrippedItems(sales)
+
     return {
       name,
       description,

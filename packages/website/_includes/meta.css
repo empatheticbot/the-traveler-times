@@ -3,11 +3,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  align-content: flex-start;
   /* border-left: 3px solid var(--color-separater-primary); */
-}
-
-.meta-description {
-  width: 100%;
 }
 
 .meta-section {

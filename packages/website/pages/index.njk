@@ -7,7 +7,11 @@ permalink: /
 {% extends 'base.njk' %}
 {% block content %}
   {% include 'vendors.njk' %}
-  {% include 'main.njk' %}
+  <section class="section-container__weekly">
+  {% include 'iron-banner.njk' %}
+  {% include 'lost-sector.njk' %}
+  {% include 'nightfall.njk' %}
+  </section>
   {% include 'meta.njk' %}
   {% if not weekly.isAvailable %}
     {% include 'error.njk' %}

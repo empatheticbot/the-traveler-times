@@ -1,4 +1,7 @@
-import { DefinitionHandler } from '@the-traveler-times/bungie-api-gateway'
+import {
+  DefinitionHandler,
+  getStrippedItem,
+} from '@the-traveler-times/bungie-api-gateway'
 
 export { D2PostGameCarnageReportObject } from './D2PostGameCarnageReportObject'
 
@@ -53,9 +56,14 @@ async function getCurrentMeta(request, env) {
   const allWeaponsWithDetails = await Promise.all(
     allWeapons.map(async (weapon) => {
       const details = await definitionHandler.getInventoryItem(weapon.id)
+      const damageType = await definitionHandler.getDamageType(
+        details.defaultDamageTypeHash
+      )
+      details.damageType = damageType
+
       return {
         ...weapon,
-        ...details,
+        ...getStrippedItem(details),
       }
     })
   )

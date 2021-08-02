@@ -7,6 +7,8 @@
   </header>
   {% if item.quantity > 1 %}
   <p class="vendor-item-quantity">{{item.quantity | prettyNumber | safe}}</p>
+  {% elif percentage %}
+  <p class="vendor-item-quantity">{{percentage | safe}}</p>
   {% endif %}
   <img
     src="https://www.bungie.net{{ item.icon or item.displayProperties.icon | safe }}"
