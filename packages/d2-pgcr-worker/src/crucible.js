@@ -18,6 +18,9 @@ export async function getWeapons(env) {
 
 export function getWeaponDataFromPGCR(data) {
   const players = data.entries.map((player) => {
+    if (!player.extended.weapons) {
+      return []
+    }
     const weapons = player.extended.weapons.map((entry) => {
       const id = entry.referenceId
       const kills = entry.values.uniqueWeaponKills.basic.value
