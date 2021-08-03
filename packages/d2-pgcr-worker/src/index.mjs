@@ -37,7 +37,8 @@ async function handlePostGameCarnageReportParsing(request, env) {
       if (
         pgcrData &&
         pgcrData.activityDetails.modes.includes(5) &&
-        !pgcrData.activityDetails.isPrivate
+        !pgcrData.activityDetails.isPrivate &&
+        pgcrData.entries
       ) {
         const weaponData = getWeaponDataFromPGCR(pgcrData, env)
         weaponData.forEach((weapon) => {
