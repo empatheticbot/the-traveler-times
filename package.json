@@ -39,7 +39,7 @@
   "homepage": "https://github.com/empatheticbot/the-traveler-times#readme",
   "devDependencies": {
     "lerna": "^4.0.0",
-    "@cloudflare/wrangler": "1.18.0"
+    "@cloudflare/wrangler": "1.19.0"
   },
   "dependencies": {}
 }
