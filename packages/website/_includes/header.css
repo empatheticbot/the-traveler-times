@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .page-header {
     text-align: left;
   }
