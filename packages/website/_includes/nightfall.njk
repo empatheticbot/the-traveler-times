@@ -1,47 +1,38 @@
-{# {% if nightfall %} #}
-<article class="article-container iron-banner--container">
-  <section class="iron-banner--image-container nightfall--image-container">
-    <img class="iron-banner--image-container--image" src="https://bungie.net{{ nightfall.activities[0].pgcrImage }}" />
-    <img class="iron-banner--image-container--icon" src="https://bungie.net{{ nightfall.activities[0].displayProperties.icon | safe }}" />
-  </section>
-  <section class="iron-banner--text-container">
-    <h2 class="iron-banner--heading">This Week's Nightfall Strike is <span class="xur-planet">{{ nightfall.activities[0].displayProperties.description | safe }}</span></h2>
-    <p>{{ nightfall.displayProperties.description }}</p>
-  </section>
-  <ol role="list" class="item-list">
-    {# {% for activity in nightfall.activities %}
-      <li class="item-wrapper">
-      <div class="item-container">
-        <header class="item-header">
-          <section class="item-title">
-            <h3 class="item-name">{{ activity.selectionScreenDisplayProperties.name | safe }}</h3>
-            <h5 class="item-cost">Light Level: {{ activity.activityLightLevel | safe }}</h5>
+{% if nightfall.isAvailable %}
+  <article class="vendors">
+    <h2 class="section-title">Nightfall Strike</h2>
+    <p class="section-description">This week's Nightfall Strike locations, modifiers, and rewards.</p>
+
+    <article class="vendor lost-sectors-container">
+      <h3 class="section-subtitle">{{ nightfall.activities[0].displayProperties.description | safe}}</h3>
+      <p class="vendor-subtitle">Nightfall</p>
+      <img
+        src="https://bungie.net{{ nightfall.activities[0].pgcrImage | safe}}"
+        alt="Image of the Destiny 2 vendor {{vendor.name | safe}}."
+        class="vendor-image">
+      <p class="vendor-text">Nightfall found on <strong>{{ nightfall.activities[0].destination | safe }}</strong>.</p>
+      <section class="lost-sector-modifiers-group">
+        <h4 class="lost-sector-modifier-heading">Rewards</h4>
+        <ul role="list" class="inventory-item-list lost-sector-list lost-sector-rewards-list">
+        {% for item in nightfall.rewards %}
+          <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+        {% endfor %}
+        </ul>
+      </section>
+      <section class="lost-sector-modifiers-container">
+        {% for name, modifiers in nightfall.modifierGroups | groupby("name") %}
+          <section class="lost-sector-modifiers-group">
+            <h4 class="lost-sector-modifier-heading">{{name}}</h4>
+            <ul role="list" class="inventory-item-list lost-sector-list">
+            {% for item in modifiers %}
+              {% set name = item.displayProperties.name %}
+              {% set subtitle = item.displayProperties.description %}
+              <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+            {% endfor %}
+            </ul>
           </section>
-        </header>
-        <section class="item-description">
-          {% for modifier in activity.modifiers %}
-            {% set name = modifier.displayProperties.name %}
-            {% set icon = modifier.displayProperties.icon %}
-            {% set description = modifier.displayProperties.description %}
-            {% include 'item.njk' %}
-          {% endfor %}
-        </section>
-      </div>
-      </li>
-    {% endfor %} #}
-    {% for name, modifiers in nightfall.modifierGroups | groupby("name") %}
-      <li class="nightfall--difficulty-container">
-        <h3 class="nightfall--difficulty-name">{{ name | safe }}</h3>
-        <section class="nightfall--difficulty-modifiers">
-          {% for modifier in modifiers %}
-            {% set name = modifier.displayProperties.name %}
-            {% set icon = modifier.displayProperties.icon %}
-            {% set description = modifier.displayProperties.description %}
-            {% include 'modifier.njk' %}
-          {% endfor %}
-        </section>
-      </li>
-    {% endfor %}
-  </ol>
-</article>
-{# {% endif %} #}
+        {% endfor %}
+      </section>
+    </article>
+  </article>
+{% endif %}

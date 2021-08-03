@@ -2,7 +2,7 @@
 </div>
 <section class="inventory-item">
   <header class="vendor-item-header">
-    <h3 class="vendor-item-name">{{item.name or item.displayProperties.name | safe}}</h3>
+    <h3 class="vendor-item-name">{{ item.displayProperties.name or item.name | safe}}</h3>
     <p class="vendor-item-description">{{item.subtitle or subtitle | safe}}</p>
   </header>
   {% if item.quantity > 1 %}
