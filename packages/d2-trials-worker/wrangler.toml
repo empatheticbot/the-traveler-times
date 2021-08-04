@@ -4,7 +4,7 @@ kv_namespaces = [
 ]
 name = "d2-trials-worker"
 type = "javascript"
-usage_model = "unbound"
+usage_model = "bundled"
 workers_dev = true
 
 [dev]
