@@ -45,7 +45,8 @@ jobs:
         run: npm run version:ci
 
       - name: Publish
-        run: npm run publish
         uses: cloudflare/wrangler-action@1.3.0
         with:
+          postCommands: npm run publish
+          publish: false
           apiToken: ${{ secrets.CF_API_TOKEN }}
