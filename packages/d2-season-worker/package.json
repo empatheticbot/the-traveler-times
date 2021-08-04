@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@the-traveler-times/d2-season-worker",
-  "version": "1.6.0",
+  "version": "1.6.1-alpha.0",
   "description": "A template for kick starting a Cloudflare Workers project",
   "module": "./dist/index.mjs",
   "scripts": {
