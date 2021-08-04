@@ -2,7 +2,7 @@
   grid-area: meta;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem 2rem;
   align-content: flex-start;
   /* border-left: 3px solid var(--color-separater-primary); */
 }

@@ -192,7 +192,7 @@ strong {
   margin: 2rem;
   display: grid;
   grid-template: 'vendors today today meta';
-  gap: 2rem;
+  gap: 1rem 2rem;
 }
 
 @media screen and (max-width: 1200px) {

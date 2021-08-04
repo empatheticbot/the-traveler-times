@@ -41,7 +41,7 @@
 .section-subtitle::before,
 .section-subtitle::after {
   content: '';
-  border-top: 3px solid var(--color-separater-secondary);
+  border-top: 2px solid var(--color-separater-secondary);
   width: 100%;
   margin-right: 1rem;
 }

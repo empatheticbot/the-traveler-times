@@ -1,13 +1,11 @@
 {% set ironBanner = weekly.ironBanner %}
 {% if ironBanner.isAvailable %}
-<article class="article-container iron-banner--container">
-  <section class="iron-banner--text-container">
-    <h2 class="iron-banner--heading">{{ ironBanner.displayProperties.name | safe }}</h2>
-    <p>{{ ironBanner.displayProperties.description }}</p>
-  </section>
-  <section class="iron-banner--image-container">
+<article class="vendors iron-banner-container">
+  <h2 class="section-title">{{ ironBanner.displayProperties.name | safe }}</h2>
+  <section class="iron-banner-image-container">
     <img class="iron-banner--image-container--image" src="https://bungie.net{{ ironBanner.image | safe}}" />
     <img class="iron-banner--image-container--icon" src="https://bungie.net{{ ironBanner.displayProperties.icon | safe }}" />
   </section>
+  <p class="section-description iron-banner-description">{{ ironBanner.displayProperties.description }}</p>
 </article>
 {% endif %}
