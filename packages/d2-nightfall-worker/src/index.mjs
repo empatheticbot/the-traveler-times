@@ -26,7 +26,25 @@ export default {
         nightfallMilestone.activities
       )
 
-      const modifierGroups = getModifiersOrderedByDifficulty(activities)
+      const reducedActivitiesByDescription = activities.reduce(
+        (acc, activity) => {
+          const currentList = acc[activity.displayProperties.description] || []
+          currentList.push(activity)
+          return {
+            ...acc,
+            [activity.displayProperties.description]: currentList,
+          }
+        },
+        {}
+      )
+
+      const activitiesAsArray = Object.values(
+        reducedActivitiesByDescription
+      ).sort((a, b) => b.length - a.length)
+
+      const modifierGroups = getModifiersOrderedByDifficulty(
+        activitiesAsArray[0]
+      )
 
       const rewardHashes = getCurrentNightfallRewardHashes()
       const rewards = await definitionHandler.getInventoryItems(...rewardHashes)
@@ -35,6 +53,7 @@ export default {
         JSON.stringify({
           ...nightfallMilestone,
           activities,
+          groupedActivities: activitiesAsArray,
           modifierGroups,
           rewards,
           isAvailable: true,
