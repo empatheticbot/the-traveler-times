@@ -43,13 +43,9 @@ jobs:
 
       - name: Version
         run: npm run version:ci
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
       - name: Publish
         run: npm run publish
         uses: cloudflare/wrangler-action@1.3.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
