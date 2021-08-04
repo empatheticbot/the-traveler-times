@@ -4,13 +4,13 @@
     <p class="section-description">This week's Nightfall Strike locations, modifiers, and rewards.</p>
 
     <article class="vendor lost-sectors-container">
-      <h3 class="section-subtitle">{{ nightfall.activities[0].displayProperties.description | safe}}</h3>
+      <h3 class="section-subtitle">{{ nightfall.groupedActivities[0][0].displayProperties.description | safe}}</h3>
       <p class="vendor-subtitle">Nightfall</p>
       <img
-        src="https://bungie.net{{ nightfall.activities[0].pgcrImage | safe}}"
+        src="https://bungie.net{{ nightfall.groupedActivities[0][0].pgcrImage | safe}}"
         alt="Image of the Destiny 2 vendor {{vendor.name | safe}}."
         class="vendor-image">
-      <p class="vendor-text">Nightfall found on <strong>{{ nightfall.activities[0].destination | safe }}</strong>.</p>
+      <p class="vendor-text">Nightfall found on <strong>{{ nightfall.groupedActivities[0][0].destination | safe }}</strong>.</p>
       <section class="lost-sector-modifiers-group">
         <h4 class="lost-sector-modifier-heading">Rewards</h4>
         <ul role="list" class="inventory-item-list lost-sector-list lost-sector-rewards-list">
