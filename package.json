@@ -18,7 +18,7 @@
     "start:season": "cd packages/d2-season-worker && npm run start",
     "start:pgcr": "cd packages/d2-pgcr-crawler && npm run start",
     "publish": "npm run build && lerna run publish",
-    "version": "lerna version",
+    "version:manual": "lerna version",
     "version:ci": "lerna version prerelease --yes",
     "build": "lerna run build --scope @the-traveler-times/*-gateway && lerna run build --parallel --scope @the-traveler-times/*-worker",
     "build:web": "lerna run build --scope @the-traveler-times/website",
