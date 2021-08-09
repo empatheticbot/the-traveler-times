@@ -4,15 +4,4 @@
    {{ content | safe }}
  {% endblock %}
 </section>
-<script type="module">
-  var sectionDateElement = document.querySelector('#{{sectionId}}');
-  if (sectionDateElement) {
-    var sectionDate = moment('{{ sectionDate }}');
-    function updateRelativeDates() {
-      sectionDateElement.innerText = `${sectionDate.fromNow()}`;
-      console.log(sectionDateElement.innerText);
-    }
-    setInterval(updateRelativeDates, 10000);
-    updateRelativeDates();
-  }
-</script>
+

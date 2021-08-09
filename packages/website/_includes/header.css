@@ -1,8 +1,20 @@
 .page-header {
   margin: 2rem;
-  padding: 2rem 0;
+  padding: 2rem 0 0;
   border-bottom: 4px solid var(--color-separater-secondary);
   text-align: center;
+}
+
+.page-header-weekly-reset {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bold;
+  color: var(--color-text-secondary);
+  font-family: 'Landmark Inline A', 'Landmark Inline B';
+}
+
+.page-header-weekly-reset relative-date {
+  margin-left: 0.25rem;
 }
 
 @media screen and (max-width: 1200px) {

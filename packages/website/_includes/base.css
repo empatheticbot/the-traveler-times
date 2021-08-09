@@ -242,12 +242,15 @@ strong {
 }
 
 .callout {
-  border-radius: 12px;
   background: #eee;
-  padding: 0.5rem 1rem;
-  margin: 2rem auto;
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.callout p {
   max-width: 400px;
 }
 

@@ -28,7 +28,7 @@ module.exports = function (eleventyConfig) {
     if (typeof dateObj != 'object') {
       date = new Date(dateObj)
     }
-    return DateTime.fromJSDate(date, { zone: 'utc' }).toFormat('yyyy-LL-dd')
+    return date.toISOString()
   })
 
   eleventyConfig.addFilter('relativeDate', (dateObj) => {
@@ -90,7 +90,9 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.addPassthroughCopy('assets')
-  eleventyConfig.addPassthroughCopy('scripts')
+  eleventyConfig.addPassthroughCopy({
+    'node_modules/@empatheticbot/time-elements/dist/': 'js/time-elements',
+  })
 
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
