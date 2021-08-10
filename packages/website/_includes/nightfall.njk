@@ -21,7 +21,9 @@
       </section>
       <section class="lost-sector-modifiers-container">
         {% for name, modifiers in nightfall.modifierGroups | groupby("name") %}
+          {% if loop.index0 % 2 === 0 %}
           <section class="lost-sector-modifiers-group">
+          {% endif %}
             <h4 class="lost-sector-modifier-heading">{{name}}</h4>
             <ul role="list" class="inventory-item-list lost-sector-list">
             {% for item in modifiers %}
@@ -30,7 +32,9 @@
               <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
             {% endfor %}
             </ul>
+          {% if loop.index0 % 2 !== 0 %}
           </section>
+          {% endif %}
         {% endfor %}
       </section>
     </article>

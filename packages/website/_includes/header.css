@@ -1,7 +1,7 @@
 .page-header {
   margin: 2rem;
   padding: 2rem 0 0;
-  border-bottom: 4px solid var(--color-separater-secondary);
+  border-bottom: 4px solid var(--color-separater-primary);
   text-align: center;
 }
 
@@ -11,21 +11,17 @@
   font-weight: bold;
   color: var(--color-text-secondary);
   font-family: 'Landmark Inline A', 'Landmark Inline B';
+  margin-top: 1rem;
 }
 
 .page-header-weekly-reset relative-date {
   margin-left: 0.25rem;
 }
 
-@media screen and (max-width: 1200px) {
-  .page-header {
-    text-align: left;
-  }
-}
-
 @media screen and (max-width: 700px) {
   .page-header {
     margin: 1rem;
+    text-align: left;
   }
 }
 

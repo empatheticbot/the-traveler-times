@@ -1,5 +1,5 @@
 .iron-banner-container {
-  border-bottom: 4px solid var(--color-separater-secondary);
+  border-bottom: 4px solid var(--color-separater-primary);
   margin-bottom: 2rem;
   padding-bottom: 2rem;
 }
