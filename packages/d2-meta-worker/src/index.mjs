@@ -11,14 +11,16 @@ async function getPGCRDurableObject(env) {
   return stub
 }
 
-async function getCurrentMeta(request, env) {
-  const definitionHandler = new DefinitionHandler()
-  await definitionHandler.init(env.BUNGIE_API)
+async function getLastWeekOfMetaEndingAt(
+  date = new Date(),
+  definitionHandler,
+  env
+) {
   const dates = []
   for (let i = 0; i < 7; i++) {
-    const currentDate = new Date()
-    currentDate.setDate(currentDate.getDate() - i)
-    const currentPeriodKey = currentDate.toISOString().split('T')[0]
+    const workingDate = date
+    date.setDate(workingDate.getDate() - i)
+    const currentPeriodKey = workingDate.toISOString().split('T')[0]
     dates.push(currentPeriodKey)
   }
   const weaponData = await Promise.all(
@@ -72,6 +74,28 @@ async function getCurrentMeta(request, env) {
     totalUsage,
     totalKills,
     totalPrecisionKills,
+  }
+}
+
+async function getCurrentMeta(request, env) {
+  const definitionHandler = new DefinitionHandler()
+  await definitionHandler.init(env.BUNGIE_API)
+  const currentMeta = await getLastWeekOfMetaEndingAt(
+    new Date(),
+    definitionHandler,
+    env
+  )
+  const weekAgo = new Date()
+  weekAgo.setDate(weekAgo.getDate() - 7)
+  const lastWeekMeta = await getLastWeekOfMetaEndingAt(
+    weekAgo,
+    definitionHandler,
+    env
+  )
+
+  return {
+    ...currentMeta,
+    lastWeekMeta,
   }
 }
 
