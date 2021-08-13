@@ -1,3 +1,5 @@
+{% import "items.njk" as items %}
+
 <article class="meta">
   <h2 class="section-title">The Meta</h2>
   <p class="section-description">Get a feel for the most popular and effective weapons currently being used in the Crucible.</p>
@@ -5,8 +7,10 @@
   <h3 class="section-subtitle">Usage</h3>
   <ol role="list" class="inventory-item-list">
     {% for item in meta.topUsage %}
-      {% set percentage = [item.usage, meta.totalUsage] | getPrettyRatios %}
-      <li class="inventory-item-container">{% include 'inventory-item.njk' %}</li>
+      {% set effectiveness = [item.usage, meta.totalUsage] | getPrettyRatios %}
+      <li class="inventory-item-container">
+        {{ items.meta(item, effectiveness, loop) }}
+      </li>
     {% endfor %}
   </ol>
   </section>
@@ -15,8 +19,10 @@
   <h3 class="section-subtitle">Kills</h3>
   <ol role="list" class="inventory-item-list">
     {% for item in meta.topKills %}
-      {% set percentage = [item.kills, meta.totalKills] | getPrettyRatios %}
-      <li class="inventory-item-container">{% include 'inventory-item.njk' %}</li>
+      {% set effectiveness = [item.kills, meta.totalKills] | getPrettyRatios %}
+      <li class="inventory-item-container">
+        {{ items.meta(item, effectiveness, loop) }}
+      </li>
     {% endfor %}
   </ol>
   </section>
@@ -25,8 +31,10 @@
   <h3 class="section-subtitle">Efficiency</h3>
   <ol role="list" class="inventory-item-list">
     {% for item in meta.topEfficiency %}
-      {% set percentage = [item.kills, item.usage] | getEfficiency %}
-      <li class="inventory-item-container">{% include 'inventory-item.njk' %}</li>
+      {% set effectiveness = [item.kills, item.usage] | getEfficiency %}
+      <li class="inventory-item-container">
+        {{ items.meta(item, effectiveness, loop) }}
+      </li>
     {% endfor %}
   </ol>
   </section>

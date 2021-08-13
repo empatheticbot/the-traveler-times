@@ -5,6 +5,7 @@
     <h3 class="vendor-item-name">{{ item.displayProperties.name or item.name | safe}}</h3>
     <p class="vendor-item-description">{{item.subtitle or subtitle | safe}}</p>
   </header>
+  <p class="vendor-item-quantity">{{item.weekMove | safe}}</p>
   {% if item.quantity > 1 %}
   <p class="vendor-item-quantity">{{item.quantity | prettyNumber | safe}}</p>
   {% elif percentage %}

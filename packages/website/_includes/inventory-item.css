@@ -101,3 +101,20 @@ ul .inventory-item-number-separater::before {
   height: 24px;
   border-radius: 4px;
 }
+
+.item-separater-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-text-secondary);
+  height: 1rem;
+}
+
+.item-separater {
+  width: 100%;
+  height: 2px;
+  border-radius: 8px;
+  background-color: var(--color-separater-secondary);
+}
