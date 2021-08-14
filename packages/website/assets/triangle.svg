@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12.8,6.06666667 L19.8,15.4 C20.1313708,15.8418278 20.0418278,16.4686292 19.6,16.8 C19.4269038,16.9298221 19.2163702,17 19,17 L5,17 C4.44771525,17 4,16.5522847 4,16 C4,15.7836298 4.07017787,15.5730962 4.2,15.4 L11.2,6.06666667 C11.5313708,5.62483887 12.1581722,5.53529582 12.6,5.86666667 C12.6758057,5.92352092 12.7431458,5.990861 12.8,6.06666667 Z" id="Triangle" fill="#000000"></path>
+    </g>
+</svg>
