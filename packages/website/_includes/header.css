@@ -13,14 +13,6 @@
   color: var(--color-text-secondary);
 }
 
-.page-header-weekly-reset {
-  display: flex;
-  justify-content: flex-end;
-  font-weight: bold;
-  color: var(--color-text-secondary);
-  margin-top: 2rem;
-}
-
 @media screen and (max-width: 700px) {
   .page-header {
     margin: 1rem;
