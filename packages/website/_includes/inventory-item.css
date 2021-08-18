@@ -122,12 +122,15 @@ ul .inventory-item-number-separater::before {
 
 .item-rank-up,
 .item-rank-down {
-  background-image: url(/assets/triangle.svg);
   height: 1rem;
   width: 1rem;
-  background-size: cover;
+  -webkit-mask: url(/assets/triangle.svg) no-repeat 50% 50% / 1.5rem 1.5rem;
+  mask: url(/assets/triangle.svg) no-repeat 50% 50% / 1.5rem 1.5rem;
+  transform: scale(0.75);
+  background-color: rgb(9, 90, 9);
 }
 
-.item-rank-up {
-  transform: rotate(180deg);
+.item-rank-down {
+  transform: scale(0.75) rotate(180deg);
+  background-color: rgb(107, 9, 9);
 }
