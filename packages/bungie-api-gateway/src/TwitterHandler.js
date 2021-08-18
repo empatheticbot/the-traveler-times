@@ -1,11 +1,9 @@
+import xurLocations from './xurLocations'
+
 export default class TwitterHandler {
   async init(twitterEnv) {
     try {
       this.twitterToken = await twitterEnv.get('BEARER_TOKEN')
-      this.xurLocations = await twitterEnv.get('XUR_LOCATIONS', {
-        type: 'json',
-      })
-      this.trialsMaps = await twitterEnv.get('TRIALS_MAPS', { type: 'json' })
     } catch (e) {
       console.error(`Failed to get and parse KV from TWITTER_API: ${e}`)
     }
@@ -84,7 +82,7 @@ export default class TwitterHandler {
 
   async getXurLocation(searchStartDate, searchEndDate) {
     const xurLocationQueries = await Promise.all(
-      this.xurLocations.map(async (location) => {
+      xurLocations.map(async (location) => {
         const twitterQueryResult = await this.queryRecentTweetsFromTwitter(
           location.twitterQuery,
           searchStartDate,
