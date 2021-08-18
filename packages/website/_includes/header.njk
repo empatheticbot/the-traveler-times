@@ -1,5 +1,17 @@
 <header class="page-header">
   <h1 class="page-header-title">The Traveler Times</h1>
-  <p class="page-header-weekly-reset">Weekly reset <relative-date datetime="{{ weekly.weeklyReset | htmlDateString }}">
-      {{ weekly.weeklyReset | htmlDateString }}</relative-date></p>
+  <aside class="page-header-aside">
+    <p>
+      {{season.currentSeason.seasonNumber}}. {{season.currentSeason.displayProperties.name}} ends 
+      <relative-date datetime="{{ season.currentSeason.endDate | htmlDateString }}">
+            {{ season.currentSeason.endDate  | htmlDateString }}
+      </relative-date>
+    </p>
+    <p>
+      Weekly reset 
+      <relative-date datetime="{{ weekly.weeklyReset | htmlDateString }}">
+        {{ weekly.weeklyReset | htmlDateString }}
+      </relative-date>
+    </p>
+  </aside>
 </header>

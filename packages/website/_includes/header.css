@@ -5,17 +5,20 @@
   text-align: center;
 }
 
+.page-header-aside {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  font-weight: bold;
+  color: var(--color-text-secondary);
+}
+
 .page-header-weekly-reset {
   display: flex;
   justify-content: flex-end;
   font-weight: bold;
   color: var(--color-text-secondary);
-  font-family: 'Landmark Inline A', 'Landmark Inline B';
-  margin-top: 1rem;
-}
-
-.page-header-weekly-reset relative-date {
-  margin-left: 0.25rem;
+  margin-top: 2rem;
 }
 
 @media screen and (max-width: 700px) {
