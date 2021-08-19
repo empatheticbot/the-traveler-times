@@ -1,6 +1,7 @@
 import xurLocations from './xurLocations'
 
 export default class TwitterHandler {
+  private twitterToken?: string
   async init(twitterEnv) {
     try {
       this.twitterToken = await twitterEnv.get('BEARER_TOKEN')
@@ -29,13 +30,13 @@ export default class TwitterHandler {
     }
   */
   async queryRecentTweetsFromTwitter(
-    query,
-    startDate,
-    endDate,
+    query: string,
+    startDate: Date | string | undefined,
+    endDate: Date | string | undefined,
     maxResults = 100
   ) {
     const url = new URL(`https://api.twitter.com/2/tweets/search/recent`)
-    let startingDate
+    let startingDate: Date
     if (startDate instanceof Date) {
       startingDate = startDate
     } else if (typeof startDate === 'string') {
@@ -50,7 +51,7 @@ export default class TwitterHandler {
       url.searchParams.set('start_time', startingDate.toISOString())
     }
 
-    let endingDate
+    let endingDate: Date
     if (endDate instanceof Date) {
       endingDate = endDate
     } else if (typeof endDate === 'string') {
@@ -62,9 +63,9 @@ export default class TwitterHandler {
     }
 
     url.searchParams.set('query', query)
-    url.searchParams.set('max_results', maxResults)
+    url.searchParams.set('max_results', maxResults.toString())
     try {
-      const response = await fetch(url, {
+      const response = await fetch(url.toString(), {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${this.twitterToken}`,
@@ -95,7 +96,6 @@ export default class TwitterHandler {
     let bestGuessLocation = {
       planet: 'Unknown',
       area: 'Unknown',
-      confidence: 0,
     }
     let currentHighestCount = 0
 

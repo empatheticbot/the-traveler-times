@@ -1,11 +1,11 @@
 export default class BungieAPIError extends Error {
-  constructor(response, ...args) {
+  constructor(response: Response) {
     const fullMessage = `Error occurred during call to the endpoint: ${
       response.url
     } \n ${response.statusText} \n ${response.status} \n ${Object.keys(
       response
     ).join(', ')}`
-    super(fullMessage, ...args)
+    super(fullMessage)
     this.message = fullMessage
     this.name = 'Bungie API failed'
   }

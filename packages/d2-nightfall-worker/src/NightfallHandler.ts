@@ -10,7 +10,7 @@ const rewards = [
 export function getCurrentNightfallRewardHashes() {
   const today = new Date()
   const daysFromStart = Math.floor(
-    (today - startingDate) / (1000 * 60 * 60 * 24 * 7)
+    (today.valueOf() - startingDate.valueOf()) / (1000 * 60 * 60 * 24 * 7)
   )
 
   const index = daysFromStart % rewards.length
