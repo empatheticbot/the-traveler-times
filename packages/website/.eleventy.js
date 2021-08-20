@@ -89,6 +89,21 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, n)
   })
 
+  eleventyConfig.addFilter('contains', (array, key, strings) => {
+    return array.filter((item) => {
+      if (item[key]) {
+        let found = false
+        strings.forEach((string) => {
+          if (item[key].includes(string)) {
+            found = true
+          }
+        })
+        return found
+      }
+      return false
+    })
+  })
+
   eleventyConfig.addPassthroughCopy('assets')
   eleventyConfig.addPassthroughCopy({
     'node_modules/@empatheticbot/time-elements/dist/': 'js/time-elements',

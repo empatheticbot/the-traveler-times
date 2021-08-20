@@ -12,7 +12,10 @@ permalink: /
   {% include 'lost-sector.njk' %}
   {% include 'nightfall.njk' %}
   </section>
+  <section>
+  {% include 'bungie-rss.njk' %}
   {% include 'meta.njk' %}
+  </section>
   {% if not weekly.isAvailable %}
     {% include 'error.njk' %}
   {% endif %}

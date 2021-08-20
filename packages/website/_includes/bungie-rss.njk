@@ -1,0 +1,9 @@
+<article class="vendors bungie-rss">
+  <h2 class="section-title">Bungie.net</h2>
+  <p class="section-description">Keep up on all the latest articles, directly from the source.</p>
+  {% for item in bungieRss.items %}
+  <li>
+    <a href="{{ item.link }}">{{item.title}}</a> - {% if item.isNew %}<span>Breaking</span> {% endif %} <relative-date datetime="{{ item.isoDate | htmlDateString }}">{{item.pubDate}}</relative-date>
+  </li>
+  {% endfor %}
+</article>

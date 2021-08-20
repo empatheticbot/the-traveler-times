@@ -2,7 +2,9 @@
   <article class="vendors">
     <h2 class="section-title">Nightfall Strike</h2>
     <p class="section-description">This week's Nightfall Strike locations, modifiers, and rewards.</p>
-
+    {% if nightfall.groupedActivities.length > 1 %}
+      <p class="section-description">All Grandmaster Nightfalls are available!</p>
+    {% endif %}
     <article class="vendor lost-sectors-container">
       <h3 class="section-subtitle">{{ nightfall.groupedActivities[0][0].displayProperties.description | safe}}</h3>
       <p class="vendor-subtitle">Nightfall</p>
