@@ -2,8 +2,6 @@
   "extends": "@tsconfig/node14/tsconfig.json",
   "include": ["./src/**/*"],
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "commonjs",
     "lib": ["esnext", "webworker"],
     "allowJs": true,
     "types": ["@cloudflare/workers-types"]
