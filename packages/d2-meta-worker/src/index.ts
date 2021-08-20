@@ -5,7 +5,7 @@ import {
 
 export { D2PostGameCarnageReportObject } from './D2PostGameCarnageReportObject'
 
-async function getPGCRDurableObject(env) {
+async function getPGCRDurableObject(env: Environment) {
   let id = env.PGCR_DURABLE_OBJECT.idFromName('PGCR_DURABLE_OBJECT')
   let stub = await env.PGCR_DURABLE_OBJECT.get(id)
   return stub
@@ -14,7 +14,7 @@ async function getPGCRDurableObject(env) {
 async function getLastWeekOfMetaEndingAt(
   date = new Date(),
   definitionHandler,
-  env
+  env: Environment
 ) {
   const dates = []
   for (let i = 0; i < 7; i++) {
@@ -77,7 +77,7 @@ async function getLastWeekOfMetaEndingAt(
   }
 }
 
-async function getCurrentMeta(request, env) {
+async function getCurrentMeta(request: Request, env: Environment) {
   const definitionHandler = new DefinitionHandler()
   await definitionHandler.init(env.BUNGIE_API)
   const currentMeta = await getLastWeekOfMetaEndingAt(
@@ -99,7 +99,7 @@ async function getCurrentMeta(request, env) {
   }
 }
 
-async function updateMetaStats(request, env) {
+async function updateMetaStats(env: Environment) {
   let durableObject = await getPGCRDurableObject(env)
 
   let response = await durableObject.fetch(
@@ -123,7 +123,7 @@ async function updateMetaStats(request, env) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request: Request, env: Environment) {
     let url = new URL(request.url)
 
     switch (url.pathname) {
@@ -138,12 +138,12 @@ export default {
         }
       }
       default: {
-        const meta = await updateMetaStats({}, env)
+        const meta = await updateMetaStats(env)
         return new Response(JSON.stringify(meta))
       }
     }
   },
-  scheduled(event, env) {
-    return updateMetaStats({}, env)
+  scheduled(event: ScheduledEvent, env: Environment) {
+    return updateMetaStats(env)
   },
 }

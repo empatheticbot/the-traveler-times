@@ -9,11 +9,11 @@ export class D2PostGameCarnageReportObject {
     this.env = env
   }
 
-  async handlePGCRRequest(firstActivityId) {
+  async handlePGCRRequest(firstActivityId: string) {
     const fetchURL = new URL(this.PGCR_ENDPOINT)
     fetchURL.searchParams.append('firstActivityId', firstActivityId)
-    fetchURL.searchParams.append('activitiesToFetch', this.SUBCALLS)
-    const response = await fetch(fetchURL)
+    fetchURL.searchParams.append('activitiesToFetch', this.SUBCALLS.toString())
+    const response = await fetch(fetchURL.toString())
     if (response.ok) {
       const result = await response.json()
       return {
@@ -30,7 +30,7 @@ export class D2PostGameCarnageReportObject {
     }
   }
 
-  async fetch(request) {
+  async fetch(request: Request) {
     const dates = {}
     let lastActivityId = parseInt(
       await this.env.DESTINY_2_CRUCIBLE_META.get(this.LAST_ACTIVITY_ID)
@@ -42,7 +42,7 @@ export class D2PostGameCarnageReportObject {
       for (let i = 0; i < this.REQUEST_LIMIT; i++) {
         const activityBatchStartingId = lastActivityId + i * this.SUBCALLS
         activityResultsPromise.push(
-          this.handlePGCRRequest(activityBatchStartingId)
+          this.handlePGCRRequest(activityBatchStartingId.toString())
         )
       }
       const activityResults = await Promise.all(activityResultsPromise)
