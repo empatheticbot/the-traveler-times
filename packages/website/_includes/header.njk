@@ -3,15 +3,15 @@
   <aside class="page-header-aside">
     <p>
       {{season.currentSeason.seasonNumber}}. {{season.currentSeason.displayProperties.name}} ends 
-      <relative-date datetime="{{ season.currentSeason.endDate | htmlDateString }}">
+      <awesome-time datetime="{{ season.currentSeason.endDate | htmlDateString }}">
             {{ season.currentSeason.endDate  | htmlDateString }}
-      </relative-date>
+      </awesome-time>
     </p>
     <p>
       Weekly reset 
-      <relative-date datetime="{{ weekly.weeklyReset | htmlDateString }}">
+      <awesome-time datetime="{{ weekly.weeklyReset | htmlDateString }}">
         {{ weekly.weeklyReset | htmlDateString }}
-      </relative-date>
+      </awesome-time>
     </p>
   </aside>
 </header>

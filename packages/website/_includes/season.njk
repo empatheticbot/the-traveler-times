@@ -1,16 +1,13 @@
-{% set sectionTitle = season.currentSeason.displayProperties.name %}
-{% set sectionDate = season.currentSeason.endDate %}
-{% set sectionTimeDescripter = 'Ends' %}
-{% set sectionId = 'season' %}
-{% set sectionClass = 'section-container__season' %}
-{% extends 'section.njk' %}
+{% import './items.njk' as items %}
 
-{% block content %}
-  <p>Coming soon... (probably)</p>
-  {% for item in destinyData.publicMilestones %}
-    {% set name = item.displayProperties.name %}
-    {% set icon = item.displayProperties.icon %}
-    {% set description = item.displayProperties.description %}
-    {% include 'item.njk' %}
-  {% endfor %}
-{% endblock %}
+<article class="vendors bungie-rss">
+  <h2 class="section-title">Seasonal Challenges</h2>
+  <p class="section-description">This week's seasonal challenges.</p>
+  <ul role="list" class="inventory-item-list lost-sector-list">
+    {% for item in season.seasonalChallenges.weeks[0].challenges %}
+    <li class="inventory-item-container">
+      {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
+    </li>
+    {% endfor %}
+  </ul>
+</article>

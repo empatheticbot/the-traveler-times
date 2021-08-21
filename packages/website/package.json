@@ -22,7 +22,7 @@
   "dependencies": {
     "@11ty/eleventy": "0.12.1",
     "@11ty/eleventy-navigation": "0.3.2",
-    "@empatheticbot/time-elements": "^1.0.0",
+    "@empatheticbot/time-elements": "2.0.3",
     "eslint": "7.32.0",
     "luxon": "^2.0.2",
     "moment": "2.29.1",
