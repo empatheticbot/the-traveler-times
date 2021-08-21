@@ -1,22 +1,4 @@
-export async function getWeapons(env) {
-  let weapons = []
-  let cursor = true
-
-  while (cursor) {
-    const list = await env.DESTINY_2_CRUCIBLE_META.list(
-      cursor === true ? {} : { cursor: cursor }
-    )
-
-    cursor = list.list_complete ? false : list.cursor
-
-    for (const key of list.keys) {
-      weapons.push(await env.DESTINY_2_CRUCIBLE_META.get(key.name, 'json'))
-    }
-  }
-  return weapons
-}
-
-export function getWeaponDataFromPGCR(data) {
+export function getWeaponDataFromPGCR(data): WeaponStats[] {
   const players = data.entries.map((player) => {
     if (!player.extended.weapons) {
       return []

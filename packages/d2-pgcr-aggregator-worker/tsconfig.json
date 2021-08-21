@@ -4,6 +4,6 @@
   "compilerOptions": {
     "lib": ["esnext", "webworker"],
     "allowJs": true,
-    "types": ["@cloudflare/workers-types", "@the-traveler-times/types"]
+    "types": ["@cloudflare/workers-types"]
   }
 }

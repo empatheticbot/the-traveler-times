@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@the-traveler-times/d2-pgcr-worker",
+  "name": "@the-traveler-times/d2-pgcr-aggregator-worker",
   "version": "1.7.0",
   "description": "Scheduled worker that crawls the Bungie Destiny2*Definition endpoints and stores the values in KV DESTINY_2_DEFINITIONS",
   "module": "./dist/index.mjs",
@@ -21,7 +21,6 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^2.2.2",
     "@cloudflare/wrangler": "1.19.0",
-    "@the-traveler-times/types": "file:../types",
     "@rollup/plugin-commonjs": "20.0.0",
     "@rollup/plugin-node-resolve": "13.0.4",
     "@rollup/plugin-typescript": "^8.2.5",
