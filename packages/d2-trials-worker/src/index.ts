@@ -1,9 +1,11 @@
-import { PublicMilestoneHandler } from '@the-traveler-times/bungie-api-gateway'
+import { PublicMilestoneHandler, TwitterHandler } from '@the-traveler-times/bungie-api-gateway'
 
 export default {
   async fetch(request, env) {
     const publicMilestoneHandler = new PublicMilestoneHandler()
     await publicMilestoneHandler.init(env.BUNGIE_API)
+    const twitterHandler = new TwitterHandler()
+    await twitterHandler.init(env.TWITTER_API)
     // const activityHandler = new ActivityHandler()
     // await activityHandler.init(env.BUNGIE_API)
 

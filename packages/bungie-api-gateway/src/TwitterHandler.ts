@@ -1,4 +1,5 @@
 import xurLocations from './xurLocations'
+import trialQueries from './trialQueries'
 
 export default class TwitterHandler {
   private twitterToken?: string
@@ -111,10 +112,27 @@ export default class TwitterHandler {
     }
   }
 
-  async getTrialsMap() {
-    //TODO: Add trials query...
-    //https://data.destinysets.com/i/Activity:588019350
-    // ☝️ That activity looks helpful in getting all trials maps to check twitter against
-    // look under playlistItems
+
+  async getTrialsMap(searchStartDate: Date, searchEndDate?: Date) {
+    const trialsQueryResults = await Promise.all(
+      trialQueries.map(async (trials) => {
+        const twitterQueryResult = await this.queryRecentTweetsFromTwitter(
+          trials.twitterQuery,
+          searchStartDate,
+          searchEndDate
+        )
+        return { ...trials, results: twitterQueryResult.meta.result_count }
+      })
+    )
+
+    let maps = []
+
+    trialsQueryResults.forEach((query, index) => {
+      if (query.results > 30) {
+        maps.push(query)
+      }
+    })
+
+    return maps
   }
 }
