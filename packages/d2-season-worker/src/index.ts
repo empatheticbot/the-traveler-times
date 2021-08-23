@@ -1,5 +1,12 @@
 import { DefinitionHandler } from '@the-traveler-times/bungie-api-gateway'
 
+
+function getCurrentWeek(seasonStartDate: Date): number {
+  const today = new Date()
+  const weekInMilli = 1000 * 60 * 60 *24 * 7
+  const diffInMilli = today.valueOf() - seasonStartDate.valueOf()
+  return Math.ceil(diffInMilli / weekInMilli)
+}
 export default {
   async fetch(request, env) {
     const definitionHandler = new DefinitionHandler()
@@ -55,12 +62,19 @@ export default {
         })
       )
 
+      let currentWeek = getCurrentWeek(new Date(currentSeason.startDate))
+      if (currentWeek > weeklyRecords.length) {
+        currentWeek = weeklyRecords.length
+      }
+      let currentWeekIndex = currentWeek - 1
+      
       return new Response(
         JSON.stringify({
           currentSeason,
           nextSeason,
           allSeasons: seasonsInfo,
           seasonalChallenges: {
+            currentWeekIndex,
             weeks: weeklyRecords,
             name: seasonalNode.displayProperties.name,
             icon: seasonalNode.displayProperties.icon,

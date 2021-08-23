@@ -4,7 +4,7 @@
   <h2 class="section-title">Seasonal Challenges</h2>
   <p class="section-description">This week's seasonal challenges.</p>
   <ul role="list" class="inventory-item-list lost-sector-list">
-    {% for item in season.seasonalChallenges.weeks[0].challenges %}
+    {% for item in season.seasonalChallenges.weeks[season.seasonalChallenges.currentWeekIndex].challenges %}
     <li class="inventory-item-container">
       {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
     </li>

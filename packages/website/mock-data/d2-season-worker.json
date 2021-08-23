@@ -364,6 +364,7 @@
     }
   },
   "seasonalChallenges": {
+    "currentWeekIndex": 9,
     "weeks": [
       {
         "name": "Week 1",
