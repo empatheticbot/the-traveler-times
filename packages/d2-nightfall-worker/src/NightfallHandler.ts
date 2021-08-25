@@ -5,6 +5,8 @@ const rewards = [
   ['534775659'],
   ['681067419'],
   ['852228780'],
+  ['2443900757'],
+  ['1866778462'],
 ]
 
 export function getCurrentNightfallRewardHashes() {
