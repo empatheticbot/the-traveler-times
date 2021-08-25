@@ -1,4 +1,5 @@
 const startingDate = new Date('July 27, 2021 17:00:00 GMT')
+const grandMasterStartDate = new Date('October 3, 2021 17:00:00 GMT')
 
 const rewards = [
   ['2147010335', '1481892490', '3836861464'],
