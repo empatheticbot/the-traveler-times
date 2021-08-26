@@ -3,6 +3,7 @@ const startingDate = new Date('August 25, 2021 17:00:00 GMT')
 const availableLostSectors = [
   { name: 'Perdition', master: '1070981425', legend: '1070981430' },
   { name: 'Bay of Drowned Wishes', master: '660710120', legend: '660710127' },
+  { name: 'Chamber of Starlight', master: '4206916276', legend: '4206916275' },
   { name: 'The Quarry', master: '3253890600', legend: '3253890607' },
   { name: "Scavenger's Den", master: '1905792146', legend: '1905792149' },
   { name: 'Excavation Site XII', master: '548616653', legend: '548616650' },
