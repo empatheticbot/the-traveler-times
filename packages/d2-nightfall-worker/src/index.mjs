@@ -7,6 +7,7 @@ import {
 import {
   getModifiersOrderedByDifficulty,
   getCurrentNightfallRewardHashes,
+  getGrandmasterAvailability,
 } from './NightfallHandler'
 
 export default {
@@ -42,9 +43,15 @@ export default {
         reducedActivitiesByDescription
       ).sort((a, b) => b.length - a.length)
 
-      const modifierGroups = getModifiersOrderedByDifficulty(
-        activitiesAsArray[0]
-      )
+      const isGrandmasterAvailable = getGrandmasterAvailability()
+
+      let modifierGroups = getModifiersOrderedByDifficulty(activitiesAsArray[0])
+
+      if (!isGrandmasterAvailable) {
+        modifierGroups = modifierGroups.filter(
+          (modifier) => modifier.name !== 'Grandmaster'
+        )
+      }
 
       const { nightfall, grandmaster } = getCurrentNightfallRewardHashes()
       const nightfallRewards = await definitionHandler.getInventoryItems(
@@ -62,6 +69,7 @@ export default {
           modifierGroups,
           rewards: nightfallRewards,
           grandmasterRewards,
+          isGrandmasterAvailable,
           isAvailable: true,
         }),
         {

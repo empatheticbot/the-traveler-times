@@ -13,7 +13,7 @@ export function getCurrentNightfallRewardHashes() {
   return NightfallRewardPairs[index]
 }
 
-export function isGrandmasterAvailable(): boolean {
+export function getGrandmasterAvailability(): boolean {
   const today = new Date()
   return today.valueOf() > grandMasterStartDate.valueOf()
 }
