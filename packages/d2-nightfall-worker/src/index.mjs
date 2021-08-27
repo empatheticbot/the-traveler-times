@@ -46,8 +46,13 @@ export default {
         activitiesAsArray[0]
       )
 
-      const rewardHashes = getCurrentNightfallRewardHashes()
-      const rewards = await definitionHandler.getInventoryItems(...rewardHashes)
+      const { nightfall, grandmaster } = getCurrentNightfallRewardHashes()
+      const nightfallRewards = await definitionHandler.getInventoryItems(
+        ...nightfall
+      )
+      const grandmasterRewards = await definitionHandler.getInventoryItems(
+        ...grandmaster
+      )
 
       return new Response(
         JSON.stringify({
@@ -55,7 +60,8 @@ export default {
           activities,
           groupedActivities: activitiesAsArray,
           modifierGroups,
-          rewards,
+          rewards: nightfallRewards,
+          grandmasterRewards,
           isAvailable: true,
         }),
         {
