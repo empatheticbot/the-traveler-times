@@ -13,7 +13,11 @@ export default class ActivityHandler {
     return Promise.all(
       activities.map(async (activity, index) => {
         const modifiers = await this.getActivityModifiers(activity)
-        return { ...defActivities[index], ...activity, modifiers }
+        const destination = await this.definitionHandler.getDestination(
+          defActivities[index].destinationHash
+        )
+        console.log(destination)
+        return { ...defActivities[index], ...activity, modifiers, destination }
       })
     )
   }
