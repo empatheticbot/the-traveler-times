@@ -12,30 +12,30 @@
         src="https://bungie.net{{ nightfall.groupedActivities[0][0].pgcrImage | safe}}"
         alt="Image of the Destiny 2 vendor {{vendor.name | safe}}."
         class="vendor-image">
-      <p class="vendor-text">Nightfall found on <strong>{{ nightfall.groupedActivities[0][0].destination | safe }}</strong>.</p>
+      <p class="vendor-text">Nightfall found on <strong>{{ nightfall.groupedActivities[0][0].destination.displayProperties.name | safe }}</strong>.</p>
       <section class="lost-sector-modifiers-group">
         <h4 class="lost-sector-modifier-heading">Rewards</h4>
         <ul role="list" class="inventory-item-list lost-sector-list lost-sector-rewards-list">
-        {% for item in nightfall.rewards %}
-          <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
-        {% endfor %}
+          {% for item in nightfall.rewards %}
+            <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+          {% endfor %}
         </ul>
       </section>
       <section class="lost-sector-modifiers-container">
         {% for name, modifiers in nightfall.modifierGroups | groupby("name") %}
           {% if loop.index0 % 2 === 0 %}
-          <section class="lost-sector-modifiers-group">
-          {% endif %}
+            <section class="lost-sector-modifiers-group">
+            {% endif %}
             <h4 class="lost-sector-modifier-heading">{{name}}</h4>
             <ul role="list" class="inventory-item-list lost-sector-list">
-            {% for item in modifiers %}
-              {% set name = item.displayProperties.name %}
-              {% set subtitle = item.displayProperties.description %}
-              <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
-            {% endfor %}
+              {% for item in modifiers %}
+                {% set name = item.displayProperties.name %}
+                {% set subtitle = item.displayProperties.description %}
+                <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+              {% endfor %}
             </ul>
-          {% if loop.index0 % 2 !== 0 %}
-          </section>
+            {% if loop.index0 % 2 !== 0 %}
+            </section>
           {% endif %}
         {% endfor %}
       </section>
