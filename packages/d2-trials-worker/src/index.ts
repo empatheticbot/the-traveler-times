@@ -1,4 +1,4 @@
-import { PublicMilestoneHandler, TwitterHandler } from '@the-traveler-times/bungie-api-gateway'
+import { PublicMilestoneHandler, TwitterHandler, SeasonHandler } from '@the-traveler-times/bungie-api-gateway'
 
 export default {
   async fetch(request, env) {
@@ -6,6 +6,8 @@ export default {
     await publicMilestoneHandler.init(env.BUNGIE_API)
     const twitterHandler = new TwitterHandler()
     await twitterHandler.init(env.TWITTER_API)
+    const seasonHandler = new SeasonHandler()
+    await seasonHandler.init(env.BUNGIE_API)
     // const activityHandler = new ActivityHandler()
     // await activityHandler.init(env.BUNGIE_API)
 
@@ -21,7 +23,8 @@ export default {
       //       const modifierGroups = getModifiersOrderedByDifficulty(activities)
 
       const milestones = await publicMilestoneHandler.getPublicMilestones()
-
+      const isFirstWeekOfSeason = seasonHandler.isFirstWeekOfSeason()
+      
       return new Response(JSON.stringify({ milestones }), {
         status: 200,
       })

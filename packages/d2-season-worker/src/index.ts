@@ -1,41 +1,16 @@
-import { DefinitionHandler } from '@the-traveler-times/bungie-api-gateway'
+import { DefinitionHandler, SeasonHandler } from '@the-traveler-times/bungie-api-gateway'
 
-
-function getCurrentWeek(seasonStartDate: Date): number {
-  const today = new Date()
-  const weekInMilli = 1000 * 60 * 60 *24 * 7
-  const diffInMilli = today.valueOf() - seasonStartDate.valueOf()
-  return Math.ceil(diffInMilli / weekInMilli)
-}
 export default {
   async fetch(request, env) {
     const definitionHandler = new DefinitionHandler()
     await definitionHandler.init(env.BUNGIE_API)
+    const seasonHandler = new SeasonHandler()
+    await seasonHandler.init(env.BUNGIE_API)
 
     try {
-      const seasonsInfo = await definitionHandler.getDefinitions(
-        'DestinySeasonDefinition'
-      )
-      const seasons = Object.values(seasonsInfo)
-      let currentSeason = {}
-      let currentDate = new Date()
-      for (const season of seasons) {
-        const startDate = Date.parse(season.startDate)
-        const endDate = Date.parse(season.endDate)
-        if (startDate <= currentDate && endDate >= currentDate) {
-          currentSeason = season
-          break
-        }
-      }
-
-      const nextSeasonIndex = currentSeason.index + 1
-      let nextSeason
-      for (const season of seasons) {
-        if (season.index === nextSeasonIndex) {
-          nextSeason = season
-          break
-        }
-      }
+      const seasonsInfo = seasonHandler.getAllSeasons()
+      const currentSeason = seasonHandler.getCurrentSeason()
+      const nextSeason = seasonHandler.getNextSeason()
 
       const seasonalNode = await definitionHandler.getPresentationNode(
         '3443694067'
