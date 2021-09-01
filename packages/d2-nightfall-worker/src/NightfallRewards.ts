@@ -31,12 +31,12 @@ export const NightfallRewardPairs = [
   },
   { 
     nightfall: [
-      NightfallRewards.Unknown, 
-      NightfallRewards.Unknown,
+      NightfallRewards.TheHothead, 
+      NightfallRewards.HungJury,
     ],
     grandmaster: [
-      NightfallRewards.Unknown,
-      NightfallRewards.Unknown,
+      NightfallRewards.TheHotheadAdept,
+      NightfallRewards.HungJuryAdept,
     ]
   },
   { 
