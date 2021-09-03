@@ -8,3 +8,4 @@ export const ADA = '350061650'
 // PUBLIC MILESTONES
 export const IRON_BANNER = '3427325023'
 export const NIGHTFALL = '1942283261'
+export const TRIALS = '3842941126'

@@ -1,4 +1,4 @@
-import { PublicMilestoneHandler, TwitterHandler, SeasonHandler } from '@the-traveler-times/bungie-api-gateway'
+import { PublicMilestoneHandler, TwitterHandler, SeasonHandler, Hashes } from '@the-traveler-times/bungie-api-gateway'
 
 export default {
   async fetch(request, env) {
@@ -21,11 +21,18 @@ export default {
       //       )
       //
       //       const modifierGroups = getModifiersOrderedByDifficulty(activities)
+      const trialsMilestone = await publicMilestoneHandler.getPublicMilestoneByHash(Hashes.TRIALS)
+      const ironBannerMilestone = await publicMilestoneHandler.getPublicMilestoneByHash(Hashes.IRON_BANNER)
+      const isIronBannerWeek = !!ironBannerMilestone
+      const isFirstWeekOfSeason = await seasonHandler.isFirstWeekOfSeason()
 
-      const milestones = await publicMilestoneHandler.getPublicMilestones()
-      const isFirstWeekOfSeason = seasonHandler.isFirstWeekOfSeason()
-      
-      return new Response(JSON.stringify({ milestones }), {
+      const isAvailable = !isIronBannerWeek && !isFirstWeekOfSeason
+      let trialsMaps
+      if (isAvailable) {
+        const startDate = new Date(trialsMilestone.startDate)
+        trialsMaps = await twitterHandler.getTrialsMap(startDate)
+      }
+      return new Response(JSON.stringify({ isFirstWeekOfSeason, isIronBannerWeek, isAvailable, trialsMaps, trialsMilestone }), {
         status: 200,
       })
     } catch (e) {
