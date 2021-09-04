@@ -23,17 +23,17 @@ const commonModifiers = [
 ]
 
 const modifierDetailsMap = {
-  'Desolate Charge': {
+  'Arc Burn.': {
     damageType: 'arc',
     primaryInformation: '+50% Arc damage',
     secondaryInformation: 'dealt & recieved.',
   },
-  'Forlorn Miasma': {
+  'Void Burn.': {
     damageType: 'void',
     primaryInformation: '+50% Void damage',
     secondaryInformation: 'dealt & recieved.',
   },
-  'Isolated Flames': {
+  'Solar Burn.': {
     damageType: 'solar',
     primaryInformation: '+50% Solar damage',
     secondaryInformation: 'dealt & recieved.',

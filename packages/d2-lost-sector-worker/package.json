@@ -26,9 +26,9 @@
     "@tsconfig/node14": "^1.0.1",
     "eslint": "7.32.0",
     "prettier": "2.3.2",
-    "rollup": "^2.56.2",
+    "rollup": "^2.56.3",
     "rollup-plugin-terser": "7.0.2",
     "tslib": "^2.3.1",
-    "typescript": "^4.3.5"
+    "typescript": "^4.4.2"
   }
 }
