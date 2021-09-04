@@ -12,11 +12,11 @@ const availableLostSectors = [
   { name: 'Concealed Void', master: '912873274', legend: '912873277' },
   { name: 'Bunker E15', master: '1648125538', legend: '1648125541' },
   { name: 'Perdition', master: '1070981425', legend: '1070981430' },
-  { name: 'The Quarry', master: '3253890600', legend: '3253890607' },
-  { name: "Scavenger's Den", master: '1905792146', legend: '1905792149' },
-  { name: 'Excavation Site XII', master: '548616653', legend: '548616650' },
-  { name: 'Exodus Garden 2A', master: '2936791995', legend: '2936791996' },
-  { name: 'Veles Labyrinth', master: '3094493727', legend: '3094493720' },
+  // { name: 'The Quarry', master: '3253890600', legend: '3253890607' },
+  // { name: "Scavenger's Den", master: '1905792146', legend: '1905792149' },
+  // { name: 'Excavation Site XII', master: '548616653', legend: '548616650' },
+  // { name: 'Exodus Garden 2A', master: '2936791995', legend: '2936791996' },
+  // { name: 'Veles Labyrinth', master: '3094493727', legend: '3094493720' },
 ]
 
 const rewards = [
