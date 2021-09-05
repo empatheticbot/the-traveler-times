@@ -8,14 +8,15 @@ permalink: /
 {% block content %}
   {% include 'vendors.njk' %}
   <section class="section-container__weekly">
-  {% include 'iron-banner.njk' %}
-  {% include 'lost-sector.njk' %}
-  {% include 'nightfall.njk' %}
-  {% include 'season.njk' %}
+    {% include 'trials.njk' %}
+    {% include 'iron-banner.njk' %}
+    {% include 'lost-sector.njk' %}
+    {% include 'nightfall.njk' %}
+    {% include 'season.njk' %}
   </section>
   <section>
-  {% include 'bungie-rss.njk' %}
-  {% include 'meta.njk' %}
+    {% include 'bungie-rss.njk' %}
+    {% include 'meta.njk' %}
   </section>
   {% if not weekly.isAvailable %}
     {% include 'error.njk' %}

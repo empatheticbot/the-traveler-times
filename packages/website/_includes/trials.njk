@@ -1,0 +1,10 @@
+{% if trials.isAvailable %}
+  <article class="vendors iron-banner-container">
+    <h2 class="section-title">Trials of Osiris</h2>
+    <section class="iron-banner-image-container">
+      <img class="iron-banner--image-container--image" src="https://bungie.net{{ trials.image | safe}}"/>
+      <img class="iron-banner--image-container--icon" src="https://bungie.net{{ trials.displayProperties.icon | safe }}"/>
+    </section>
+    <p class="section-description iron-banner-description">{{ trials.displayProperties.description }}</p>
+  </article>
+{% endif %}
