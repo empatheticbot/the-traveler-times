@@ -23,21 +23,28 @@ const commonModifiers = [
 ]
 
 const modifierDetailsMap = {
-  'Arc Burn.': {
+  'Arc Burn': {
     damageType: 'arc',
     primaryInformation: '+50% Arc damage',
     secondaryInformation: 'dealt & recieved.',
   },
-  'Void Burn.': {
+  'Void Burn': {
     damageType: 'void',
     primaryInformation: '+50% Void damage',
     secondaryInformation: 'dealt & recieved.',
   },
-  'Solar Burn.': {
+  'Solar Burn': {
     damageType: 'solar',
     primaryInformation: '+50% Solar damage',
     secondaryInformation: 'dealt & recieved.',
   },
+}
+
+function getShieldTypes(description: string): string[] {
+  const descriptionStrings = description.split('\\n\\n')
+  const shieldDescriptionString = descriptionStrings.find(item => item.includes('Shields:'))
+  
+  return []
 }
 
 function getModifiersOfInterest(modifiers) {
