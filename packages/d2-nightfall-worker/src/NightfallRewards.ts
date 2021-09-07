@@ -19,44 +19,29 @@ export enum NightfallRewards {
 }
 
 export const NightfallRewardPairs = [
-  { 
-    nightfall: [
-      NightfallRewards.ShadowPrice, 
-      NightfallRewards.TheComedian,
-    ],
+  {
+    nightfall: [NightfallRewards.TheComedian, NightfallRewards.ShadowPrice],
     grandmaster: [
-      NightfallRewards.ShadowPriceAdept,
       NightfallRewards.TheComedianAdept,
-    ]
-  },
-  { 
-    nightfall: [
-      NightfallRewards.TheHothead, 
-      NightfallRewards.HungJury,
+      NightfallRewards.ShadowPriceAdept,
     ],
+  },
+  {
+    nightfall: [NightfallRewards.TheHothead, NightfallRewards.HungJury],
     grandmaster: [
       NightfallRewards.TheHotheadAdept,
       NightfallRewards.HungJuryAdept,
-    ]
-  },
-  { 
-    nightfall: [
-      NightfallRewards.Unknown, 
-      NightfallRewards.Unknown,
     ],
-    grandmaster: [
-      NightfallRewards.Unknown,
-      NightfallRewards.Unknown,
-    ]
   },
-  { 
-    nightfall: [
-      NightfallRewards.Unknown, 
-      NightfallRewards.Unknown,
-    ],
+  {
+    nightfall: [NightfallRewards.TheComedian, NightfallRewards.Uzume],
     grandmaster: [
-      NightfallRewards.Unknown,
-      NightfallRewards.Unknown,
-    ]
+      NightfallRewards.TheComedianAdept,
+      NightfallRewards.UzumeAdept,
+    ],
+  },
+  {
+    nightfall: [NightfallRewards.Unknown, NightfallRewards.Unknown],
+    grandmaster: [NightfallRewards.Unknown, NightfallRewards.Unknown],
   },
 ]
