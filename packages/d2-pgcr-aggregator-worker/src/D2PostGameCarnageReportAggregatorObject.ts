@@ -1,4 +1,4 @@
-export class D2PostGameCarnageReportObject {
+export class D2PostGameCarnageReportAggregatorObject {
   PGCR_ENDPOINT = 'https://d2-pgcr-worker.empatheticbot.workers.dev'
   REQUEST_LIMIT = 49
   LAST_ACTIVITY_ID = 'CURRENT_ACTIVITY_ID'
