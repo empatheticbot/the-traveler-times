@@ -3,11 +3,13 @@ import {
   getStrippedItem,
 } from '@the-traveler-times/bungie-api-gateway'
 
-export { D2PostGameCarnageReportObject } from './D2PostGameCarnageReportObject'
+export { D2PostGameCarnageReportAggregatorObject } from './D2PostGameCarnageReportAggregatorObject'
 
 async function getPGCRDurableObject(env: Environment) {
-  let id = env.PGCR_DURABLE_OBJECT.idFromName('PGCR_DURABLE_OBJECT')
-  let stub = await env.PGCR_DURABLE_OBJECT.get(id)
+  let id = env.PGCR_AGGREGATOR_DURABLE_OBJECT.idFromName(
+    'PGCR_AGGREGATOR_DURABLE_OBJECT'
+  )
+  let stub = await env.PGCR_AGGREGATOR_DURABLE_OBJECT.get(id)
   return stub
 }
 
