@@ -1,0 +1,14 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "cd packages\/d2-lost-sector-worker\nnpm run build"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "cd packages\/d2-lost-sector-worker\nnpm run start"
+    }
+  },
+  "identifier" : "6207678E-C246-4049-95FC-57F4D7BF8389",
+  "openLogOnRun" : "start"
+}

@@ -41,9 +41,17 @@ const modifierDetailsMap = {
 }
 
 function getShieldTypes(description: string): string[] {
-  const descriptionStrings = description.split('\\n\\n')
-  const shieldDescriptionString = descriptionStrings.find(item => item.includes('Shields:'))
-  
+  const descriptionStrings = description.split('\n\n')
+  const shieldDescriptionString = descriptionStrings.find((item) =>
+    item.includes('Shields:')
+  )
+  const shieldRegex = /(?<=\[).+?(?=\])/g
+  if (shieldDescriptionString) {
+    const shields = [...shieldDescriptionString.matchAll(shieldRegex)]
+    console.log(shields.toString(), shieldDescriptionString)
+
+    return shields.map((value) => value[0])
+  }
   return []
 }
 
@@ -117,6 +125,8 @@ async function getLostSectorData(lostSector, definitionHandler) {
     activity.destinationHash
   )
 
+  const shields = getShieldTypes(activity.displayProperties.description)
+
   let rewards = []
   if (lostSector.rewards) {
     rewards = await Promise.all(
@@ -132,6 +142,7 @@ async function getLostSectorData(lostSector, definitionHandler) {
     modifiers,
     modifiersOfInterest,
     rewards,
+    shields,
     destination,
   }
 }

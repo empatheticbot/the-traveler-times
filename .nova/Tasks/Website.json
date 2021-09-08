@@ -6,7 +6,7 @@
     },
     "run" : {
       "enabled" : true,
-      "script" : "npm run start:web"
+      "script" : "cd packages\/website\nnpm run start"
     }
   },
   "identifier" : "ACCB97B4-3C6A-46B0-B16D-6B0F161E3746",
