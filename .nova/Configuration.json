@@ -1,4 +1,5 @@
 {
   "workspace.color" : 2,
-  "workspace.name" : "📰 The Traveler Times"
+  "workspace.name" : "📰 The Traveler Times",
+  "workspace.preview_type" : "custom"
 }

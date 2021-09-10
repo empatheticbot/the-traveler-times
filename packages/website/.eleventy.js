@@ -18,7 +18,6 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.addFilter('prettyNumber', (number) => {
-    console.log(number)
     return number.toLocaleString()
   })
 
