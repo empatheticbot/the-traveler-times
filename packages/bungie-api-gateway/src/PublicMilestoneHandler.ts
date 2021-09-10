@@ -1,5 +1,5 @@
 import BungieAPIHandler from './BungieAPIHandler'
-
+import { IRON_BANNER } from './Hashes'
 export default class PublicMilestoneHandler {
   async init(bungieApiEnv) {
     this.bungieAPIHandler = new BungieAPIHandler()
@@ -30,5 +30,22 @@ export default class PublicMilestoneHandler {
       return milestone
     }
     throw new Error('Milestone hash id not found.')
+  }
+  // TODO: use this for weekly iron banner fetching
+  async getIronBannerMilestone() {
+    let milestone
+    try {
+      milestone =
+        await this.getPublicMilestoneByHash(
+          IRON_BANNER
+        )
+    } catch (e) {
+      console.log('Iron Banner not available.')
+      return { isAvailable: false }
+    }
+    return {
+      ...milestone,
+      isAvailable: true,
+    }
   }
 }

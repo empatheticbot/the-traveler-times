@@ -5,18 +5,25 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "command": "cd packages/website && npm run start",
+      "name": "Website - Develop",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "command": "cd packages/website && npm run build",
+      "name": "Website - Update Data",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
       "type": "node",
       "request": "launch",
       "name": "Build All Packages",
       "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run",
-        "build"
-      ],
+      "runtimeArgs": ["run", "build"],
       "port": 9229,
-      "skipFiles": [
-        "<node_internals>/**"
-      ]
-    },
+      "skipFiles": ["<node_internals>/**"]
+    }
   ]
 }
