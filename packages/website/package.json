@@ -26,8 +26,8 @@
     "eslint": "7.32.0",
     "luxon": "^2.0.2",
     "moment": "2.29.1",
-    "node-fetch": "2.6.1",
-    "prettier": "2.3.2",
+    "node-fetch": "^3.0.0",
+    "prettier": "^2.4.0",
     "rss-parser": "^3.12.0"
   }
 }

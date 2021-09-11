@@ -20,17 +20,17 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "2.2.2",
-    "@cloudflare/wrangler": "1.19.0",
+    "@cloudflare/wrangler": "^1.19.2",
     "@rollup/plugin-commonjs": "20.0.0",
     "@rollup/plugin-node-resolve": "13.0.4",
     "@rollup/plugin-typescript": "8.2.5",
     "@the-traveler-times/types": "file:../types",
     "@tsconfig/node14": "1.0.1",
     "eslint": "7.32.0",
-    "prettier": "2.3.2",
-    "rollup": "2.56.2",
+    "prettier": "^2.4.0",
+    "rollup": "^2.56.3",
     "rollup-plugin-terser": "7.0.2",
     "tslib": "^2.3.1",
-    "typescript": "4.3.5"
+    "typescript": "^4.4.3"
   }
 }
