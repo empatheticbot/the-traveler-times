@@ -1,0 +1,14 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "cd packages\/d2-trials-worker\nnpm run build"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "cd packages\/d2-trials-worker\nnpm run start"
+    }
+  },
+  "identifier" : "FCB7EABB-7CF1-4C9F-9E4E-4CC43EBA525E",
+  "openLogOnRun" : "start"
+}

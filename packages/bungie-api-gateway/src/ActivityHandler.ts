@@ -23,8 +23,11 @@ export default class ActivityHandler {
   }
 
   async getActivityModifiers(activity) {
-    return this.definitionHandler.getActivityModifiers(
-      ...activity.modifierHashes
-    )
+    if (activity.modifierHashes) {
+      return this.definitionHandler.getActivityModifiers(
+        ...activity.modifierHashes
+      )
+    }
+    return []
   }
 }

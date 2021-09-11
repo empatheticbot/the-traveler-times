@@ -112,7 +112,10 @@ export default class TwitterHandler {
     }
   }
 
-  async getTrialsMap(searchStartDate: Date, searchEndDate?: Date): Promise<TrialsQueryResults[]> {
+  async getTrialsMap(
+    searchStartDate: Date,
+    searchEndDate?: Date
+  ): Promise<TrialsQueryResults[]> {
     const trialsQueryResults = await Promise.all(
       trialQueries.map(async (trials) => {
         const twitterQueryResult = await this.queryRecentTweetsFromTwitter(
@@ -120,7 +123,10 @@ export default class TwitterHandler {
           searchStartDate,
           searchEndDate
         )
-        return { ...trials, results: twitterQueryResult.meta.result_count as number }
+        return {
+          ...trials,
+          results: twitterQueryResult.meta.result_count as number,
+        }
       })
     )
 
@@ -137,7 +143,8 @@ export default class TwitterHandler {
 }
 
 type TrialsQueryResults = {
-  twitterQuery: string,
-  map: string,
+  twitterQuery: string
+  map: string
+  activityHash: string
   results: number
 }
