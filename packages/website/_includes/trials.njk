@@ -1,10 +1,12 @@
 {% if trials.isAvailable %}
   <article class="vendors iron-banner-container">
     <h2 class="section-title">Trials of Osiris</h2>
+    {% for map in trials.maps %}
     <section class="iron-banner-image-container">
-      <img class="iron-banner--image-container--image" src="https://bungie.net{{ trials.image | safe}}"/>
-      <img class="iron-banner--image-container--icon" src="https://bungie.net{{ trials.displayProperties.icon | safe }}"/>
+      <img class="iron-banner--image-container--image" src="https://bungie.net{{ map.pgcrImage | safe}}"/>
+      {# <img class="iron-banner--image-container--icon" src="https://bungie.net{{ trials.displayProperties.icon | safe }}"/> #}
     </section>
-    <p class="section-description iron-banner-description">{{ trials.displayProperties.description }}</p>
+    <p class="section-description iron-banner-description">{{ map.displayProperties.description }}</p>
+    {% endfor %}
   </article>
 {% endif %}

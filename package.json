@@ -25,7 +25,7 @@
     "test": "lerna run test",
     "format": "lerna run format --parallel",
     "clean": "lerna run clean",
-    "update": "lerna exec --parallel -- npm-check -y"
+    "update": "lerna exec -- npm-check -u"
   },
   "repository": {
     "type": "git",
@@ -38,10 +38,8 @@
   },
   "homepage": "https://github.com/empatheticbot/the-traveler-times#readme",
   "devDependencies": {
-    "lerna": "^4.0.0",
-    "@cloudflare/wrangler": "1.19.0"
-  },
-  "dependencies": {
-    "npm-check": "^5.9.2"
+    "@cloudflare/wrangler": "1.19.0",
+    "lerna": "4.0.0",
+    "npm-check": "5.9.2"
   }
 }

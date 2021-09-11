@@ -21,7 +21,8 @@ export default {
     await seasonHandler.init(env.BUNGIE_API)
 
     try {
-      const { weekendReset } = await vendorHandler.getWeeklyResets()
+      const { weekendReset, weeklyReset } =
+        await vendorHandler.getWeeklyResets()
       const trialsMilestone =
         await publicMilestoneHandler.getPublicMilestoneByHash(Hashes.TRIALS)
       const ironBannerMilestone =
@@ -34,8 +35,10 @@ export default {
       if (isAvailable) {
         const startDate = new Date(weekendReset)
         startDate.setDate(startDate.getDate() - 7)
+
         const endDate = new Date(startDate)
         endDate.setHours(endDate.getHours() + 1)
+
         trialsMaps = await twitterHandler.getTrialsMap(startDate, endDate)
         trialsMaps = await activityHandler.getActivities(trialsMaps)
       }
