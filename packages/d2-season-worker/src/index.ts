@@ -1,4 +1,7 @@
-import { DefinitionHandler, SeasonHandler } from '@the-traveler-times/bungie-api-gateway'
+import {
+  DefinitionHandler,
+  SeasonHandler,
+} from '@the-traveler-times/bungie-api-gateway'
 
 export default {
   async fetch(request, env) {
@@ -37,12 +40,14 @@ export default {
         })
       )
 
-      let currentWeek = getCurrentWeek(new Date(currentSeason.startDate))
+      let currentWeek = seasonHandler.getCurrentWeek(
+        new Date(currentSeason.startDate)
+      )
       if (currentWeek > weeklyRecords.length) {
         currentWeek = weeklyRecords.length
       }
       let currentWeekIndex = currentWeek - 1
-      
+
       return new Response(
         JSON.stringify({
           currentSeason,

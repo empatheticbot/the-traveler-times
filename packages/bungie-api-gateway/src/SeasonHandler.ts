@@ -18,7 +18,10 @@ export default class TwitterHandler {
     for (const season of seasons) {
       const startDate = Date.parse(season.startDate)
       const endDate = Date.parse(season.endDate)
-      if (startDate <= currentDate.valueOf() && endDate >= currentDate.valueOf()) {
+      if (
+        startDate <= currentDate.valueOf() &&
+        endDate >= currentDate.valueOf()
+      ) {
         currentSeason = season
         break
       }
@@ -27,6 +30,7 @@ export default class TwitterHandler {
   }
 
   getNextSeason() {
+    const seasons = Object.values(this.seasonsInfo)
     const currentSeason = this.getCurrentSeason()
     const nextSeasonIndex = currentSeason.index + 1
     let nextSeason

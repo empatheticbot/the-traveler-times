@@ -1,0 +1,14 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "cd packages\/d2-season-worker\nnpm run build"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "cd packages\/d2-season-worker\nnpm run start"
+    }
+  },
+  "identifier" : "8B93DFB9-49F4-457D-BAB0-F378CBCDE8BE",
+  "openLogOnRun" : "start"
+}
