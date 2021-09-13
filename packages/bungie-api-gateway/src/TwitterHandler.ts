@@ -1,5 +1,5 @@
 import xurLocations from './xurLocations'
-import trialQueries from './trialQueries'
+import { maps, rewards } from './trialQueries'
 
 export default class TwitterHandler {
   private twitterToken?: string
@@ -115,9 +115,9 @@ export default class TwitterHandler {
   async getTrialsMap(
     searchStartDate: Date,
     searchEndDate?: Date
-  ): Promise<TrialsQueryResults[]> {
+  ): Promise<TrialsMapsQueryResults[]> {
     const trialsQueryResults = await Promise.all(
-      trialQueries.map(async (trials) => {
+      maps.map(async (trials) => {
         const twitterQueryResult = await this.queryRecentTweetsFromTwitter(
           trials.twitterQuery,
           searchStartDate,
@@ -130,21 +130,57 @@ export default class TwitterHandler {
       })
     )
 
-    let maps: TrialsQueryResults[] = []
+    let trialsMaps: TrialsMapsQueryResults[] = []
 
     trialsQueryResults.forEach((query, index) => {
       if (query.results > 30) {
-        maps.push(query)
+        trialsMaps.push(query)
       }
     })
 
-    return maps
+    return trialsMaps
+  }
+
+  async getTrialsRewards(
+    searchStartDate: Date,
+    searchEndDate?: Date
+  ): Promise<TrialsRewardsQueryResults[]> {
+    const trialsQueryResults = await Promise.all(
+      rewards.map(async (trials) => {
+        const twitterQueryResult = await this.queryRecentTweetsFromTwitter(
+          trials.twitterQuery,
+          searchStartDate,
+          searchEndDate
+        )
+        return {
+          ...trials,
+          results: twitterQueryResult.meta.result_count as number,
+        }
+      })
+    )
+
+    let trialsRewards: TrialsRewardsQueryResults[] = []
+
+    trialsQueryResults.forEach((query, index) => {
+      if (query.results > 5) {
+        trialsRewards.push(query)
+      }
+    })
+
+    return trialsRewards
   }
 }
 
-type TrialsQueryResults = {
+type TrialsMapsQueryResults = {
   twitterQuery: string
   map: string
   activityHash: string
+  results: number
+}
+
+type TrialsRewardsQueryResults = {
+  twitterQuery: string
+  reward: string
+  hash: string
   results: number
 }

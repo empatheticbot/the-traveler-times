@@ -1,4 +1,4 @@
-export default [
+export const maps = [
   {
     map: 'Altar of Flame',
     twitterQuery: 'trials (Altar Flame)',
@@ -48,5 +48,38 @@ export default [
     map: 'Cauldron',
     twitterQuery: 'trials (Cauldron)',
     activityHash: '1242943383',
+  },
+]
+
+export const rewards = [
+  {
+    reward: "Shayura's Wrath",
+    twitterQuery: "trials flawless reward Shayura's Wrath",
+    hash: '2559492205',
+  },
+  {
+    reward: 'Eye of Sol',
+    twitterQuery: 'trials flawless reward Eye of Sol',
+    hash: '2740905684',
+  },
+  {
+    reward: "Reed's Regret",
+    twitterQuery: "trials flawless reward Reed's Regret",
+    hash: '751170008',
+  },
+  {
+    reward: 'Igneous Hammerl',
+    twitterQuery: 'trials flawless reward Igneous Hammer',
+    hash: '2527666306',
+  },
+  {
+    reward: 'The Messenger',
+    twitterQuery: 'trials flawless reward The Messenger',
+    hash: '98400473',
+  },
+  {
+    reward: "Sola's Scar",
+    twitterQuery: "trials flawless reward Sola's Scar",
+    hash: '1175310596',
   },
 ]
