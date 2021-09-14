@@ -41,8 +41,8 @@ export const NightfallRewardPairs = [
     ],
   },
   {
-    nightfall: [NightfallRewards.TheHothead, NightfallRewards.Unknown],
-    grandmaster: [NightfallRewards.TheHotheadAdept, NightfallRewards.Unknown],
+    nightfall: [NightfallRewards.ThePalindrome, NightfallRewards.TheSwarm],
+    grandmaster: [NightfallRewards.ThePalindromeAdept, NightfallRewards.TheSwarmAdept],
   },
   {
     nightfall: [NightfallRewards.TheComedian, NightfallRewards.Unknown],
