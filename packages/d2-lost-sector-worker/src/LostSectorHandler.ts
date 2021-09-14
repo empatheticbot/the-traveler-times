@@ -3,7 +3,7 @@ const startingDate = new Date('August 26, 2021 17:00:00 GMT')
 const availableLostSectors = [
   { name: 'Bay of Drowned Wishes', master: '660710120', legend: '660710127' },
   { name: 'Chamber of Starlight', master: '4206916276', legend: '4206916275' },
-  { name: 'Aphelion\'s Rest', master: '1898610131', legend: '1898610132' },
+  { name: "Aphelion's Rest", master: '1898610131', legend: '1898610132' },
   { name: 'The Empty Tank', master: '2019961993', legend: '2019961998' },
   { name: 'K1 Logistics', master: '567131519', legend: '567131512' },
   { name: 'K1 Communion', master: '2829206720', legend: '2829206727' },
@@ -20,10 +20,10 @@ const availableLostSectors = [
 ]
 
 const rewards = [
-  { name: 'Arms', master: '256080248', legend: '1572351682' },
   { name: 'Chest', master: '2686128774', legend: '176055472' },
   { name: 'Head', master: '2679019194', legend: '1387420892' },
   { name: 'Legs', master: '247000308', legend: '2850782006' },
+  { name: 'Arms', master: '256080248', legend: '1572351682' },
 ]
 
 export function getCurrentLostSectorHashes() {
