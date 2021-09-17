@@ -49,6 +49,11 @@ export const maps = [
     twitterQuery: 'trials (Cauldron)',
     activityHash: '1242943383',
   },
+  {
+    map: 'Distant Shore',
+    twitterQuery: 'trials distant shore',
+    activityHash: '528628085',
+  },
 ]
 
 export const rewards = [
@@ -81,5 +86,10 @@ export const rewards = [
     reward: "Sola's Scar",
     twitterQuery: "trials flawless reward Sola's Scar",
     hash: '1175310596',
+  },
+  {
+    reward: "Exile's Curse",
+    twitterQuery: "trials flawless reward (Exile OR Curse OR exiles OR exile's)",
+    hash: '276080079',
   },
 ]
