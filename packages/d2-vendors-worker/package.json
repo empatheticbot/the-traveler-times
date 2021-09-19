@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@the-traveler-times/d2-vendors-worker",
-  "version": "1.10.3",
+  "version": "1.11.0",
   "description": "A template for kick starting a Cloudflare Workers project",
   "module": "./dist/index.mjs",
   "scripts": {
