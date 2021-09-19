@@ -4,6 +4,9 @@ import { XUR, ZAVALA, SPIDER, ADA, BANSHEE } from './Hashes'
 import { getStrippedItems } from './InventoryItemUtility'
 
 export default class VendorHandler {
+  bungieAPIHandler
+  definitionHandler
+
   async init(bungieApiEnv) {
     this.bungieAPIHandler = new BungieAPIHandler()
     await this.bungieAPIHandler.init(bungieApiEnv)
@@ -44,12 +47,13 @@ export default class VendorHandler {
             item.defaultDamageTypeHash
           )
 
+          const sockets = await this.definitionHandler.getSocketDetails(item)
           let costs = []
           if (sale.costs) {
             costs = await this.definitionHandler.getSaleItemCosts(sale.costs)
           }
 
-          return { ...sale, ...item, classType, damageType, costs }
+          return { ...sale, ...item, classType, damageType, costs, sockets, }
         })
       )
     }

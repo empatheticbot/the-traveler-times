@@ -21,6 +21,7 @@ export function getStrippedItem(item) {
       item.flavorText ||
       '',
     sort: item.itemType,
+    sockets: item.sockets,
     costs:
       item.costs &&
       item.costs.map((cost) => {

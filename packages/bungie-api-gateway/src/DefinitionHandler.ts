@@ -1,4 +1,5 @@
 import BungieAPIHandler from './BungieAPIHandler'
+import { SocketPlugSources } from './Masks'
 
 export default class DefinitionHandler {
   inFlightDefinitionRequests = {}
@@ -97,6 +98,23 @@ export default class DefinitionHandler {
   async getDamageType(hash) {
     const damageTypes = await this.getDefinitions('DestinyDamageTypeDefinition')
     return damageTypes[hash]
+  }
+
+  async getSocketDetails(item, source = SocketPlugSources.ReusablePlugItems) {
+    const items = await this.getDefinitions('DestinyInventoryItemDefinition')
+    const socketEntries = item?.sockets?.socketEntries
+    let sockets = []
+    if (socketEntries) {
+      for (const entry of socketEntries) {
+        if (entry.plugSources === source) {
+          sockets.push(entry.reusablePlugItems.map(pluginItem => {
+            const pluginItemDefinition = items[pluginItem.plugItemHash]
+              return pluginItemDefinition
+          }))
+        }
+      }
+    }
+    return sockets
   }
 
   async getMilestone(hash) {
