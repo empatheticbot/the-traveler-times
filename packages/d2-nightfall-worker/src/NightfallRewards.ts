@@ -34,22 +34,14 @@ export const NightfallRewardPairs = [
     ],
   },
   {
-    nightfall: [NightfallRewards.TheComedian, NightfallRewards.Uzume],
-    grandmaster: [
-      NightfallRewards.TheComedianAdept,
-      NightfallRewards.UzumeAdept,
-    ],
+    nightfall: [NightfallRewards.Uzume, NightfallRewards.PlugOne],
+    grandmaster: [NightfallRewards.UzumeAdept, NightfallRewards.PlugOneAdept],
   },
   {
     nightfall: [NightfallRewards.ThePalindrome, NightfallRewards.TheSwarm],
-    grandmaster: [NightfallRewards.ThePalindromeAdept, NightfallRewards.TheSwarmAdept],
-  },
-  {
-    nightfall: [NightfallRewards.TheComedian, NightfallRewards.Unknown],
-    grandmaster: [NightfallRewards.TheComedianAdept, NightfallRewards.Unknown],
-  },
-  {
-    nightfall: [NightfallRewards.TheHothead, NightfallRewards.Unknown],
-    grandmaster: [NightfallRewards.TheHotheadAdept, NightfallRewards.Unknown],
+    grandmaster: [
+      NightfallRewards.ThePalindromeAdept,
+      NightfallRewards.TheSwarmAdept,
+    ],
   },
 ]
