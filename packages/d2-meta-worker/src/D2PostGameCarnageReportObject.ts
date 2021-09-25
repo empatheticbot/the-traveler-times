@@ -122,10 +122,7 @@ export class D2PostGameCarnageReportObject {
       )
 
       if (newActivityId) {
-        await this.env.DESTINY_2_CRUCIBLE_META.put(
-          this.NEW_ACTIVITY_ID,
-          undefined
-        )
+        await this.env.DESTINY_2_CRUCIBLE_META.put(this.NEW_ACTIVITY_ID, 0)
       }
 
       return new Response(
