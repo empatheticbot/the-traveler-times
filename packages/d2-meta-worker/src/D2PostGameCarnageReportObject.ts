@@ -2,6 +2,7 @@ export class D2PostGameCarnageReportObject {
   PGCR_ENDPOINT = 'https://d2-pgcr-worker.empatheticbot.workers.dev'
   REQUEST_LIMIT = 49
   LAST_ACTIVITY_ID = 'CURRENT_ACTIVITY_ID'
+  NEW_ACTIVITY_ID = 'NEW_ACTIVITY_ID'
   SUBCALLS = 49
   LOG = 'initial'
 
@@ -32,14 +33,18 @@ export class D2PostGameCarnageReportObject {
 
   async fetch(request: Request) {
     const dates = {}
+    let newActivityId = parseInt(
+      await this.env.DESTINY_2_CRUCIBLE_META.get(this.NEW_ACTIVITY_ID)
+    )
     let lastActivityId = parseInt(
       await this.env.DESTINY_2_CRUCIBLE_META.get(this.LAST_ACTIVITY_ID)
     )
+    let activityId = newActivityId || lastActivityId
 
     try {
       let activityResultsPromise = []
       for (let i = 0; i < this.REQUEST_LIMIT; i++) {
-        const activityBatchStartingId = lastActivityId + i * this.SUBCALLS
+        const activityBatchStartingId = activityId + i * this.SUBCALLS
         activityResultsPromise.push(
           this.handlePGCRRequest(activityBatchStartingId.toString())
         )
@@ -50,6 +55,7 @@ export class D2PostGameCarnageReportObject {
         .map((activity) => activity.weaponData)
         .flat()
 
+      console.log(weaponData)
       const mappedResults = weaponData.reduce((acc, value) => {
         if (!value || !value.period) {
           return {}
@@ -112,13 +118,20 @@ export class D2PostGameCarnageReportObject {
       }
       await this.env.DESTINY_2_CRUCIBLE_META.put(
         this.LAST_ACTIVITY_ID,
-        lastActivityId + this.SUBCALLS * (this.REQUEST_LIMIT - 1)
+        activityId + this.SUBCALLS * (this.REQUEST_LIMIT - 1)
       )
+
+      if (newActivityId) {
+        await this.env.DESTINY_2_CRUCIBLE_META.put(
+          this.NEW_ACTIVITY_ID,
+          undefined
+        )
+      }
 
       return new Response(
         JSON.stringify({
           weaponData,
-          lastActivityId,
+          lastActivityId: activityId,
           dates,
           activityResults,
         })
