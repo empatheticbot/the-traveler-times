@@ -54,6 +54,11 @@ export const maps = [
     twitterQuery: 'trials distant shore',
     activityHash: '528628085',
   },
+  {
+    map: 'Wormhaven',
+    twitterQuery: 'trials wormhaven',
+    activityHash: '1009746517',
+  },
 ]
 
 export const rewards = [
@@ -89,7 +94,8 @@ export const rewards = [
   },
   {
     reward: "Exile's Curse",
-    twitterQuery: "trials flawless reward (Exile OR Curse OR exiles OR exile's)",
+    twitterQuery:
+      "trials flawless reward (Exile OR Curse OR exiles OR exile's)",
     hash: '276080079',
   },
 ]
