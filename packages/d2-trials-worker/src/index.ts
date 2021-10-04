@@ -7,7 +7,11 @@ import {
   DefinitionHandler,
 } from '@the-traveler-times/bungie-api-gateway'
 
-async function getIsAvailable(env: unknown, weekendReset: string, weeklyReset: string) {
+async function getIsAvailable(
+  env: unknown,
+  weekendReset: string,
+  weeklyReset: string
+) {
   const seasonHandler = new SeasonHandler()
   await seasonHandler.init(env.BUNGIE_API)
   const publicMilestoneHandler = new PublicMilestoneHandler()
@@ -20,7 +24,14 @@ async function getIsAvailable(env: unknown, weekendReset: string, weeklyReset: s
     await publicMilestoneHandler.getIronBannerMilestone()
   const isIronBannerWeek = ironBannerMilestone.isAvailable
   const isFirstWeekOfSeason = await seasonHandler.isFirstWeekOfSeason()
-  console.log('test: ', isFirstWeekOfSeason, isIronBannerWeek, weekDate.toString(), weekendDate.toString(), weekDate < weekendDate)
+  console.log(
+    'test: ',
+    isFirstWeekOfSeason,
+    isIronBannerWeek,
+    weekDate.toString(),
+    weekendDate.toString(),
+    weekDate < weekendDate
+  )
   return !isIronBannerWeek && !isFirstWeekOfSeason && weekDate < weekendDate
 }
 

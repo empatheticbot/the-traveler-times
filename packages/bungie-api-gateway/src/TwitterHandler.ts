@@ -142,10 +142,12 @@ export default class TwitterHandler {
       }
     })
 
-    if (trialsMaps.length === 0 
-      && currentHighestMap !== undefined 
-      && currentHighestMap.results > 0) {
-        trialsMaps.push({ ...currentHighestMap, isGuess: true, })
+    if (
+      trialsMaps.length === 0 &&
+      currentHighestMap !== undefined &&
+      currentHighestMap.results > 0
+    ) {
+      trialsMaps.push({ ...currentHighestMap, isGuess: true })
     }
 
     return trialsMaps
@@ -176,14 +178,19 @@ export default class TwitterHandler {
       if (query.results > 5) {
         trialsRewards.push(query)
       }
-      if (!currentHighestReward || currentHighestReward.results < query.results) {
+      if (
+        !currentHighestReward ||
+        currentHighestReward.results < query.results
+      ) {
         currentHighestReward = query
       }
     })
-    if (trialsRewards.length === 0 
-      && currentHighestReward !== undefined 
-      && currentHighestReward.results > 0) {
-      trialsRewards.push({ ...currentHighestReward, isGuess: true, })
+    if (
+      trialsRewards.length === 0 &&
+      currentHighestReward !== undefined &&
+      currentHighestReward.results > 0
+    ) {
+      trialsRewards.push({ ...currentHighestReward, isGuess: true })
     }
 
     return trialsRewards
@@ -194,14 +201,14 @@ type TrialsMapsQueryResults = {
   twitterQuery: string
   map: string
   activityHash: string
-  results: number,
-  isGuess?: boolean,
+  results: number
+  isGuess?: boolean
 }
 
 type TrialsRewardsQueryResults = {
   twitterQuery: string
   reward: string
   hash: string
-  results: number,
+  results: number
   isGuess?: boolean
 }

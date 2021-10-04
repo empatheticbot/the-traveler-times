@@ -35,10 +35,7 @@ export default class PublicMilestoneHandler {
   async getIronBannerMilestone() {
     let milestone
     try {
-      milestone =
-        await this.getPublicMilestoneByHash(
-          IRON_BANNER
-        )
+      milestone = await this.getPublicMilestoneByHash(IRON_BANNER)
     } catch (e) {
       console.log('Iron Banner not available.')
       return { isAvailable: false }

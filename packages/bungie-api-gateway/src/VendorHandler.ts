@@ -53,7 +53,7 @@ export default class VendorHandler {
             costs = await this.definitionHandler.getSaleItemCosts(sale.costs)
           }
 
-          return { ...sale, ...item, classType, damageType, costs, sockets, }
+          return { ...sale, ...item, classType, damageType, costs, sockets }
         })
       )
     }

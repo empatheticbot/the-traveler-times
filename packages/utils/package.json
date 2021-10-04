@@ -21,7 +21,7 @@
     "clean": "rm -rf dist",
     "build": "npm run clean && rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write '**/*.{js,css,json,md}'"
+    "format": "prettier --write '**/*.{js,ts,njk,html,css,json,md}'"
   },
   "bugs": {
     "url": "https://github.com/empatheticbot/the-traveler-times/issues"

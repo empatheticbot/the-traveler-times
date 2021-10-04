@@ -1,4 +1,3 @@
-
 export { D2PostGameCarnageReportAggregatorObject } from './D2PostGameCarnageReportAggregatorObject'
 
 async function getPGCRAggregatorDurableObject(env: Environment) {
@@ -20,5 +19,5 @@ export default {
     }
     const contents = await response.json()
     throw new Error(contents.error)
-  }
+  },
 }

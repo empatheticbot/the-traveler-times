@@ -16,9 +16,8 @@ export default class DefinitionHandler {
       return definitions
     }
 
-    const request = this.bungieAPIHandler.getDefinitionFromManifest(
-      definitionName
-    )
+    const request =
+      this.bungieAPIHandler.getDefinitionFromManifest(definitionName)
     this.inFlightDefinitionRequests[definitionName] = request
     definitions = await request
 
@@ -107,10 +106,12 @@ export default class DefinitionHandler {
     if (socketEntries) {
       for (const entry of socketEntries) {
         if (entry.plugSources === source) {
-          sockets.push(entry.reusablePlugItems.map(pluginItem => {
-            const pluginItemDefinition = items[pluginItem.plugItemHash]
+          sockets.push(
+            entry.reusablePlugItems.map((pluginItem) => {
+              const pluginItemDefinition = items[pluginItem.plugItemHash]
               return pluginItemDefinition
-          }))
+            })
+          )
         }
       }
     }

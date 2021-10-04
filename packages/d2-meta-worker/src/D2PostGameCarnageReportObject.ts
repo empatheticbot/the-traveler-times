@@ -44,7 +44,7 @@ export class D2PostGameCarnageReportObject {
     try {
       let activityResultsPromise = []
       for (let i = 0; i < this.REQUEST_LIMIT; i++) {
-        const activityBatchStartingId = activityId + (i * this.SUBCALLS)
+        const activityBatchStartingId = activityId + i * this.SUBCALLS
         activityResultsPromise.push(
           this.handlePGCRRequest(activityBatchStartingId.toString())
         )

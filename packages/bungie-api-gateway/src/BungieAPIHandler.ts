@@ -129,7 +129,6 @@ export default class BungieAPIHandler {
         path: `/Platform/Destiny2/Stats/PostGameCarnageReport/${id}/`,
         baseUrl: `https://stats.bungie.net`,
       })
-      // console.log(Object.keys(resp), await resp.text(), url)
     } catch (e) {
       console.error(`Failed to call bungie platform api ${e}`)
       throw e
