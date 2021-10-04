@@ -5,6 +5,8 @@ async function handlePostGameCarnageReportParsing(request, env) {
   const url = new URL(request.url)
   const activitiesToFetch = url.searchParams.get('activitiesToFetch')
   const firstActivityId = url.searchParams.get('firstActivityId')
+  let every = url.searchParams.get('every') || 1
+  every = parseInt(every)
 
   if (!firstActivityId) {
     return new Response(
@@ -24,7 +26,7 @@ async function handlePostGameCarnageReportParsing(request, env) {
   const bungieAPIHandler = new BungieAPIHandler()
   bungieAPIHandler.init(env.BUNGIE_API)
   const collectedWeaponData = {}
-  let currentActivityId = firstActivityId
+  let currentActivityId = parseInt(firstActivityId)
 
   for (let i = 0; i < activitiesToFetch; i++) {
     try {
@@ -65,7 +67,7 @@ async function handlePostGameCarnageReportParsing(request, env) {
     } catch (e) {
       console.error(e.message)
     }
-    currentActivityId++
+    currentActivityId += every
   }
 
   for (const [key, value] of Object.entries(collectedWeaponData)) {

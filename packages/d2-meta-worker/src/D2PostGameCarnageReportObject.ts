@@ -4,6 +4,7 @@ export class D2PostGameCarnageReportObject {
   LAST_ACTIVITY_ID = 'CURRENT_ACTIVITY_ID'
   NEW_ACTIVITY_ID = 'NEW_ACTIVITY_ID'
   SUBCALLS = 49
+  CALL_EVERY = 4
   LOG = 'initial'
 
   constructor(state, env) {
@@ -14,6 +15,8 @@ export class D2PostGameCarnageReportObject {
     const fetchURL = new URL(this.PGCR_ENDPOINT)
     fetchURL.searchParams.append('firstActivityId', firstActivityId)
     fetchURL.searchParams.append('activitiesToFetch', this.SUBCALLS.toString())
+    fetchURL.searchParams.append('every', this.CALL_EVERY.toString())
+
     const response = await fetch(fetchURL.toString())
     if (response.ok) {
       const result = await response.json()
@@ -44,7 +47,8 @@ export class D2PostGameCarnageReportObject {
     try {
       let activityResultsPromise = []
       for (let i = 0; i < this.REQUEST_LIMIT; i++) {
-        const activityBatchStartingId = activityId + i * this.SUBCALLS
+        const activityBatchStartingId =
+          activityId + i * this.SUBCALLS * this.CALL_EVERY
         activityResultsPromise.push(
           this.handlePGCRRequest(activityBatchStartingId.toString())
         )
@@ -117,7 +121,7 @@ export class D2PostGameCarnageReportObject {
       }
       await this.env.DESTINY_2_CRUCIBLE_META.put(
         this.LAST_ACTIVITY_ID,
-        activityId + this.SUBCALLS * (this.REQUEST_LIMIT - 1)
+        activityId + this.SUBCALLS * (this.REQUEST_LIMIT - 1) * this.CALL_EVERY
       )
 
       if (newActivityId) {
