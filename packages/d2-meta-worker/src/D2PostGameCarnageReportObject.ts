@@ -1,8 +1,8 @@
 export class D2PostGameCarnageReportObject {
   PGCR_ENDPOINT = 'https://d2-pgcr-worker.empatheticbot.workers.dev'
   REQUEST_LIMIT = 49
-  LAST_ACTIVITY_ID = 'CURRENT_ACTIVITY_ID'
-  NEW_ACTIVITY_ID = 'NEW_ACTIVITY_ID'
+  LAST_ACTIVITY_ID = '$CURRENT_ACTIVITY_ID'
+  NEW_ACTIVITY_ID = '$NEW_ACTIVITY_ID'
   SUBCALLS = 49
   CALL_EVERY = 3
   LOG = 'initial'
@@ -24,12 +24,14 @@ export class D2PostGameCarnageReportObject {
         ...result,
         fetchURL: fetchURL.toString(),
         firstActivityId,
+        ok: response.ok,
       }
     } else {
       return {
         status: response.statusText,
         fetchURL: fetchURL.toString(),
         firstActivityId,
+        ok: response.ok,
       }
     }
   }
@@ -54,7 +56,9 @@ export class D2PostGameCarnageReportObject {
           this.handlePGCRRequest(activityBatchStartingId.toString())
         )
       }
-      const activityResults = await Promise.all(activityResultsPromise)
+      const activityResults = (
+        await Promise.all(activityResultsPromise)
+      ).filter((result) => result.ok)
       const latestActivityFinished = activityResults.find(
         (result) => result.isCaughtUpToLatestMatch
       )
@@ -125,9 +129,12 @@ export class D2PostGameCarnageReportObject {
         }
       }
 
-      const latestId = latestActivityFinished
-        ? latestActivityFinished.lastId
-        : activityResults[activityResults.length - 1].lastId
+      let latestId = activityId
+      if (latestActivityFinished) {
+        latestId = latestActivityFinished.lastId
+      } else if (activityResults.length > 0) {
+        latestId = activityResults[activityResults.length - 1].lastId
+      }
       console.log('LAST ID: ', latestId)
       await this.env.DESTINY_2_CRUCIBLE_META.put(
         this.LAST_ACTIVITY_ID,
