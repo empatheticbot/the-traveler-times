@@ -10,3 +10,7 @@ export default class BungieAPIError extends Error {
     this.name = 'Bungie API failed'
   }
 }
+
+export enum BungieErrorStatus {
+  DestinyPGCRNotFound = 'DestinyPGCRNotFound',
+}

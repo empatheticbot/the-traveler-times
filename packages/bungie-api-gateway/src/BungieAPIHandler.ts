@@ -1,4 +1,4 @@
-import BungieAPIError from './BungieAPIError'
+import BungieAPIError, { BungieErrorStatus } from './BungieAPIError'
 
 export default class BungieAPIHandler {
   manifest = undefined
@@ -37,6 +37,11 @@ export default class BungieAPIHandler {
     components,
     path = '',
     baseUrl = 'https://www.bungie.net/Platform',
+  }: {
+    headers?: unknown
+    components?: string[]
+    path?: string
+    baseUrl?: string
   }) {
     let resp
     const url = new URL(`${baseUrl}${path}`)
@@ -122,7 +127,7 @@ export default class BungieAPIHandler {
     return this.callBungieNet({ path: definitionPath })
   }
 
-  async getPostGameCarnageReport(id) {
+  async getPostGameCarnageReport(id: string) {
     let resp
     try {
       resp = await this.callApi({
@@ -135,7 +140,7 @@ export default class BungieAPIHandler {
     }
     if (resp.Message === 'Ok') {
       return resp.Response
-    } else if (resp.ErrorStatus === 'DestinyPGCRNotFound') {
+    } else if (resp.ErrorStatus === BungieErrorStatus.DestinyPGCRNotFound) {
       return null
     } else {
       throw new Error(`${resp.ErrorStatus}: ${resp.Message}`)

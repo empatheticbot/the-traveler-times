@@ -107,12 +107,14 @@ async function updateMetaStats(env: CloudflareEnvironment) {
   )
 
   if (response.ok) {
-    const { dates, activityResults, lastActivityId } = await response.json()
+    const { dates, activityResults, firstActivityId, lastActivityId } =
+      await response.json()
     for (const [date, weaponData] of Object.entries(dates)) {
       console.log(weaponData)
       await env.DESTINY_2_CRUCIBLE_META.put(date, JSON.stringify(weaponData))
     }
     return {
+      firstActivityId,
       lastActivityId,
       dates,
       activityResults,

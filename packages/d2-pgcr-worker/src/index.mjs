@@ -27,6 +27,7 @@ async function handlePostGameCarnageReportParsing(request, env) {
   bungieAPIHandler.init(env.BUNGIE_API)
   const collectedWeaponData = {}
   let currentActivityId = parseInt(firstActivityId)
+  let isCaughtUpToLatestMatch = false
 
   for (let i = 0; i < activitiesToFetch; i++) {
     try {
@@ -34,6 +35,7 @@ async function handlePostGameCarnageReportParsing(request, env) {
         currentActivityId
       )
       if (pgcrData === null) {
+        isCaughtUpToLatestMatch = true
         break
       }
       if (
@@ -82,6 +84,7 @@ async function handlePostGameCarnageReportParsing(request, env) {
     JSON.stringify({
       weaponData,
       lastId: currentActivityId,
+      isCaughtUpToLatestMatch,
     })
   )
 }
@@ -89,8 +92,5 @@ async function handlePostGameCarnageReportParsing(request, env) {
 export default {
   async fetch(request, env) {
     return handlePostGameCarnageReportParsing(request, env)
-  },
-  async scheduled(event, env) {
-    return handlePostGameCarnageReportParsing({}, env)
   },
 }

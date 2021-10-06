@@ -1,5 +1,6 @@
 import ActivityHandler from './ActivityHandler'
 import BungieAPIHandler from './BungieAPIHandler'
+import { BungieErrorStatus } from './BungieAPIError'
 import DefinitionHandler from './DefinitionHandler'
 import PublicMilestoneHandler from './PublicMilestoneHandler'
 import TwitterHandler from './TwitterHandler'
@@ -11,6 +12,7 @@ import { getStrippedItem, getStrippedItems } from './InventoryItemUtility'
 export {
   ActivityHandler,
   BungieAPIHandler,
+  BungieErrorStatus,
   DefinitionHandler,
   PublicMilestoneHandler,
   TwitterHandler,

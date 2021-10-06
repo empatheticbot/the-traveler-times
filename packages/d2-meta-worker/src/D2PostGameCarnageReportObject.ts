@@ -4,7 +4,7 @@ export class D2PostGameCarnageReportObject {
   LAST_ACTIVITY_ID = 'CURRENT_ACTIVITY_ID'
   NEW_ACTIVITY_ID = 'NEW_ACTIVITY_ID'
   SUBCALLS = 49
-  CALL_EVERY = 4
+  CALL_EVERY = 3
   LOG = 'initial'
 
   constructor(state, env) {
@@ -39,11 +39,12 @@ export class D2PostGameCarnageReportObject {
     let newActivityId = parseInt(
       await this.env.DESTINY_2_CRUCIBLE_META.get(this.NEW_ACTIVITY_ID)
     )
-    let lastActivityId = parseInt(
-      await this.env.DESTINY_2_CRUCIBLE_META.get(this.LAST_ACTIVITY_ID)
-    )
+    let lastActivityId =
+      parseInt(
+        await this.env.DESTINY_2_CRUCIBLE_META.get(this.LAST_ACTIVITY_ID)
+      ) + 1
     let activityId = newActivityId || lastActivityId
-
+    console.log('FIRST ID: ', activityId)
     try {
       let activityResultsPromise = []
       for (let i = 0; i < this.REQUEST_LIMIT; i++) {
@@ -54,8 +55,12 @@ export class D2PostGameCarnageReportObject {
         )
       }
       const activityResults = await Promise.all(activityResultsPromise)
-
+      const latestActivityFinished = activityResults.find(
+        (result) => result.isCaughtUpToLatestMatch
+      )
       const weaponData = activityResults
+        //Filter out later activities to avoid double counting on next run
+        .filter((activity) => !activity.isCaughtUpToLatestMatch)
         .map((activity) => activity.weaponData)
         .flat()
 
@@ -119,9 +124,14 @@ export class D2PostGameCarnageReportObject {
           dates[date] = data
         }
       }
+
+      const latestId = latestActivityFinished
+        ? latestActivityFinished.lastId
+        : activityResults[activityResults.length - 1].lastId
+      console.log('LAST ID: ', latestId)
       await this.env.DESTINY_2_CRUCIBLE_META.put(
         this.LAST_ACTIVITY_ID,
-        activityId + this.SUBCALLS * (this.REQUEST_LIMIT - 1) * this.CALL_EVERY
+        latestId
       )
 
       if (newActivityId) {
@@ -131,7 +141,8 @@ export class D2PostGameCarnageReportObject {
       return new Response(
         JSON.stringify({
           weaponData,
-          lastActivityId: activityId,
+          firstActivityId: activityId,
+          lastActivityId: latestId,
           dates,
           activityResults,
         })
