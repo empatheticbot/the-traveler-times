@@ -265,3 +265,18 @@ strong {
   width: 24px;
   margin-right: 1rem;
 }
+
+.back-to-top {
+  visibility: visible;
+  opacity: 1;
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  bottom: 0;
+  margin-right: 4vw;
+  transition: all 0.2s;
+}
+
+.back-to-top.show {
+  bottom: 4vh;
+}

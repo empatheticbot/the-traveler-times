@@ -107,6 +107,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     'node_modules/@empatheticbot/time-elements/dist/': 'js/time-elements',
   })
+  eleventyConfig.addPassthroughCopy({
+    'node_modules/@empatheticbot/on-intersection-element/dist/':
+      'js/on-intersection-element',
+  })
 
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({

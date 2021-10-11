@@ -29,9 +29,10 @@
       {% endblock %}
     </main>
     {% include 'footer.njk' %}
-    <script>
-      {% include 'node_modules/moment/min/moment.min.js' %}
-    </script>
+    <on-intersection class="back-to-top" of="global-header" hide>
+      <a href="#">{% include 'assets/Arrow-Circle.svg' %}</a>
+    </on-intersection>
+    <script src="/js/on-intersection-element/index.js"></script>
     <script src="/js/time-elements/index.js"></script>
   </body>
 </html>

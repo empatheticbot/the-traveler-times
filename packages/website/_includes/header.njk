@@ -1,14 +1,14 @@
-<header class="page-header">
+<header id="global-header" class="page-header">
   <h1 class="page-header-title">The Traveler Times</h1>
   <aside class="page-header-aside">
     <p>
-      {{season.currentSeason.displayProperties.name}} ends 
+      {{season.currentSeason.displayProperties.name}} ends
       <awesome-time datetime="{{ season.currentSeason.endDate | htmlDateString }}">
         {{ season.currentSeason.endDate  | htmlDateString }}
       </awesome-time>
     </p>
     <p>
-      Weekly reset 
+      Weekly reset
       <awesome-time datetime="{{ weekly.weeklyReset | htmlDateString }}">
         {{ weekly.weeklyReset | htmlDateString }}
       </awesome-time>
