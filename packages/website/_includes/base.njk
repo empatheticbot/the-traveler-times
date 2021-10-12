@@ -4,23 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if renderData.title %}
-    <title>{{ renderData.title  + ' | ' + metadata.tite }}</title>
+      <title>{{ renderData.title  + ' | ' + metadata.tite }}</title>
     {% elif title %}
-    <title>{{ title + ' | ' + metadata.title }}</title>
+      <title>{{ title + ' | ' + metadata.title }}</title>
     {% else %}
-    <title>{{ metadata.title }}</title>
+      <title>{{ metadata.title }}</title>
     {% endif %}
-    <meta name = "keywords" content="Destiny 2, Meta, Crucible, Xur, Raid, Iron Banner, PVP, PVE" />
+    <meta name = "keywords" content="Destiny 2, Meta, Crucible, Xur, Raid, Iron Banner, PVP, PVE"/>
     <meta name="description" content="{{ renderData.description or description or metadata.description }}">
     <link rel="stylesheet" href="{{ '/index.css' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
-    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7441298/6558832/css/fonts.css" />
-    {% block css %}
-    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7441298/6558832/css/fonts.css"/>
+    {% block css %}{% endblock %}
   </head>
   <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
     <div class="callout warning">
-      <img class="warning--icon" alt="Caution icon triangle with exclamation mark" src="/assets/warning.svg" /><p>This site is clearly not done. Some things are inaccurate or flat out broken. Keep this in mind when Xur's location is wrong! 😅</p>
+      <img class="warning--icon" alt="Caution icon triangle with exclamation mark" src="/assets/warning.svg"/>
+      <p>This site is clearly not done. Some things are inaccurate or flat out broken. Keep this in mind when Xur's location is wrong! 😅</p>
     </div>
     {% include 'header.njk' %}
     <main class="main-container">
@@ -30,7 +30,7 @@
     </main>
     {% include 'footer.njk' %}
     <on-intersection class="back-to-top" of="global-header" hide>
-      <a href="#">{% include 'assets/Arrow-Circle.svg' %}</a>
+      <a href="#" title="Back to top of page" class="back-to-top-link">{% include 'assets/arrow-up-icon.svg' %}</a>
     </on-intersection>
     <script src="/js/on-intersection-element/index.js"></script>
     <script src="/js/time-elements/index.js"></script>
