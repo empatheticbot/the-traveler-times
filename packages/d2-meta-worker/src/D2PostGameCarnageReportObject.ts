@@ -1,14 +1,17 @@
 export class D2PostGameCarnageReportObject {
   PGCR_ENDPOINT = 'https://d2-pgcr-worker.empatheticbot.workers.dev'
-  REQUEST_LIMIT = 49
+  REQUEST_LIMIT = 48
   LAST_ACTIVITY_ID = '$CURRENT_ACTIVITY_ID'
   NEW_ACTIVITY_ID = '$NEW_ACTIVITY_ID'
-  SUBCALLS = 49
-  CALL_EVERY = 3
-  LOG = 'initial'
+  SUBCALLS = 25
+  CALL_EVERY = 5
 
   constructor(state, env) {
     this.env = env
+  }
+
+  async delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms))
   }
 
   async handlePGCRRequest(firstActivityId: string) {
@@ -59,6 +62,7 @@ export class D2PostGameCarnageReportObject {
         activityResultsPromise.push(
           this.handlePGCRRequest(activityBatchStartingId.toString())
         )
+        await this.delay(1000)
       }
       const results = await Promise.all(activityResultsPromise)
 
