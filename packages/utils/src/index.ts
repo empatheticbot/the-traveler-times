@@ -1,4 +1,5 @@
-export function chunkArray(array, chunk) {
+// TODO: Look into how generics work in typescript
+export function chunkArray(array, chunk): unknown[] {
   return array.reduce((resultArray, item, index) => {
     const chunkIndex = Math.floor(index / chunk)
 
@@ -10,4 +11,8 @@ export function chunkArray(array, chunk) {
 
     return resultArray
   }, [])
+}
+
+export async function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(() => resolve(undefined), ms))
 }

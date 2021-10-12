@@ -1,3 +1,5 @@
+import { delay } from '@the-traveler-times/utils'
+
 export class D2PostGameCarnageReportObject {
   PGCR_ENDPOINT = 'https://d2-pgcr-worker.empatheticbot.workers.dev'
   REQUEST_LIMIT = 48
@@ -8,10 +10,6 @@ export class D2PostGameCarnageReportObject {
 
   constructor(state, env) {
     this.env = env
-  }
-
-  async delay(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms))
   }
 
   async handlePGCRRequest(firstActivityId: string) {
@@ -41,19 +39,19 @@ export class D2PostGameCarnageReportObject {
 
   async fetch(request: Request) {
     const url = new URL(request.url)
-    const activityId = parseInt(url.searchParams.get('activityId'))
-    // const dates = {}
-    // let debugList =
-    //   (await this.env.DESTINY_2_CRUCIBLE_META.get('$DEBUG_LIST', 'json')) || []
-    // let newActivityId = parseInt(
-    //   await this.env.DESTINY_2_CRUCIBLE_META.get(this.NEW_ACTIVITY_ID)
-    // )
-    // let lastActivityId =
-    //   parseInt(
-    //     await this.env.DESTINY_2_CRUCIBLE_META.get(this.LAST_ACTIVITY_ID)
-    //   ) + 1
-    // let activityId = newActivityId || lastActivityId
-    // console.log('FIRST ID: ', activityId)
+    const activityIdString = url.searchParams.get('activityId')
+    if (!activityIdString) {
+      return new Response(
+        JSON.stringify({
+          error: 'No parameter activityId provided.',
+        }),
+        {
+          status: 400,
+        }
+      )
+    }
+    const activityId = parseInt(activityIdString)
+
     try {
       let activityResultsPromise = []
       for (let i = 0; i < this.REQUEST_LIMIT; i++) {
@@ -62,7 +60,7 @@ export class D2PostGameCarnageReportObject {
         activityResultsPromise.push(
           this.handlePGCRRequest(activityBatchStartingId.toString())
         )
-        await this.delay(1000)
+        await delay(1000)
       }
       const results = await Promise.all(activityResultsPromise)
 
