@@ -14,6 +14,9 @@
 .page-header-toc {
   font-size: 1.25rem;
   line-height: 2rem;
+  text-align: left;
+  max-width: 600px;
+  margin: auto;
 }
 
 .page-header-aside {
@@ -27,6 +30,10 @@
 
 .page-header-date {
   margin-top: 1rem;
+}
+
+.page-header-date:first-of-type {
+  margin-right: 2rem;
 }
 
 @media screen and (max-width: 700px) {

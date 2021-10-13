@@ -2,39 +2,43 @@
   <h1 class="page-header-title">The Traveler Times</h1>
   <p class="page-header-slogan">{{ sloganSelection.slogan | safe }}</p>
   <p class="page-header-toc">
-    Find the latest <a href="#events">
-      <strong>events</strong>
-    </a> happening right now, like <a href="#season-of-the-lost">
-      <strong>Season of the Lost</strong>
+    Don't miss the latest <a href="#events">
+      <strong>event</strong>
+    </a> happening right now, the <a href="#festival-of-the-lost">
+      <strong>Festival of the Lost</strong>
     </a>. Head over to <a href="#meta">
       <strong>The Meta</strong>
     </a> to see what weapons are finding the greatest success in the Crucible. Check out the champions and modifiers of <a href="#lost-sectors">
       <strong>Lost Sectors</strong>
     </a> and <a href="#nightfall">
       <strong>the Nightfall</strong>
-    </a> to finally net that reward you are looking for. Stock up from your favorite <a href="#vendors">
+    </a> to finally net that reward you are looking for. Stock up on materials and equipment from your favorite <a href="#vendors">
       <strong>vendors</strong>
-    </a> like <a href="#xur">
-      <strong>Xur</strong>
-    </a>, <a href="#banshee">
+    </a> like 
+    {% if vendors.xur.isAvailable %}} 
+      <a href="#xur">
+        <strong>Xur</strong>
+      </a>,
+    {% endif %}
+    <a href="#banshee">
       <strong>Banshee-44</strong>
     </a>, <a href="#ada">
       <strong>Ada-1</strong>
-    </a>, or <a href="#spider">
+    </a>, and <a href="#spider">
       <strong>Spider</strong>
     </a>.
   </p>
   <aside class="page-header-aside">
     <p class="page-header-date">
-      {{season.currentSeason.displayProperties.name}} ends
-      <awesome-time datetime="{{ season.currentSeason.endDate | htmlDateString }}">
-        {{ season.currentSeason.endDate  | htmlDateString }}
-      </awesome-time>
-    </p>
-    <p class="page-header-date">
       Weekly reset
       <awesome-time datetime="{{ weekly.weeklyReset | htmlDateString }}">
         {{ weekly.weeklyReset | htmlDateString }}
+      </awesome-time>
+    </p>
+    <p class="page-header-date">
+      {{season.currentSeason.displayProperties.name}} ends
+      <awesome-time datetime="{{ season.currentSeason.endDate | htmlDateString }}">
+        {{ season.currentSeason.endDate  | htmlDateString }}
       </awesome-time>
     </p>
   </aside>
