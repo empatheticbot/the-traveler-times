@@ -2,6 +2,9 @@ import BungieAPIError, { BungieErrorStatus } from './BungieAPIError'
 
 export default class BungieAPIHandler {
   manifest = undefined
+  membershipId: string
+  characterId: string
+  membershipType: string
 
   async init(bungieApiEnv) {
     try {
@@ -142,6 +145,25 @@ export default class BungieAPIHandler {
       return resp.Response
     } else if (resp.ErrorStatus === BungieErrorStatus.DestinyPGCRNotFound) {
       return null
+    } else {
+      throw new Error(`${resp.ErrorStatus}: ${resp.Message}`)
+    }
+  }
+
+  async getCharacterMilestones() {
+    let resp
+    try {
+      resp = await this.callApi({
+        path: `/Destiny2/${this.membershipType}/Profile/${this.membershipId}`,
+        components: ['CharacterProgressions'],
+      })
+    } catch (e) {
+      console.error(`Failed to call bungie platform api ${e}`)
+      throw e
+    }
+    if (resp.Message === 'Ok') {
+      return resp.Response?.characterProgressions?.data[this.characterId]
+        ?.milestones
     } else {
       throw new Error(`${resp.ErrorStatus}: ${resp.Message}`)
     }

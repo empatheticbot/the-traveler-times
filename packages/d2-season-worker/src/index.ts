@@ -48,6 +48,8 @@ export default {
       }
       let currentWeekIndex = currentWeek - 1
 
+      const festivalOfTheLost = await seasonHandler.getFestivalOfTheLost()
+
       return new Response(
         JSON.stringify({
           currentSeason,
@@ -60,6 +62,7 @@ export default {
             icon: seasonalNode.displayProperties.icon,
             description: seasonalNode.displayProperties.description,
           },
+          festivalOfTheLost,
         }),
         {
           status: 200,

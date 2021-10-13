@@ -1,9 +1,13 @@
+import { FESTIVAL_OF_THE_LOST } from './Hashes'
 import DefinitionHandler from './DefinitionHandler'
+import BungieAPIHandler from './BungieAPIHandler'
 
-export default class TwitterHandler {
+export default class SeasonHandler {
   seasonsInfo: unknown
 
   async init(bungieApiEnv) {
+    this.bungieAPIHandler = new BungieAPIHandler()
+    await this.bungieAPIHandler.init(bungieApiEnv)
     this.definitionHandler = new DefinitionHandler()
     await this.definitionHandler.init(bungieApiEnv)
     this.seasonsInfo = await this.definitionHandler.getDefinitions(
@@ -58,5 +62,23 @@ export default class TwitterHandler {
 
   isFirstWeekOfSeason(): boolean {
     return this.getCurrentWeek() < 2
+  }
+
+  async getFestivalOfTheLost() {
+    const milestones = await this.bungieAPIHandler.getCharacterMilestones()
+    const festivalOfTheLostMilestone = milestones[FESTIVAL_OF_THE_LOST]
+    if (festivalOfTheLostMilestone) {
+      const definition = await this.definitionHandler.getMilestone(
+        FESTIVAL_OF_THE_LOST
+      )
+      return {
+        ...festivalOfTheLostMilestone,
+        ...definition,
+        isAvailable: true,
+      }
+    }
+    return {
+      isAvailable: false,
+    }
   }
 }
