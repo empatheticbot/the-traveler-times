@@ -29,12 +29,21 @@
     </a>.
   </p>
   <aside class="page-header-aside">
-    <p class="page-header-date">
+    {% if weekly.weeklyReset < weekly.weekendReset %}
+      <p class="page-header-date">
       Weekly reset
       <awesome-time datetime="{{ weekly.weeklyReset | htmlDateString }}">
-        {{ weekly.weeklyReset | htmlDateString }}
-      </awesome-time>
-    </p>
+          {{ weekly.weeklyReset | htmlDateString }}
+        </awesome-time>
+      </p>
+    {% else %}
+      <p class="page-header-date">
+      Weekend reset
+      <awesome-time datetime="{{ weekly.weekendReset | htmlDateString }}">
+          {{ weekly.weekendReset | htmlDateString }}
+        </awesome-time>
+      </p>
+    {% endif %}
     <p class="page-header-date">
       {{season.currentSeason.displayProperties.name}} ends
       <awesome-time datetime="{{ season.currentSeason.endDate | htmlDateString }}">
