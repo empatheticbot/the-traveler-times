@@ -170,7 +170,11 @@ h2 {
 
 strong {
   font-weight: bold;
-  color: var(--color-text-primary);
+}
+
+a:not([class]) {
+  color: var(--color-primary);
+  text-decoration: underline;
 }
 
 .button {
@@ -287,8 +291,8 @@ strong {
     9px 18.1px 18.7px -2px rgb(0 0 0 / 9%), 15px 30px 31px -2px rgb(0 0 0 / 9%),
     30px 60px 62px -2px rgb(0 0 0 / 12%);
   padding: 0;
-  height: 64px;
-  width: 64px;
+  height: 62px;
+  width: 62px;
 }
 
 .back-to-top-link svg {
