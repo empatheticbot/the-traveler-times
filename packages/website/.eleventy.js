@@ -1,6 +1,9 @@
 const { DateTime } = require('luxon')
 const fs = require('fs')
 const pluginNavigation = require('@11ty/eleventy-navigation')
+const sass = require('sass')
+const CleanCSS = require('clean-css')
+const fg = require('fast-glob')
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNavigation)
@@ -101,6 +104,18 @@ module.exports = function (eleventyConfig) {
       }
       return false
     })
+  })
+
+  eleventyConfig.addNunjucksAsyncShortcode('scss', async function (globs) {
+    const entries = await fg(globs)
+    let results = []
+    for (const entry of entries) {
+      const result = sass.renderSync({
+        file: entry,
+      })
+      results.push(result.css.toString())
+    }
+    return new CleanCSS({}).minify(results.join('')).styles
   })
 
   eleventyConfig.addPassthroughCopy('assets')

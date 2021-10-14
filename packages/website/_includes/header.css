@@ -15,7 +15,7 @@
   font-size: 1.25rem;
   line-height: 2rem;
   text-align: left;
-  max-width: 600px;
+  max-width: 580px;
   margin: auto;
 }
 
@@ -40,6 +40,10 @@
   .page-header {
     margin: 3rem 1rem 2rem;
     text-align: left;
+  }
+
+  .page-header-toc {
+    margin: 0;
   }
 }
 
