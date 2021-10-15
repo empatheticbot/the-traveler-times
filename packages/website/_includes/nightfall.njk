@@ -1,3 +1,5 @@
+{% import "items.njk" as items %}
+
 {% if nightfall.isAvailable %}
   <article class="vendors">
     <h2 class="section-title">Nightfall Strike</h2>
@@ -17,7 +19,9 @@
         <h4 class="lost-sector-modifier-heading">Rewards</h4>
         <ul role="list" class="inventory-item-list lost-sector-list lost-sector-rewards-list">
           {% for item in nightfall.rewards %}
-            <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+            <li class="inventory-item-container">
+              {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
+            </li>
           {% endfor %}
         </ul>
       </section>
@@ -29,9 +33,9 @@
             <h4 class="lost-sector-modifier-heading">{{name}}</h4>
             <ul role="list" class="inventory-item-list lost-sector-list">
               {% for item in modifiers %}
-                {% set name = item.displayProperties.name %}
-                {% set subtitle = item.displayProperties.description %}
-                <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+                <li class="inventory-item-container">
+                  {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
+                </li>
               {% endfor %}
             </ul>
             {% if loop.index0 % 2 !== 0 %}

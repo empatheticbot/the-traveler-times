@@ -1,3 +1,5 @@
+{% import "items.njk" as items %}
+
 <article class="vendor">
   <h3 class="section-subtitle">{{vendor.name | safe}}</h3>
   <p class="vendor-subtitle">{{vendor.subtitle | safe}}</p>
@@ -10,8 +12,10 @@
     <p class="vendor-text">{{ vendor.name | safe }} was last spotted on <strong>{{vendor.location.planet}}</strong> around the <strong>{{vendor.location.area}}</strong>.</p>
   {% endif %}
   <ul role="list" class="inventory-item-list">
-  {% for item in vendor.sales | vendorItems(vendor.name) %}
-    <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
-  {% endfor %}
+    {% for item in vendor.sales | vendorItems(vendor.name) %}
+      <li class="inventory-item-container">
+        {{ items.inventoryItem(item.name, item.subtitle, icon=item.icon, costs=item.costs, value=item.quantity) }}
+      </li>
+    {% endfor %}
   </ul>
 </article>

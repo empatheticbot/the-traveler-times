@@ -1,3 +1,5 @@
+{% import "items.njk" as items %}
+
 {% if lostSector.isAvailable %}
   <article class="vendors" id="lost-sectors">
     <h2 class="section-title">Lost Sectors</h2>
@@ -15,7 +17,9 @@
         <h4 class="lost-sector-modifier-heading">Rewards</h4>
         <ul role="list" class="inventory-item-list lost-sector-list lost-sector-rewards-list">
           {% for item in lostSector.master.rewards %}
-            <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+            <li class="inventory-item-container">
+              {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
+            </li>
           {% endfor %}
         </ul>
       </section>
@@ -24,8 +28,9 @@
           <h4 class="lost-sector-modifier-heading">Champions</h4>
           <ul role="list" class="inventory-item-list lost-sector-list">
             {% for item in lostSector.master.modifiersOfInterest.champions %}
-              {% set subtitle = item.description %}
-              <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+              <li class="inventory-item-container">
+                {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
+              </li>
             {% endfor %}
           </ul>
         </section>
@@ -33,15 +38,17 @@
           <h4 class="lost-sector-modifier-heading">Damage</h4>
           <ul role="list" class="inventory-item-list lost-sector-list">
             {% for item in lostSector.master.modifiersOfInterest.damage %}
-              {% set subtitle = item.description %}
-              <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+              <li class="inventory-item-container">
+                {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
+              </li>
             {% endfor %}
           </ul>
           <h4 class="lost-sector-modifier-heading">Misc</h4>
           <ul role="list" class="inventory-item-list lost-sector-list">
             {% for item in lostSector.master.modifiersOfInterest.misc %}
-              {% set subtitle = item.description %}
-              <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+              <li class="inventory-item-container">
+                {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
+              </li>
             {% endfor %}
           </ul>
         </section>
@@ -60,7 +67,9 @@
         <h4 class="lost-sector-modifier-heading">Rewards</h4>
         <ul role="list" class="inventory-item-list lost-sector-list lost-sector-rewards-list">
           {% for item in lostSector.legend.rewards %}
-            <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+            <li class="inventory-item-container">
+              {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
+            </li>
           {% endfor %}
         </ul>
       </section>
@@ -69,8 +78,9 @@
           <h4 class="lost-sector-modifier-heading">Champions</h4>
           <ul role="list" class="inventory-item-list lost-sector-list">
             {% for item in lostSector.legend.modifiersOfInterest.champions %}
-              {% set subtitle = item.description %}
-              <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+              <li class="inventory-item-container">
+                {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
+              </li>
             {% endfor %}
           </ul>
         </section>
@@ -78,15 +88,17 @@
           <h4 class="lost-sector-modifier-heading">Damage</h4>
           <ul role="list" class="inventory-item-list lost-sector-list">
             {% for item in lostSector.legend.modifiersOfInterest.damage %}
-              {% set subtitle = item.description %}
-              <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+              <li class="inventory-item-container">
+                {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
+              </li>
             {% endfor %}
           </ul>
           <h4 class="lost-sector-modifier-heading">Misc</h4>
           <ul role="list" class="inventory-item-list lost-sector-list">
             {% for item in lostSector.legend.modifiersOfInterest.misc %}
-              {% set subtitle = item.description %}
-              <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+              <li class="inventory-item-container">
+                {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
+              </li>
             {% endfor %}
           </ul>
         </section>

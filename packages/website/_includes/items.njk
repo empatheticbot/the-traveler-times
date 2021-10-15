@@ -1,43 +1,46 @@
-{% macro inventoryItem(name, subtitle, value, effectiveness, icon, costs, positionDetail, numbered=false, loop) %}
-<div class="item-separater-container">
-  {% if numbered %}<span>{{ loop.index }}</span>{% endif %}
-  <div class="item-separater"></div>
-  {% if positionDetail > 0 %} <span class="item-rank-up"></span>
-  {% elif positionDetail < 0 %} <span class="item-rank-down"></span>
-  {% endif %}
-  {# {% if positionDetail %}
+{% macro inventoryItem(name, subtitle, value, effectiveness, icon, costs, positionDetail, numbered = false, loop) %}
+  <div class="item-separater-container">
+    {% if numbered %}
+      <span>{{ loop.index }}</span>{% endif %}
+    <div class="item-separater"></div>
+    {% if positionDetail > 0 %}
+      <span class="item-rank-up"></span>
+    {% elif positionDetail < 0 %}
+      <span class="item-rank-down"></span>
+    {% endif %}
+    {# {% if positionDetail %}
   <div class="item-separater"></div>
   {% endif %} #}
-</div>
-<section class="inventory-item">
-  <header class="vendor-item-header">
-    <h3 class="vendor-item-name">{{ name | safe }}</h3>
-    <p class="vendor-item-description">{{ subtitle | safe }}</p>
-  </header>
-  {% if item.quantity > 1 %}
-  <p class="vendor-item-quantity">{{ value | prettyNumber | safe}}</p>
-  {% elif effectiveness %}
-  <p class="vendor-item-quantity">{{ effectiveness | safe}}</p>
-  {% endif %}
-  <img
+  </div>
+  <section class="inventory-item">
+    <header class="vendor-item-header">
+      <h3 class="vendor-item-name">{{ name | safe }}</h3>
+      <p class="vendor-item-description">{{ subtitle | safe }}</p>
+    </header>
+    {% if value > 1 %}
+      <p class="vendor-item-quantity">{{ value | prettyNumber | safe}}</p>
+    {% elif effectiveness %}
+      <p class="vendor-item-quantity">{{ effectiveness | safe}}</p>
+    {% endif %}
+    <img
     src="https://www.bungie.net{{ icon | safe }}"
     alt="Icon for {{ name | safe }} item."
     class="vendor-item-icon">
-  {% if costs %}
-  <ul role="list" class="vendor-item-cost-list">
-  {% for cost in item.costs %}
-    <li class="vendor-item-cost">
-      <span class="vendor-item-cost-quantity">{{ cost.quantity | prettyNumber | safe }}</span>
-      <img
+    {% if costs %}
+      <ul role="list" class="vendor-item-cost-list">
+        {% for cost in costs %}
+          <li class="vendor-item-cost">
+            <span class="vendor-item-cost-quantity">{{ cost.quantity | prettyNumber | safe }}</span>
+            <img
         src="https://www.bungie.net{{ cost.icon | safe }}"
-        alt="Image of {{ cost.name | safe}}, a cost to purchase {{item.name | safe }}."
+        alt="Image of {{ cost.name | safe}}, a cost to purchase {{name | safe }}."
         class="vendor-item-cost-icon">
-    </li>
-  {% endfor %}
-  </ul>
-  {% endif %}
-</section>
-{% endmacro %} 
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </section>
+{% endmacro %}
 
 {% macro meta(item, effectiveness, loop) %}
   {{ inventoryItem(
@@ -49,4 +52,4 @@
     positionDetail=item.weekMove,
     loop=loop
   )}}
-{% endmacro %} 
+{% endmacro %}
