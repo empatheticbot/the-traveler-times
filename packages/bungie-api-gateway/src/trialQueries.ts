@@ -59,6 +59,11 @@ export const maps = [
     twitterQuery: 'trials wormhaven',
     activityHash: '1009746517',
   },
+  {
+    map: 'Bannerfall',
+    twitterQuery: 'trials bannerfall',
+    activityHash: '1155926620',
+  },
 ]
 
 export const rewards = [
