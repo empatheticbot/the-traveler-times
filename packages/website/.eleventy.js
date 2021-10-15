@@ -5,6 +5,11 @@ const sass = require('sass')
 const CleanCSS = require('clean-css')
 const fg = require('fast-glob')
 
+const markdownIt = require('markdown-it')
+const markdownItAnchor = require('markdown-it-anchor')
+const markdownFootnotes = require('markdown-it-footnote')
+const markdownAccessibleLists = require('markdown-it-accessible-lists')
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNavigation)
 
@@ -126,6 +131,23 @@ module.exports = function (eleventyConfig) {
     'node_modules/@empatheticbot/on-intersection-element/dist/':
       'js/on-intersection-element',
   })
+
+  /* Markdown Overrides */
+  let markdownLibrary = markdownIt({
+    html: true,
+    breaks: true,
+    linkify: true,
+  })
+    .use(markdownFootnotes)
+    .use(markdownItAnchor, {
+      permalink: true,
+      permalinkClass: 'post-header-link',
+      permalinkSymbol: '§',
+      level: 2,
+    })
+    .use(markdownAccessibleLists)
+
+  eleventyConfig.setLibrary('md', markdownLibrary)
 
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
