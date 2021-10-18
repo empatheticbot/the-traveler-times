@@ -1,0 +1,9 @@
+.article {
+  grid-area: article;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 1rem 2rem;
+  border-bottom: 4px solid var(--color-separater-primary);
+  margin-bottom: 2rem;
+}

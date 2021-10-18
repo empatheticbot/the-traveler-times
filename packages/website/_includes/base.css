@@ -16,14 +16,14 @@
 .main-container {
   margin: 2rem;
   display: grid;
-  grid-template: 'vendors today today meta';
+  grid-template: 'article today today meta';
   gap: 1rem 2rem;
 }
 
 @media screen and (max-width: 1200px) {
   .main-container {
     grid-template:
-      'vendors today today'
+      'article today today'
       'meta meta meta';
   }
 
@@ -38,7 +38,7 @@
     margin: 1rem;
     grid-template:
       'today'
-      'vendors'
+      'article'
       'meta';
   }
 

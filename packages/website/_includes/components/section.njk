@@ -1,0 +1,12 @@
+{% macro section(name, subtitle, description, icon) %}
+  <section class="section">
+    <h3 class="section-title">{{name | safe}}</h3>
+    <p class="section-subtitle">{{subtitle | safe}}</p>
+    <img
+    src="https://bungie.net{{icon | safe}}"
+    alt="Image of {{name | safe}} from Destiny 2."
+    class="section-image">
+    <p class="section-text">{{description}}</p>
+    {{ caller() }}
+  </section>
+{% endmacro %}

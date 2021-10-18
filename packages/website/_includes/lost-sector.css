@@ -19,7 +19,7 @@
   margin-bottom: 2rem;
 }
 
-.lost-sector-list .vendor-item-icon {
+.lost-sector-list .item-icon {
   width: 28px;
   height: 28px;
   filter: brightness(0);
@@ -29,7 +29,7 @@
   margin-bottom: 0.5rem;
 }
 
-.lost-sector-rewards-list .vendor-item-icon {
+.lost-sector-rewards-list .item-icon {
   width: 32px;
   height: 32px;
   filter: none;

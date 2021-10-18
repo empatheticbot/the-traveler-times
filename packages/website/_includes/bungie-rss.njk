@@ -1,17 +1,22 @@
-<article class="vendors bungie-rss">
-  <h2 class="section-title">Bungie.net</h2>
-  <p class="section-description">Keep up on all the latest articles, directly from the source.</p>
+{% extends "components/article.njk" %}
+
+{% set title = "Bungie.net" %}
+{% set id = "bungie-rss" %}
+{% set description = "Keep up on all the latest articles,
+ directly from the source." %}
+
+{% block content %}
   <ul role="list" class="inventory-item-list lost-sector-list">
     {% for item in bungieRss.items %}
-    <li class="inventory-item-container">
-      <section>
-        {% if item.isNew %}
-        <span>Breaking</span> 
-        {% endif %} 
-        <awesome-time datetime="{{ item.isoDate | htmlDateString }}">{{item.pubDate}}</awesome-time>
-      </section>
-      <a href="{{ item.link }}">{{item.title}}</a>
-    </li>
+      <li class="inventory-item-container">
+        <section>
+          {% if item.isNew %}
+            <span>Breaking</span>
+          {% endif %}
+          <awesome-time datetime="{{ item.isoDate | htmlDateString }}">{{item.pubDate}}</awesome-time>
+        </section>
+        <a href="{{ item.link }}">{{item.title}}</a>
+      </li>
     {% endfor %}
   </ul>
-</article>
+{% endblock %}

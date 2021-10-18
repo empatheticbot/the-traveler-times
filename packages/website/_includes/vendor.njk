@@ -1,6 +1,19 @@
 {% import "items.njk" as items %}
+{% import "components/section.njk" as section %}
 
-<article class="vendor">
+{% call section.section(vendor.name, vendor.subtitle, vendor.description, vendor.largeIcon) %}
+{% if vendor.location %}
+  <p class="vendor-text">{{ vendor.name | safe }} was last spotted on <strong>{{vendor.location.planet}}</strong> around the <strong>{{vendor.location.area}}</strong>.</p>
+{% endif %}
+<ul role="list" class="inventory-item-list">
+  {% for item in vendor.sales | vendorItems(vendor.name) %}
+    <li class="inventory-item-container">
+      {{ items.inventoryItem(item.name, item.subtitle, icon=item.icon, costs=item.costs, value=item.quantity) }}
+    </li>
+  {% endfor %}
+</ul>
+{% endcall %}
+{# <article class="vendor">
   <h3 class="section-subtitle">{{vendor.name | safe}}</h3>
   <p class="vendor-subtitle">{{vendor.subtitle | safe}}</p>
   <img
@@ -18,4 +31,4 @@
       </li>
     {% endfor %}
   </ul>
-</article>
+</article> #}

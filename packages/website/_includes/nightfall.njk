@@ -1,9 +1,14 @@
 {% import "items.njk" as items %}
 
 {% if nightfall.isAvailable %}
-  <article class="vendors">
-    <h2 class="section-title">Nightfall Strike</h2>
-    <p class="section-description">This week's Nightfall Strike locations, modifiers, and rewards.</p>
+
+  {% extends "components/article.njk" %}
+
+  {% set title = "Nightfall" %}
+  {% set id = "nightfall" %}
+  {% set description = "This week's Nightfall Strike locations, modifiers, and rewards." %}
+
+  {% block content %}
     {% if nightfall.groupedActivities.length > 1 %}
       <p class="section-description">All Grandmaster Nightfalls are available!</p>
     {% endif %}
@@ -44,5 +49,5 @@
         {% endfor %}
       </section>
     </article>
-  </article>
+  {% endblock %}
 {% endif %}

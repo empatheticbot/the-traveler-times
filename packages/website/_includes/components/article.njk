@@ -1,7 +1,7 @@
-{% macro article(title, description) %}
-  <article class="vendors">
-    <h2 class="section-title">Nightfall Strike</h2>
-    <p class="section-description">This week's Nightfall Strike locations, modifiers, and rewards.</p>
-    {{ caller() }}
-  </article>
-{% endmacro %}
+<article class="article">
+  <h2 class="section-title" id="{{ id }}">{{ title }}</h2>
+  <p class="section-description">{{ description }}</p>
+  {% block content %}
+    <p>Content not available.</p>
+  {% endblock %}
+</article>
