@@ -1,65 +1,62 @@
-{% import "items.njk" as items %}
+{% import "components/items.njk" as items %}
+{% import "components/section.njk" as section %}
+{% import "components/modifiers.njk" as modifiers %}
 
 {% macro lostSectorSection(lostSectorData) %}
-  <article class="vendor lost-sectors-container">
-    <h3 class="section-subtitle">{{ lostSectorData.name | safe}}</h3>
-    <p class="vendor-subtitle">{{ lostSectorData.difficulty | safe}}</p>
-    <img
-        src="https://bungie.net{{lostSectorData.pgcrImage | safe}}"
-        alt="Image of the Destiny 2 Lost Sector, {{lostSectorData.name | safe}}."
-        class="vendor-image">
-    <p class="vendor-text">Lost sector found on <strong>{{ lostSectorData.destination.displayProperties.name | safe }}</strong>.</p>
+  {% set description = "Lost sector found on <strong>{{ lostSectorData.destination.displayProperties.name | safe }}</strong>." %}
+  {% call section.section(lostSectorData.name, lostSectorData.difficulty, description, lostSectorData.pgcrImage) %}
+  <section class="lost-sector-modifiers-group">
+    <h4 class="lost-sector-modifier-heading">Rewards</h4>
+    <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
+      {% for item in lostSectorData.rewards %}
+        <li class="">
+          {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section class="lost-sector-modifiers-container">
+    {{ modifiers.modifierListLayout("Champions", lostSectorData.modifiersOfInterest.champions) }}
     <section class="lost-sector-modifiers-group">
-      <h4 class="lost-sector-modifier-heading">Rewards</h4>
-      <ul role="list" class="inventory-item-list lost-sector-list lost-sector-rewards-list">
-        {% for item in lostSectorData.rewards %}
-          <li class="inventory-item-container">
-            {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
+      <h4 class="lost-sector-modifier-heading">Champions</h4>
+      <ul role="list" class=" lost-sector-list">
+        {% for item in lostSectorData.modifiersOfInterest.champions %}
+          <li class="">
+            {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
           </li>
         {% endfor %}
       </ul>
     </section>
-    <section class="lost-sector-modifiers-container">
-      <section class="lost-sector-modifiers-group">
-        <h4 class="lost-sector-modifier-heading">Champions</h4>
-        <ul role="list" class="inventory-item-list lost-sector-list">
-          {% for item in lostSectorData.modifiersOfInterest.champions %}
-            <li class="inventory-item-container">
-              {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
-            </li>
-          {% endfor %}
-        </ul>
-      </section>
-      <section class="lost-sector-modifiers-group">
-        <h4 class="lost-sector-modifier-heading">Damage</h4>
-        <ul role="list" class="inventory-item-list lost-sector-list">
-          {% for item in lostSectorData.modifiersOfInterest.damage %}
-            <li class="inventory-item-container">
-              {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
-            </li>
-          {% endfor %}
-        </ul>
-        <h4 class="lost-sector-modifier-heading">Misc</h4>
-        <ul role="list" class="inventory-item-list lost-sector-list">
-          {% for item in lostSectorData.modifiersOfInterest.misc %}
-            <li class="inventory-item-container">
-              {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
-            </li>
-          {% endfor %}
-        </ul>
-      </section>
+    <section class="lost-sector-modifiers-group">
+      <h4 class="lost-sector-modifier-heading">Damage</h4>
+      <ul role="list" class=" lost-sector-list">
+        {% for item in lostSectorData.modifiersOfInterest.damage %}
+          <li class="">
+            {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
+          </li>
+        {% endfor %}
+      </ul>
+      <h4 class="lost-sector-modifier-heading">Misc</h4>
+      <ul role="list" class=" lost-sector-list">
+        {% for item in lostSectorData.modifiersOfInterest.misc %}
+          <li class="">
+            {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
+          </li>
+        {% endfor %}
+      </ul>
     </section>
-  </article>
-{% endmacro %}
+    {% endcall %}
+  {% endmacro %}
 
-{% if lostSector.isAvailable %}
   {% extends "components/article.njk" %}
-  {% set title = "Lost Sectors" %}
-  {% set id = "lost-sectors"%}
-  {% set description = "The latest master and legend Lost Sectors in rotation and the rewards available."%}
 
-  {% block content %}
-    {{ lostSectorSection(lostSector.master)}}
-    {{ lostSectorSection(lostSector.legend)}}
-  {% endblock %}
-{% endif %}
+  {% if lostSector.isAvailable %}
+    {% set title = "Lost Sectors" %}
+    {% set id = "lost-sectors"%}
+    {% set description = "The latest master and legend Lost Sectors in rotation and the rewards available."%}
+
+    {% block content %}
+      {{ lostSectorSection(lostSector.master)}}
+      {{ lostSectorSection(lostSector.legend)}}
+    {% endblock %}
+  {% endif %}

@@ -1,4 +1,4 @@
-{% import "items.njk" as items %}
+{% import "components/items.njk" as items %}
 
 {% if nightfall.isAvailable %}
 
@@ -22,9 +22,9 @@
       <p class="vendor-text">Nightfall found on <strong>{{ nightfall.groupedActivities[0][0].destination.displayProperties.name | safe }}</strong>.</p>
       <section class="lost-sector-modifiers-group">
         <h4 class="lost-sector-modifier-heading">Rewards</h4>
-        <ul role="list" class="inventory-item-list lost-sector-list lost-sector-rewards-list">
+        <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
           {% for item in nightfall.rewards %}
-            <li class="inventory-item-container">
+            <li class="">
               {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
             </li>
           {% endfor %}
@@ -36,9 +36,9 @@
             <section class="lost-sector-modifiers-group">
             {% endif %}
             <h4 class="lost-sector-modifier-heading">{{name}}</h4>
-            <ul role="list" class="inventory-item-list lost-sector-list">
+            <ul role="list" class=" lost-sector-list">
               {% for item in modifiers %}
-                <li class="inventory-item-container">
+                <li class="">
                   {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
                 </li>
               {% endfor %}

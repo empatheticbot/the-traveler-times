@@ -1,4 +1,4 @@
-{% import "items.njk" as items %}
+{% import "components/items.njk" as items %}
 
 {% extends "components/article.njk" %}
 
@@ -9,10 +9,10 @@
 {% block content %}
   <section class="meta-section">
     <h3 class="section-subtitle">Usage</h3>
-    <ol role="list" class="inventory-item-list">
+    <ol role="list" class="">
       {% for item in meta.topUsage %}
         {% set effectiveness = [item.usage, meta.totalUsage] | getPrettyRatios %}
-        <li class="inventory-item-container">
+        <li class="">
           {{ items.meta(item, effectiveness, loop) }}
         </li>
       {% endfor %}
@@ -21,10 +21,10 @@
 
   <section class="meta-section">
     <h3 class="section-subtitle">Kills</h3>
-    <ol role="list" class="inventory-item-list">
+    <ol role="list" class="">
       {% for item in meta.topKills %}
         {% set effectiveness = [item.kills, meta.totalKills] | getPrettyRatios %}
-        <li class="inventory-item-container">
+        <li class="">
           {{ items.meta(item, effectiveness, loop) }}
         </li>
       {% endfor %}
@@ -33,10 +33,10 @@
 
   <section class="meta-section">
     <h3 class="section-subtitle">Efficiency</h3>
-    <ol role="list" class="inventory-item-list">
+    <ol role="list" class="">
       {% for item in meta.topEfficiency %}
         {% set effectiveness = [item.kills, item.usage] | getEfficiency %}
-        <li class="inventory-item-container">
+        <li class="">
           {{ items.meta(item, effectiveness, loop) }}
         </li>
       {% endfor %}

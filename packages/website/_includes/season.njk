@@ -1,4 +1,4 @@
-{% import './items.njk' as items %}
+{% import 'components/items.njk' as items %}
 
 {% extends "components/article.njk" %}
 
@@ -7,12 +7,12 @@
 {% set description = "This week's seasonal challenges." %}
 
 {% block content %}
-  <ul role="list" class="inventory-item-list lost-sector-list">
+  <ul role="list" class=" lost-sector-list">
     {% for item in season
       .seasonalChallenges
       .weeks[season.seasonalChallenges.currentWeekIndex]
       .challenges %}
-      <li class="inventory-item-container">
+      <li class="">
         {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
       </li>
     {% endfor %}

@@ -1,3 +1,21 @@
+{% import "components/items.njk" as items %}
+{% import "components/section.njk" as section %}
+
+{% macro vendorLayout(vendor) %}
+  {% call section.section(vendor.name, vendor.subtitle, vendor.description, vendor.largeIcon) %}
+  {% if vendor.location %}
+    <p class="vendor-text">{{ vendor.name | safe }} was last spotted on <strong>{{vendor.location.planet}}</strong> around the <strong>{{vendor.location.area}}</strong>.</p>
+  {% endif %}
+  <ul role="list" class="">
+    {% for item in vendor.sales | vendorItems(vendor.name) %}
+      <li class="">
+        {{ items.inventoryItem(item.name, item.subtitle, icon=item.icon, costs=item.costs, value=item.quantity) }}
+      </li>
+    {% endfor %}
+  </ul>
+  {% endcall %}
+{% endmacro %}
+
 {% extends "components/article.njk" %}
 
 {% set title = "Vendors" %}
@@ -7,15 +25,15 @@
 {% block content %}
   {% set vendor = vendors.xur %}
   {% if vendor.isAvailable %}
-    {% include 'vendor.njk' %}
+    {{ vendorLayout(vendor) }}
   {% endif %}
 
   {% set vendor = vendors.banshee %}
-  {% include 'vendor.njk' %}
+  {{ vendorLayout(vendor) }}
 
   {% set vendor = vendors.ada %}
-  {% include 'vendor.njk' %}
+  {{ vendorLayout(vendor) }}
 
   {% set vendor = vendors.spider %}
-  {% include 'vendor.njk' %}
+  {{ vendorLayout(vendor) }}
 {% endblock %}

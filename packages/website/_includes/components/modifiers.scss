@@ -1,0 +1,20 @@
+.modifier-group {
+  flex: 1 1 240px;
+}
+
+.modifier-heading {
+  font-size: 1rem;
+  font-weight: 900;
+  font-family: 'Landmark Inline A', 'Landmark Inline B';
+  color: var(--color-text-secondary);
+}
+
+.modifier-list {
+  margin-bottom: 2rem;
+}
+
+.modifier-icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0);
+}
