@@ -1,3 +1,5 @@
+{% import "components/items.njk" as items %}
+
 {% if trials.isAvailable %}
   {% extends "components/article.njk" %}
 
@@ -6,24 +8,24 @@
   {% set description = "Something about trials and the rewards." %}
 
   {% block content %}
-    <article class="vendor lost-sectors-container">
+    <section class="vendor lost-sectors-container">
       {% for map in trials.maps %}
         <h3 class="section-subtitle">{{ map.displayProperties.name | safe }}</h3>
         <p class="vendor-subtitle">Map</p>
         <img alt="Image of the Destiny 2 vendor {{map.displayProperties.name | safe}}."
-      class="vendor-image"
+      class="section-image"
        src="https://bungie.net{{ map.pgcrImage | safe}}"/>
       {% endfor %}
-    </article>
-    <article class="vendor lost-sectors-container">
-      {% for reward in trials.rewards %}
-        <h3 class="section-subtitle">{{ reward.displayProperties.name | safe }}</h3>
-        <p class="vendor-subtitle">Reward</p>
-        <img alt="Image of the Destiny 2 vendor {{reward.displayProperties.name | safe}}."
-  class="vendor-image"
-   src="https://bungie.net{{ reward.displayProperties.icon | safe}}"/>
-        <p class="section-description iron-banner-description">{{ reward.displayProperties.description }}</p>
-      {% endfor %}
-    </article>
+    </section>
+    <section class="lost-sector-modifiers-group">
+      <h4 class="lost-sector-modifier-heading">Rewards</h4>
+      <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
+        {% for item in trials.rewards %}
+          <li class="">
+            {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
   {% endblock %}
 {% endif %}
