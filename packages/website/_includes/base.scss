@@ -124,3 +124,33 @@
 .back-to-top.show {
   bottom: 4vh;
 }
+
+.small-label {
+  color: var(--color-text-secondary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-variant: all-small-caps;
+  margin-bottom: 0.25rem;
+}
+
+.newline {
+  display: block;
+}
+
+.badge {
+  // &::before {
+  //   content: '•';
+  // }
+
+  color: #fff;
+  background-color: var(--color-red);
+  padding: 0.1rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  border-radius: 100px;
+  margin-right: 0.25rem;
+}
+
+li:not(:last-child) {
+  margin-bottom: 1rem;
+}

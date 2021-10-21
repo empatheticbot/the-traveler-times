@@ -1,6 +1,6 @@
 <header id="global-header" class="page-header">
   <h1 class="page-header-title">The Traveler Times</h1>
-  <p class="page-header-slogan">{{ sloganSelection.slogan | safe }}</p>
+  <p class="page-header-slogan section-subtitle">{{ sloganSelection.slogan | safe }}</p>
   <p class="page-header-toc">
     Don't miss the latest <a href="#events">
       <strong>event</strong>
@@ -36,21 +36,21 @@
   </p>
   <aside class="page-header-aside">
     {% if weekly.weeklyReset < weekly.weekendReset %}
-      <p class="page-header-date">
+      <p class="page-header-date small-label">
       Weekly reset
       <awesome-time datetime="{{ weekly.weeklyReset | htmlDateString }}">
           {{ weekly.weeklyReset | htmlDateString }}
         </awesome-time>
       </p>
     {% else %}
-      <p class="page-header-date">
+      <p class="page-header-date small-label">
       Weekend reset
       <awesome-time datetime="{{ weekly.weekendReset | htmlDateString }}">
           {{ weekly.weekendReset | htmlDateString }}
         </awesome-time>
       </p>
     {% endif %}
-    <p class="page-header-date">
+    <p class="page-header-date small-label">
       {{season.currentSeason.displayProperties.name}} ends
       <awesome-time datetime="{{ season.currentSeason.endDate | htmlDateString }}">
         {{ season.currentSeason.endDate  | htmlDateString }}

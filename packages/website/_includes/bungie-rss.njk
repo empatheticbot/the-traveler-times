@@ -9,13 +9,15 @@
   <ul role="list" class=" lost-sector-list">
     {% for item in bungieRss.items %}
       <li class="">
-        <section>
+        <section class="newline small-label">
           {% if item.isNew %}
-            <span>Breaking</span>
+            <span class="badge">New</span>
           {% endif %}
           <awesome-time datetime="{{ item.isoDate | htmlDateString }}">{{item.pubDate}}</awesome-time>
         </section>
-        <a href="{{ item.link }}">{{item.title}}</a>
+        <a href="{{ item.link }}">
+          <strong>{{item.title}}</strong>
+        </a>
       </li>
     {% endfor %}
   </ul>

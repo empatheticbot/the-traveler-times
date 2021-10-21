@@ -19,7 +19,11 @@ module.exports = async function getBungieRss() {
     if (item.title.includes('This Week At Bungie')) {
       item.title = 'This Week At Bungie'
       items.push(item)
-    } else if (item.title.includes('Destiny')) {
+    } else if (
+      item.title.includes('Destiny') ||
+      item.title.includes('Festival of the Lost') ||
+      item.title.includes('Season of')
+    ) {
       items.push(item)
     }
   }
