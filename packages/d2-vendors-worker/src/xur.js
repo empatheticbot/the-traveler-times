@@ -4,10 +4,13 @@ export async function getXur(vendorHandler, twitterHandler) {
   const xur = await vendorHandler.getStrippedDownVendorByHash(Hashes.XUR)
 
   const currentDate = new Date()
-  const xurLeaveDate = new Date(xur.lastRefreshDate)
-  xurLeaveDate.setDate(xurLeaveDate.getDate() + 4)
+  const xurLeaveDate = xur.lastRefreshDate
+    ? new Date(xur.lastRefreshDate)
+    : null
 
-  if (currentDate > xurLeaveDate) {
+  xurLeaveDate?.setDate(xurLeaveDate.getDate() + 4)
+
+  if (!xurLeaveDate || currentDate > xurLeaveDate) {
     return { ...xur, isAvailable: false }
   }
 
