@@ -4,7 +4,7 @@
     src="https://bungie.net{{icon | safe}}"
     alt="Image of {{name | safe}} from Destiny 2."
     class="section-image">
-    <h3 class="section-title">{{name | safe}}</h3>
+    <h3 class="section-title" id="{{name | toIdCase }}">{{name | safe}}</h3>
     <p class="small-label">{{subtitle | safe}}</p>
     <p class="section-text">{{description | safe}}</p>
     {{ caller() }}

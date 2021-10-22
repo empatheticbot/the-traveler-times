@@ -29,6 +29,10 @@ module.exports = function (eleventyConfig) {
     return number.toLocaleString()
   })
 
+  eleventyConfig.addFilter('toIdCase', (string) => {
+    return string.toLowerCase().replace(/\s/g, '-')
+  })
+
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     let date = dateObj

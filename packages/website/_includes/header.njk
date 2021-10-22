@@ -18,13 +18,13 @@
       <strong>vendors</strong>
     </a> like 
     {% if vendors.xur.isAvailable %}
-      <a href="#xur">
+      <a href="#xûr">
         <strong>Xur</strong>
       </a>, 
     {% endif %}
-    <a href="#banshee">
+    <a href="#banshee-44">
       <strong>Banshee-44</strong>
-    </a>, <a href="#ada">
+    </a>, <a href="#ada-1">
       <strong>Ada-1</strong>
     </a>, and <a href="#spider">
       <strong>Spider</strong>
@@ -35,7 +35,7 @@
     </a>.
   </p>
   <aside class="page-header-aside">
-    {% if weekly.weeklyReset < weekly.weekendReset %}
+    {% if not weekly.weekendReset or weekly.weeklyReset < weekly.weekendReset %}
       <p class="page-header-date small-label">
       Weekly reset
       <awesome-time datetime="{{ weekly.weeklyReset | htmlDateString }}">
