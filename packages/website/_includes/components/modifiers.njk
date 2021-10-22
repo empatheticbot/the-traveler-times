@@ -2,11 +2,11 @@
 
 {% macro modifierListLayout(title, modifiers) %}
   <section class="modifiers-group">
-    <h4 class="modifier-heading">Champions</h4>
+    <h4 class="modifier-heading">{{title}}</h4>
     <ul role="list" class="modifier-list">
       {% for modifier in modifiers %}
         <li class="modifier">
-          {{ items.inventoryItem(modifier.name, modifier.description, icon=modifier.icon) }}
+          {{ items.modifier(modifier.name, modifier.description, icon=modifier.icon) }}
         </li>
       {% endfor %}
     </ul>

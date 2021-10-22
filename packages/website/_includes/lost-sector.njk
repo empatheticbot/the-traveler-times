@@ -3,7 +3,9 @@
 {% import "components/modifiers.njk" as modifiers %}
 
 {% macro lostSectorSection(lostSectorData) %}
-  {% set description = "Lost sector found on <strong>{{ lostSectorData.destination.displayProperties.name | safe }}</strong>." %}
+  {% set description %}
+    Lost sector found on <strong>{{ lostSectorData.destination.displayProperties.name }}</strong>.
+  {% endset %}
   {% call section.section(lostSectorData.name, lostSectorData.difficulty, description, lostSectorData.pgcrImage) %}
   <section class="lost-sector-modifiers-group">
     <h4 class="lost-sector-modifier-heading">Rewards</h4>
@@ -15,48 +17,21 @@
       {% endfor %}
     </ul>
   </section>
-  <section class="lost-sector-modifiers-container">
-    {{ modifiers.modifierListLayout("Champions", lostSectorData.modifiersOfInterest.champions) }}
-    <section class="lost-sector-modifiers-group">
-      <h4 class="lost-sector-modifier-heading">Champions</h4>
-      <ul role="list" class=" lost-sector-list">
-        {% for item in lostSectorData.modifiersOfInterest.champions %}
-          <li class="">
-            {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
-          </li>
-        {% endfor %}
-      </ul>
-    </section>
-    <section class="lost-sector-modifiers-group">
-      <h4 class="lost-sector-modifier-heading">Damage</h4>
-      <ul role="list" class=" lost-sector-list">
-        {% for item in lostSectorData.modifiersOfInterest.damage %}
-          <li class="">
-            {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
-          </li>
-        {% endfor %}
-      </ul>
-      <h4 class="lost-sector-modifier-heading">Misc</h4>
-      <ul role="list" class=" lost-sector-list">
-        {% for item in lostSectorData.modifiersOfInterest.misc %}
-          <li class="">
-            {{ items.inventoryItem(item.name, item.description, icon=item.icon) }}
-          </li>
-        {% endfor %}
-      </ul>
-    </section>
-    {% endcall %}
-  {% endmacro %}
+  {{ modifiers.modifierListLayout("Champions", lostSectorData.modifiersOfInterest.champions) }}
+  {{ modifiers.modifierListLayout("Damage", lostSectorData.modifiersOfInterest.damage) }}
+  {{ modifiers.modifierListLayout("Misc", lostSectorData.modifiersOfInterest.misc) }}
+  {% endcall %}
+{% endmacro %}
 
-  {% extends "components/article.njk" %}
+{% extends "components/article.njk" %}
 
-  {% if lostSector.isAvailable %}
-    {% set title = "Lost Sectors" %}
-    {% set id = "lost-sectors"%}
-    {% set description = "The latest master and legend Lost Sectors in rotation and the rewards available."%}
+{% if lostSector.isAvailable %}
+  {% set title = "Lost Sectors" %}
+  {% set id = "lost-sectors"%}
+  {% set description = "The latest master and legend Lost Sectors in rotation and the rewards available."%}
 
-    {% block content %}
-      {{ lostSectorSection(lostSector.master)}}
-      {{ lostSectorSection(lostSector.legend)}}
-    {% endblock %}
-  {% endif %}
+  {% block content %}
+    {{ lostSectorSection(lostSector.master)}}
+    {{ lostSectorSection(lostSector.legend)}}
+  {% endblock %}
+{% endif %}

@@ -82,6 +82,10 @@ module.exports = function (eleventyConfig) {
           }
           return sale.name.includes('Purchase') || includeGlimmerSale
         })
+      case 'Xûr':
+        return sales.filter((sale) => {
+          return !sale.subtitle.includes('Warlock Legendary')
+        })
       default:
         return sales
     }

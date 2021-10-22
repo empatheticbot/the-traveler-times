@@ -6,7 +6,8 @@
 
 .section-title {
   font-family: 'Landmark Dimensional A', 'Landmark Dimensional B';
-  font-size: 2rem;
+  // font-family: 'Landmark Inline A', 'Landmark Inline B';
+  font-size: 1.5rem;
   width: 100%;
 }
 
@@ -52,6 +53,7 @@
   box-shadow: 0px 1.4px 2.2px rgb(0 0 0 / 2%), 0px 3.3px 5.3px rgb(0 0 0 / 3%),
     0px 6.1px 10px rgb(0 0 0 / 4%), 0px 10.9px 17.9px rgb(0 0 0 / 4%),
     0px 20.5px 33.4px rgb(0 0 0 / 5%), 0px 49px 80px rgb(0 0 0 / 7%);
+  margin-bottom: 1rem;
 }
 
 .section-text {
