@@ -1,14 +1,19 @@
 .page-header {
-  margin: 4rem 2rem 2rem;
+  margin: 6rem 2rem 2rem;
   border-bottom: 4px solid var(--color-separater-primary);
   text-align: center;
 }
 
 .page-header-slogan {
-  margin: 1rem 0 3rem;
+  /* margin: 1rem 0 3rem; */
   font-size: 1.75rem;
   color: var(--color-text-light);
   font-style: italic;
+}
+
+.page-header-today {
+  display: inline-block;
+  margin-bottom: 2rem;
 }
 
 .page-header-toc {

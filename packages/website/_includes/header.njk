@@ -1,6 +1,9 @@
 <header id="global-header" class="page-header">
   <h1 class="page-header-title">The Traveler Times</h1>
   <p class="page-header-slogan section-subtitle">{{ sloganSelection.slogan | safe }}</p>
+  <time class="page-header-today small-label" datetime="{{ computed.buildDate| htmlDateString }}">
+    <strong>{{ computed.buildDate | readableDate }}</strong>
+  </time>
   <p class="page-header-toc">
     Don't miss the latest <a href="#events">
       <strong>event</strong>

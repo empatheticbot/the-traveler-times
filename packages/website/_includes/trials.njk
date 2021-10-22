@@ -6,11 +6,12 @@
 
   {% set title = "Trials of Osiris" %}
   {% set id = "trials" %}
-  {% set description = "Something about trials and the rewards." %}
-
+  {% set description %}
+    Get your fireteam together to compete in the Crucible for a chance at making it to the lighthouse and the rewards it holds.
+  {% endset %}
   {% block content %}
     {% for map in trials.maps %}
-      {% call section.section(map.displayProperties.name, "Map", icon = map.pgcrImage) %}
+      {% call section.section(map.displayProperties.name, map.displayProperties.description, icon = map.pgcrImage) %}
       <section class="lost-sector-modifiers-group">
         <h4 class="lost-sector-modifier-heading">Rewards</h4>
         <ul role="list" class=" lost-sector-list lost-sector-rewards-list">

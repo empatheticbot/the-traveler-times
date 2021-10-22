@@ -20,8 +20,8 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.addFilter('readableDate', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(
-      'LLL dd, yyyy'
+    return DateTime.fromISO(dateObj, { zone: 'utc' }).toLocaleString(
+      DateTime.DATE_HUGE
     )
   })
 
