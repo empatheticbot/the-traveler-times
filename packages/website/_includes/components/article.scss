@@ -8,6 +8,10 @@
   margin-bottom: 2rem;
 }
 
+.article:last-child {
+  border-bottom: none;
+}
+
 .article-title {
   font-family: 'Landmark Dimensional A', 'Landmark Dimensional B';
   // font-family: 'Landmark Inline A', 'Landmark Inline B';
