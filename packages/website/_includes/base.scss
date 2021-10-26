@@ -15,9 +15,12 @@
 
 .main-container {
   margin: 0 2rem;
-  display: flex;
+  display: grid;
   gap: 1rem 2rem;
-  flex-wrap: wrap;
+  grid-template-columns:
+    minmax(300px, 2fr)
+    minmax(400px, 4fr)
+    minmax(240px, 1fr);
 }
 
 .rail-1 {
@@ -37,6 +40,11 @@
 }
 
 @media screen and (max-width: 1200px) {
+  .main-container {
+    grid-template-columns:
+      minmax(300px, 1fr)
+      minmax(400px, 2fr);
+  }
   .rail-1 {
     flex: 3 1 300px;
     padding-right: 2rem;
@@ -59,6 +67,9 @@
 }
 
 @media screen and (max-width: 880px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
   .rail-1 {
     flex: 3 1 300px;
     padding-right: 0;

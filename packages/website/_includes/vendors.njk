@@ -23,17 +23,22 @@
 {% set description = "Stay up to date on the most interesting items vendors are currently offering." %}
 
 {% block content %}
-  {% set vendor = vendors.xur %}
-  {% if vendor.isAvailable %}
+
+  <section class="section-wrapper section">
+    {% set vendor = vendors.xur %}
+    {% if vendor.isAvailable %}
+      {{ vendorLayout(vendor) }}
+    {% endif %}
+    {% set vendor = vendors.spider %}
     {{ vendorLayout(vendor) }}
-  {% endif %}
+  </section>
 
-  {% set vendor = vendors.banshee %}
-  {{ vendorLayout(vendor) }}
+  <section class="section-wrapper section">
+    {% set vendor = vendors.ada %}
+    {{ vendorLayout(vendor) }}
 
-  {% set vendor = vendors.ada %}
-  {{ vendorLayout(vendor) }}
+    {% set vendor = vendors.banshee %}
+    {{ vendorLayout(vendor) }}
+  </section>
 
-  {% set vendor = vendors.spider %}
-  {{ vendorLayout(vendor) }}
 {% endblock %}
