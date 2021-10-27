@@ -1,6 +1,6 @@
 .section {
   margin-bottom: 1rem;
-  flex: 1 2 260px;
+  flex: 1 2 400px;
   flex-wrap: wrap;
 }
 
@@ -45,6 +45,23 @@
 .section-subtitle::after {
   margin-right: 0;
   margin-left: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .section-subtitle {
+    white-space: normal;
+    font-size: var(--font-size);
+    flex-direction: column;
+  }
+
+  .section-subtitle::before,
+  .section-subtitle::after {
+    content: '';
+    border-top: 2px solid var(--color-separater-secondary);
+    width: 100%;
+    align-self: center;
+    margin: 0.25rem 0;
+  }
 }
 
 .section-description {
