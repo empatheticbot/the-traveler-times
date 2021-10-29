@@ -147,12 +147,6 @@ module.exports = function (eleventyConfig) {
     linkify: true,
   })
     .use(markdownFootnotes)
-    .use(markdownItAnchor, {
-      permalink: true,
-      permalinkClass: 'post-header-link',
-      permalinkSymbol: '§',
-      level: 2,
-    })
     .use(markdownAccessibleLists)
 
   eleventyConfig.setLibrary('md', markdownLibrary)

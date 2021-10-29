@@ -4,7 +4,7 @@
 {% macro vendorLayout(vendor) %}
   {% call section.section(vendor.name, vendor.subtitle, vendor.description, vendor.largeIcon) %}
   {% if vendor.location %}
-    <p class="vendor-text">{{ vendor.name | safe }} was last spotted on <strong>{{vendor.location.planet}}</strong> around the <strong>{{vendor.location.area}}</strong>.</p>
+    <p class="section-text">{{ vendor.name | safe }} was last spotted on <strong>{{vendor.location.planet}}</strong> around the <strong>{{vendor.location.area}}</strong>.</p>
   {% endif %}
   <ul role="list" class="">
     {% for item in vendor.sales | vendorItems(vendor.name) %}

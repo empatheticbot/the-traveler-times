@@ -5,12 +5,19 @@ eleventyNavigation:
   key: About
   order: 1
 permalink: /about/
+mainClass: about
 ---
 
-Hello there! 👋
+## Hello there guardian! 👋
 
-Thanks for stopping by and giving The Traveler Times a once over–I hope you find it helpful in your adventures as a guardian.
+Thanks for stopping by and giving The Traveler Times a once over–I hope you find it helpful in your adventures.
 
-This site was built and is maintained by [Steve Ledsworth](https://twitter.com/sledsworth). It's a hobby passion project that ended up getting good enough that I felt comfortable to share it with the world at large. I mention this only to convince you I deserve your empathy in our interactions–know that we share in the desire for the site to become better over time, but I am just one person working on this project in spare time.
+This site was built and is maintained by [Steve Ledsworth](https://twitter.com/sledsworth). He builds software (mostly web-based) under his company [Empahteticbot](https://twitter.com/empathetic_bot).
 
-The Traveler Times isn't meant to replace the fantastic [Braytech](bray.tech), [DIM](https://destinyitemmanager.com), [Destiny Tracker](https://destinytracker.com), [Today in Destiny](https://www.todayindestiny.com), or any of the other various reports and stats apps. It's meant to be a fun, stylized way to get a snapshot of what is happening in the world of Destiny _now_. No login or hassles–just information about the game on a general level.
+This site in-particular started out as a little hobby project for myself and quickly evolved into something I felt others might get some use out of. It originally came about out of the desire to have a single page that gave me some quick insights into what was happening in Destiny _now_. It isn't meant to replace the fantastic and far more robust [Braytech](bray.tech), [DIM](https://destinyitemmanager.com), [Destiny Tracker](https://destinytracker.com), [Today in Destiny](https://www.todayindestiny.com), or any of the other various reports and stats apps. It's meant to be a fun, stylized way to get a snapshot of what is happening in the world of Destiny with no fuss. No login or hassles–just some quickly digestable information.
+
+If you find this site useful and would like to see it continue to be supported and improve over time please consider tossing some glimmer my way. It really does make a difference and is much appreciated!
+
+<a href="https://www.buymeacoffee.com/empatheticbot"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=empatheticbot&button_colour=232323&font_colour=ffffff&font_family=Cookie&outline_colour=ffffff&coffee_colour=FFDD00"></a>
+
+Thanks for visiting and take care ❤️

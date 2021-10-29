@@ -78,6 +78,29 @@
   }
 }
 
+.about {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 12rem auto;
+  font-size: 1.75rem;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 4rem;
+  }
+
+  p {
+    line-height: 2.25rem;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    font-weight: bold;
+  }
+}
+
 .line-separator--thick-light,
 .line-separator-vertical--thick-light {
   border-radius: 4px;
