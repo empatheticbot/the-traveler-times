@@ -1,0 +1,14 @@
+{% import "components/items.njk" as items %}
+
+{% macro modifierListLayout(title, modifiers) %}
+  <section class="modifiers-group">
+    <h4 class="modifier-heading">{{title}}</h4>
+    <ul role="list" class="modifier-list">
+      {% for modifier in modifiers %}
+        <li class="modifier">
+          {{ items.modifier(modifier.name, modifier.description, icon=modifier.icon) }}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endmacro %}

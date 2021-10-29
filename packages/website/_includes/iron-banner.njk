@@ -1,11 +1,15 @@
 {% set ironBanner = weekly.ironBanner %}
 {% if ironBanner.isAvailable %}
-<article class="vendors iron-banner-container">
-  <h2 class="section-title">{{ ironBanner.displayProperties.name | safe }}</h2>
-  <section class="iron-banner-image-container">
-    <img class="iron-banner--image-container--image" src="https://bungie.net{{ ironBanner.image | safe}}" />
-    <img class="iron-banner--image-container--icon" src="https://bungie.net{{ ironBanner.displayProperties.icon | safe }}" />
-  </section>
-  <p class="section-description iron-banner-description">{{ ironBanner.displayProperties.description }}</p>
-</article>
+
+  {% extends "components/article.njk" %}
+
+  {% set title = ironBanner.displayProperties.name | safe %}
+
+  {% block content %}
+    <section class="iron-banner-image-container">
+      <img class="iron-banner--image-container--image" src="https://bungie.net{{ ironBanner.image | safe}}"/>
+      <img class="iron-banner--image-container--icon" src="https://bungie.net{{ ironBanner.displayProperties.icon | safe }}"/>
+    </section>
+    <p class="section-description iron-banner-description">{{ ironBanner.displayProperties.description }}</p>
+  {% endblock %}
 {% endif %}

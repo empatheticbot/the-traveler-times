@@ -12,14 +12,18 @@ module.exports = async function getBungieRss() {
       const now = new Date()
       const milliDiff = now.valueOf() - date.valueOf()
 
-      if (milliDiff < 1000 * 60 * 60 * 32) {
+      if (milliDiff < 1000 * 60 * 60 * 24 * 2) {
         item.isNew = true
       }
     }
     if (item.title.includes('This Week At Bungie')) {
       item.title = 'This Week At Bungie'
       items.push(item)
-    } else if (item.title.includes('Destiny')) {
+    } else if (
+      item.title.includes('Destiny') ||
+      item.title.includes('Festival of the Lost') ||
+      item.title.includes('Season of')
+    ) {
       items.push(item)
     }
   }

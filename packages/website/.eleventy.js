@@ -1,6 +1,14 @@
 const { DateTime } = require('luxon')
 const fs = require('fs')
 const pluginNavigation = require('@11ty/eleventy-navigation')
+const sass = require('sass')
+const CleanCSS = require('clean-css')
+const fg = require('fast-glob')
+
+const markdownIt = require('markdown-it')
+const markdownItAnchor = require('markdown-it-anchor')
+const markdownFootnotes = require('markdown-it-footnote')
+const markdownAccessibleLists = require('markdown-it-accessible-lists')
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNavigation)
@@ -12,13 +20,17 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.addFilter('readableDate', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(
-      'LLL dd, yyyy'
+    return DateTime.fromISO(dateObj, { zone: 'utc' }).toLocaleString(
+      DateTime.DATE_HUGE
     )
   })
 
   eleventyConfig.addFilter('prettyNumber', (number) => {
     return number.toLocaleString()
+  })
+
+  eleventyConfig.addFilter('toIdCase', (string) => {
+    return string.toLowerCase().replace(/\s/g, '-')
   })
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
@@ -74,6 +86,10 @@ module.exports = function (eleventyConfig) {
           }
           return sale.name.includes('Purchase') || includeGlimmerSale
         })
+      case 'Xûr':
+        return sales.filter((sale) => {
+          return !sale.subtitle.includes('Warlock Legendary')
+        })
       default:
         return sales
     }
@@ -103,6 +119,18 @@ module.exports = function (eleventyConfig) {
     })
   })
 
+  eleventyConfig.addNunjucksAsyncShortcode('scss', async function (globs) {
+    const entries = await fg(globs)
+    let results = []
+    for (const entry of entries) {
+      const result = sass.renderSync({
+        file: entry,
+      })
+      results.push(result.css.toString())
+    }
+    return new CleanCSS({}).minify(results.join('')).styles
+  })
+
   eleventyConfig.addPassthroughCopy('assets')
   eleventyConfig.addPassthroughCopy({
     'node_modules/@empatheticbot/time-elements/dist/': 'js/time-elements',
@@ -111,6 +139,17 @@ module.exports = function (eleventyConfig) {
     'node_modules/@empatheticbot/on-intersection-element/dist/':
       'js/on-intersection-element',
   })
+
+  /* Markdown Overrides */
+  let markdownLibrary = markdownIt({
+    html: true,
+    breaks: true,
+    linkify: true,
+  })
+    .use(markdownFootnotes)
+    .use(markdownAccessibleLists)
+
+  eleventyConfig.setLibrary('md', markdownLibrary)
 
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({

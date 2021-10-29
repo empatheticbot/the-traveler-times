@@ -24,14 +24,6 @@ async function getIsAvailable(
     await publicMilestoneHandler.getIronBannerMilestone()
   const isIronBannerWeek = ironBannerMilestone.isAvailable
   const isFirstWeekOfSeason = await seasonHandler.isFirstWeekOfSeason()
-  console.log(
-    'test: ',
-    isFirstWeekOfSeason,
-    isIronBannerWeek,
-    weekDate.toString(),
-    weekendDate.toString(),
-    weekDate < weekendDate
-  )
   return !isIronBannerWeek && !isFirstWeekOfSeason && weekDate < weekendDate
 }
 
@@ -59,13 +51,21 @@ export default {
       let trialsMaps
       let trialsRewards
       if (isAvailable) {
+        const currentDate = new Date()
         const startDate = new Date(weekendReset)
         startDate.setDate(startDate.getDate() - 7)
 
-        const endDate = new Date(startDate)
+        let endDate = new Date(startDate)
         endDate.setHours(endDate.getHours() + 1)
 
-        trialsRewards = await twitterHandler.getTrialsRewards(startDate)
+        if (endDate > currentDate) {
+          endDate = undefined
+        }
+
+        trialsRewards = await twitterHandler.getTrialsRewards(
+          startDate,
+          endDate
+        )
         trialsRewards = await definitionHandler.getInventoryItems(
           ...trialsRewards.map((map) => map.hash)
         )

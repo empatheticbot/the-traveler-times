@@ -1,0 +1,21 @@
+.article {
+  grid-area: article;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 1rem 2rem;
+  border-bottom: 4px solid var(--color-separater-primary);
+  margin-bottom: 2rem;
+}
+
+.article:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.article-title {
+  font-family: 'Landmark Dimensional A', 'Landmark Dimensional B';
+  // font-family: 'Landmark Inline A', 'Landmark Inline B';
+  font-size: 2rem;
+  width: 100%;
+}

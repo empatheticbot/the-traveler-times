@@ -1,0 +1,70 @@
+{% macro inventoryItem(name, subtitle, value, effectiveness, icon, costs, positionDetail, numbered = false, loop) %}
+  <div class="item-separater-container">
+    {% if numbered %}
+      <span>{{ loop.index }}</span>{% endif %}
+    <div class="item-separater"></div>
+    {% if positionDetail > 0 %}
+      <span class="item-rank-up"></span>
+    {% elif positionDetail < 0 %}
+      <span class="item-rank-down"></span>
+    {% endif %}
+  </div>
+  <section class="inventory-item">
+    <header class="item-header">
+      <h3 class="item-name">{{ name | safe }}</h3>
+      <p class="item-description">{{ subtitle | safe }}</p>
+    </header>
+    {% if value > 1 %}
+      <p class="item-quantity">{{ value | prettyNumber | safe}}</p>
+    {% elif effectiveness %}
+      <p class="item-quantity">{{ effectiveness | safe}}</p>
+    {% endif %}
+    <img
+    src="https://www.bungie.net{{ icon | safe }}"
+    alt="Icon for {{ name | safe }} item."
+    class="item-icon">
+    {% if costs %}
+      <ul role="list" class="item-cost-list">
+        {% for cost in costs %}
+          <li class="item-cost">
+            <span class="item-cost-quantity">{{ cost.quantity | prettyNumber | safe }}</span>
+            <img
+        src="https://www.bungie.net{{ cost.icon | safe }}"
+        alt="Image of {{ cost.name | safe}}, a cost to purchase {{name | safe }}."
+        class="item-cost-icon">
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </section>
+{% endmacro %}
+
+{% macro meta(item, effectiveness, loop) %}
+  {{ inventoryItem(
+    name=item.name, 
+    subtitle=item.subtitle, 
+    effectiveness=effectiveness,
+    icon=item.icon,
+    numbered=true,
+    positionDetail=item.weekMove,
+    loop=loop
+  )}}
+{% endmacro %}
+
+{% macro reward() %}{% endmacro %}
+
+{% macro modifier(name, subtitle, icon) %}
+  <div class="item-separater-container">
+    <div class="item-separater"></div>
+  </div>
+  <section class="inventory-item">
+    <header class="item-header">
+      <h3 class="item-name">{{ name | safe }}</h3>
+      <p class="item-description">{{ subtitle | safe }}</p>
+    </header>
+    <img
+    src="https://www.bungie.net{{ icon | safe }}"
+    alt="Icon for {{ name | safe }} modifier."
+    class="modifier-icon">
+  </section>
+{% endmacro %}

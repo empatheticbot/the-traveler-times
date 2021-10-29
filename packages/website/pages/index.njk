@@ -3,22 +3,26 @@ eleventyNavigation:
   key: Home
   order: 1
 permalink: /
+showToc: true
 ---
 {% extends 'base.njk' %}
 {% block content %}
-  {% include 'vendors.njk' %}
-  <section class="section-container__weekly">
-    {% include 'trials.njk' %}
-    {% include 'iron-banner.njk' %}
-    {% include 'lost-sector.njk' %}
-    {% include 'nightfall.njk' %}
-    {% include 'season.njk' %}
-  </section>
-  <section>
-    {% include 'bungie-rss.njk' %}
-    {% include 'meta.njk' %}
-  </section>
-  {% if not weekly.isAvailable %}
+  {% if weekly.isAvailable %}
+    <section class="rail-1">
+      {% include 'trials.njk' %}
+      {% include 'iron-banner.njk' %}
+      {% include 'vendors.njk' %}
+    </section>
+    <section class="rail-2">
+      {% include 'nightfall.njk' %}
+      {% include 'lost-sector.njk' %}
+      {% include 'season.njk' %}
+    </section>
+    <section class="rail-3">
+      {% include 'bungie-rss.njk' %}
+      {% include 'meta.njk' %}
+    </section>
+  {% else %}
     {% include 'error.njk' %}
   {% endif %}
 {% endblock %}

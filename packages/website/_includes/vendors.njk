@@ -1,17 +1,44 @@
-<article class="vendors borderless">
-  <h2 class="section-title">Vendors</h2>
-  <p class="section-description">Stay up to date on the  most interesting items vendors are currently offering.</p>
-  {% set vendor = vendors.xur %}
-  {% if vendor.isAvailable %}
-    {% include 'vendor.njk' %}
+{% import "components/items.njk" as items %}
+{% import "components/section.njk" as section %}
+
+{% macro vendorLayout(vendor) %}
+  {% call section.section(vendor.name, vendor.subtitle, vendor.description, vendor.largeIcon) %}
+  {% if vendor.location %}
+    <p class="section-text">{{ vendor.name | safe }} was last spotted on <strong>{{vendor.location.planet}}</strong> around the <strong>{{vendor.location.area}}</strong>.</p>
   {% endif %}
+  <ul role="list" class="">
+    {% for item in vendor.sales | vendorItems(vendor.name) %}
+      <li class="">
+        {{ items.inventoryItem(item.name, item.subtitle, icon=item.icon, costs=item.costs, value=item.quantity) }}
+      </li>
+    {% endfor %}
+  </ul>
+  {% endcall %}
+{% endmacro %}
 
-  {% set vendor = vendors.banshee %}
-  {% include 'vendor.njk' %}
+{% extends "components/article.njk" %}
 
-  {% set vendor = vendors.ada %}
-  {% include 'vendor.njk' %}
+{% set title = "Vendors" %}
+{% set id = "vendors" %}
+{% set description = "Stay up to date on the most interesting items vendors are currently offering." %}
 
-  {% set vendor = vendors.spider %}
-  {% include 'vendor.njk' %}
-</article>
+{% block content %}
+
+  <section class="section-wrapper section">
+    {% set vendor = vendors.xur %}
+    {% if vendor.isAvailable %}
+      {{ vendorLayout(vendor) }}
+    {% endif %}
+    {% set vendor = vendors.spider %}
+    {{ vendorLayout(vendor) }}
+  </section>
+
+  <section class="section-wrapper section">
+    {% set vendor = vendors.ada %}
+    {{ vendorLayout(vendor) }}
+
+    {% set vendor = vendors.banshee %}
+    {{ vendorLayout(vendor) }}
+  </section>
+
+{% endblock %}

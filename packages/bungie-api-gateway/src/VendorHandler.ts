@@ -68,15 +68,16 @@ export default class VendorHandler {
       // TODO: Bungie's API is wrong. Xur does not show up at 4AM... so we need to adjust that to make sure Twitter
       // stuff works correctly... (https://github.com/Bungie-net/api/issues/353)
       let nextRefreshDate = vendorLiveData.nextRefreshDate
-      if (hash === XUR) {
-        const nextRefreshDateXur = new Date(nextRefreshDate)
-        nextRefreshDateXur.setUTCHours(17)
-        nextRefreshDate = nextRefreshDateXur.toISOString()
+      let lastRefreshDate
+      if (nextRefreshDate) {
+        if (hash === XUR) {
+          console.log('Xur', nextRefreshDate, vendorLiveData.lastRefreshDate)
+          const nextRefreshDateXur = new Date(nextRefreshDate)
+          nextRefreshDateXur.setUTCHours(17)
+          nextRefreshDate = nextRefreshDateXur.toISOString()
+        }
+        lastRefreshDate = this.getVendorLastRefreshDate(hash, nextRefreshDate)
       }
-      const lastRefreshDate = this.getVendorLastRefreshDate(
-        hash,
-        nextRefreshDate
-      )
 
       if (vendorLiveData && vendorStaticData) {
         return {

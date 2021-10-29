@@ -1,44 +1,52 @@
+{% import "components/items.njk" as items %}
+{% import "components/section.njk" as section %}
+
 {% if nightfall.isAvailable %}
-  <article class="vendors">
-    <h2 class="section-title">Nightfall Strike</h2>
-    <p class="section-description">This week's Nightfall Strike locations, modifiers, and rewards.</p>
+
+  {% extends "components/article.njk" %}
+
+  {% set title = "Nightfall" %}
+  {% set id = "nightfall" %}
+  {% set description = "This week's Nightfall Strike locations, modifiers, and rewards." %}
+  {% set sectionDescription %}
+    Found on <strong>{{ nightfall.groupedActivities[0][0].destination.displayProperties.description | safe }}</strong>.
+  {% endset %}
+
+  {% block content %}
     {% if nightfall.groupedActivities.length > 1 %}
       <p class="section-description">All Grandmaster Nightfalls are available!</p>
     {% endif %}
-    <article class="vendor lost-sectors-container">
-      <h3 class="section-subtitle">{{ nightfall.groupedActivities[0][0].displayProperties.description | safe}}</h3>
-      <p class="vendor-subtitle">Nightfall</p>
-      <img
-        src="https://bungie.net{{ nightfall.groupedActivities[0][0].pgcrImage | safe}}"
-        alt="Image of the Destiny 2 vendor {{vendor.name | safe}}."
-        class="vendor-image">
-      <p class="vendor-text">Nightfall found on <strong>{{ nightfall.groupedActivities[0][0].destination.displayProperties.name | safe }}</strong>.</p>
-      <section class="lost-sector-modifiers-group">
-        <h4 class="lost-sector-modifier-heading">Rewards</h4>
-        <ul role="list" class="inventory-item-list lost-sector-list lost-sector-rewards-list">
-          {% for item in nightfall.rewards %}
-            <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
-          {% endfor %}
-        </ul>
-      </section>
-      <section class="lost-sector-modifiers-container">
-        {% for name, modifiers in nightfall.modifierGroups | groupby("name") %}
-          {% if loop.index0 % 2 === 0 %}
-            <section class="lost-sector-modifiers-group">
-            {% endif %}
-            <h4 class="lost-sector-modifier-heading">{{name}}</h4>
-            <ul role="list" class="inventory-item-list lost-sector-list">
-              {% for item in modifiers %}
-                {% set name = item.displayProperties.name %}
-                {% set subtitle = item.displayProperties.description %}
-                <li class="inventory-item-container">{% include "inventory-item.njk" %}</li>
+    {% call section.section(nightfall.groupedActivities[0][0].displayProperties.description, "Strike", sectionDescription, nightfall.groupedActivities[0][0].pgcrImage) %}
+    <section class="lost-sector-modifiers-group">
+      <h4 class="lost-sector-modifier-heading">Rewards</h4>
+      <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
+        {% for item in nightfall.rewards %}
+          <li class="">
+            {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+    <section class="lost-sector-modifiers-container">
+      {% for name, modifiers in nightfall.modifierGroups | groupby("name") %}
+        {% if loop.index0 % 2 === 0 %}
+          <section class="lost-sector-modifiers-group">
+          {% endif %}
+          <section class="modifiers-group">
+            <h4 class="modifier-heading">{{name}}</h4>
+            <ul role="list" class="modifier-list">
+              {% for modifier in modifiers %}
+                <li class="modifier">
+                  {{ items.modifier(modifier.displayProperties.name, modifier.displayProperties.description, icon=modifier.displayProperties.icon) }}
+                </li>
               {% endfor %}
             </ul>
-            {% if loop.index0 % 2 !== 0 %}
-            </section>
-          {% endif %}
-        {% endfor %}
-      </section>
-    </article>
-  </article>
+          </section>
+          {% if loop.index0 % 2 !== 0 %}
+          </section>
+        {% endif %}
+      {% endfor %}
+    </section>
+    {% endcall %}
+  {% endblock %}
 {% endif %}

@@ -1,13 +1,20 @@
-{% import './items.njk' as items %}
+{% import 'components/items.njk' as items %}
 
-<article class="vendors bungie-rss">
-  <h2 class="section-title">Seasonal Challenges</h2>
-  <p class="section-description">This week's seasonal challenges.</p>
-  <ul role="list" class="inventory-item-list lost-sector-list">
-    {% for item in season.seasonalChallenges.weeks[season.seasonalChallenges.currentWeekIndex].challenges %}
-    <li class="inventory-item-container">
-      {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
-    </li>
+{% extends "components/article.njk" %}
+
+{% set title = "Seasonal Challenges" %}
+{% set id = "season" %}
+{% set description = "This week's seasonal challenges." %}
+
+{% block content %}
+  <ul role="list" class=" lost-sector-list">
+    {% for item in season
+      .seasonalChallenges
+      .weeks[season.seasonalChallenges.currentWeekIndex]
+      .challenges %}
+      <li class="">
+        {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
+      </li>
     {% endfor %}
   </ul>
-</article>
+{% endblock %}

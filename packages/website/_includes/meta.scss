@@ -1,0 +1,23 @@
+.meta {
+  grid-area: meta;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-content: flex-start;
+  border-top: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .meta {
+    padding-top: 2rem;
+    border-top: 4px solid var(--color-separater-primary);
+  }
+}
+
+.meta-section {
+  flex: 1 1 240px;
+  /* margin: 0 2rem; */
+  .meta-list {
+    margin-top: 1rem;
+  }
+}

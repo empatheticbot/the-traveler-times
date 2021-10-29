@@ -1,26 +1,28 @@
-{% if trials.isAvailable %}
-  <article class="vendors iron-banner-container">
-    <h2 class="section-title">Trials of Osiris</h2>
-    <p class="section-description">Something about trials and the rewards.</p>
+{% import "components/section.njk" as section %}
+{% import "components/items.njk" as items %}
 
-    <article class="vendor lost-sectors-container">
+{% if trials.isAvailable %}
+  {% extends "components/article.njk" %}
+
+  {% set title = "Trials of Osiris" %}
+  {% set id = "trials" %}
+  {% set description %}
+    Get your fireteam together to compete in the Crucible for a chance at making it to the lighthouse and the rewards it holds.
+  {% endset %}
+  {% block content %}
     {% for map in trials.maps %}
-    <h3 class="section-subtitle">{{ map.displayProperties.name | safe }}</h3>
-    <p class="vendor-subtitle">Map</p>
-    <img alt="Image of the Destiny 2 vendor {{map.displayProperties.name | safe}}."
-      class="vendor-image"
-       src="https://bungie.net{{ map.pgcrImage | safe}}"/>
+      {% call section.section(map.displayProperties.name, map.displayProperties.description, icon = map.pgcrImage) %}
+      <section class="lost-sector-modifiers-group">
+        <h4 class="lost-sector-modifier-heading">Rewards</h4>
+        <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
+          {% for item in trials.rewards %}
+            <li class="">
+              {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endcall %}
     {% endfor %}
-    </article>
-    <article class="vendor lost-sectors-container">
-    {% for reward in trials.rewards %}
-<h3 class="section-subtitle">{{ reward.displayProperties.name | safe }}</h3>
-<p class="vendor-subtitle">Reward</p>
-<img alt="Image of the Destiny 2 vendor {{reward.displayProperties.name | safe}}."
-  class="vendor-image"
-   src="https://bungie.net{{ reward.displayProperties.icon | safe}}"/>
-    <p class="section-description iron-banner-description">{{ reward.displayProperties.description }}</p>
-    {% endfor %}
-    </article>
-  </article>
+  {% endblock %}
 {% endif %}
