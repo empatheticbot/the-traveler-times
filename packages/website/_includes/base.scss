@@ -33,6 +33,10 @@
   border-right: 4px solid var(--color-separater-primary);
 }
 
+li {
+  margin-bottom: 1rem;
+}
+
 @media screen and (max-width: 1200px) {
   .main-container {
     grid-template-columns:

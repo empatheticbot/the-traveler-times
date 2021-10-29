@@ -18,10 +18,10 @@
     {% block css %}{% endblock %}
   </head>
   <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
-    <div class="callout warning">
+    {# <div class="callout warning">
       <img class="warning--icon" alt="Caution icon triangle with exclamation mark" src="/assets/warning.svg"/>
       <p>This site is clearly not done. Some things are inaccurate or flat out broken. Keep this in mind when Xur's location is wrong! 😅</p>
-    </div>
+    </div> #}
     {% include 'header.njk' %}
     <main class="main-container {% if mainClass %}{{mainClass}}{% endif %}">
       {% block content %}
