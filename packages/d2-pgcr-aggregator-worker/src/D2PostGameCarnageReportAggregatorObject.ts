@@ -1,3 +1,5 @@
+import { getHeaders } from '@the-traveler-times/utils'
+
 export class D2PostGameCarnageReportAggregatorObject {
   PGCR_ENDPOINT = 'https://d2-pgcr-worker.empatheticbot.workers.dev'
   REQUEST_LIMIT = 49
@@ -11,7 +13,7 @@ export class D2PostGameCarnageReportAggregatorObject {
     const fetchURL = new URL(this.PGCR_ENDPOINT)
     fetchURL.searchParams.append('firstActivityId', firstActivityId)
     fetchURL.searchParams.append('activitiesToFetch', this.SUBCALLS.toString())
-    const response = await fetch(fetchURL.toString())
+    const response = await fetch(fetchURL.toString(), getHeaders(this.env))
     if (response.ok) {
       const result = await response.json()
       return {

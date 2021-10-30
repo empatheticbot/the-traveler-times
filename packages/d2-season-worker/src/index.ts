@@ -2,9 +2,14 @@ import {
   DefinitionHandler,
   SeasonHandler,
 } from '@the-traveler-times/bungie-api-gateway'
+import { isAuthorized } from '@the-traveler-times/utils'
 
 export default {
   async fetch(request, env) {
+    if (!isAuthorized(request, env)) {
+      return new Response('Unauthorized', { status: 401 })
+    }
+
     const definitionHandler = new DefinitionHandler()
     await definitionHandler.init(env.BUNGIE_API)
     const seasonHandler = new SeasonHandler()

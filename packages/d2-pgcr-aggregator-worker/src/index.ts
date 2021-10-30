@@ -1,3 +1,5 @@
+import { isAuthorized } from '@the-traveler-times/utils'
+
 export { D2PostGameCarnageReportAggregatorObject } from './D2PostGameCarnageReportAggregatorObject'
 
 async function getPGCRAggregatorDurableObject(env: Environment) {
@@ -10,6 +12,10 @@ async function getPGCRAggregatorDurableObject(env: Environment) {
 
 export default {
   async fetch(request: Request, env: Environment) {
+    if (!isAuthorized(request, env)) {
+      return new Response('Unauthorized', { status: 401 })
+    }
+
     let durableObject = await getPGCRAggregatorDurableObject(env)
 
     let response = await durableObject.fetch(request)

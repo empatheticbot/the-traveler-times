@@ -9,9 +9,14 @@ import {
   getCurrentNightfallRewardHashes,
   getGrandmasterAvailability,
 } from './NightfallHandler'
+import { isAuthorized } from '@the-traveler-times/utils'
 
 export default {
   async fetch(request, env) {
+    if (!isAuthorized(request, env)) {
+      return new Response('Unauthorized', { status: 401 })
+    }
+
     const publicMilestoneHandler = new PublicMilestoneHandler()
     await publicMilestoneHandler.init(env.BUNGIE_API)
     const activityHandler = new ActivityHandler()

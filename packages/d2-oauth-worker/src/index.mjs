@@ -1,5 +1,6 @@
 import { bungieGetAuthHandler } from './bungie-get-auth-handler'
 import { bungieRedirectHandler } from './bungie-post-redirect-handler'
+import { isAuthorized } from '@the-traveler-times/utils'
 
 async function handleBungieOAuthInitialSetup(request, env) {
   if (request.method === 'OPTIONS') {
@@ -23,6 +24,9 @@ async function handleBungieOAuthInitialSetup(request, env) {
 
 export default {
   async fetch(request, env) {
+    if (!isAuthorized(request, env)) {
+      return new Response('Unauthorized', { status: 401 })
+    }
     return await handleBungieOAuthInitialSetup(request, env)
   },
   async scheduled(event, env) {
@@ -40,7 +44,7 @@ export default {
           'content-type': 'application/x-www-form-urlencoded',
         },
         body: body,
-      },
+      }
     )
 
     let data = await response.json()

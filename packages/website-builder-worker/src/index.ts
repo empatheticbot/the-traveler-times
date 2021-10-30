@@ -1,3 +1,5 @@
+import { isAuthorized } from '@the-traveler-times/utils'
+
 async function buildTravelerTimesWebsite(request, env) {
   const account_id = env.ACCOUNT_ID
   const pages_id = env.PAGES_ID
@@ -17,6 +19,10 @@ async function buildTravelerTimesWebsite(request, env) {
 
 export default {
   async fetch(request, env) {
+    if (!isAuthorized(request, env)) {
+      return new Response('Unauthorized', { status: 401 })
+    }
+
     return buildTravelerTimesWebsite(request, env)
   },
   async scheduled(event, env) {

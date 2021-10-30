@@ -6,9 +6,14 @@ import { getAda } from './ada'
 import { getBanshee } from './banshee'
 import { getSpider } from './spider'
 import { getXur } from './xur'
+import { isAuthorized } from '@the-traveler-times/utils'
 
 export default {
   async fetch(request, env) {
+    if (!isAuthorized(request, env)) {
+      return new Response('Unauthorized', { status: 401 })
+    }
+
     try {
       const vendorHandler = new VendorHandler()
       await vendorHandler.init(env.BUNGIE_API)
