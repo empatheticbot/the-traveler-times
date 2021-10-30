@@ -4,9 +4,14 @@ import {
   PublicMilestoneHandler,
   Hashes,
 } from '@the-traveler-times/bungie-api-gateway'
+import { isAuthorized } from '@the-traveler-times/utils'
 
 export default {
   async fetch(request, env) {
+    if (!isAuthorized(request, env)) {
+      return new Response('Unauthorized', { status: 401 })
+    }
+
     const vendorHandler = new VendorHandler()
     await vendorHandler.init(env.BUNGIE_API)
     const definitionHandler = new DefinitionHandler()

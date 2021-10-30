@@ -2,6 +2,7 @@ import {
   DefinitionHandler,
   getStrippedItem,
 } from '@the-traveler-times/bungie-api-gateway'
+import { isAuthorized } from '@the-traveler-times/utils'
 
 export { D2PostGameCarnageReportObject } from './D2PostGameCarnageReportObject'
 
@@ -250,6 +251,10 @@ async function updateMetaStats(env: CloudflareEnvironment) {
 
 export default {
   async fetch(request: Request, env: CloudflareEnvironment) {
+    if (!isAuthorized(request, env)) {
+      return new Response('Unauthorized', { status: 401 })
+    }
+
     let url = new URL(request.url)
 
     switch (url.pathname) {

@@ -1,5 +1,6 @@
 import { BungieAPIHandler } from '@the-traveler-times/bungie-api-gateway'
 import { getWeaponDataFromPGCR } from './crucible'
+import { isAuthorized } from '@the-traveler-times/utils'
 
 async function handlePostGameCarnageReportParsing(request, env) {
   const url = new URL(request.url)
@@ -91,6 +92,10 @@ async function handlePostGameCarnageReportParsing(request, env) {
 
 export default {
   async fetch(request, env) {
+    if (!isAuthorized(request, env)) {
+      return new Response('Unauthorized', { status: 401 })
+    }
+
     return handlePostGameCarnageReportParsing(request, env)
   },
 }

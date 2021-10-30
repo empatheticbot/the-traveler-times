@@ -5,9 +5,17 @@ function getMockDataLocation(endpoint) {
   return `mock-data/${endpoint.split('.')[0].substring(8)}.json`
 }
 
+function getHeaders() {
+  return {
+    headers: {
+      'TTT-API-KEY': process.env.TTT_API_KEY,
+    },
+  }
+}
+
 async function getDataFrom(endpoint) {
   if (process.env.NODE_ENV === 'production') {
-    const data = await fetch(endpoint)
+    const data = await fetch(endpoint, getHeaders())
     const json = await data.json()
     fs.writeFileSync(getMockDataLocation(endpoint), JSON.stringify(json))
     return json

@@ -1,5 +1,6 @@
 import { DefinitionHandler } from '@the-traveler-times/bungie-api-gateway'
 import { getCurrentLostSectorHashes } from './LostSectorHandler'
+import { isAuthorized } from '@the-traveler-times/utils'
 
 const modifierIgnoreList = [
   // '2687456355', // Champions: Cabal
@@ -149,6 +150,10 @@ async function getLostSectorData(lostSector, definitionHandler) {
 
 export default {
   async fetch(request, env) {
+    if (!isAuthorized(request, env)) {
+      return new Response('Unauthorized', { status: 401 })
+    }
+
     try {
       const lostSectors = getCurrentLostSectorHashes()
 
