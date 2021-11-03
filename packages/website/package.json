@@ -25,6 +25,7 @@
     "@empatheticbot/on-intersection-element": "^0.1.0",
     "@empatheticbot/time-elements": "2.0.3",
     "clean-css": "^5.1.5",
+    "dotenv": "^10.0.0",
     "eslint": "7.32.0",
     "fast-glob": "^3.2.7",
     "luxon": "^2.0.2",

@@ -1,4 +1,4 @@
-# The Traveler Times
+# :newspaper: The Traveler Times
 
 ## Getting Started
 

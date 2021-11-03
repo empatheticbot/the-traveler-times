@@ -30,7 +30,9 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.addFilter('toIdCase', (string) => {
-    return string.toLowerCase().replace(/\s/g, '-')
+    if (string) {
+      return string.toLowerCase().replace(/\s/g, '-')
+    }
   })
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string

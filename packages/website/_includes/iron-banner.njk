@@ -1,15 +1,15 @@
+{% import "components/section.njk" as section %}
+
 {% set ironBanner = weekly.ironBanner %}
 {% if ironBanner.isAvailable %}
-
   {% extends "components/article.njk" %}
 
   {% set title = ironBanner.displayProperties.name | safe %}
+  {% set id = "iron-banner" %}
+  {% set description = ironBanner.displayProperties.description %}
 
   {% block content %}
-    <section class="iron-banner-image-container">
-      <img class="iron-banner--image-container--image" src="https://bungie.net{{ ironBanner.image | safe}}"/>
-      <img class="iron-banner--image-container--icon" src="https://bungie.net{{ ironBanner.displayProperties.icon | safe }}"/>
-    </section>
-    <p class="section-description iron-banner-description">{{ ironBanner.displayProperties.description }}</p>
+    {% call section.section(icon = ironBanner.image) %}
+    {% endcall %}
   {% endblock %}
 {% endif %}

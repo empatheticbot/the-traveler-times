@@ -14,54 +14,57 @@
         <strong>Festival of the Lost</strong>
       </a>. #}Head over to <a href="#meta">
         <strong>The Meta</strong>
-      </a> to see what weapons are finding the greatest success in the Crucible. Check out the map and reward for <a href="#trials">
-        <strong>Trials of Osiris</strong>
-      </a>. Check out the champions and modifiers of <a href="#lost-sectors">
-        <strong>Lost Sectors</strong>
-      </a> and <a href="#nightfall">
-        <strong>the Nightfall</strong>
-      </a> to finally net that reward you are looking for. Stock up on materials and equipment from your favorite <a href="#vendors">
-        <strong>vendors</strong>
-      </a> like 
+      </a> to see what weapons are finding the greatest success in the Crucible. {% if trials.isAvailable %}Check out the map and reward for <a href="#trials">
+          <strong>Trials of Osiris</strong>
+        </a>. {% endif %}
+      {% if weekly.ironBanner.isAvailable %} Prove your worth in <a href="#iron-banner">
+          <strong>Iron Banner</strong>
+        </a>, Guardian. {% endif%} Check out the champions and modifiers of <a href="#lost-sectors">
+          <strong>Lost Sectors</strong>
+        </a> and <a href="#nightfall">
+          <strong>the Nightfall</strong>
+        </a> to finally net that reward you are looking for. Stock up on materials and equipment from your favorite <a href="#vendors">
+          <strong>vendors</strong>
+        </a> like 
     {% if vendors.xur.isAvailable %}
-        <a href="#xûr">
-          <strong>Xur</strong>
-        </a>, 
+          <a href="#xûr">
+            <strong>Xur</strong>
+          </a>, 
     {% endif %}
-      <a href="#banshee-44">
-        <strong>Banshee-44</strong>
-      </a>, <a href="#ada-1">
-        <strong>Ada-1</strong>
-      </a>, and <a href="#spider">
-        <strong>Spider</strong>
-      </a>. Visit <a href="#bungie-rss">
-        <strong>Bungie.net</strong>
-      </a> for the latest news, directly from the source. Check out this week's <a href="#season">
-        <strong>Seasonal Challenges</strong>
-      </a>.
+        <a href="#banshee-44">
+          <strong>Banshee-44</strong>
+        </a>, <a href="#ada-1">
+          <strong>Ada-1</strong>
+        </a>, and <a href="#spider">
+          <strong>Spider</strong>
+        </a>. Visit <a href="#bungie-rss">
+          <strong>Bungie.net</strong>
+        </a> for the latest news, directly from the source. Check out this week's <a href="#season">
+          <strong>Seasonal Challenges</strong>
+        </a>.
   </p>
-    <aside class="page-header-aside">
-      {% if not weekly.weekendReset or weekly.weeklyReset < weekly.weekendReset %}
-        <p class="page-header-date small-label">
+      <aside class="page-header-aside">
+        {% if not weekly.weekendReset or weekly.weeklyReset < weekly.weekendReset %}
+          <p class="page-header-date small-label">
       Weekly reset
       <awesome-time datetime="{{ weekly.weeklyReset | htmlDateString }}">
-            {{ weekly.weeklyReset | htmlDateString }}
-          </awesome-time>
-        </p>
-      {% else %}
-        <p class="page-header-date small-label">
+              {{ weekly.weeklyReset | htmlDateString }}
+            </awesome-time>
+          </p>
+        {% else %}
+          <p class="page-header-date small-label">
       Weekend reset
       <awesome-time datetime="{{ weekly.weekendReset | htmlDateString }}">
-            {{ weekly.weekendReset | htmlDateString }}
+              {{ weekly.weekendReset | htmlDateString }}
+            </awesome-time>
+          </p>
+        {% endif %}
+        <p class="page-header-date small-label">
+          {{season.currentSeason.displayProperties.name}} ends
+      <awesome-time datetime="{{ season.currentSeason.endDate | htmlDateString }}">
+            {{ season.currentSeason.endDate  | htmlDateString }}
           </awesome-time>
         </p>
-      {% endif %}
-      <p class="page-header-date small-label">
-        {{season.currentSeason.displayProperties.name}} ends
-      <awesome-time datetime="{{ season.currentSeason.endDate | htmlDateString }}">
-          {{ season.currentSeason.endDate  | htmlDateString }}
-        </awesome-time>
-      </p>
-    </aside>
-  {% endif %}
-</header>
+      </aside>
+    {% endif %}
+  </header>
