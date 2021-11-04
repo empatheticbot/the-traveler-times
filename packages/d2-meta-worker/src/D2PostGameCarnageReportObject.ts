@@ -6,7 +6,7 @@ export class D2PostGameCarnageReportObject {
   LAST_ACTIVITY_ID = '$CURRENT_ACTIVITY_ID'
   NEW_ACTIVITY_ID = '$NEW_ACTIVITY_ID'
   SUBCALLS = 25
-  CALL_EVERY = 5
+  CALL_EVERY = 4
 
   constructor(state, env) {
     this.env = env
