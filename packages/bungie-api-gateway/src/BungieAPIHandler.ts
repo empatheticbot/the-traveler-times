@@ -59,11 +59,13 @@ export default class BungieAPIHandler {
       console.error(`Failed to call bungie platform api ${e}`)
       throw e
     }
-    if (resp.status === 401) {
-      console.error(
-        'Unauthorized from Bungie API. Check to make sure credentials are updated.'
-      )
-    } else if (!resp.ok) {
+    if (!resp.ok) {
+      if (resp.status === 401) {
+        console.error(
+          'Unauthorized from Bungie API. Check to make sure credentials are updated.'
+        )
+        // TODO: Look into a way to send myself an alert to update credentials when a 401 happens.
+      }
       throw new BungieAPIError(resp)
     }
     return resp.json()

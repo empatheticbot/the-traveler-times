@@ -35,10 +35,6 @@ async function handlePostGameCarnageReportParsing(request, env) {
       const pgcrData = await bungieAPIHandler.getPostGameCarnageReport(
         currentActivityId
       )
-      if (pgcrData === null) {
-        isCaughtUpToLatestMatch = true
-        break
-      }
       if (
         pgcrData &&
         pgcrData.activityDetails.modes.includes(5) &&
@@ -67,10 +63,13 @@ async function handlePostGameCarnageReportParsing(request, env) {
           }
         })
       }
+      currentActivityId += every
     } catch (e) {
-      console.error(e.message)
+      if (e.status === 404) {
+        isCaughtUpToLatestMatch = true
+        break
+      }
     }
-    currentActivityId += every
   }
 
   for (const [key, value] of Object.entries(collectedWeaponData)) {
