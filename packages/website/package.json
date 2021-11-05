@@ -23,10 +23,10 @@
     "@11ty/eleventy": "0.12.1",
     "@11ty/eleventy-navigation": "0.3.2",
     "@empatheticbot/on-intersection-element": "^0.1.0",
-    "@empatheticbot/time-elements": "2.0.3",
-    "clean-css": "^5.1.5",
+    "@empatheticbot/time-elements": "^2.0.4",
+    "clean-css": "^5.2.2",
     "dotenv": "^10.0.0",
-    "eslint": "7.32.0",
+    "eslint": "^8.1.0",
     "fast-glob": "^3.2.7",
     "luxon": "^2.0.2",
     "markdown-it": "^12.2.0",
@@ -34,9 +34,9 @@
     "markdown-it-anchor": "^8.3.1",
     "markdown-it-footnote": "^3.0.3",
     "moment": "2.29.1",
-    "node-fetch": "^2.6.2",
+    "node-fetch": "^3.0.0",
     "prettier": "^2.4.1",
     "rss-parser": "^3.12.0",
-    "sass": "^1.41.1"
+    "sass": "^1.43.4"
   }
 }
