@@ -19,13 +19,12 @@ async function getFirstActivityId(
   env: CloudflareEnvironment
 ): Promise<number | undefined> {
   let newActivityId = await env.DESTINY_2_CRUCIBLE_META.get(NEW_ACTIVITY_ID)
-  console.log(NEW_ACTIVITY_ID, newActivityId)
   if (newActivityId) {
     await env.DESTINY_2_CRUCIBLE_META.delete(NEW_ACTIVITY_ID)
     return parseInt(newActivityId)
   }
+
   let lastActivityId = await env.DESTINY_2_CRUCIBLE_META.get(LAST_ACTIVITY_ID)
-  console.log(LAST_ACTIVITY_ID, lastActivityId)
   if (lastActivityId) {
     return parseInt(lastActivityId) + 1
   }
@@ -36,15 +35,16 @@ async function setLastUsedActivityId(
   results: unknown,
   activityId: number
 ): Promise<number> {
-  const latestActivityFinished = results
-    .find((result) => result.isCaughtUpToLatestMatch)
+  const latestActivityFinished = results.find(
+    (result) => result.isCaughtUpToLatestMatch
+  )
   let latestId = activityId
   if (latestActivityFinished) {
     latestId = latestActivityFinished.lastId
   } else if (results.length > 0) {
     latestId = results[results.length - 1].lastId
   }
-  console.log(latestActivityFinished, results[results.length - 1], latestId)
+
   await env.DESTINY_2_CRUCIBLE_META.put(LAST_ACTIVITY_ID, latestId.toString())
   return latestId
 }
@@ -204,14 +204,8 @@ async function getCurrentMeta(request: Request, env: CloudflareEnvironment) {
 }
 
 async function updateMetaStats(env: CloudflareEnvironment) {
-  let list = await env.DESTINY_2_CRUCIBLE_META.list()
-  console.log(list.keys.map((key) => key.name).join(', '))
-  let debugList =
-    (await env.DESTINY_2_CRUCIBLE_META.get('$DEBUG_LIST', 'json')) || []
-  console.log(debugList)
   let durableObject = await getPGCRDurableObject(env)
   let activityId = await getFirstActivityId(env)
-  console.log(activityId)
   if (!activityId) {
     throw new Error(
       `KV value ${LAST_ACTIVITY_ID} is undefined and required to parse PGCR for the meta.`
@@ -222,22 +216,13 @@ async function updateMetaStats(env: CloudflareEnvironment) {
   let response = await durableObject.fetch(url)
   if (response.ok) {
     const data = await response.json()
-    const okResults = data.results.filter(result => result.ok)
-    console.log(response.ok, data.results.length, data.results.map(result => `${Object.keys(result).join(' ,')} ${result.lastId} ${result.isCaughtUpToLatestMatch} ${result.ok}`)
+    const okResults = data.results.filter((result) => result.ok)
     const { dates } = await parsePGCRResults(env, okResults)
     for (const [date, weaponData] of Object.entries(dates)) {
       await env.DESTINY_2_CRUCIBLE_META.put(date, JSON.stringify(weaponData))
     }
     const lastId = await setLastUsedActivityId(env, okResults, activityId)
-    debugList.push({
-      date: new Date(),
-      firstId: activityId,
-      lastId,
-    })
-    await env.DESTINY_2_CRUCIBLE_META.put(
-      '$DEBUG_LIST',
-      JSON.stringify(debugList)
-    )
+
     return {
       firstActivityId: activityId,
       lastActivityId: lastId,
