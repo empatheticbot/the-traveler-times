@@ -31,13 +31,16 @@ export default class VendorHandler {
       const saleItems = Object.values(saleObject)
       const itemHashes = saleItems.map((sale) => sale.itemHash)
 
-      const items = await this.definitionHandler.getInventoryItems(
-        ...itemHashes
-      )
+      const items = (
+        await this.definitionHandler.getInventoryItems(...itemHashes)
+      ).reduce((acc, item) => {
+        acc[item.hash] = item
+        return acc
+      }, {})
 
       sales = await Promise.all(
-        items.map(async (item) => {
-          const sale = saleItems.find((i) => i.itemHash === item.hash)
+        saleItems.map(async (sale) => {
+          const item = items[sale.itemHash]
 
           const classType = await this.definitionHandler.getCharacterClass(
             item.classType
@@ -71,7 +74,6 @@ export default class VendorHandler {
       let lastRefreshDate
       if (nextRefreshDate) {
         if (hash === XUR) {
-          console.log('Xur', nextRefreshDate, vendorLiveData.lastRefreshDate)
           const nextRefreshDateXur = new Date(nextRefreshDate)
           nextRefreshDateXur.setUTCHours(17)
           nextRefreshDate = nextRefreshDateXur.toISOString()
@@ -115,7 +117,6 @@ export default class VendorHandler {
 
   async getStrippedDownVendorByHash(hash) {
     const completeVendorData = await this.getVendorByHash(hash)
-
     const {
       name,
       description,
