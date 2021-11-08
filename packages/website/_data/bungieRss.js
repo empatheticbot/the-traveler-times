@@ -16,7 +16,7 @@ module.exports = async function getBungieRss() {
         item.isNew = true
       }
     }
-    if (item.title.includes('This Week At Bungie')) {
+    if (item.title.toLowerCase().includes('this week at bungie')) {
       item.title = 'This Week At Bungie'
       items.push(item)
     } else if (
@@ -27,5 +27,6 @@ module.exports = async function getBungieRss() {
       items.push(item)
     }
   }
+  console.log(items, feed.items)
   return { ...feed, items }
 }
