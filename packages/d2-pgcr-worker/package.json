@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@the-traveler-times/d2-pgcr-worker",
-  "version": "1.14.1",
+  "version": "1.14.2",
   "description": "Scheduled worker that crawls the Bungie Destiny2*Definition endpoints and stores the values in KV DESTINY_2_DEFINITIONS",
   "module": "./dist/index.mjs",
   "scripts": {
