@@ -9,10 +9,11 @@
   <ul role="list" class="">
     {% for item in vendor.sales | vendorItems(vendor.name) %}
       <li class="">
-        {{ items.inventoryItem(item.name, item.subtitle, icon=item.icon, costs=item.costs, value=item.quantity) }}
+        {{ items.inventoryItem(item.name, item.subtitle, icon=item.icon, costs=item.costs, value=item.quantity, sockets=item.sockets) }}
       </li>
     {% endfor %}
   </ul>
+
   {% endcall %}
 {% endmacro %}
 

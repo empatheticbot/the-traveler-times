@@ -72,9 +72,17 @@ module.exports = function (eleventyConfig) {
       case 'Banshee-44':
         return sales.filter((sale) => {
           return (
-            sale.subtitle.includes('Mod') || sale.subtitle.includes('Material')
+            !sale.subtitle.includes('Armor Set') &&
+            !sale.name.includes('Additional Bounties') &&
+            !sale.subtitle.includes('Warlock Legendary') &&
+            !sale.subtitle.includes('Armor Synthesis')
           )
         })
+      // return sales.filter((sale) => {
+      //   return (
+      //     sale.subtitle.includes('Mod') || sale.subtitle.includes('Material')
+      //   )
+      // })
       case 'Spider':
         let includedGlimmerTradeSale = false
         return sales.filter((sale) => {

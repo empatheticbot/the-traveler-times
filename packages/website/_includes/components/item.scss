@@ -97,6 +97,22 @@
   border-radius: 4px;
 }
 
+.item-modifiers-container {
+  width: 100%;
+  display: flex;
+}
+
+.item-modifier-list {
+  display: flex;
+  flex-direction: column;
+
+  li {
+    background-color: var(--color-primary);
+    border-radius: 100px;
+    padding: 2px;
+  }
+}
+
 .item-description {
   color: var(--color-text-secondary);
   font-size: 1.25rem;
