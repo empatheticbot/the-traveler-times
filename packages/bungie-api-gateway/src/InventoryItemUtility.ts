@@ -2,6 +2,24 @@ export function getStrippedItems(items) {
   return items.map(getStrippedItem)
 }
 
+function filterSocket(socket) {
+  return !socket.displayProperties.name.includes('Upgrade Armor')
+}
+
+export function stripSockets(sockets) {
+  const strippedSockets = sockets.map((socketGroup) => {
+    return socketGroup.filter(filterSocket)
+  })
+
+  const cleanSockets = []
+  strippedSockets.forEach((socket) => {
+    if (socket.length > 0) {
+      cleanSockets.push(socket)
+    }
+  })
+  return cleanSockets
+}
+
 export function getStrippedItem(item) {
   return {
     name: item.displayProperties.name,
@@ -21,7 +39,7 @@ export function getStrippedItem(item) {
       item.flavorText ||
       '',
     sort: item.itemType,
-    sockets: item.sockets,
+    sockets: stripSockets(item.sockets),
     costs:
       item.costs &&
       item.costs.map((cost) => {

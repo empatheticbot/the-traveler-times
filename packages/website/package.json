@@ -23,7 +23,7 @@
     "@11ty/eleventy": "0.12.1",
     "@11ty/eleventy-navigation": "0.3.2",
     "@empatheticbot/on-intersection-element": "^0.1.0",
-    "@empatheticbot/time-elements": "^2.0.4",
+    "@empatheticbot/time-elements": "^2.1.0",
     "clean-css": "^5.2.2",
     "dotenv": "^10.0.0",
     "eslint": "^8.1.0",

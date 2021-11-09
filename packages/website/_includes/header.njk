@@ -3,9 +3,7 @@
     <a href="/">The Traveler Times</a>
   </h1>
   <p class="page-header-slogan section-subtitle">{{ sloganSelection.slogan | safe }}</p>
-  <time class="page-header-today small-label" datetime="{{ computed.buildDate| htmlDateString }}">
-    <strong>{{ computed.buildDate | readableDate }}</strong>
-  </time>
+  <today-time class="page-header-today small-label"></today-time>
   {% if showToc %}
     <p class="page-header-toc">
       {# Don't miss the latest <a href="#events">
