@@ -47,10 +47,41 @@
   margin-right: 2rem;
 }
 
+.page-header-title {
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  font-family: 'Landmark Dimensional A', 'Landmark Dimensional B';
+  font-style: normal;
+  font-weight: 400;
+  /* font-size: 4rem; */
+}
+
+.page-header-logo {
+  height: 300px;
+  width: 300px;
+  margin-bottom: -200px;
+  opacity: 0.1;
+  align-self: center;
+}
+
+.page-slogan-wit {
+  padding: 1rem 0;
+  text-align: center;
+}
+
 @media screen and (max-width: 700px) {
   .page-header {
     margin: 3rem 1rem 2rem;
     text-align: left;
+  }
+
+  .page-header-logo {
+    height: 200px;
+    width: 200px;
+    margin-bottom: -150px;
+    opacity: 0.1;
+    align-self: flex-end;
   }
 
   .page-header-toc {
@@ -85,27 +116,4 @@
 
 .page-header-character-quote {
   margin: 0;
-}
-
-.page-header-heading-container {
-  display: grid;
-  margin: 3rem 2rem;
-}
-
-.page-header-title {
-  grid-area: header;
-  z-index: 10;
-  font-family: 'Landmark Dimensional A', 'Landmark Dimensional B';
-  font-style: normal;
-  font-weight: 400;
-  /* font-size: 4rem; */
-}
-
-.heading-title-logo {
-  grid-area: header;
-  height: 4rem;
-  width: 4rem;
-  border-radius: 100px;
-  border: 4px solid #eee;
-  place-self: center;
 }
