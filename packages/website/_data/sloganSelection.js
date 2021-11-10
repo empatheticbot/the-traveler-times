@@ -3,11 +3,10 @@ const slogans = [
     slogan: 'Guardians Die in Darkness',
     spoof: 'Washington Post',
   },
-  {
-    slogan:
-      'Fair and Balanced. <em style="font-size: .8rem;">Excludes the Felwinter\'s Lie</em>',
-    spoof: 'Fox News',
-  },
+  // {
+  //   slogan: "Fair and Balanced–except the Felwinter's Lie.",
+  //   spoof: 'Fox News',
+  // },
   // {
   //   slogan: 'Most Watched. Most Trusted.',
   //   spoof: 'Fox News',

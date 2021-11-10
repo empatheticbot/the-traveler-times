@@ -1,4 +1,4 @@
-# :newspaper: The Traveler Times
+# 📰 The Traveler Times
 
 The Traveler Times is [a website](https://thetraveler.news) to keep up on [Destiny 2](https://www.bungie.net/7/en/Destiny/) news. It's still very much a work in progress, but has reached a point where I feel it's become useful–I hope you find it useful too!
 
