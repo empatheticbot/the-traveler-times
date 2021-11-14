@@ -6,7 +6,8 @@ function filterSocket(socket) {
   return (
     !socket.displayProperties.name.includes('Upgrade Armor') &&
     !socket.displayProperties.name.includes('Change Energy Type') &&
-    !socket.displayProperties.name
+    socket.displayProperties.name !== '' &&
+    socket.hash !== 2513659710
   )
 }
 
