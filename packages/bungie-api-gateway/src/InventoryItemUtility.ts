@@ -3,7 +3,11 @@ export function getStrippedItems(items) {
 }
 
 function filterSocket(socket) {
-  return !socket.displayProperties.name.includes('Upgrade Armor')
+  return (
+    !socket.displayProperties.name.includes('Upgrade Armor') &&
+    !socket.displayProperties.name.includes('Change Energy Type') &&
+    !socket.displayProperties.name
+  )
 }
 
 export function stripSockets(sockets) {
