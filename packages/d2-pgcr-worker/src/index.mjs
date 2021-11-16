@@ -65,7 +65,7 @@ async function handlePostGameCarnageReportParsing(request, env) {
       }
       currentActivityId += every
     } catch (e) {
-      if (e.status === 404) {
+      if (e.status === 404 || e.status === 503) {
         isCaughtUpToLatestMatch = true
         break
       }
