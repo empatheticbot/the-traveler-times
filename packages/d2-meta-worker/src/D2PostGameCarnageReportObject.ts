@@ -66,12 +66,9 @@ export class D2PostGameCarnageReportObject {
 
       return new Response(JSON.stringify({ results }))
     } catch (e) {
-      return new Response(
-        JSON.stringify({ error: e.message + this.env.TTT_API_KEY }),
-        {
-          status: 500,
-        }
-      )
+      return new Response(JSON.stringify({ error: e.message }), {
+        status: 500,
+      })
     }
   }
 }
