@@ -18,4 +18,5 @@ export default class BungieAPIError extends Error {
 
 export enum BungieErrorStatus {
   DestinyPGCRNotFound = 'DestinyPGCRNotFound',
+  DestinySystemDisabled = 'SystemDisabled',
 }

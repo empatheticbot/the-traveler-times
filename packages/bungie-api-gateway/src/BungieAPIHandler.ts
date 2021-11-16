@@ -145,7 +145,10 @@ export default class BungieAPIHandler {
     }
     if (resp.Message === 'Ok') {
       return resp.Response
-    } else if (resp.ErrorStatus === BungieErrorStatus.DestinyPGCRNotFound) {
+    } else if (
+      resp.ErrorStatus === BungieErrorStatus.DestinyPGCRNotFound ||
+      resp.ErrorStatus === BungieErrorStatus.DestinySystemDisabled
+    ) {
       return null
     } else {
       throw new Error(`${resp.ErrorStatus}: ${resp.Message}`)
