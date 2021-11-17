@@ -12,17 +12,20 @@ function filterSocket(socket) {
 }
 
 export function stripSockets(sockets) {
-  const strippedSockets = sockets.map((socketGroup) => {
-    return socketGroup.filter(filterSocket)
-  })
+  if (Array.isArray(sockets)) {
+    const strippedSockets = sockets.map((socketGroup) => {
+      return socketGroup.filter(filterSocket)
+    })
 
-  const cleanSockets = []
-  strippedSockets.forEach((socket) => {
-    if (socket.length > 0) {
-      cleanSockets.push(socket)
-    }
-  })
-  return cleanSockets
+    const cleanSockets = []
+    strippedSockets.forEach((socket) => {
+      if (socket.length > 0) {
+        cleanSockets.push(socket)
+      }
+    })
+    return cleanSockets
+  }
+  return sockets
 }
 
 export function getStrippedItem(item) {

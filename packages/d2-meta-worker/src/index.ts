@@ -248,7 +248,7 @@ export default {
           const meta = await getCurrentMeta(request, env)
           return new Response(JSON.stringify({ ...meta, isAvailable: true }))
         } catch (e) {
-          return new Response(JSON.stringify({ error: e.message, env }), {
+          return new Response(JSON.stringify({ error: e.message }), {
             status: 500,
           })
         }
