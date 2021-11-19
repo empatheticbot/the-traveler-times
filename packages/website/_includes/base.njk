@@ -1,24 +1,28 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/assets/traveler.svg" type="image/svg+xml">
-    {% if renderData.title %}
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {%- if renderData.title %}
       <title>{{ renderData.title  + ' | ' + metadata.tite }}</title>
     {% elif title %}
       <title>{{ title + ' | ' + metadata.title }}</title>
     {% else %}
       <title>{{ metadata.title }}</title>
-    {% endif %}
-    <meta name = "keywords" content="Destiny 2, Meta, Crucible, Xur, Raid, Iron Banner, PVP, PVE"/>
-    <meta name="description" content="{{ renderData.description or description or metadata.description }}">
-    <link rel="stylesheet" href="{{ '/index.css' | url }}">
-    <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+    {% endif -%}
+    {# <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"> #}
+    <link rel="mask-icon" href="/assets/traveler.svg"/>
+    <link rel="icon" href="/assets/traveler.svg" type="image/svg+xml"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/traveler.png"/>
+    <link rel="stylesheet" href="{{ '/index.css' | url }}"/>
+    <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}"/>
     <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7441298/6558832/css/fonts.css"/>
     {% block css %}{% endblock %}
     <meta property="og:image" content="/assets/social-image.png"/>
     <meta name="twitter:image" content="/assets/social-image.png"/>
+    <meta name="description" content="{{ renderData.description or description or metadata.description }}"/>
+    <meta name="keywords" content="Destiny 2, Meta, Crucible, Xur, Raid, Iron Banner, PVP, PVE"/>
   </head>
   <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
     {# <div class="callout warning">
