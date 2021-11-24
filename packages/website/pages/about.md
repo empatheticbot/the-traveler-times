@@ -20,6 +20,6 @@ If you have an idea or find a bug on the site, feel free to reach out to <a href
 
 If you find this site useful and would like to see it continue to be supported and improve over time please consider tossing some glimmer my way. It really does make a difference and is much appreciated!
 
-<a href="https://www.buymeacoffee.com/empatheticbot"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=empatheticbot&button_colour=232323&font_colour=ffffff&font_family=Cookie&outline_colour=ffffff&coffee_colour=FFDD00"></a>
+<a class="support-link" href="https://buy.stripe.com/6oEaHp2U0drraOI288">♥️ &nbsp;&nbsp;Show Support</a>
 
 Thanks for visiting and take care ❤️
