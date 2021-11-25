@@ -1,4 +1,5 @@
 account_id = "a13a5016df895961431fb659d5d3a635"
+compatibility_date = "2021-11-25"
 name = "website-builder-worker"
 type = "javascript"
 usage_model = "bundled"
