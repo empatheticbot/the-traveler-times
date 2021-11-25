@@ -25,7 +25,8 @@
     "test": "lerna run test",
     "format": "lerna run format --parallel",
     "clean": "lerna run clean",
-    "update": "lerna exec -- npm-check -u -yes"
+    "update": "npm-check -u",
+    "update-workers": "lerna exec --scope @the-traveler-times/*-worker --scope @the-traveler-times/utils --scope @the-traveler-times/types --scope @the-traveler-times/bungie-api-gateway  -- npm-check -u -yes"
   },
   "repository": {
     "type": "git",

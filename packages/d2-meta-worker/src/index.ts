@@ -130,6 +130,7 @@ async function getLastWeekOfMetaEndingAt(
   const weaponData = await Promise.all(
     dates.map(async (date) => {
       const data = await env.DESTINY_2_CRUCIBLE_META.get(date, 'json')
+      console.log(data)
       return data
     })
   )
