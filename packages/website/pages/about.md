@@ -20,6 +20,6 @@ If you have an idea or find a bug on the site, feel free to reach out to <a href
 
 If you find this site useful and would like to see it continue to be supported and improve over time please consider tossing some glimmer my way. It really does make a difference and is much appreciated!
 
-<a class="support-link" href="https://buy.stripe.com/6oEaHp2U0drraOI288">♥️ &nbsp;&nbsp;Show Support</a>
+<a class="support-link" href="https://buy.stripe.com/4gw7vdbqwevvg927st">♥️ &nbsp;&nbsp;Show Support</a>
 
-Thanks for visiting and take care ❤️
+Thanks for visiting and take care. ❤️
