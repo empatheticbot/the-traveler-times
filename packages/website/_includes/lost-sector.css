@@ -6,6 +6,7 @@
 
 .lost-sector-modifiers-group {
   flex: 1 1 240px;
+  margin-top: 1rem;
 }
 
 .lost-sector-modifier-heading {
