@@ -6,7 +6,9 @@
   </h1>
   <p class="page-header-slogan section-subtitle">{{ sloganSelection.slogan | safe }}</p>
   <today-time class="page-header-today small-label"></today-time>
-  {% if showToc %}
+  {% include "nav.njk" %}
+  {% if false %}
+
     <p class="page-header-toc">
       {# Don't miss the latest <a href="#events">
         <strong>event</strong>
