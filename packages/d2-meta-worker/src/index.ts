@@ -6,6 +6,7 @@ import { isAuthorized } from '@the-traveler-times/utils'
 
 export { D2PostGameCarnageReportObject } from './D2PostGameCarnageReportObject'
 
+const CALL_EVERY_ID = '$CALL_EVERY'
 const LAST_ACTIVITY_ID = '$CURRENT_ACTIVITY_ID'
 const NEW_ACTIVITY_ID = '$NEW_ACTIVITY_ID'
 
@@ -206,14 +207,25 @@ async function getCurrentMeta(request: Request, env: CloudflareEnvironment) {
 
 async function updateMetaStats(env: CloudflareEnvironment) {
   let durableObject = await getPGCRDurableObject(env)
+  let callEvery = await env.DESTINY_2_CRUCIBLE_META.get(CALL_EVERY_ID)
   let activityId = await getFirstActivityId(env)
   if (!activityId) {
     throw new Error(
       `KV value ${LAST_ACTIVITY_ID} is undefined and required to parse PGCR for the meta.`
     )
   }
+  if (!callEvery) {
+    throw new Error(
+      `KV value ${CALL_EVERY_ID} is undefined and required to parse PGCR for the meta.`
+    )
+  }
   let url = new URL('https://d2-meta-worker.empatheticbot.workers.dev/')
   url.searchParams.set('activityId', activityId.toString())
+  url.searchParams.set('every', callEvery.toString())
+  console.log(`Calling durable object: 
+    Activity ID: ${activityId}
+    Call Every: ${callEvery}
+  `)
   let response = await durableObject.fetch(url)
   if (response.ok) {
     const data = await response.json()
