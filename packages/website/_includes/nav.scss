@@ -1,0 +1,27 @@
+.nav {
+  .nav-container-list {
+    display: flex;
+    text-align: start;
+
+    .nav-group {
+      flex: 1 1 20%;
+      margin: 0 1rem;
+      // padding: 0 1rem;
+    }
+  }
+
+  .nav-header {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  .nav-group-list {
+    display: flex;
+    flex-direction: column;
+    // flex-wrap: wrap;
+    gap: 0 1rem;
+    font-size: 1.3rem;
+  }
+}
