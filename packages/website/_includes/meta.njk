@@ -7,39 +7,43 @@
 {% set description = "Get a feel for the most popular and effective weapons currently being used in the Crucible." %}
 
 {% block content %}
-  <section class="meta-section">
-    <h3 class="section-title">Usage</h3>
-    <ol role="list" class="meta-list">
-      {% for item in meta.topUsage %}
-        {% set effectiveness = [item.usage, meta.totalUsage] | getPrettyRatios %}
-        <li class="">
-          {{ items.meta(item, effectiveness, loop) }}
-        </li>
-      {% endfor %}
-    </ol>
-  </section>
+  {% if meta.isAvailable %}
+    <section class="meta-section">
+      <h3 class="section-title">Usage</h3>
+      <ol role="list" class="meta-list">
+        {% for item in meta.topUsage %}
+          {% set effectiveness = [item.usage, meta.totalUsage] | getPrettyRatios %}
+          <li class="">
+            {{ items.meta(item, effectiveness, loop) }}
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
 
-  <section class="meta-section">
-    <h3 class="section-title">Kills</h3>
-    <ol role="list" class="meta-list">
-      {% for item in meta.topKills %}
-        {% set effectiveness = [item.kills, meta.totalKills] | getPrettyRatios %}
-        <li class="">
-          {{ items.meta(item, effectiveness, loop) }}
-        </li>
-      {% endfor %}
-    </ol>
-  </section>
+    <section class="meta-section">
+      <h3 class="section-title">Kills</h3>
+      <ol role="list" class="meta-list">
+        {% for item in meta.topKills %}
+          {% set effectiveness = [item.kills, meta.totalKills] | getPrettyRatios %}
+          <li class="">
+            {{ items.meta(item, effectiveness, loop) }}
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
 
-  <section class="meta-section">
-    <h3 class="section-title">Efficiency</h3>
-    <ol role="list" class="meta-list">
-      {% for item in meta.topEfficiency %}
-        {% set effectiveness = [item.kills, item.usage] | getEfficiency %}
-        <li class="">
-          {{ items.meta(item, effectiveness, loop) }}
-        </li>
-      {% endfor %}
-    </ol>
-  </section>
+    <section class="meta-section">
+      <h3 class="section-title">Efficiency</h3>
+      <ol role="list" class="meta-list">
+        {% for item in meta.topEfficiency %}
+          {% set effectiveness = [item.kills, item.usage] | getEfficiency %}
+          <li class="">
+            {{ items.meta(item, effectiveness, loop) }}
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
+  {% else %}
+    <p>Sorry, something went wrong with fetching The Meta</p>
+  {% endif %}
 {% endblock %}
