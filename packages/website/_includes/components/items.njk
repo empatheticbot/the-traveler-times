@@ -29,12 +29,12 @@
         {% for socketGroup in sockets %}
           <ul role="list" class="item-modifier-list">
             {% for socket in socketGroup %}
-              <li class="item-cost">
+              <li class="item-modifier">
                 <img
-        src="https://www.bungie.net{{ socket.displayProperties.icon | safe }}"
-        alt="Image of {{  socket.displayProperties.name | safe}}, a modifier for {{name }}."
-        class="item-cost-icon"
-        title="{{ socket.displayProperties.name | safe }}">
+                  src="https://www.bungie.net{{ socket.displayProperties.icon | safe }}"
+                  alt="Image of {{  socket.displayProperties.name | safe}}, a modifier for {{name }}."
+                  title="{{ socket.displayProperties.name | safe }}">
+                <p>{{ socket.displayProperties.name }}</p>
               </li>
             {% endfor %}
           </ul>

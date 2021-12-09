@@ -97,6 +97,27 @@
   border-radius: 4px;
 }
 
+.item-modifier {
+  display: flex;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item-modifier p {
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  padding: 0.25rem;
+}
+
+.item-modifier img {
+  width: 32px;
+  height: 32px;
+  margin: 0 0.5rem 0 0;
+  filter: brightness(0);
+}
+
 .item-modifiers-container {
   width: 100%;
   display: flex;
@@ -107,9 +128,10 @@
   flex-direction: column;
 
   li {
-    background-color: var(--color-primary);
-    border-radius: 100px;
-    padding: 2px;
+    // background-color: var(--color-primary);
+    // border-radius: 100px;
+    // padding: 2px;
+    margin-right: 2rem;
   }
 }
 
