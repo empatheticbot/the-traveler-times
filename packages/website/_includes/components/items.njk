@@ -25,36 +25,41 @@
     alt="Icon for {{ name | safe }} item."
     class="item-icon"
     title="{{ name | safe }}">
-    {% if false and sockets.length > 0 %}
-      <section class="item-modifiers-container">
+    {% if sockets and sockets.length > 0 %}
+      <article class="item-modifier-group-container">
         {% for socketGroup in sockets %}
-          <h4 class="modifier-heading">Column {{ loop.index }}</h4>
-          <ul role="list" class="item-modifier-list">
-            {% for socket in socketGroup %}
-              <li class="item-modifier">
-                <img
+          <section class="item-modifiers-container">
+            <h4 class="modifier-heading">Perk Column {{ loop.index }}</h4>
+            <ul role="list" class="item-modifier-list">
+              {% for socket in socketGroup %}
+                <li class="item-modifier">
+                  <p>{{ socket.displayProperties.name }}</p>
+                  <img
                   src="https://www.bungie.net{{ socket.displayProperties.icon | safe }}"
                   alt="Image of {{  socket.displayProperties.name | safe}}, a modifier for {{name }}."
                   title="{{ socket.displayProperties.name | safe }}">
-                <p>{{ socket.displayProperties.name }}</p>
-              </li>
-            {% endfor %}
-          </ul>
+                </li>
+              {% endfor %}
+            </ul>
+          </section>
         {% endfor %}
-      </section>
+      </article>
     {% endif %}
     {% if costs %}
-      <ul role="list" class="item-cost-list">
-        {% for cost in costs %}
-          <li class="item-cost">
-            <span class="item-cost-quantity">{{ cost.quantity | prettyNumber | safe }}</span>
-            <img
+      <article class="item-modifier-group-container">
+        <h4 class="modifier-heading">Cost</h4>
+        <ul role="list" class="item-cost-list">
+          {% for cost in costs %}
+            <li class="item-cost">
+              <span class="item-cost-quantity">{{ cost.quantity | prettyNumber | safe }}</span>
+              <img
         src="https://www.bungie.net{{ cost.icon | safe }}"
         alt="Image of {{ cost.name | safe}}, a cost to purchase {{name | safe }}."
         class="item-cost-icon">
-          </li>
-        {% endfor %}
-      </ul>
+            </li>
+          {% endfor %}
+        </ul>
+      </article>
     {% endif %}
   </section>
 {% endmacro %}

@@ -18,10 +18,8 @@
 
 .page-footer-nav {
   margin: 0 1rem;
-  /* background: var(--color-container); */
   padding: 1rem 2rem;
   border-radius: 1rem;
-  /* box-shadow: var(--shadow-l); */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

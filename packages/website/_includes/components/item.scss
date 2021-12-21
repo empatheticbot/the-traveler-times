@@ -97,6 +97,12 @@
   border-radius: 4px;
 }
 
+.item-modifier-group-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .item-modifier {
   display: flex;
   margin: 0.5rem 0.5rem 0.5rem 0;
@@ -119,9 +125,11 @@
 }
 
 .item-modifiers-container {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  flex: 2 2 120px;
+  margin-top: 1rem;
 }
 
 .item-modifier-list {
