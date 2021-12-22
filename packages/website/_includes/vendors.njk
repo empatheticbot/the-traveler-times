@@ -6,9 +6,9 @@
   {% if vendor.location %}
     <p class="section-text">{{ vendor.name | safe }} was last spotted on <strong>{{vendor.location.planet}}</strong> around the <strong>{{vendor.location.area}}</strong>.</p>
   {% endif %}
-  <ul role="list" class="">
+  <ul role="list" class="sub-section">
     {% for item in vendor.sales | vendorItems(vendor.name) %}
-      <li class="">
+      <li class="sub-section-item">
         {{ items.inventoryItem(item.name, item.subtitle, icon=item.icon, costs=item.costs, value=item.quantity, sockets=item.sockets) }}
       </li>
     {% endfor %}

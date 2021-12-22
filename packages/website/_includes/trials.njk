@@ -12,7 +12,7 @@
   {% block content %}
     {% for map in trials.maps %}
       {% call section.section(map.displayProperties.name, map.displayProperties.description, icon = map.pgcrImage) %}
-      <section class="lost-sector-modifiers-group">
+      <section class="modifiers-group">
         <h4 class="lost-sector-modifier-heading">Rewards</h4>
         <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
           {% for item in trials.rewards %}

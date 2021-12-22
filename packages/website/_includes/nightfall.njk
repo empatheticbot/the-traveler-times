@@ -17,7 +17,7 @@
       <p class="section-description">All Grandmaster Nightfalls are available!</p>
     {% endif %}
     {% call section.section(nightfall.groupedActivities[0][0].displayProperties.description, "Strike", sectionDescription, nightfall.groupedActivities[0][0].pgcrImage) %}
-    <section class="lost-sector-modifiers-group">
+    <section class="modifiers-group">
       <h4 class="lost-sector-modifier-heading">Rewards</h4>
       <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
         {% for item in nightfall.rewards %}
@@ -30,7 +30,7 @@
     <section class="lost-sector-modifiers-container">
       {% for name, modifiers in nightfall.modifierGroups | groupby("name") %}
         {% if loop.index0 % 2 === 0 %}
-          <section class="lost-sector-modifiers-group">
+          <section class="modifiers-group">
           {% endif %}
           <section class="modifiers-group">
             <h4 class="modifier-heading">{{name}}</h4>
