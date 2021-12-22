@@ -12,11 +12,11 @@ export class D2PostGameCarnageReportObject {
     this.env = env
   }
 
-  async handlePGCRRequest(firstActivityId: string) {
+  async handlePGCRRequest(firstActivityId: string, callEvery: number) {
     const fetchURL = new URL(this.PGCR_ENDPOINT)
     fetchURL.searchParams.append('firstActivityId', firstActivityId)
     fetchURL.searchParams.append('activitiesToFetch', this.SUBCALLS.toString())
-    fetchURL.searchParams.append('every', this.CALL_EVERY.toString())
+    fetchURL.searchParams.append('every', callEvery.toString())
 
     const response = await fetch(fetchURL.toString(), getHeaders(this.env))
     if (response.ok) {
@@ -40,6 +40,7 @@ export class D2PostGameCarnageReportObject {
   async fetch(request: Request) {
     const url = new URL(request.url)
     const activityIdString = url.searchParams.get('activityId')
+    const callEvery = url.searchParams.get('every') || this.CALL_EVERY
     if (!activityIdString) {
       return new Response(
         JSON.stringify({
@@ -56,9 +57,12 @@ export class D2PostGameCarnageReportObject {
       let activityResultsPromise = []
       for (let i = 0; i < this.REQUEST_LIMIT; i++) {
         const activityBatchStartingId =
-          activityId + i * this.SUBCALLS * this.CALL_EVERY
+          activityId + i * this.SUBCALLS * parseInt(callEvery.toString())
         activityResultsPromise.push(
-          this.handlePGCRRequest(activityBatchStartingId.toString())
+          this.handlePGCRRequest(
+            activityBatchStartingId.toString(),
+            parseInt(callEvery.toString())
+          )
         )
         await delay(1000)
       }

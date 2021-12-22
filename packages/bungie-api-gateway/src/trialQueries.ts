@@ -64,6 +64,11 @@ export const maps = [
     twitterQuery: 'trials bannerfall',
     activityHash: '1155926620',
   },
+  {
+    map: 'Convergence',
+    twitterQuery: 'trials convergence',
+    activityHash: '503710612',
+  },
 ]
 
 export const rewards = [

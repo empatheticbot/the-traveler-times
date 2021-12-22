@@ -18,4 +18,4 @@ format = "modules"
 main = "./index.mjs"
 
 [triggers]
-crons = ["2 * * * *"]
+crons = ["2,32 * * * *"]
