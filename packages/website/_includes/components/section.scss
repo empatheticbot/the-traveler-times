@@ -4,6 +4,17 @@
   flex-wrap: wrap;
 }
 
+.sub-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.sub-section-item {
+  flex: 2 1 240px;
+}
+
 .section-wrapper {
   display: flex;
   flex-direction: row;
