@@ -143,7 +143,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy('assets')
   eleventyConfig.addPassthroughCopy({
-    'node_modules/@empatheticbot/time-elements/dist/': 'js/time-elements',
+    'node_modules/@empatheticbot/date-elements/dist/': 'js/date-elements',
   })
   eleventyConfig.addPassthroughCopy({
     'node_modules/@empatheticbot/on-intersection-element/dist/':

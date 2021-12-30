@@ -1,5 +1,28 @@
 {% if showNav %}
   <nav class="nav">
+    {% if weekly.ironBanner.isAvailable %}
+      {% if weekly.ironBanner.isNew %}
+        <span>NEW</span>
+      {% endif %}
+      <p>
+        <a href="#iron-banner">Iron Banner</a> is now available. Be sure to check out [<a href="#meta">The Meta</a>
+        <a href="#meta-kills">Kills</a>, <a href="#meta-usage">Usage</a>, and <a href="#meta-efficiency">Efficiency</a>] before entering the fray.
+      </p>
+    {% elif trials.isAvailable %}
+      {% if trials.isNew %}
+        <span>NEW</span>
+      {% endif %}
+      <p>
+        <a href="#trials">Trials</a> is now available. Be sure to check out [<a href="#meta">The Meta</a>
+        <a href="#meta-kills">Kills</a>, <a href="#meta-usage">Usage</a>, and <a href="#meta-efficiency">Efficiency</a>] before entering the fray.
+      </p>
+    {% else %}
+      <p>
+        Check out [<a href="#meta">The Meta</a>
+        <a href="#meta-kills">Kills</a>, <a href="#meta-usage">Usage</a>, and <a href="#meta-efficiency">Efficiency</a>] to get an edge on your opponents in the Crucible.
+      </p>
+    {% endif %}
+    <p>{{ nav[2].ironBanner.isAvailable }}</p>
     <ul class="nav-container-list">
       <li class="nav-group">
         <h2 class="nav-header">Crucible</h2>

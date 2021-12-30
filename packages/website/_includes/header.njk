@@ -5,9 +5,9 @@
     <a href="/">The Traveler Times</a>
   </h1>
   <p class="page-header-slogan section-subtitle">{{ sloganSelection.slogan | safe }}</p>
-  <today-time class="page-header-today small-label"></today-time>
+  <today-date class="page-header-today small-label"></today-date>
   {% include "nav.njk" %}
-  {% if false %}
+  {% if true %}
 
     <p class="page-header-toc">
       {# Don't miss the latest <a href="#events">
@@ -49,23 +49,23 @@
         {% if not weekly.weekendReset or weekly.weeklyReset < weekly.weekendReset %}
           <p class="page-header-date small-label">
       Weekly reset
-      <awesome-time datetime="{{ weekly.weeklyReset | htmlDateString }}">
+      <until-date datetime="{{ weekly.weeklyReset | htmlDateString }}">
               {{ weekly.weeklyReset | htmlDateString }}
-            </awesome-time>
+            </until-date>
           </p>
         {% else %}
           <p class="page-header-date small-label">
       Weekend reset
-      <awesome-time datetime="{{ weekly.weekendReset | htmlDateString }}">
+      <until-date datetime="{{ weekly.weekendReset | htmlDateString }}">
               {{ weekly.weekendReset | htmlDateString }}
-            </awesome-time>
+            </until-date>
           </p>
         {% endif %}
         <p class="page-header-date small-label">
           {{season.currentSeason.displayProperties.name}} ends
-      <awesome-time datetime="{{ season.currentSeason.endDate | htmlDateString }}">
+      <until-date datetime="{{ season.currentSeason.endDate | htmlDateString }}">
             {{ season.currentSeason.endDate  | htmlDateString }}
-          </awesome-time>
+          </until-date>
         </p>
       </aside>
     {% endif %}

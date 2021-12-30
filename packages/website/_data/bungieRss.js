@@ -27,6 +27,5 @@ module.exports = async function getBungieRss() {
       items.push(item)
     }
   }
-  console.log(items, feed.items)
   return { ...feed, items }
 }
