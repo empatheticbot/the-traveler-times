@@ -6,6 +6,7 @@
   "homepage": "https://github.com/empatheticbot/the-traveler-times/tree/main/packages/bungie-api-gateway#readme",
   "license": "UNLICENSED",
   "module": "dist/index.mjs",
+  "main": "dist/index.mjs",
   "private": true,
   "files": [
     "dist"

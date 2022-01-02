@@ -146,16 +146,4 @@ export default class VendorHandler {
       sales: salesStripped,
     }
   }
-
-  async getWeeklyResets() {
-    // TODO: factor out the api call so I can grab two vendors in one call.
-    // This is currently dumb and really inefficient--we don't need all this data.
-    const xur = await this.getVendorByHash(XUR)
-    const zavala = await this.getVendorByHash(ZAVALA)
-
-    return {
-      weeklyReset: zavala.nextRefreshDate,
-      weekendReset: xur.nextRefreshDate,
-    }
-  }
 }
