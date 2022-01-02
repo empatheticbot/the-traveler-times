@@ -1,4 +1,7 @@
-import { DefinitionHandler } from '@the-traveler-times/bungie-api-gateway'
+import {
+  DefinitionHandler,
+  dateUtilities,
+} from '@the-traveler-times/bungie-api-gateway'
 import { getCurrentLostSectorHashes } from './LostSectorHandler'
 import { isAuthorized } from '@the-traveler-times/utils'
 
@@ -149,7 +152,7 @@ async function getLostSectorData(lostSector, definitionHandler) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request: Request, env: CloudflareEnvironment) {
     if (!isAuthorized(request, env)) {
       return new Response('Unauthorized', { status: 401 })
     }
@@ -174,6 +177,8 @@ export default {
           isAvailable: true,
           master,
           legend,
+          startDate: dateUtilities.getCurrentDailyResetStartDate(),
+          refreshDate: dateUtilities.getCurrentDailyResetEndDate(),
         }),
         {
           status: 200,

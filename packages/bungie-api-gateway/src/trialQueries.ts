@@ -41,7 +41,7 @@ export const maps = [
   },
   {
     map: "Widow's Court",
-    twitterQuery: 'trials (Widows OR Court)',
+    twitterQuery: 'trials widows court',
     activityHash: '427041827',
   },
   {

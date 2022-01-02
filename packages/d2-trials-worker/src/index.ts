@@ -2,14 +2,14 @@ import {
   PublicMilestoneHandler,
   TwitterHandler,
   SeasonHandler,
-  VendorHandler,
   ActivityHandler,
   DefinitionHandler,
+  dateUtilities,
 } from '@the-traveler-times/bungie-api-gateway'
 import { isAuthorized } from '@the-traveler-times/utils'
 
 async function getIsAvailable(
-  env: unknown,
+  env: CloudflareEnvironment,
   weekendReset: string,
   weeklyReset: string
 ) {
@@ -28,14 +28,8 @@ async function getIsAvailable(
   return !isIronBannerWeek && !isFirstWeekOfSeason && weekDate < weekendDate
 }
 
-async function getResets(env: unknown) {
-  const vendorHandler = new VendorHandler()
-  await vendorHandler.init(env.BUNGIE_API)
-  return vendorHandler.getWeeklyResets()
-}
-
 export default {
-  async fetch(request, env) {
+  async fetch(request: Request, env: CloudflareEnvironment) {
     if (!isAuthorized(request, env)) {
       return new Response('Unauthorized', { status: 401 })
     }
@@ -48,34 +42,43 @@ export default {
     await twitterHandler.init(env.TWITTER_API)
 
     try {
-      // const trialsMilestone =
-      //   await publicMilestoneHandler.getPublicMilestoneByHash(Hashes.TRIALS)
-      const { weekendReset, weeklyReset } = await getResets(env)
-      const isAvailable = await getIsAvailable(env, weekendReset, weeklyReset)
+      const nextWeeklyReset = dateUtilities.getNextWeeklyReset()
+      const nextWeekendReset = dateUtilities.getNextWeekendReset()
+      const lastWeekendReset = dateUtilities.getLastWeekendReset()
+      const isAvailable = await getIsAvailable(
+        env,
+        lastWeekendReset,
+        nextWeeklyReset
+      )
 
       let trialsMaps
       let trialsRewards
+
       if (isAvailable) {
         const currentDate = new Date()
-        const startDate = new Date(weekendReset)
-        startDate.setDate(startDate.getDate() - 7)
+        const twitterSearchStartDate = new Date(lastWeekendReset)
 
-        let endDate = new Date(startDate)
-        endDate.setHours(endDate.getHours() + 1)
+        let twitterSearchEndDate: Date | undefined = new Date(
+          twitterSearchStartDate
+        )
+        twitterSearchEndDate.setHours(twitterSearchEndDate.getHours() + 1)
 
-        if (endDate > currentDate) {
-          endDate = undefined
+        if (twitterSearchEndDate < currentDate) {
+          twitterSearchEndDate = undefined
         }
 
         trialsRewards = await twitterHandler.getTrialsRewards(
-          startDate,
-          endDate
+          twitterSearchStartDate,
+          twitterSearchEndDate
         )
         trialsRewards = await definitionHandler.getInventoryItems(
           ...trialsRewards.map((map) => map.hash)
         )
 
-        trialsMaps = await twitterHandler.getTrialsMap(startDate, endDate)
+        trialsMaps = await twitterHandler.getTrialsMap(
+          twitterSearchStartDate,
+          twitterSearchEndDate
+        )
         trialsMaps = await activityHandler.getActivities(trialsMaps)
       }
 
@@ -83,6 +86,8 @@ export default {
         JSON.stringify({
           isAvailable,
           maps: trialsMaps,
+          startDate: lastWeekendReset,
+          endDate: nextWeeklyReset,
           // milestone: trialsMilestone,
           rewards: trialsRewards,
         }),
@@ -91,9 +96,11 @@ export default {
         }
       )
     } catch (e) {
-      return new Response(e.message, {
-        status: 500,
-      })
+      if (e instanceof Error) {
+        return new Response(e.message, {
+          status: 500,
+        })
+      }
     }
   },
 }
