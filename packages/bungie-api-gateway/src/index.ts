@@ -8,6 +8,7 @@ import VendorHandler from './VendorHandler'
 import SeasonHandler from './SeasonHandler'
 import * as Hashes from './Hashes'
 import { getStrippedItem, getStrippedItems } from './InventoryItemUtility'
+import * as dateUtilities from './dateUtilities'
 
 export {
   ActivityHandler,
@@ -21,4 +22,5 @@ export {
   Hashes,
   getStrippedItem,
   getStrippedItems,
+  dateUtilities,
 }

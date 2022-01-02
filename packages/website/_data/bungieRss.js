@@ -6,11 +6,16 @@ const BUNGIE_RSS_URL = 'http://www.bungie.net/News/NewsRss.ashx'
 module.exports = async function getBungieRss() {
   const feed = await parser.parseURL(BUNGIE_RSS_URL)
   let items = []
+  let lastUpdateDate
   for (const item of feed.items) {
     if (item.isoDate) {
       const date = new Date(item.isoDate)
       const now = new Date()
       const milliDiff = now.valueOf() - date.valueOf()
+
+      if (!lastUpdateDate || date > lastUpdateDate) {
+        lastUpdateDate = date
+      }
 
       if (milliDiff < 1000 * 60 * 60 * 24 * 2) {
         item.isNew = true
@@ -27,5 +32,10 @@ module.exports = async function getBungieRss() {
       items.push(item)
     }
   }
-  return { ...feed, items }
+  return {
+    ...feed,
+    lastUpdateDate: lastUpdateDate.toISOString(),
+    isAvailable: items.length > 0,
+    items,
+  }
 }

@@ -1,26 +1,27 @@
 import {
   DefinitionHandler,
-  VendorHandler,
+  // VendorHandler,
   PublicMilestoneHandler,
   Hashes,
+  dateUtilities,
 } from '@the-traveler-times/bungie-api-gateway'
 import { isAuthorized } from '@the-traveler-times/utils'
 
 export default {
-  async fetch(request, env) {
+  async fetch(request: Request, env: CloudflareEnvironment) {
     if (!isAuthorized(request, env)) {
       return new Response('Unauthorized', { status: 401 })
     }
-
-    const vendorHandler = new VendorHandler()
-    await vendorHandler.init(env.BUNGIE_API)
     const definitionHandler = new DefinitionHandler()
     await definitionHandler.init(env.BUNGIE_API)
     const publicMilestoneHandler = new PublicMilestoneHandler()
     await publicMilestoneHandler.init(env.BUNGIE_API)
 
     try {
-      const weeklyInfo = await vendorHandler.getWeeklyResets()
+      const nextWeeklyReset = dateUtilities.getNextWeeklyReset()
+      const nextWeekendReset = dateUtilities.getNextWeekendReset()
+      const lastWeeklyReset = dateUtilities.getLastWeeklyReset()
+      const lastWeekendReset = dateUtilities.getLastWeekendReset()
       let ironBannerMilestone
       try {
         ironBannerMilestone =
@@ -38,6 +39,8 @@ export default {
         )
         ironBanner = {
           isAvailable: true,
+          startDate: lastWeeklyReset,
+          endDate: nextWeeklyReset,
           ...ironBannerDefinition,
           ...ironBannerMilestone,
         }
@@ -46,7 +49,14 @@ export default {
       }
 
       return new Response(
-        JSON.stringify({ ...weeklyInfo, ironBanner, isAvailable: true }),
+        JSON.stringify({
+          nextWeeklyReset,
+          lastWeeklyReset,
+          nextWeekendReset,
+          lastWeekendReset,
+          ironBanner,
+          isAvailable: true,
+        }),
         {
           status: 200,
         }

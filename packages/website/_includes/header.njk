@@ -46,18 +46,18 @@
         </a>.
   </p>
       <aside class="page-header-aside">
-        {% if not weekly.weekendReset or weekly.weeklyReset < weekly.weekendReset %}
+        {% if not weekly.nextWeekendReset or weekly.nextWeeklyReset < weekly.nextWeekendReset %}
           <p class="page-header-date small-label">
       Weekly reset
-      <until-date datetime="{{ weekly.weeklyReset | htmlDateString }}">
-              {{ weekly.weeklyReset | htmlDateString }}
+            <until-date datetime="{{ weekly.nextWeeklyReset | htmlDateString }}">
+              {{ weekly.nextWeeklyReset | htmlDateString }}
             </until-date>
           </p>
         {% else %}
           <p class="page-header-date small-label">
       Weekend reset
-      <until-date datetime="{{ weekly.weekendReset | htmlDateString }}">
-              {{ weekly.weekendReset | htmlDateString }}
+            <until-date datetime="{{ weekly.nextWeekendReset | htmlDateString }}">
+              {{ weekly.nextWeekendReset | htmlDateString }}
             </until-date>
           </p>
         {% endif %}

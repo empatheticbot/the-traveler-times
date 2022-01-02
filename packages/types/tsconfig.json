@@ -1,7 +1,0 @@
-{
-  "extends": "@tsconfig/node14/tsconfig.json",
-  "include": ["./src/**/*", "src/index.d.ts"],
-  "compilerOptions": {
-    "esModuleInterop": true
-  }
-}
