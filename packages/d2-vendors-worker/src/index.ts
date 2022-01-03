@@ -25,21 +25,31 @@ export default {
       const spider = await getSpider(vendorHandler)
       const xur = await getXur(vendorHandler, twitterHandler)
 
+      const isAvailable =
+        xur.isAvailable ||
+        banshee.isAvailable ||
+        spider.isAvailable ||
+        ada.isAvailable
+
       return new Response(
         JSON.stringify({
           ada,
           banshee,
           spider,
           xur,
+          isAvailable,
         }),
         {
           status: 200,
         }
       )
     } catch (e) {
-      return new Response(e.message, {
-        status: 500,
-      })
+      return new Response(
+        JSON.stringify({ isAvailable: false, errorMessage: e.message }),
+        {
+          status: 500,
+        }
+      )
     }
   },
 }
