@@ -47,7 +47,7 @@ export default {
       const lastWeekendReset = dateUtilities.getLastWeekendReset()
       const isAvailable = await getIsAvailable(
         env,
-        lastWeekendReset,
+        nextWeekendReset,
         nextWeeklyReset
       )
 
