@@ -259,11 +259,15 @@ export default {
       case '/meta': {
         try {
           const meta = await getCurrentMeta(request, env)
-          return new Response(JSON.stringify({ ...meta, isAvailable: true }))
+          const isAvailable = meta.weapons.length > 0
+          return new Response(JSON.stringify({ ...meta, isAvailable }))
         } catch (e) {
-          return new Response(JSON.stringify({ error: e.message }), {
-            status: 500,
-          })
+          return new Response(
+            JSON.stringify({ error: e.message, isAvailable: false }),
+            {
+              status: 500,
+            }
+          )
         }
       }
       default: {
