@@ -68,15 +68,19 @@ export default {
             description: seasonalNode.displayProperties.description,
           },
           festivalOfTheLost,
+          isAvailable: !!(currentSeason && weeklyRecords),
         }),
         {
           status: 200,
         }
       )
     } catch (e) {
-      return new Response(e.message, {
-        status: 500,
-      })
+      return new Response(
+        JSON.stringify({ isAvailable: false, errorMessage: e.message }),
+        {
+          status: 500,
+        }
+      )
     }
   },
 }
