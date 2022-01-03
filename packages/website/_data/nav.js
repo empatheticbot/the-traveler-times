@@ -30,7 +30,7 @@ module.exports = async function () {
   ] = await Promise.all(promises)
 
   console.log(
-    bungieRss.startDate,
+    bungieRss.lastUpdateDate,
     lostSectors.startDate,
     nightfall.startDate,
     season.currentSeason.startDate,
