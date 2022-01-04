@@ -61,11 +61,12 @@ export default {
         let twitterSearchEndDate: Date | undefined = new Date(
           twitterSearchStartDate
         )
-        twitterSearchEndDate.setHours(twitterSearchEndDate.getHours() + 1)
+        twitterSearchEndDate.setHours(twitterSearchEndDate.getHours() + 2)
 
-        if (twitterSearchEndDate < currentDate) {
-          twitterSearchEndDate = undefined
-        }
+        twitterSearchEndDate =
+          twitterSearchEndDate > currentDate
+            ? currentDate
+            : twitterSearchEndDate
 
         trialsRewards = await twitterHandler.getTrialsRewards(
           twitterSearchStartDate,
@@ -80,6 +81,7 @@ export default {
           twitterSearchEndDate
         )
         trialsMaps = await activityHandler.getActivities(trialsMaps)
+        trialsMaps.sort((a, b) => b.results - a.results)
       }
 
       return new Response(
