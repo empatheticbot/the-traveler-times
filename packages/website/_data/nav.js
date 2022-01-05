@@ -35,8 +35,8 @@ module.exports = async function () {
   if (trials.isAvailable) {
     crucibleDate = trials.startDate
     crucibleMarkup = `
-    <section>
-    <since-date datetime="${crucibleDate}"></since-date>
+    <section class="nav-section">
+    <since-date class="small-label" datetime="${crucibleDate}"></since-date>
     <p>
       <a href="#trials">Trials</a> is now available. Be sure to check out [<a href="#meta">The Meta</a>
       <a href="#meta-kills">Kills</a>, <a href="#meta-usage">Usage</a>, and <a href="#meta-efficiency">Efficiency</a>] before entering the fray.
@@ -46,8 +46,8 @@ module.exports = async function () {
   } else if (weekly.ironBanner.isAvailable) {
     crucibleDate = weekly.ironBanner.startDate
     crucibleMarkup = `
-    <section>
-    <since-date datetime="${crucibleDate}"></since-date>
+    <section class="nav-section">
+    <since-date class="small-label" datetime="${crucibleDate}"></since-date>
     <p>
       <a href="#iron-banner">Iron Banner</a> is now available. Be sure to check out [<a href="#meta">The Meta</a>
       <a href="#meta-kills">Kills</a>, <a href="#meta-usage">Usage</a>, and <a href="#meta-efficiency">Efficiency</a>] before entering the fray.
@@ -55,8 +55,10 @@ module.exports = async function () {
     </section>
   `
   } else {
+    crucibleDate = weekly.lastWeeklyReset
     crucibleMarkup = `
-    <section>
+    <section class="nav-section">
+    <since-date class="small-label" datetime="${today.toISOString()}"></since-date>
     <p>
     Check out [<a href="#meta">The Meta</a>
       <a href="#meta-kills">Kills</a>, <a href="#meta-usage">Usage</a>, and <a href="#meta-efficiency">Efficiency</a>] to get an edge on your opponents in the Crucible.
@@ -70,8 +72,8 @@ module.exports = async function () {
   if (vendors.xur.isAvailable) {
     vendorDate = vendors.xur.lastRefreshDate
     vendorMarkup = `
-    <section>
-    <since-date datetime="${vendorDate}"></since-date>
+    <section class="nav-section">
+    <since-date class="small-label" datetime="${vendorDate}"></since-date>
     <p>
       ${vendors.xur.name} has been located in the ${vendors.xur.location.area}, ${vendors.xur.location.planet}! Looking for something else? Check out the other <a href="#vendors">Vendors</a> [<a href="#xur">Xur</a>
       <a href="#spider">Spider</a>, <a href="#banshee-44">Banshee-44</a>, and <a href="#ada-1">Ada-1</a>] stock.
@@ -79,15 +81,20 @@ module.exports = async function () {
     </section>
     `
   } else {
+    vendorDate = weekly.lastWeeklyReset
     vendorMarkup = `
-    <section>
+    <section class="nav-section">
+    <since-date class="small-label" datetime="${vendorDate}"></since-date>
     <p>
-    Check out the <a href="#vendors">Vendors</a> [<a href="#xur">Xur</a>
+    Check out the <a href="#vendors">Vendors</a> [${
+      vendors.xur.isAvailable ? '<a href="#xur">Xur</a>,' : ''
+    }
       <a href="#spider">Spider</a>, <a href="#banshee-44">Banshee-44</a>, and <a href="#ada-1">Ada-1</a>] stock.
     </p>
     </section>
     `
   }
+
   let vanguardMarkup
   let vanguardDate
   const nightfallNewCutoffDate = new Date(nightfall.startDate)
@@ -97,8 +104,8 @@ module.exports = async function () {
   if (nightfall.isGrandmasterStartWeek) {
     vanguardDate = nightfall.startDate
     vanguardMarkup = `
-    <section>
-    <since-date datetime="${vanguardDate}"></since-date>
+    <section class="nav-section">
+    <since-date class="small-label" datetime="${vanguardDate}"></since-date>
     <p>
     <a href="#nightfall">Grandmaster Nightfall</a> is now available! Solo <a href="#lost-sectors">Lost Sectors</a> have also been updated.
     </p>
@@ -107,8 +114,8 @@ module.exports = async function () {
   } else if (today.valueOf() < nightfallNewCutoffDate.valueOf()) {
     vanguardDate = nightfall.startDate
     vanguardMarkup = `
-    <section>
-    <since-date datetime="${vanguardDate}"></since-date>
+    <section class="nav-section">
+    <since-date class="small-label" datetime="${vanguardDate}"></since-date>
     <p>
     The weekly <a href="#nightfall">Nightfall</a> and solo <a href="#lost-sectors">Lost Sectors</a> have been recently updated.
     </p>
@@ -117,8 +124,8 @@ module.exports = async function () {
   } else if (today.valueOf() < lostSectorNewCutoffDate.valueOf()) {
     vanguardDate = lostSectors.startDate
     vanguardMarkup = `
-    <section>
-    <since-date datetime="${vanguardDate}"></since-date>
+    <section class="nav-section">
+    <since-date class="small-label" datetime="${vanguardDate}"></since-date>
     <p>
     The dialy solo <a href="#lost-sectors">Lost Sectors</a> were recently updated. Looking for another Vanguard operation? Check out the weekly <a href="#nightfall">Nightfall</a>.
     </p>
@@ -127,14 +134,30 @@ module.exports = async function () {
   } else {
     vanguardDate = lostSectors.startDate
     vanguardMarkup = `
-    <section>
-    <since-date datetime="${vanguardDate}"></since-date>
+    <section class="nav-section">
+    <since-date class="small-label" datetime="${vanguardDate}"></since-date>
     <p>
     Looking for Vanguard operations? Check out the daily <a href="#lost-sectors">Lost Sectors</a> or the weekly <a href="#nightfall">Nightfall</a>.
     </p>
     </section>
     `
   }
+
+  const resetDate = weekly.nextWeeklyReset
+  const resetMarkup = `
+  <section class="nav-section">
+  <span class="small-label">Site last updated <since-date datetime="${today.toISOString()}"></since-date></span>
+  <p>
+    The next reset is <until-date datetime="${
+      weekly.nextWeeklyReset
+    }"></until-date>. <a href="#season">${
+    season.currentSeason.displayProperties.name
+  }</a> ends <until-date datetime="${
+    season.currentSeason.endDate
+  }"></until-date>.
+  </p>
+  </section>
+  `
   // console.log(
   //   meta.isAvailable,
   //   bungieRss.isAvailable,
@@ -188,5 +211,6 @@ module.exports = async function () {
     [vanguardMarkup, vanguardDate],
     [vendorMarkup, vendorDate],
     [crucibleMarkup, crucibleDate],
+    [resetMarkup, resetDate],
   ]
 }
