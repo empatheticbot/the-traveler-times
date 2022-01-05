@@ -1,7 +1,6 @@
 import { NightfallRewardPairs } from './NightfallRewards'
 
 const startingDate = new Date('August 24, 2021 17:00:00 GMT')
-const grandMasterStartDate = new Date('October 3, 2021 17:00:00 GMT')
 
 export function getCurrentNightfallRewardHashes() {
   const today = new Date()
@@ -13,9 +12,27 @@ export function getCurrentNightfallRewardHashes() {
   return NightfallRewardPairs[index]
 }
 
-export function getGrandmasterAvailability(): boolean {
+export function getGrandmasterAvailability(
+  seasonOverrides: SeasonOverrides
+): boolean {
+  const grandmasterStartDateString = seasonOverrides?.grandmasterStartDate
+  if (!grandmasterStartDateString) {
+    return false
+  }
   const today = new Date()
-  return today.valueOf() > grandMasterStartDate.valueOf()
+  const grandmasterStartDate = new Date(grandmasterStartDateString)
+  return today.valueOf() > grandmasterStartDate.valueOf()
+}
+
+export function getIsGrandmasterStartWeek(seasonOverrides: SeasonOverrides) {
+  const isGrandmasterAvailable = getGrandmasterAvailability(seasonOverrides)
+  if (!isGrandmasterAvailable) {
+    return false
+  }
+  const grandmasterStartDate = new Date(seasonOverrides.grandMasterStartDate)
+  const today = new Date()
+  today.setDate(today.getDate() - 7)
+  return today.valueOf() < grandmasterStartDate.valueOf()
 }
 
 export function getModifiersOrderedByDifficulty(activities) {

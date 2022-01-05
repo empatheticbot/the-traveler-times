@@ -8,6 +8,7 @@ const getVendors = require('./vendors')
 const getWeekly = require('./weekly')
 
 module.exports = async function () {
+  const today = new Date()
   const promises = [
     getBungieRss(),
     getLostSectors(),
@@ -87,6 +88,53 @@ module.exports = async function () {
     </section>
     `
   }
+  let vanguardMarkup
+  let vanguardDate
+  const nightfallNewCutoffDate = new Date(nightfall.startDate)
+  nightfallNewCutoffDate.setDate(nightfallNewCutoffDate.getDate() + 1)
+  const lostSectorNewCutoffDate = new Date(lostSectors.startDate)
+  lostSectorNewCutoffDate.setHours(lostSectorNewCutoffDate.getHours() + 3)
+  if (nightfall.isGrandmasterStartWeek) {
+    vanguardDate = nightfall.startDate
+    vanguardMarkup = `
+    <section>
+    <since-date datetime="${vanguardDate}"></since-date>
+    <p>
+    <a href="#nightfall">Grandmaster Nightfall</a> is now available! Solo <a href="#lost-sectors">Lost Sectors</a> have also been updated.
+    </p>
+    </section>
+    `
+  } else if (today.valueOf() < nightfallNewCutoffDate.valueOf()) {
+    vanguardDate = nightfall.startDate
+    vanguardMarkup = `
+    <section>
+    <since-date datetime="${vanguardDate}"></since-date>
+    <p>
+    The weekly <a href="#nightfall">Nightfall</a> and solo <a href="#lost-sectors">Lost Sectors</a> have been recently updated.
+    </p>
+    </section>
+    `
+  } else if (today.valueOf() < lostSectorNewCutoffDate.valueOf()) {
+    vanguardDate = lostSectors.startDate
+    vanguardMarkup = `
+    <section>
+    <since-date datetime="${vanguardDate}"></since-date>
+    <p>
+    The dialy solo <a href="#lost-sectors">Lost Sectors</a> were recently updated. Looking for another Vanguard operation? Check out the weekly <a href="#nightfall">Nightfall</a>.
+    </p>
+    </section>
+    `
+  } else {
+    vanguardDate = lostSectors.startDate
+    vanguardMarkup = `
+    <section>
+    <since-date datetime="${vanguardDate}"></since-date>
+    <p>
+    Looking for Vanguard operations? Check out the daily <a href="#lost-sectors">Lost Sectors</a> or the weekly <a href="#nightfall">Nightfall</a>.
+    </p>
+    </section>
+    `
+  }
   // console.log(
   //   meta.isAvailable,
   //   bungieRss.isAvailable,
@@ -136,5 +184,9 @@ module.exports = async function () {
     orderedActivities.map((item) => `${item.date} - ${item.activity.name}`)
   )
 
-  return [vendorMarkup, crucibleMarkup]
+  return [
+    [vanguardMarkup, vanguardDate],
+    [vendorMarkup, vendorDate],
+    [crucibleMarkup, crucibleDate],
+  ]
 }

@@ -1,7 +1,7 @@
 {% if showNav %}
   <nav class="nav">
-    {% for item in nav %}
-      {{ item | safe}}
+    {% for activity, date in nav %}
+      {{ activity | safe}}
     {% endfor %}
 
     {# <ul class="nav-container-list">

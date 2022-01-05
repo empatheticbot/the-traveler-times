@@ -2,6 +2,7 @@ account_id = "a13a5016df895961431fb659d5d3a635"
 compatibility_date = "2021-11-25"
 kv_namespaces = [
   {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
+  {binding = "DESTINY_2_MANUAL_DATA", id = "351a1edd802045f9ba923aa2b93f60df", preview_id = "aad61bea7bb1482aa1f6293674f14522"},
 ]
 name = "d2-nightfall-worker"
 type = "javascript"

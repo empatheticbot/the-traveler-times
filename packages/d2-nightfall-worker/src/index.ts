@@ -2,6 +2,7 @@ import {
   PublicMilestoneHandler,
   ActivityHandler,
   DefinitionHandler,
+  SeasonHandler,
   Hashes,
   dateUtilities,
 } from '@the-traveler-times/bungie-api-gateway'
@@ -9,11 +10,12 @@ import {
   getModifiersOrderedByDifficulty,
   getCurrentNightfallRewardHashes,
   getGrandmasterAvailability,
+  getIsGrandmasterStartWeek,
 } from './NightfallHandler'
 import { isAuthorized } from '@the-traveler-times/utils'
 
 export default {
-  async fetch(request, env) {
+  async fetch(request: Request, env: CloudflareEnvironment) {
     if (!isAuthorized(request, env)) {
       return new Response('Unauthorized', { status: 401 })
     }
@@ -24,6 +26,11 @@ export default {
     await activityHandler.init(env.BUNGIE_API)
     const definitionHandler = new DefinitionHandler()
     await definitionHandler.init(env.BUNGIE_API)
+    const seasonHandler = new SeasonHandler()
+    await seasonHandler.init(env.BUNGIE_API)
+    const currentSeasonId = seasonHandler.getCurrentSeasonId()
+    const seasonOverrides: SeasonOverrides =
+      (await env.DESTINY_2_MANUAL_DATA.get(currentSeasonId, 'json')) || {}
 
     try {
       const nightfallMilestone =
@@ -49,7 +56,8 @@ export default {
         reducedActivitiesByDescription
       ).sort((a, b) => b.length - a.length)
 
-      const isGrandmasterAvailable = getGrandmasterAvailability()
+      const isGrandmasterAvailable = getGrandmasterAvailability(seasonOverrides)
+      const isGrandmasterStartWeek = getIsGrandmasterStartWeek(seasonOverrides)
 
       let modifierGroups = getModifiersOrderedByDifficulty(activitiesAsArray[0])
 
@@ -76,6 +84,7 @@ export default {
           rewards: nightfallRewards,
           grandmasterRewards,
           isGrandmasterAvailable,
+          isGrandmasterStartWeek,
           isAvailable: true,
           startDate: dateUtilities.getLastWeeklyReset(),
           refreshDate: dateUtilities.getNextWeeklyReset(),
