@@ -1,5 +1,16 @@
 .nav {
   margin: auto;
+  display: flex;
+  gap: 2rem;
+
+  .nav-group {
+    flex: 1 1 400px;
+  }
+
+  .nav-aside {
+    flex: 1 2 200px;
+  }
+
   .nav-container-list {
     display: flex;
     text-align: start;
