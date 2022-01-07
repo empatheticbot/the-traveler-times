@@ -55,13 +55,13 @@ module.exports = async function () {
     </section>
   `
   } else {
-    crucibleDate = weekly.lastWeeklyReset
+    crucibleDate = today
     crucibleMarkup = `
     <section class="nav-section">
-    <since-date class="small-label" datetime="${today.toISOString()}"></since-date>
+    <since-date class="small-label" datetime="${crucibleDate}"></since-date>
     <p>
-    Check out [<a href="#meta">The Meta</a>
-      <a href="#meta-kills">Kills</a>, <a href="#meta-usage">Usage</a>, and <a href="#meta-efficiency">Efficiency</a>] to get an edge on your opponents in the Crucible.
+    Check out <a href="#meta">The Meta</a>
+      [<a href="#meta-kills">Kills</a>, <a href="#meta-usage">Usage</a>, and <a href="#meta-efficiency">Efficiency</a>] to get an edge on your opponents in the Crucible.
     </p>
     </section>
   `
@@ -143,21 +143,21 @@ module.exports = async function () {
     `
   }
 
-  const resetDate = weekly.nextWeeklyReset
-  const resetMarkup = `
-  <section class="nav-section">
-  <span class="small-label">Site last updated <since-date datetime="${today.toISOString()}"></since-date></span>
-  <p>
-    The next reset is <until-date datetime="${
-      weekly.nextWeeklyReset
-    }"></until-date>. <a href="#season">${
-    season.currentSeason.displayProperties.name
-  }</a> ends <until-date datetime="${
-    season.currentSeason.endDate
-  }"></until-date>.
-  </p>
-  </section>
-  `
+  // const resetDate = weekly.nextWeeklyReset
+  // const resetMarkup = `
+  // <section class="nav-section">
+  // <span class="small-label">Site last updated <since-date datetime="${today.toISOString()}"></since-date></span>
+  // <p>
+  //   The next reset is <until-date datetime="${
+  //     weekly.nextWeeklyReset
+  //   }"></until-date>. <a href="#season">${
+  //   season.currentSeason.displayProperties.name
+  // }</a> ends <until-date datetime="${
+  //   season.currentSeason.endDate
+  // }"></until-date>.
+  // </p>
+  // </section>
+  // `
   // console.log(
   //   meta.isAvailable,
   //   bungieRss.isAvailable,
@@ -172,21 +172,31 @@ module.exports = async function () {
   //   weekly.isAvailable,
   //   weekly.ironBanner.isAvailable
   // )
+  // const activitiesAndDates = [
+  //   { activity: bungieRss, date: bungieRss.lastUpdateDate },
+  //   { activity: lostSectors, date: lostSectors.startDate },
+  //   { activity: nightfall, date: nightfall.startDate },
+  //   { activity: trials, date: trials.startDate },
+  //   { activity: vendors.xur, date: vendors.xur.lastRefreshDate },
+  //   // { activity: vendors.spider, date: vendors.spider.lastRefreshDate },
+  //   // { activity: vendors.banshee, date: vendors.banshee.lastRefreshDate },
+  //   // { activity: vendors.ada, date: vendors.ada.lastRefreshDate },
+  //   { activity: weekly.ironBanner, date: weekly.ironBanner.startDate },
+  // ]
+
   const activitiesAndDates = [
-    { activity: bungieRss, date: bungieRss.lastUpdateDate },
-    { activity: lostSectors, date: lostSectors.startDate },
-    { activity: nightfall, date: nightfall.startDate },
-    { activity: trials, date: trials.startDate },
-    { activity: vendors.xur, date: vendors.xur.lastRefreshDate },
-    // { activity: vendors.spider, date: vendors.spider.lastRefreshDate },
-    // { activity: vendors.banshee, date: vendors.banshee.lastRefreshDate },
-    // { activity: vendors.ada, date: vendors.ada.lastRefreshDate },
-    { activity: weekly.ironBanner, date: weekly.ironBanner.startDate },
+    [vanguardMarkup, vanguardDate],
+    [vendorMarkup, vendorDate],
+    [crucibleMarkup, crucibleDate],
+    // [resetMarkup, resetDate],
   ]
 
-  const orderedActivities = activitiesAndDates
-    .filter((item) => item.activity.isAvailable)
-    .sort((itemA, itemB) => new Date(itemB.date) - new Date(itemA.date))
+  activitiesAndDates.sort(
+    ([itemA, dateA], [itemB, dateB]) =>
+      new Date(dateB).valueOf() - new Date(dateA).valueOf()
+  )
+
+  console.log(activitiesAndDates.map(([i, d]) => d).join(' '))
 
   // console.log(
   //   bungieRss.lastUpdateDate,
@@ -203,14 +213,9 @@ module.exports = async function () {
   //   weekly.nextWeekendReset,
   //   weekly.ironBanner.startDate
   // )
-  console.log(
-    orderedActivities.map((item) => `${item.date} - ${item.activity.name}`)
-  )
+  // console.log(
+  //   orderedActivities.map((item) => `${item.date} - ${item.activity.name}`)
+  // )
 
-  return [
-    [vanguardMarkup, vanguardDate],
-    [vendorMarkup, vendorDate],
-    [crucibleMarkup, crucibleDate],
-    [resetMarkup, resetDate],
-  ]
+  return activitiesAndDates
 }

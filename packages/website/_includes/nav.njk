@@ -5,73 +5,21 @@
         {{ activity | safe}}
       {% endfor %}
     </section>
-    <section class="nav-aside">
-      <section class="nav-section">
-        <p>
-    If you like the site please <a href="https://buy.thetraveler.news">consider showing your support.</a> ❤️
-      </p>
-      </section>
-    </section>
-    {# <ul class="nav-container-list">
-      <li class="nav-group">
-        <h2 class="nav-header">Crucible</h2>
-        <ul class="nav-group-list">
-          <li>
-            <a href="#iron-banner">Iron Banner</a>
-          </li>
-          <li>
-            <a href="#trials">Trials of Osiris</a>
-          </li>
-          <li>
-            <a href="#meta-kills">Meta Kills</a>
-          </li>
-          <li>
-            <a href="#meta-usage">Meta Usage</a>
-          </li>
-          <li>
-            <a href="#meta-efficiency">Meta Efficiency</a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-group">
-        <a class="nav-header" href="#vendors">Vendors</a>
-        <ul class="nav-group-list">
-          <li>
-            <a href="#xûr">Xûr</a>
-          </li>
-          <li>
-            <a href="#spider">Spider</a>
-          </li>
-          <li>
-            <a href="#ada-1">Ada-1</a>
-          </li>
-          <li>
-            <a href="#banshee-44">Banshee-44</a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-group">
-        <h2 class="nav-header">Vanguard</h2>
-        <ul class="nav-group-list">
-          <li>
-            <a href="#nightfall">Nightfall</a>
-          </li>
-          <li>
-            <a href="#lost-sectors">Lost Sectors</a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-group">
-        <h2 class="nav-header">Misc.</h2>
-        <ul class="nav-group-list">
-          <li>
-            <a href="#season">Seasonal Challenges</a>
-          </li>
-          <li>
-            <a class="nav-header" href="#bungie">Bungie News</a>
-          </li>
-        </ul>
-      </li>
-    </ul> #}
   </nav>
+  <aside class="nav-aside">
+    <p>
+ The next reset is <until-date datetime="{{
+      weekly.nextWeeklyReset
+    }}"></until-date>. <a href="#season">{{
+    season.currentSeason.displayProperties.name
+  }}</a> ends <until-date datetime="{{
+    season.currentSeason.endDate
+  }}"></until-date>.</p>
+    <p>
+    Site last updated <since-date datetime="{{computed.buildDate}}"></since-date>
+    </p>
+    <p>
+    If you like the site please <a href="https://buy.thetraveler.news">consider showing your support.</a> ❤️
+  </p>
+  </aside>
 {% endif %}
