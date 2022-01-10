@@ -1,24 +1,26 @@
 .nav {
   margin: auto;
   display: flex;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 0 3rem;
 
   .nav-group {
     flex: 1 1 400px;
+
+    p {
+      text-align: left;
+      margin-bottom: 0.75rem;
+    }
   }
 
   .nav-aside {
     flex: 1 2 200px;
-  }
+    color: var(--color-text-secondary);
+    font-style: italic;
+    text-align: left;
 
-  .nav-container-list {
-    display: flex;
-    text-align: start;
-
-    .nav-group {
-      flex: 1 1 20%;
-      margin: 0 1rem;
-      // padding: 0 1rem;
+    p {
+      margin-bottom: 1rem;
     }
   }
 
@@ -33,15 +35,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 1.5rem;
 
     since-date {
       font-weight: 800;
       margin-bottom: 0.25rem;
-    }
-
-    p {
-      text-align: left;
-      margin-bottom: 1.5rem;
     }
 
     a {

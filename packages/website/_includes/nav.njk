@@ -1,13 +1,22 @@
 {% if showNav %}
   <nav class="nav">
     <section class="nav-group">
-      {% for activity, date in nav %}
-        {{ activity | safe}}
+      {% for date, activities in nav | groupby("date") %}
+        <section class="nav-section">
+          <since-date 
+          class="small-label"
+          datetime="{{date}}"
+          >
+            {{date}}
+          </since-date>
+          {% for activity in activities %}
+            {{ activity.markup | safe}}
+          {% endfor %}
+        </section>
       {% endfor %}
     </section>
-  </nav>
-  <aside class="nav-aside">
-    <p>
+    <aside class="nav-aside">
+      <p>
  The next reset is <until-date datetime="{{
       weekly.nextWeeklyReset
     }}"></until-date>. <a href="#season">{{
@@ -15,11 +24,13 @@
   }}</a> ends <until-date datetime="{{
     season.currentSeason.endDate
   }}"></until-date>.</p>
-    <p>
+      <p>
     Site last updated <since-date datetime="{{computed.buildDate}}"></since-date>
-    </p>
-    <p>
+      </p>
+      <p>
     If you like the site please <a href="https://buy.thetraveler.news">consider showing your support.</a> ❤️
   </p>
-  </aside>
+    </aside>
+  </nav>
+
 {% endif %}

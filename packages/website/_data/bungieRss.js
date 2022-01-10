@@ -34,7 +34,7 @@ module.exports = async function getBungieRss() {
   }
   return {
     ...feed,
-    lastUpdateDate: lastUpdateDate.toISOString(),
+    lastRefreshDate: lastUpdateDate.toISOString(),
     isAvailable: items.length > 0,
     items,
   }
