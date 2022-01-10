@@ -134,8 +134,8 @@ li {
 }
 
 .back-to-top {
-  visibility: visible;
-  opacity: 1;
+  visibility: hidden;
+  opacity: 0;
   display: flex;
   align-items: flex-end;
   position: sticky;
@@ -213,6 +213,8 @@ li {
 }
 
 .back-to-top.show {
+  visibility: visible;
+  opacity: 1;
   bottom: 4vh;
 }
 
