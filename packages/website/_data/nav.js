@@ -7,6 +7,8 @@ const getTrials = require('./trials')
 const getVendors = require('./vendors')
 const getWeekly = require('./weekly')
 
+const DAYS_OLD_CUTOFF = 7
+
 module.exports = async function () {
   const today = new Date()
   const promises = [
@@ -37,8 +39,7 @@ module.exports = async function () {
       date: trials.startDate,
       markup: `
       <p>
-        <a href="#trials">Trials</a> is now available. Be sure to check out [<a href="#meta">The Meta</a>
-        <a href="#meta-kills">Kills</a>, <a href="#meta-usage">Usage</a>, and <a href="#meta-efficiency">Efficiency</a>] before entering the fray.
+        <a href="#trials">Trials</a> is now available.
       </p>
     `,
     })
@@ -47,8 +48,7 @@ module.exports = async function () {
       date: weekly.ironBanner.startDate,
       markup: `
       <p>
-        <a href="#iron-banner">Iron Banner</a> is now available. Be sure to check out [<a href="#meta">The Meta</a>
-        <a href="#meta-kills">Kills</a>, <a href="#meta-usage">Usage</a>, and <a href="#meta-efficiency">Efficiency</a>] before entering the fray.
+        <a href="#iron-banner">Iron Banner</a> is now available.
       </p>
     `,
     })
@@ -69,8 +69,7 @@ module.exports = async function () {
       date: vendors.xur.lastRefreshDate,
       markup: `
       <p>
-        ${vendors.xur.name} has been located in the ${vendors.xur.location.area}, ${vendors.xur.location.planet}! Looking for something else? Check out the other <a href="#vendors">Vendors</a> [<a href="#xur">Xur</a>
-        <a href="#spider">Spider</a>, <a href="#banshee-44">Banshee-44</a>, and <a href="#ada-1">Ada-1</a>] stock.
+        <a href="#xur">${vendors.xur.name}</a> has been located in the ${vendors.xur.location.area}, ${vendors.xur.location.planet}.
       </p>
     `,
     })
@@ -122,17 +121,18 @@ module.exports = async function () {
       </p>
     `,
     })
-  } else if (today.valueOf() < nightfallNewCutoffDate.valueOf()) {
-    updates.push({
-      date: nightfall.startDate,
-      markup: `
+  }
+  // else if (today.valueOf() < nightfallNewCutoffDate.valueOf()) {
+  updates.push({
+    date: nightfall.startDate,
+    markup: `
       <p>
       The weekly <a href="#nightfall">Nightfall</a> and solo <a href="#lost-sectors">Lost Sectors</a> have been recently updated.
       </p>
     `,
-    })
-  }
-  if (today.valueOf() < lostSectorNewCutoffDate.valueOf()) {
+  })
+  // }
+  if (lostSectors.isAvailable) {
     updates.push({
       date: lostSectors.startDate,
       markup: `
@@ -153,6 +153,18 @@ module.exports = async function () {
       `,
     })
   }
+
+  updates = updates.filter((update) => {
+    const date = new Date(update.date)
+    date.setDate(date.getDate() + 7)
+    return date > today
+  })
+
+  updates = updates.sort((a, b) => {
+    const aDate = new Date(a.date)
+    const bDate = new Date(b.date)
+    return bDate.valueOf() - aDate.valueOf()
+  })
 
   // const resetDate = weekly.nextWeeklyReset
   // const resetMarkup = `
