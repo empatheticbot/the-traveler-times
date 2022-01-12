@@ -9,6 +9,18 @@ const getWeekly = require('./weekly')
 
 const DAYS_OLD_CUTOFF = 7
 
+function cleanDate(dateString) {
+  const date = new Date(dateString)
+  const isRoundUp = date.getMinutes() > 30
+  if (isRoundUp) {
+    date.setHours(date.getHours() + 1)
+  }
+  date.setMinutes(0)
+  date.setSeconds(0)
+  date.setMilliseconds(0)
+  return date.toISOString()
+}
+
 module.exports = async function () {
   const today = new Date()
   const promises = [
@@ -36,7 +48,7 @@ module.exports = async function () {
 
   if (trials.isAvailable) {
     updates.push({
-      date: trials.startDate,
+      date: cleanDate(trials.startDate),
       markup: `
       <p>
         <a href="#trials">Trials</a> is now available.
@@ -45,7 +57,7 @@ module.exports = async function () {
     })
   } else if (weekly.ironBanner.isAvailable) {
     updates.push({
-      date: weekly.ironBanner.startDate,
+      date: cleanDate(weekly.ironBanner.startDate),
       markup: `
       <p>
         <a href="#iron-banner">Iron Banner</a> is now available.
@@ -64,9 +76,40 @@ module.exports = async function () {
     `,
   })
 
+  if (nightfall.isGrandmasterStartWeek) {
+    updates.push({
+      date: cleanDate(nightfall.startDate),
+      markup: `
+      <p>
+      <a href="#nightfall">Grandmaster Nightfall</a> is now available.
+      </p>
+    `,
+    })
+  } else {
+    updates.push({
+      date: cleanDate(nightfall.startDate),
+      markup: `
+        <p>
+        The weekly <a href="#nightfall">Nightfall</a> has been updated.
+        </p>
+      `,
+    })
+  }
+
+  if (lostSectors.isAvailable) {
+    updates.push({
+      date: cleanDate(lostSectors.startDate),
+      markup: `
+      <p>
+      The dialy solo <a href="#lost-sectors">Lost Sectors</a> were updated.
+      </p>
+      `,
+    })
+  }
+
   if (vendors.xur.isAvailable) {
     updates.push({
-      date: vendors.xur.lastRefreshDate,
+      date: cleanDate(vendors.xur.lastRefreshDate),
       markup: `
       <p>
         <a href="#xur">${vendors.xur.name}</a> has been located in the ${vendors.xur.location.area}, ${vendors.xur.location.planet}.
@@ -75,31 +118,9 @@ module.exports = async function () {
     })
   }
 
-  if (vendors.banshee.isAvailable) {
-    updates.push({
-      date: vendors.banshee.lastRefreshDate,
-      markup: `
-      <p>
-      <a href="#banshee-44">Banshee-44</a>'s stock was updated.
-      </p>
-    `,
-    })
-  }
-
-  if (vendors.ada.isAvailable) {
-    updates.push({
-      date: vendors.ada.lastRefreshDate,
-      markup: `
-      <p>
-      <a href="#ada-1">Ada-1</a>'s stock was updated.
-      </p>
-    `,
-    })
-  }
-
   if (vendors.spider.isAvailable) {
     updates.push({
-      date: vendors.spider.lastRefreshDate,
+      date: cleanDate(vendors.spider.lastRefreshDate),
       markup: `
       <p>
       <a href="#spider">Spider</a>'s stock was updated.
@@ -108,47 +129,34 @@ module.exports = async function () {
     })
   }
 
-  const nightfallNewCutoffDate = new Date(nightfall.startDate)
-  nightfallNewCutoffDate.setDate(nightfallNewCutoffDate.getDate() + 1)
-  const lostSectorNewCutoffDate = new Date(lostSectors.startDate)
-  lostSectorNewCutoffDate.setHours(lostSectorNewCutoffDate.getHours() + 3)
-  if (nightfall.isGrandmasterStartWeek) {
+  if (vendors.ada.isAvailable) {
     updates.push({
-      date: nightfall.startDate,
+      date: cleanDate(vendors.ada.lastRefreshDate),
       markup: `
       <p>
-      <a href="#nightfall">Grandmaster Nightfall</a> is now available! Solo <a href="#lost-sectors">Lost Sectors</a> have also been updated.
+      <a href="#ada-1">Ada-1</a>'s stock was updated.
       </p>
     `,
     })
   }
-  // else if (today.valueOf() < nightfallNewCutoffDate.valueOf()) {
-  updates.push({
-    date: nightfall.startDate,
-    markup: `
-      <p>
-      The weekly <a href="#nightfall">Nightfall</a> and solo <a href="#lost-sectors">Lost Sectors</a> have been recently updated.
-      </p>
-    `,
-  })
-  // }
-  if (lostSectors.isAvailable) {
+
+  if (vendors.banshee.isAvailable) {
     updates.push({
-      date: lostSectors.startDate,
+      date: cleanDate(vendors.banshee.lastRefreshDate),
       markup: `
       <p>
-      The dialy solo <a href="#lost-sectors">Lost Sectors</a> were recently updated. Looking for another Vanguard operation? Check out the weekly <a href="#nightfall">Nightfall</a>.
+      <a href="#banshee-44">Banshee-44</a>'s stock was updated.
       </p>
-      `,
+    `,
     })
   }
 
   if (bungieRss.isAvailable) {
     updates.push({
-      date: bungieRss.lastRefreshDate,
+      date: cleanDate(bungieRss.lastRefreshDate),
       markup: `
       <p>
-        Check out the latest on <a href="#bungie-rss">Bungie.net</a>.
+        Check out <a href="${bungieRss.items[0].link}">the latest</a> on <a href="#bungie-rss">Bungie.net</a>.
       </p>
       `,
     })
