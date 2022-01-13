@@ -164,7 +164,7 @@ module.exports = async function () {
 
   updates = updates.filter((update) => {
     const date = new Date(update.date)
-    date.setDate(date.getDate() + 7)
+    date.setDate(date.getDate() + DAYS_OLD_CUTOFF)
     return date > today
   })
 
