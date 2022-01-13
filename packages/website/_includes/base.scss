@@ -5,7 +5,7 @@
   grid-template-columns:
     minmax(300px, 2fr)
     minmax(400px, 4fr)
-    minmax(240px, 1fr);
+    minmax(300px, 1fr);
 }
 
 .rail-1 {
@@ -50,6 +50,11 @@ li {
   .rail-1 {
     padding-right: 0;
     border-right: none;
+    border-bottom: 4px solid var(--color-primary);
+  }
+
+  .rail-2 {
+    padding-top: 1rem;
   }
 
   .rail-3 {
