@@ -5,26 +5,47 @@
   gap: 0 3rem;
 
   .nav-group {
-    flex: 1 1 400px;
+    flex: 1 2 500px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 2rem;
 
     p {
       text-align: left;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.45rem;
+      font-size: 1.15rem;
     }
   }
 
   .nav-aside {
-    flex: 1 2 200px;
+    flex: 1 1 200px;
     color: var(--color-text-secondary);
     font-style: italic;
     text-align: left;
 
     p {
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+      line-height: 1.25rem;
+    }
+
+    .nav-site-updated {
+      margin-bottom: 3rem;
     }
 
     .nav-support {
       font-style: normal;
+      margin-bottom: 0.5rem;
+
+      &:last-child {
+        margin-bottom: 2rem;
+      }
+    }
+
+    a {
+      color: black;
+      font-weight: 500;
     }
   }
 
@@ -40,10 +61,12 @@
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 1.5rem;
+    flex: 1 1 200px;
 
     since-date {
       font-weight: 800;
       margin-bottom: 0.25rem;
+      font-size: 0.8rem;
     }
 
     a {

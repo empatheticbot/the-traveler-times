@@ -156,7 +156,7 @@ module.exports = async function () {
       date: cleanDate(bungieRss.lastRefreshDate),
       markup: `
       <p>
-        Check out <a href="${bungieRss.items[0].link}">the latest</a> on <a href="#bungie-rss">Bungie.net</a>.
+        Check out <a href="${bungieRss.items[0].link}">the latest article</a> on <a href="#bungie-rss">Bungie.net</a>.
       </p>
       `,
     })
