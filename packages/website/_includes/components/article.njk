@@ -1,4 +1,7 @@
 <article class="article">
+  {% if displayDate %}
+    <since-date class="small-label article-date" datetime="{{displayDate}}">{{displayDate}}</since-date>
+  {% endif %}
   <h2 class="article-title" id="{{ id }}">{{ title }}</h2>
   <p class="section-description">{{ description | safe }}</p>
   {% block content %}

@@ -6,6 +6,7 @@
   {% set description %}
     Lost sector found on <strong>{{ lostSectorData.destination.displayProperties.name }}</strong>.
   {% endset %}
+
   {% call section.section(lostSectorData.name, lostSectorData.difficulty, description, lostSectorData.pgcrImage) %}
   <section class="modifiers-group">
     <h4 class="lost-sector-modifier-heading">Rewards</h4>
@@ -33,6 +34,7 @@
   {% set title = "Lost Sectors" %}
   {% set id = "lost-sectors"%}
   {% set description = "The latest master and legend Lost Sectors in rotation and the rewards available."%}
+  {% set displayDate = lostSector.startDate %}
 
   {% block content %}
     {{ lostSectorSection(lostSector.master)}}
