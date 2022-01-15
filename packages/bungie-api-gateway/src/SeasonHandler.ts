@@ -33,6 +33,10 @@ export default class SeasonHandler {
     return currentSeason
   }
 
+  getCurrentSeasonId(): number {
+    return this.getCurrentSeason().seasonNumber
+  }
+
   getNextSeason() {
     const seasons = Object.values(this.seasonsInfo)
     const currentSeason = this.getCurrentSeason()

@@ -16,6 +16,10 @@
 .article-title {
   font-family: 'Landmark Dimensional A', 'Landmark Dimensional B';
   // font-family: 'Landmark Inline A', 'Landmark Inline B';
-  font-size: 2rem;
+  font-size: var(--font-size-l);
   width: 100%;
+}
+
+.article-date {
+  margin-bottom: -1rem;
 }

@@ -7,6 +7,7 @@
   {% set title = ironBanner.displayProperties.name | safe %}
   {% set id = "iron-banner" %}
   {% set description = ironBanner.displayProperties.description %}
+  {% set displayDate = ironBanner.startDate %}
 
   {% block content %}
     {% call section.section(icon = ironBanner.image) %}

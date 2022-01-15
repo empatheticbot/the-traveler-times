@@ -11,6 +11,7 @@
   {% set sectionDescription %}
     Found on <strong>{{ nightfall.groupedActivities[0][0].destination.displayProperties.name | safe }}</strong>.
   {% endset %}
+  {% set displayDate = nightfall.startDate %}
 
   {% block content %}
     {% if nightfall.groupedActivities.length > 1 %}
