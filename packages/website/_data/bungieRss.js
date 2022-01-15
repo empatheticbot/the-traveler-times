@@ -7,7 +7,8 @@ module.exports = async function getBungieRss() {
   const feed = await parser.parseURL(BUNGIE_RSS_URL)
   let items = []
   let lastUpdateDate
-  for (const item of feed.items) {
+
+  const addItemToList = (item) => {
     if (item.isoDate) {
       const date = new Date(item.isoDate)
       const now = new Date()
@@ -21,15 +22,19 @@ module.exports = async function getBungieRss() {
         item.isNew = true
       }
     }
+    items.push(item)
+  }
+
+  for (const item of feed.items) {
     if (item.title.toLowerCase().includes('this week at bungie')) {
       item.title = 'This Week At Bungie'
-      items.push(item)
+      addItemToList(item)
     } else if (
       item.title.includes('Destiny') ||
       item.title.includes('Festival of the Lost') ||
       item.title.includes('Season of')
     ) {
-      items.push(item)
+      addItemToList(item)
     }
   }
   return {
