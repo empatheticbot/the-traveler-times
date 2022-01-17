@@ -1,6 +1,3 @@
-.item-list-container {
-}
-
 .item-separater-container {
   display: flex;
   gap: 0.5rem;
@@ -68,59 +65,64 @@
   border-radius: 8px;
 }
 
-.item-cost-list {
-  display: flex;
-  flex-wrap: wrap;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+.item-cost-container {
   width: 100%;
+  margin-top: 1rem;
+
+  .modifier-heading {
+    width: 100%;
+  }
+
+  .item-modifier-list {
+    flex-direction: row;
+    gap: 0 1rem;
+    flex-wrap: wrap;
+  }
+
+  .item-modifier {
+    flex: 1 1 130px;
+
+    img {
+      border-radius: 4px;
+      filter: none;
+    }
+  }
+
+  .item-cost-quantity {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--color-text-secondary);
+  }
 }
 
-.item-cost {
-  display: flex;
-  margin: 0.5rem 0.5rem 0.5rem 0;
-  flex-direction: row-reverse;
-  align-items: center;
-}
-
-.item-cost-quantity {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-left: 0.25rem;
-  min-width: 1.5rem;
-}
-
-.item-cost-icon {
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
+.item-modifier-details {
+  margin-top: 1rem;
 }
 
 .item-modifier-group-container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  gap: 0 1rem;
 }
 
 .item-modifier {
   display: flex;
-  margin: 0.5rem 0.5rem 0.5rem 0;
   flex-direction: row;
   align-items: center;
+  margin: 0.25rem 0;
 }
 
 .item-modifier p {
   font-size: 0.9rem;
   color: var(--color-primary);
   font-weight: 700;
-  padding: 0.25rem;
+  padding-left: 0.25rem;
 }
 
 .item-modifier img {
   width: 32px;
   height: 32px;
-  margin: 0 0.5rem 0 0;
   filter: brightness(0);
 }
 
@@ -135,13 +137,6 @@
 .item-modifier-list {
   display: flex;
   flex-direction: column;
-
-  li {
-    // background-color: var(--color-primary);
-    // border-radius: 100px;
-    // padding: 2px;
-    margin-right: 2rem;
-  }
 }
 
 .item-description {
@@ -170,20 +165,6 @@
   counter-increment: item-list-counter;
   flex: 2 1 240px;
   margin: 0.5rem 1rem;
-  /* max-width: 400px;
-}
-
-.item-wrapper::before {
-  /* content: counter(item-list-counter) ". ";
-  vertical-align: top; */
-}
-
-.item-container {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-  /* margin: .5rem 0; */
-  /* flex: 2 1 300px; */
-  /* flex-direction: column; */
 }
 
 .item-image {

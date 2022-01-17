@@ -12,16 +12,3 @@
     </ul>
   </section>
 {% endmacro %}
-
-{% macro socketListLayout(title, modifiers) %}
-  <section class="modifiers-group">
-    <h4 class="modifier-heading">{{title}}</h4>
-    <ul role="list" class="modifier-list">
-      {% for socket in sockets %}
-        <li class="modifier">
-          {{ items.modifier(modifier.name, modifier.description, icon=modifier.icon) }}
-        </li>
-      {% endfor %}
-    </ul>
-  </section>
-{% endmacro %}

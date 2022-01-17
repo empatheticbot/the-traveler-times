@@ -112,7 +112,11 @@ module.exports = async function () {
       date: cleanDate(vendors.xur.lastRefreshDate),
       markup: `
       <p>
-        <a href="#xur">${vendors.xur.name}</a> has been located in the ${vendors.xur.location.area}, ${vendors.xur.location.planet}.
+        <a href="#${vendors.xur.name.toLowerCase()}">${
+        vendors.xur.name
+      }</a> has been located in the ${vendors.xur.location.area}, ${
+        vendors.xur.location.planet
+      }.
       </p>
     `,
     })
