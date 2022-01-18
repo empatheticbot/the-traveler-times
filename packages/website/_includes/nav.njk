@@ -9,9 +9,11 @@
           >
             {{date}}
           </since-date>
-          {% for activity in activities %}
-            {{ activity.markup | safe}}
-          {% endfor %}
+          <ul>
+            {% for activity in activities %}
+              <li class="nav-item">{{ activity.markup | safe}}</li>
+            {% endfor %}
+          </ul>
         </section>
       {% endfor %}
     </nav>

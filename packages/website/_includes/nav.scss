@@ -82,4 +82,12 @@
     gap: 0 1rem;
     font-size: 1.3rem;
   }
+
+  .nav-item {
+    margin: 0;
+
+    &::marker {
+      content: '– ';
+    }
+  }
 }
