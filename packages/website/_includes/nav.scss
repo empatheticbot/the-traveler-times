@@ -1,21 +1,13 @@
 .nav {
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
 
-  .nav-group {
-    flex: 1 1 1200px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 2rem;
-
-    p {
-      text-align: left;
-      margin-bottom: 0.5rem;
-      line-height: 1.45rem;
-      font-size: 1.15rem;
-    }
+  p {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    line-height: 1.45rem;
+    font-size: 1.15rem;
   }
 
   .nav-aside {
@@ -60,8 +52,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 1.5rem;
-    flex: 0 1 300px;
 
     .small-label {
       font-weight: 800;

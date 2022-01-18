@@ -1,49 +1,22 @@
 {% if showNav %}
-  <section class="nav">
-    <nav class="nav-group">
-      {% for date, activities in nav | groupby("date") %}
-        <section class="nav-section">
-          <since-date 
+  <today-date class="small-label page-header-today"></today-date>
+  <nav class="nav">
+    {% for date, activities in nav | groupby("date") %}
+      <section class="nav-section">
+        <since-date 
           class="small-label"
           datetime="{{date}}"
           >
-            {{date}}
-          </since-date>
-          <ul>
-            {% for activity in activities %}
-              <li class="nav-item">{{ activity.markup | safe}}</li>
-            {% endfor %}
-          </ul>
-        </section>
-      {% endfor %}
-      <aside class="nav-aside nav-section">
-        <p>
-          <a href="#season">{{
-    season.currentSeason.displayProperties.name
-  }}</a> ends <until-date datetime="{{
-    season.currentSeason.endDate
-  }}"></until-date>.</p>
-        <p class="nav-site-updated">
-        Site last updated <since-date datetime="{{computed.buildDate}}"></since-date>.
-      </p>
-      </aside>
-      <aside class="nav-aside nav-section">
-        <p class="nav-support">
-        ❤️ <a href="https://buy.thetraveler.news">I'd like to show my support</a>
-        </p>
-        <p class="nav-support">
-        🙋‍♀️ <a href="/support">I have a suggestion</a>
-        </p>
-        <p class="nav-support">
-        🎓 <a href="/about">Learn more about The Traveler Times</a>
-        </p>
-      </aside>
-    </nav>
-    {# <aside class="nav-aside">
-      <p>
- The next reset is <until-date datetime="{{
-      weekly.nextWeeklyReset
-    }}"></until-date>. </p>
+          {{date}}
+        </since-date>
+        <ul>
+          {% for activity in activities %}
+            <li class="nav-item">{{ activity.markup | safe}}</li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+    <aside class="nav-aside nav-section">
       <p>
         <a href="#season">{{
     season.currentSeason.displayProperties.name
@@ -53,6 +26,8 @@
       <p class="nav-site-updated">
         Site last updated <since-date datetime="{{computed.buildDate}}"></since-date>.
       </p>
+    </aside>
+    <aside class="nav-aside nav-section">
       <p class="nav-support">
         ❤️ <a href="https://buy.thetraveler.news">I'd like to show my support</a>
       </p>
@@ -62,6 +37,6 @@
       <p class="nav-support">
         🎓 <a href="/about">Learn more about The Traveler Times</a>
       </p>
-    </aside> #}
-  </section>
+    </aside>
+  </nav>
 {% endif %}
