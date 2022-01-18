@@ -21,27 +21,30 @@
       <p class="item-quantity">{{ effectiveness | safe}}</p>
     {% endif %}
     <img
-    src="https://www.bungie.net{{ icon | safe }}"
-    alt="Icon for {{ name | safe }} item."
-    class="item-icon"
-    title="{{ name | safe }}">
+      src="https://www.bungie.net{{ icon | safe }}"
+      alt="Icon for the item {{ name | safe }}."
+      class="item-icon"
+      title="{{ name | safe }}">
     {% if costs and costs.length !== 0 %}
-      <article class="item-cost-container">
-        <h4 class="modifier-heading">Cost</h4>
-        <ul role="list" class="item-modifier-list">
-          {% for cost in costs %}
-            <li class="item-modifier">
-              <img
+      <details class="item-modifier-details">
+        <summary class="small-label">Cost</summary>
+        <article class="item-cost-container">
+          {# <h4 class="modifier-heading">Cost</h4> #}
+          <ul role="list" class="item-modifier-list">
+            {% for cost in costs %}
+              <li class="item-modifier">
+                <img
                 src="https://www.bungie.net{{ cost.icon | safe }}"
-                alt="Image of {{ cost.name | safe}}, a cost to purchase {{name | safe }}.">
-              <div>
-                <p class="item-cost-quantity">{{ cost.quantity | prettyNumber | safe }}</p>
-                <p>{{ cost.name | safe }}</p>
-              </div>
-            </li>
-          {% endfor %}
-        </ul>
-      </article>
+                alt="Icon for {{ cost.name | safe }}, which is needed to purchase {{ name | safe }}.">
+                <div>
+                  <p class="item-cost-quantity">{{ cost.quantity | prettyNumber | safe }}</p>
+                  <p>{{ cost.name | safe }}</p>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </article>
+      </details>
     {% endif %}
     {% if sockets and sockets.length !== 0 %}
       <details class="item-modifier-details">
@@ -54,9 +57,9 @@
                 {% for socket in socketGroup %}
                   <li class="item-modifier">
                     <img
-                  src="https://www.bungie.net{{ socket.displayProperties.icon | safe }}"
-                  alt="Image of {{  socket.displayProperties.name | safe}}, a modifier for {{name }}."
-                  title="{{ socket.displayProperties.name | safe }}">
+                      src="https://www.bungie.net{{ socket.displayProperties.icon | safe }}"
+                      alt="Icon for {{  socket.displayProperties.name | safe }}, a modifier for {{ name }}."
+                      title="{{ socket.displayProperties.name | safe }}">
                     <p>{{ socket.displayProperties.name }}</p>
                   </li>
                 {% endfor %}

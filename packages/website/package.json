@@ -7,7 +7,8 @@
     "clean": "rm -rf _site",
     "start": "NODE_ENV=develop eleventy --serve",
     "start:prod": "NODE_ENV=production eleventy --serve",
-    "build": "NODE_ENV=production eleventy"
+    "build": "NODE_ENV=production eleventy",
+    "update": "npx npm-check -u"
   },
   "repository": {
     "type": "git",
@@ -20,23 +21,23 @@
   },
   "homepage": "https://github.com/empatheticbot/the-traveler-times#readme",
   "devDependencies": {
-    "@11ty/eleventy": "0.12.1",
+    "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-navigation": "0.3.2",
-    "@empatheticbot/on-intersection-element": "^0.1.0",
     "@empatheticbot/date-elements": "^3.1.0",
+    "@empatheticbot/on-intersection-element": "^0.2.0",
     "clean-css": "^5.2.2",
-    "dotenv": "^10.0.0",
-    "eslint": "^8.3.0",
-    "fast-glob": "^3.2.7",
-    "luxon": "^2.1.1",
-    "markdown-it": "^12.2.0",
+    "dotenv": "^14.2.0",
+    "eslint": "^8.7.0",
+    "fast-glob": "^3.2.11",
+    "luxon": "^2.3.0",
+    "markdown-it": "^12.3.2",
     "markdown-it-accessible-lists": "^1.1.0",
     "markdown-it-anchor": "^8.3.1",
     "markdown-it-footnote": "^3.0.3",
     "moment": "2.29.1",
     "node-fetch": "^2.6.6",
-    "prettier": "^2.5.0",
+    "prettier": "^2.5.1",
     "rss-parser": "^3.12.0",
-    "sass": "^1.43.5"
+    "sass": "^1.48.0"
   }
 }
