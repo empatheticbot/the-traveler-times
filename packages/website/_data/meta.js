@@ -101,6 +101,7 @@ module.exports = async function () {
       topPrecisionKills: getTopPrecisionKills(weapons, lastWeekMeta.weapons),
       topEfficiency: getTopEfficiency(weapons, lastWeekMeta.weapons),
       topUsage: getTopUsage(weapons, lastWeekMeta.weapons),
+      lastRefreshDate: new Date().toISOString(),
     }
   }
 }

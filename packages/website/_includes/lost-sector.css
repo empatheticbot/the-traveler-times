@@ -9,13 +9,6 @@
   /* margin-top: 1rem; */
 }
 
-.lost-sector-modifier-heading {
-  font-size: 1rem;
-  font-weight: 900;
-  font-family: 'Landmark Inline A', 'Landmark Inline B';
-  color: var(--color-text-secondary);
-}
-
 .lost-sector-list {
   margin-bottom: 2rem;
 }

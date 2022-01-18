@@ -1,14 +1,19 @@
-{% macro section(name, subtitle, description, icon) %}
+{% macro section(name, subtitle, description, icon, date) %}
   <section class="section">
     <img
       src="https://bungie.net{{icon | safe}}"
       alt="Image of {{name | safe}}, {{subtitle | safe}} from Destiny 2."
       class="section-image">
-    {% if name %}
-      <h3 class="section-title" id="{{name | toIdCase }}">{{name | safe}}</h3>
-    {% endif %}
-    {% if subtitle %}
-      <p class="small-label">{{subtitle | safe}}</p>
+    <header class="section-header">
+      {% if name %}
+        <h3 class="section-title" id="{{name | toIdCase }}">{{name | safe}}</h3>
+      {% endif %}
+      {% if subtitle %}
+        <p class="small-label">{{subtitle | safe}}</p>
+      {% endif %}
+    </header>
+    {% if date %}
+      <since-date class="small-label" datetime="{{date}}">{{date}}</since-date>
     {% endif %}
     {% if description %}
       <p class="section-text">{{description | safe}}</p>

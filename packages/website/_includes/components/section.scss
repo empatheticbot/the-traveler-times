@@ -4,6 +4,12 @@
   flex-wrap: wrap;
 }
 
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
 .sub-section {
   display: flex;
   flex-direction: row;
@@ -25,9 +31,8 @@
 .section-title {
   font-family: 'Landmark Dimensional A', 'Landmark Dimensional B';
   // font-family: 'Landmark Inline A', 'Landmark Inline B';
-  font-size: 1.5rem;
-  width: 100%;
-  margin-bottom: 0.25rem;
+  font-size: 1.75rem;
+  // margin-bottom: 0.25rem;
 }
 
 .section-description {
