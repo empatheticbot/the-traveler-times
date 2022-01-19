@@ -30,7 +30,7 @@
     </section>
     <section class="lost-sector-modifiers-container">
       {% for name, modifiers in nightfall.modifierGroups | groupby("name") %}
-        {% if loop.index0 % 2 === 0 %}
+        {% if loop.index0 === 0 or loop.index0 === 2 %}
           <section class="modifiers-group">
           {% endif %}
           <section class="modifiers-group">
@@ -43,7 +43,7 @@
               {% endfor %}
             </ul>
           </section>
-          {% if loop.index0 % 2 !== 0 %}
+          {% if loop.index0 === 1 or loop.index0 === nightfall.modifierGroups.length %}
           </section>
         {% endif %}
       {% endfor %}
