@@ -1,9 +1,6 @@
 ---
 layout: base.njk
 title: About
-eleventyNavigation:
-  key: About
-  order: 1
 permalink: /about/
 mainClass: about
 ---
