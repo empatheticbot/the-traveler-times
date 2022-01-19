@@ -3,7 +3,7 @@
 
 {% macro vendorLayout(vendor) %}
   {% if vendor.isAvailable %}
-    {% call section.section(vendor.name, vendor.subtitle, vendor.description, vendor.largeIcon) %}
+    {% call section.section(vendor.name, vendor.subtitle, vendor.description, vendor.largeIcon, vendor.lastRefreshDate) %}
     {% if vendor.location %}
       <p class="section-text">{{ vendor.name | safe }} was last spotted on <strong>{{vendor.location.planet}}</strong> around the <strong>{{vendor.location.area}}</strong>.</p>
     {% endif %}
@@ -23,6 +23,7 @@
 {% set title = "Vendors" %}
 {% set id = "vendors" %}
 {% set description = "Stay up to date on the most interesting items vendors are currently offering." %}
+{% set displayDate = vendors.lastRefreshDate %}
 
 {% block content %}
 

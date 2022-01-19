@@ -42,6 +42,10 @@ export function getModifiersOrderedByDifficulty(activities) {
     const nameArray = activity.displayProperties.name.split(' ')
     const name = nameArray[nameArray.length - 1]
     activity.modifiers.forEach((modifier) => {
+      // We want to exclude the specific mode modifiers as they are redundant
+      if (modifier.displayProperties.name.includes(name)) {
+        return
+      }
       if (allMods.indexOf(modifier.hash) < 0) {
         modifierGroups.push({
           ...modifier,

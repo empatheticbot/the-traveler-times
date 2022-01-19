@@ -78,23 +78,9 @@ module.exports = function (eleventyConfig) {
             !sale.subtitle.includes('Armor Synthesis')
           )
         })
-      // return sales.filter((sale) => {
-      //   return (
-      //     sale.subtitle.includes('Mod') || sale.subtitle.includes('Material')
-      //   )
-      // })
       case 'Spider':
-        let includedGlimmerTradeSale = false
         return sales.filter((sale) => {
-          let includeGlimmerSale = false
-          if (
-            sale.subtitle.includes('Basic Currency') &&
-            !includedGlimmerTradeSale
-          ) {
-            includeGlimmerSale = true
-            includedGlimmerTradeSale = true
-          }
-          return sale.name.includes('Purchase') || includeGlimmerSale
+          return sale.name.includes('Purchase')
         })
       case 'Xûr':
         return sales.filter((sale) => {

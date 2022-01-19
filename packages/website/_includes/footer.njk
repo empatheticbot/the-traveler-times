@@ -1,26 +1,21 @@
 <footer class="page-footer">
-  {# <nav class="page-footer-nav">
-    <a href="/rss.xml">RSS</a>
-    <a href="mailto:sledsworth@mac.com">Email</a>
-    <a href="https://twitter.com/sledsworth">Twitter</a>
-    <a href="https://github.com/sledsworth">Github</a>
-    <a href="https://codepen.io/sledsworth">CodePen</a>
-  </nav> #}
-  <section class="page-footer-about">
-    <p class="page-footer-updated">
-      <a href="/about">About The Traveler Times</a>
+  <section class="page-footer-about nav-aside nav-section">
+    <p class="nav-support">
+        ❤️ <a href="https://buy.thetraveler.news">I'd like to show my support</a>
     </p>
-    <p class="page-footer-updated">Updated <since-date datetime="{{ computed.buildDate | htmlDateString }}">
-        {{ computed.buildDate | relativeDate }}</since-date>
+    <p class="nav-support">
+        🙋‍♀️ <a href="/support">I have a suggestion</a>
+    </p>
+    <p class="nav-support">
+        🎓 <a href="/about">I want to learn about the site</a>
     </p>
   </section>
-  <section class="page-footer-about">
-    <img alt="Empatheticbot icon: A robot face with a heart at the tip of their antenna." height="48px" src="/assets/empatheticbot.svg"/>
-    <p class="page-footer-establishment page-footer-updated">Established in 2021 by <a href="https://twitter.com/empathetic_bot">@empatheticbot</a>
-    </p>
-  </section>
-  <a class="support-link" href="https://buy.stripe.com/4gw7vdbqwevvg927st">♥️ &nbsp;&nbsp;Show Support</a>
   <blockquote class="page-footer-character-quote">{{ destinyQuote.quote }}
     <p class="page-footer-character-quote--author">—{{ destinyQuote.author }}</p>
   </blockquote>
+  <section class="page-footer-copyright">
+    <img alt="Empatheticbot icon: A robot face with a heart at the tip of their antenna." height="36px" src="/assets/empatheticbot.svg"/>
+    <p class="page-footer-establishment page-footer-updated">Established in 2021 by <a href="https://twitter.com/empathetic_bot">@empatheticbot</a>
+    </p>
+  </section>
 </footer>

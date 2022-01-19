@@ -67,7 +67,7 @@ module.exports = async function () {
   }
 
   updates.push({
-    date: today.toISOString(),
+    date: meta.lastRefreshDate,
     markup: `
     <p>
     Check out <a href="#meta">The Meta</a>

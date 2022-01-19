@@ -31,6 +31,13 @@ export default {
         spider.isAvailable ||
         ada.isAvailable
 
+      const lastRefreshDate = [
+        xur.lastRefreshDate,
+        banshee.lastRefreshDate,
+        spider.lastRefreshDate,
+        ada.lastRefreshDate,
+      ].sort((a, b) => new Date(b).valueOf() - new Date(a).valueOf())[0]
+
       return new Response(
         JSON.stringify({
           ada,
@@ -38,6 +45,7 @@ export default {
           spider,
           xur,
           isAvailable,
+          lastRefreshDate,
         }),
         {
           status: 200,
