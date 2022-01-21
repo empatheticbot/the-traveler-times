@@ -15,6 +15,7 @@
   margin-bottom: 2rem;
   font-weight: 800;
   line-height: 1.2rem;
+  z-index: 10;
 }
 
 .page-header-toc {
@@ -75,10 +76,7 @@
   font-size: var(--font-size-l);
   font-style: italic;
   color: var(--color-text-primary);
-  // margin-top: -1rem;
-  // font-style: italic;
-  // text-align: center;
-  // padding-bottom: 0.25rem;
+  z-index: 10;
 }
 
 .page-header-slogan::before,
@@ -103,39 +101,7 @@
 @media screen and (max-width: 500px) {
   .page-header {
     margin: 3rem 1rem 2rem;
-    // text-align: left;
   }
-
-  // .page-header-logo {
-  //   height: 200px;
-  //   width: 200px;
-  //   margin-bottom: -180px;
-  //   opacity: 0.1;
-  //   align-self: flex-end;
-  // }
-
-  // .page-header-toc {
-  //   margin: 0;
-  // }
-
-  // .page-header-left-section,
-  // .page-header-right-section {
-  //   flex: 1 1 200px;
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   margin: 1rem 2rem 1.75rem;
-  //   justify-content: space-between;
-  //   align-items: flex-end;
-  // }
-
-  // .page-header-slogan {
-  //   // white-space: normal;
-  //   font-size: var(--font-size);
-  // }
-
-  // .page-header-slogan::before {
-  //   display: none;
-  // }
 }
 
 @media screen and (max-width: 360px) {
