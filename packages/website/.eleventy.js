@@ -79,9 +79,14 @@ module.exports = function (eleventyConfig) {
           )
         })
       case 'Spider':
-        return sales.filter((sale) => {
-          return sale.name.includes('Purchase')
-        })
+        return sales
+          .filter((sale) => {
+            return sale.name.includes('Purchase')
+          })
+          .map((sale) => ({
+            ...sale,
+            name: sale.name.replace('Purchase ', ''),
+          }))
       case 'Xûr':
         return sales.filter((sale) => {
           return !sale.subtitle.includes('Warlock Legendary')
