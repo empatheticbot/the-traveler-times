@@ -17,15 +17,14 @@
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}"/>
     <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7441298/6558832/css/fonts.css"/>
     {% block css %}{% endblock %}
-    <meta property="og:image" content="https://loving-bassi-5578d9.netlify.app/https%3A%2F%2Fthetraveler.news/large/"/>
-    <meta name="twitter:image" content="https://loving-bassi-5578d9.netlify.app/https%3A%2F%2Fthetraveler.news/large/"/>
     <meta name="description" content="{{ renderData.description or description or metadata.description }}"/>
     <meta name="keywords" content="Destiny 2, Meta, Crucible, Xur, Vanguard, Strike, Nightfall, Iron Banner, PVP, PVE"/>
-    <meta name="twitter:card" content="summary"/>
+    <meta property="og:title" content="{{ metadata.title }}"/>
+    <meta property="og:description" content="{{ renderData.description or description or metadata.description }}"/>
+    <meta property="og:image" content="{{ metadata.socialImageURL }}"/>
+    <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@traveler_times"/>
-    <meta name="twitter:title" content="The Traveler Times"/>
     <meta name="twitter:creator" content="@sledsworth">
-    <meta name="twitter:description" content="{{ renderData.description or description or metadata.description }}"/>
   </head>
   <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
     {# <div class="callout warning">
