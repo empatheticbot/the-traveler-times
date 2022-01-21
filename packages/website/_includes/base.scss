@@ -102,6 +102,12 @@ li {
   li {
     margin-bottom: 0.5rem;
   }
+
+  hr {
+    border: none;
+    border-bottom: 4px solid var(--color-separater-secondary);
+    width: 100%;
+  }
 }
 
 .line-separator--thick-light,
