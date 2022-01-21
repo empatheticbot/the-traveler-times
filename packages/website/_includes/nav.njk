@@ -1,4 +1,17 @@
-{% if showNav %}
+{% if page.fileSlug === 'support' or page.fileSlug === 'about' %}
+  <nav class="nav-about">
+    <a href="/">Home</a>
+    <p class="nav-support">
+        ❤️ <a href="https://buy.thetraveler.news">I'd like to show my support</a>
+    </p>
+    <p class="nav-support">
+        🙋‍♀️ <a href="/support">I have a suggestion</a>
+    </p>
+    <p class="nav-support">
+        🎓 <a href="/about">I want to learn about the site</a>
+    </p>
+  </nav>
+{% else %}
   <today-date class="small-label page-header-today"></today-date>
   <nav class="nav">
     {% for date, activities in nav | groupby("date") %}
