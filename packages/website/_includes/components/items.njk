@@ -21,6 +21,7 @@
       <p class="item-quantity">{{ effectiveness | safe}}</p>
     {% endif %}
     <img
+      loading="lazy"
       src="https://www.bungie.net{{ icon | safe }}"
       alt="Icon for the item {{ name | safe }}."
       class="item-icon"
@@ -34,6 +35,7 @@
             {% for cost in costs %}
               <li class="item-modifier">
                 <img
+                loading="lazy"
                 src="https://www.bungie.net{{ cost.icon | safe }}"
                 alt="Icon for {{ cost.name | safe }}, which is needed to purchase {{ name | safe }}.">
                 <div>
@@ -57,6 +59,7 @@
                 {% for socket in socketGroup %}
                   <li class="item-modifier">
                     <img
+                      loading="lazy"
                       src="https://www.bungie.net{{ socket.displayProperties.icon | safe }}"
                       alt="Icon for {{  socket.displayProperties.name | safe }}, a modifier for {{ name }}."
                       title="{{ socket.displayProperties.name | safe }}">
@@ -96,6 +99,7 @@
       <p class="item-description">{{ subtitle | safe }}</p>
     </header>
     <img
+    loading="lazy"
     src="https://www.bungie.net{{ icon | safe }}"
     alt="Icon for {{ name | safe }} modifier."
     class="modifier-icon">

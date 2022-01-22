@@ -15,7 +15,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/traveler.png"/>
     <link rel="stylesheet" href="{{ '/index.css' | url }}"/>
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}"/>
-    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7441298/6558832/css/fonts.css"/>
+    {# <link rel="preload" href="https://cloud.typography.com/7441298/6558832/css/fonts.css" as="style">
+    <link rel="stylesheet" href="https://cloud.typography.com/7441298/6558832/css/fonts.css" media="print" onload="this.media='all'"> #}
+    {# <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7441298/6558832/css/fonts.css"/> #}
+    <link rel="stylesheet" type="text/css" href="/fonts/838702/B6AE1F668C3B9DEAF.css"/>
     {% block css %}{% endblock %}
     <meta name="description" content="{{ renderData.description or description or metadata.description }}"/>
     <meta name="keywords" content="Destiny 2, Meta, Crucible, Xur, Vanguard, Strike, Nightfall, Iron Banner, PVP, PVE"/>

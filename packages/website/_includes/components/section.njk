@@ -1,6 +1,7 @@
 {% macro section(name, subtitle, description, icon, date) %}
   <section class="section">
     <img
+      loading="lazy"
       src="https://bungie.net{{icon | safe}}"
       alt="Image of {{name | safe}}, {{subtitle | safe}} from Destiny 2."
       class="section-image">
