@@ -22,7 +22,7 @@
           >
           {{date}}
         </since-date>
-        <ul>
+        <ul class="nav-list">
           {% for activity in activities %}
             <li class="nav-item">{{ activity.markup | safe}}</li>
           {% endfor %}

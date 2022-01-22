@@ -67,11 +67,16 @@
     font-size: 1.3rem;
   }
 
+  .nav-list {
+    list-style-type: initial;
+  }
+
   .nav-item {
     margin: 0;
 
     &::marker {
-      content: '– ';
+      color: var(--color-text-secondary);
+      font-size: 1rem;
     }
   }
 }
