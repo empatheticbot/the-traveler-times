@@ -13,7 +13,6 @@
 
 .page-header-today {
   margin-bottom: 2rem;
-  font-weight: 800;
   line-height: 1.2rem;
   z-index: 10;
 }
@@ -26,32 +25,11 @@
   margin: auto;
 }
 
-.page-header-aside {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-  font-weight: bold;
-  color: var(--color-text-secondary);
-}
-
-.page-header-date {
-  font-weight: 800;
-  margin-top: 1rem;
-}
-
-.page-header-date:first-of-type {
-  margin-right: 2rem;
-}
-
 .page-header-title {
-  // display: flex;
-  // flex-direction: column;
   z-index: 10;
   font-family: 'Landmark Dimensional A', 'Landmark Dimensional B';
   font-style: normal;
   font-weight: 400;
-  /* font-size: 4rem; */
 }
 
 .page-header-logo {
@@ -60,11 +38,6 @@
   margin-bottom: -200px;
   opacity: 0.1;
   align-self: center;
-}
-
-.page-slogan-wit {
-  padding: 1rem 0;
-  text-align: center;
 }
 
 .page-header-slogan {
@@ -93,11 +66,6 @@
   margin-left: 1rem;
 }
 
-.page-header-left-section,
-.page-header-right-section {
-  display: none;
-}
-
 @media screen and (max-width: 500px) {
   .page-header {
     margin: 3rem 1rem 2rem;
@@ -113,10 +81,6 @@
   margin: 0;
 }
 
-.page-header-reset-container:last-of-type {
-  text-align: right;
-}
-
 .page-header-character-quote {
   margin: 0;
 }
@@ -127,7 +91,7 @@
   padding: 1rem 2rem;
   color: var(--color-background);
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 700;
   border-radius: 8px;
   box-shadow: var(--box-shadow-far);
   transition: all 0.1s linear;
