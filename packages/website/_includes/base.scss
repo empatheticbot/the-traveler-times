@@ -63,11 +63,8 @@ li {
 
   .about {
     padding: 0 2rem;
+    letter-spacing: 0.02em;
   }
-
-  // .main-container {
-  //   margin: 1rem;
-  // }
 }
 
 @media screen and (max-width: 500px) {
@@ -90,7 +87,7 @@ li {
 
   h2 {
     font-size: 2.5rem;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 2rem;
   }
 
@@ -100,7 +97,7 @@ li {
   }
 
   a {
-    font-weight: bold;
+    font-weight: 700;
   }
 
   ul {
@@ -154,7 +151,7 @@ li {
 .warning {
   background-color: #e26b2b;
   color: white;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1rem;
 }
 
@@ -234,7 +231,7 @@ li {
 .small-label {
   color: var(--color-text-secondary);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 0.25rem;
   text-transform: uppercase;
 }
@@ -252,7 +249,7 @@ li {
   background-color: var(--color-red);
   padding: 0.1rem 0.5rem;
   font-size: 0.8rem;
-  font-weight: 800;
+  font-weight: 700;
   border-radius: 100px;
   margin-right: 0.25rem;
 }
