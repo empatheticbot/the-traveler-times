@@ -7,6 +7,7 @@
     {% if vendor.location %}
       <p class="section-text">{{ vendor.name | safe }} was last spotted on <strong>{{vendor.location.planet}}</strong> around the <strong>{{vendor.location.area}}</strong>.</p>
     {% endif %}
+    <h4 class="modifier-heading">Sales</h4>
     <ul role="list" class="sub-section">
       {% for item in vendor.sales | vendorItems(vendor.name) %}
         <li class="sub-section-item">

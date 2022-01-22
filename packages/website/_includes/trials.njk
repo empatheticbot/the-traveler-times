@@ -9,10 +9,12 @@
   {% set description %}
     Get your fireteam together to compete in the Crucible for a chance at making it to the lighthouse and the rewards it holds.
   {% endset %}
+  {% set displayDate = trials.startDate %}
+
   {% block content %}
     {% for map in trials.maps %}
       {% call section.section(map.displayProperties.name, map.displayProperties.description, icon = map.pgcrImage) %}
-      <section class="modifiers-group">
+      <section class="modifiers-group" style="margin-top: 1rem;">
         <h4 class="modifier-heading">Rewards</h4>
         <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
           {% for item in trials.rewards %}
