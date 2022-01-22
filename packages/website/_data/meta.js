@@ -2,7 +2,7 @@ const { fetchDataFromEndpoint } = require('../data-loader')
 
 const PGCR_ENDPOINT = 'https://d2-meta-worker.empatheticbot.workers.dev/meta'
 const DEV_PGCR_ENDPOINT = 'http://localhost:3011/meta'
-const LIMIT = 15
+const LIMIT = 20
 
 function getTopUsage(weapons, lastWeapons = [], limit = LIMIT) {
   const lastMeta = lastWeapons.sort((a, b) => b.usage - a.usage).slice(0, limit)
