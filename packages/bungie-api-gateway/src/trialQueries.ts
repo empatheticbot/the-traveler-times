@@ -69,6 +69,11 @@ export const maps = [
     twitterQuery: 'trials convergence',
     activityHash: '503710612',
   },
+  {
+    map: 'Twilight Gap',
+    twitterQuery: 'trials twilight gap',
+    activityHash: '1714585558',
+  },
 ]
 
 export const rewards = [
