@@ -61,6 +61,10 @@ li {
     grid-column: auto;
   }
 
+  .about {
+    padding: 0 2rem;
+  }
+
   // .main-container {
   //   margin: 1rem;
   // }
@@ -70,12 +74,17 @@ li {
   .main-container {
     margin: 0 1rem;
   }
+
+  .about {
+    padding: 0 1rem;
+  }
 }
 
 .about {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  justify-content: center;
+  max-width: 660px;
   margin: 6rem auto;
   font-size: 1.5rem;
 
@@ -99,6 +108,7 @@ li {
     list-style: initial;
     padding-left: 2rem;
   }
+
   li {
     margin-bottom: 0.5rem;
   }
