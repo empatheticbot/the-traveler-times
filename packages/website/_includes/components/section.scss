@@ -46,11 +46,12 @@
   width: 100%;
   border-radius: 8px;
   box-shadow: var(--box-shadow-close);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .section-text {
   color: var(--color-text-secondary);
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   display: block;
+  font-style: italic;
 }
