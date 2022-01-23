@@ -15,7 +15,7 @@ It isn't meant to replace the fantastic and far more robust [Braytech](bray.tech
 
 If you find this site useful and would like to see it continue to be supported and improve over time please consider tossing some glimmer my way. It really does make a difference and is much appreciated!
 
-<a class="support-link" href="https://buy.thetraveler.news">♥️ &nbsp;&nbsp;Show Support</a>
+<a class="support-link" href="https://buy.stripe.com/4gw7vdbqwevvg927st">♥️ &nbsp;&nbsp;Show Support</a>
 
 <br>
 <br>
