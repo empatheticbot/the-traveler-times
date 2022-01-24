@@ -24,4 +24,4 @@ Thanks for visiting and take care. ❤️
 
 ---
 
-This site was built and is maintained by [Steve Ledsworth](https://twitter.com/sledsworth). He builds software–mostly fun (niche) websites–under his company [Empahteticbot](https://twitter.com/empathetic_bot).
+This site was built and is maintained by [Steve Ledsworth](https://twitter.com/sledsworth). He builds software–mostly fun (niche) websites–under his company [Empatheticbot](https://twitter.com/empathetic_bot).
