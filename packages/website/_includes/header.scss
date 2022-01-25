@@ -35,9 +35,24 @@
 .page-header-logo {
   height: 300px;
   width: 300px;
-  margin-bottom: -200px;
+  margin-bottom: -220px;
   opacity: 0.1;
   align-self: center;
+  animation: updown 4s ease infinite;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-2%);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-2%);
+  }
 }
 
 .page-header-slogan {
@@ -77,6 +92,7 @@
     white-space: normal;
   }
 }
+
 .page-header-reset-label {
   margin: 0;
 }
