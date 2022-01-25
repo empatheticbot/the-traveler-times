@@ -14,7 +14,7 @@
       {% endif %}
     </header>
     {% if date %}
-      <since-date class="small-label" datetime="{{date}}">{{date}}</since-date>
+      <since-date class="small-label" datetime="{{date}}">{{date | readableDate}}</since-date>
     {% endif %}
     {% if description %}
       <p class="section-text">{{description | safe}}</p>

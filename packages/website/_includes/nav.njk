@@ -12,7 +12,7 @@
     </p>
   </nav>
 {% else %}
-  <today-date class="small-label page-header-today"></today-date>
+  <today-date class="small-label page-header-today">{{ computed.buildDate | readableDate}}</today-date>
   <nav class="nav">
     {% for date, activities in nav | groupby("date") %}
       <section class="nav-section">
@@ -20,7 +20,7 @@
           class="small-label"
           datetime="{{date}}"
           >
-          {{date}}
+          {{date | readableDate}}
         </since-date>
         <ul class="nav-list">
           {% for activity in activities %}
@@ -35,9 +35,9 @@
     season.currentSeason.displayProperties.name
   }}</a> ends <until-date datetime="{{
     season.currentSeason.endDate
-  }}"></until-date>.</p>
+  }}">{{season.currentSeason.endDate | readableDate}}</until-date>.</p>
       <p>
-        Site last updated <since-date datetime="{{computed.buildDate}}"></since-date>.
+        Site last updated <since-date datetime="{{computed.buildDate}}">{{ computed.buildDate | readableDate}}</since-date>.
       </p>
     </aside>
     <aside class="nav-aside nav-section">
