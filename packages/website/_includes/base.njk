@@ -20,7 +20,7 @@
     {# <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7441298/6558832/css/fonts.css"/> #}
     {# <link rel="stylesheet" type="text/css" href="/fonts/838702/B6AE1F668C3B9DEAF.css"/> #}
     {% block css %}{% endblock %}
-    <meta name="description" content="{{ renderData.description or description or metadata.description }}"/>
+    <meta name="description" content="{{ renderData.description or description or metadata.fullDescription }}"/>
     <meta name="keywords" content="Destiny 2, Meta, Crucible, Xur, Vanguard, Strike, Nightfall, Iron Banner, PVP, PVE"/>
     <meta property="og:title" content="{{ metadata.title }}"/>
     <meta property="og:description" content="{{ renderData.description or description or metadata.description }}"/>

@@ -3,6 +3,7 @@ layout: base.njk
 title: Support
 permalink: /support/
 mainClass: about
+description: Have a feature that you'd love to see? A bug that keeps biting you? Or you just want to say hi? Please don't hesitate to get in touch and let me know what is on your mind.
 ---
 
 ## Get in Touch
