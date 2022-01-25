@@ -17,7 +17,7 @@
             relative-range="2"
             relative-unit="day"
             datetime="{{ item.isoDate | htmlDateString }}">
-            {{item.pubDate}}
+            {{item.isoDate | readableDate}}
           </relative-date>
         </section>
         <a href="{{ item.link }}">

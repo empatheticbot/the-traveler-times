@@ -21,7 +21,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter('readableDate', (dateObj) => {
     return DateTime.fromISO(dateObj, { zone: 'utc' }).toLocaleString(
-      DateTime.DATE_HUGE
+      DateTime.DATE_MED_WITH_WEEKDAY
     )
   })
 
@@ -42,14 +42,6 @@ module.exports = function (eleventyConfig) {
       date = new Date(dateObj)
     }
     return date.toISOString()
-  })
-
-  eleventyConfig.addFilter('relativeDate', (dateObj) => {
-    let date = dateObj
-    if (typeof dateObj != 'object') {
-      date = new Date(dateObj)
-    }
-    return DateTime.fromJSDate(date, { zone: 'utc' }).toRelative()
   })
 
   eleventyConfig.addFilter('keywordsFromTags', (list, filter = []) => {
