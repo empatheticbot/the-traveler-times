@@ -3,6 +3,7 @@ layout: base.njk
 title: About
 permalink: /about/
 mainClass: about
+description: The Traveler Times started out as a little hobby project for myself and quickly evolved into something I felt others might get some use out of. It originally came about out of the desire to have a single page that gave me some quick insights into what was happening in Destiny now.
 ---
 
 ## Hello fellow guardian! 👋

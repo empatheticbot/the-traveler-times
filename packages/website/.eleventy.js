@@ -133,6 +133,7 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.addPassthroughCopy('assets')
+  eleventyConfig.addPassthroughCopy('robots.txt')
   eleventyConfig.addPassthroughCopy({
     'node_modules/@empatheticbot/date-elements/dist/': 'js/date-elements',
   })
