@@ -38,7 +38,7 @@
   margin-bottom: -220px;
   opacity: 0.1;
   align-self: center;
-  animation: updown 4s ease infinite;
+  animation: updown 4s ease-in-out infinite;
 }
 
 @keyframes updown {
