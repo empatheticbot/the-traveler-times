@@ -45,14 +45,14 @@
       <a href="https://buy.stripe.com/4gw7vdbqwevvg927st" title="Support The Traveler Times" class="back-to-top-link">{% include 'assets/heart-icon.svg' %}</a>
       <a href="#" title="Back to top of page" class="back-to-top-link">{% include 'assets/arrow-up-icon.svg' %}</a>
     </on-intersection>
-    <script src="/js/on-intersection-element/index.js"></script>
-    <script src="/js/date-elements/index.js"></script>
     <script>
-      setTimeout(() => {
-        window
-          .location
-          .reload();
-      }, 1000 * 60 * 60);
+      {%- set js -%}
+      {% include "../node_modules/@empatheticbot/on-intersection-element/dist/index.js" %}
+      {% include "../node_modules/@empatheticbot/date-elements/dist/index.js" %}
+      {%- endset -%}
+      {{ js | jsmin | safe }}
     </script>
+    {# <script src="/js/on-intersection-element/index.js"></script>
+    <script src="/js/date-elements/index.js"></script> #}
   </body>
 </html>

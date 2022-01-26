@@ -4,9 +4,9 @@ const pluginNavigation = require('@11ty/eleventy-navigation')
 const sass = require('sass')
 const CleanCSS = require('clean-css')
 const fg = require('fast-glob')
+const { minify } = require('terser')
 
 const markdownIt = require('markdown-it')
-const markdownItAnchor = require('markdown-it-anchor')
 const markdownFootnotes = require('markdown-it-footnote')
 const markdownAccessibleLists = require('markdown-it-accessible-lists')
 
@@ -161,6 +161,20 @@ module.exports = function (eleventyConfig) {
     ui: false,
     ghostMode: false,
   })
+
+  eleventyConfig.addNunjucksAsyncFilter(
+    'jsmin',
+    async function (code, callback) {
+      try {
+        const minified = await minify(code)
+        callback(null, minified.code)
+      } catch (err) {
+        console.error('Terser error: ', err)
+        // Fail gracefully.
+        callback(null, code)
+      }
+    }
+  )
 
   return {
     templateFormats: ['md', 'njk', 'html', 'liquid', 'css'],
