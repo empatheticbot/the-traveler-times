@@ -18,18 +18,18 @@
     "@the-traveler-times/utils": "file:../utils"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^3.2.0",
+    "@cloudflare/workers-types": "^3.3.1",
     "@cloudflare/wrangler": "^1.19.5",
     "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-node-resolve": "^13.1.3",
     "@rollup/plugin-typescript": "^8.3.0",
     "@the-traveler-times/types": "file:../types",
     "@tsconfig/node14": "^1.0.1",
     "eslint": "^8.3.0",
     "prettier": "^2.5.0",
-    "rollup": "^2.60.1",
+    "rollup": "^2.66.1",
     "rollup-plugin-terser": "7.0.2",
     "tslib": "^2.3.1",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.5"
   }
 }
