@@ -23,7 +23,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-navigation": "0.3.2",
-    "@empatheticbot/date-elements": "^3.1.0",
+    "@empatheticbot/date-elements": "^3.2.0",
     "@empatheticbot/on-intersection-element": "^0.2.0",
     "clean-css": "^5.2.3",
     "dotenv": "^14.2.0",
