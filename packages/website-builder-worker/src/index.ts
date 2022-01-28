@@ -17,6 +17,13 @@ async function buildTravelerTimesWebsite(request, env) {
   )
 }
 
+async function buildTravelerTimesWebsiteNetlify(env) {
+  const netlifyBuildURL = env.NETLIFY_BUILD_URL
+  return fetch(netlifyBuildURL, {
+    method: 'POST',
+  })
+}
+
 async function purgeWebsiteCache(env) {
   const zone_id = env.ZONE_ID
 
@@ -46,12 +53,14 @@ export default {
     setTimeout(() => {
       purgeWebsiteCache(env)
     }, 1000 * 60 * 4)
+    buildTravelerTimesWebsiteNetlify(env)
     return buildTravelerTimesWebsite(request, env)
   },
   async scheduled(event, env) {
     setTimeout(() => {
       purgeWebsiteCache(env)
     }, 1000 * 60 * 4)
+    buildTravelerTimesWebsiteNetlify(env)
     return buildTravelerTimesWebsite(null, env)
   },
 }
