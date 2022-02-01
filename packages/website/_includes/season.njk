@@ -11,9 +11,9 @@
   {% for week in season.seasonalChallenges.weeks %}
     <details {% if loop.index0 === season.seasonalChallenges.currentWeekIndex %}open{% endif %}>
       <summary class="small-label">Week {{ loop.index }}</summary>
-      <ul role="list" class=" lost-sector-list">
+      <ul role="list" class=" lost-sector-list sub-section">
         {% for item in week.challenges %}
-          <li class="">
+          <li class="sub-section-item">
             {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
           </li>
         {% endfor %}
