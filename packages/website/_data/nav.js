@@ -51,7 +51,7 @@ module.exports = async function () {
       date: cleanDate(trials.startDate),
       markup: `
       <p>
-        <a href="#trials">Trials</a> is now available.
+        <a href="#trials">Trials of Osiris</a> has begun for the weekend.
       </p>
     `,
     })
@@ -60,7 +60,7 @@ module.exports = async function () {
       date: cleanDate(weekly.ironBanner.startDate),
       markup: `
       <p>
-        <a href="#iron-banner">Iron Banner</a> is now available.
+        <a href="#iron-banner">Iron Banner</a> is available for the week.
       </p>
     `,
     })
@@ -114,9 +114,9 @@ module.exports = async function () {
       <p>
         <a href="#${vendors.xur.name.toLowerCase()}">${
         vendors.xur.name
-      }</a> has been located in the ${vendors.xur.location.area}, ${
+      }</a> has been located in the <strong>${vendors.xur.location.area}, ${
         vendors.xur.location.planet
-      }.
+      }</strong>.
       </p>
     `,
     })
@@ -160,7 +160,11 @@ module.exports = async function () {
       date: cleanDate(bungieRss.lastRefreshDate),
       markup: `
       <p>
-        Check out <a href="${bungieRss.items[0].link}">the latest article</a> on <a href="#bungie-rss">Bungie.net</a>.
+        A <a href="${bungieRss.items[0].link}">${
+        bungieRss.items[0].title.includes('This Week At Bungie')
+          ? 'new TWAB'
+          : 'new article'
+      }</a> has been posted on <a href="#bungie-rss">Bungie.net</a>.
       </p>
       `,
     })
