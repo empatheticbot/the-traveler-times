@@ -12,7 +12,7 @@
     </p>
   </nav>
 {% else %}
-  <today-date class="small-label page-header-today">{{ computed.buildDate | readableDate}}</today-date>
+  <time class="small-label page-header-today" datetime="{{computed.buildDate}}">{{ computed.buildDate | todayFullDate}}</time>
   <nav class="nav">
     {% for date, activities in nav | groupby("date") %}
       <section class="nav-section">

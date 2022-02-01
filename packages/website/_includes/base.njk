@@ -47,8 +47,7 @@
       {% include "../node_modules/@empatheticbot/date-elements/dist/index.js" %}
       {%- endset -%}
       {{ js | jsmin | safe }}
-    </script>
-    <script>
+
       setTimeout(() => {
         window
           .location

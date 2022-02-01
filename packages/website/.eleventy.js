@@ -25,6 +25,12 @@ module.exports = function (eleventyConfig) {
     )
   })
 
+  eleventyConfig.addFilter('todayFullDate', (dateObj) => {
+    return DateTime.fromISO(dateObj, { zone: 'utc' }).toLocaleString(
+      DateTime.DATE_HUGE
+    )
+  })
+
   eleventyConfig.addFilter('prettyNumber', (number) => {
     return number.toLocaleString()
   })
