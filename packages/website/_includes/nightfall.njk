@@ -20,9 +20,9 @@
     {% call section.section(nightfall.groupedActivities[0][0].displayProperties.description, "Strike", sectionDescription, nightfall.groupedActivities[0][0].pgcrImage) %}
     <section class="modifiers-group">
       <h4 class="modifier-heading">Rewards</h4>
-      <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
+      <ul role="list" class="lost-sector-list lost-sector-rewards-list sub-section">
         {% for item in nightfall.rewards %}
-          <li class="">
+          <li class="sub-section-item">
             {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
           </li>
         {% endfor %}
