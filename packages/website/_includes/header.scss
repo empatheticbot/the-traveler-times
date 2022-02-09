@@ -38,12 +38,12 @@
   margin-bottom: -220px;
   opacity: 0.1;
   align-self: center;
-  animation: updown 4s ease-in-out infinite;
+  animation: updown 3s ease-in-out infinite;
 }
 
 @keyframes updown {
   0% {
-    transform: translateY(-2%);
+    transform: translateY(-3%);
   }
 
   50% {
@@ -51,7 +51,7 @@
   }
 
   100% {
-    transform: translateY(-2%);
+    transform: translateY(-3%);
   }
 }
 

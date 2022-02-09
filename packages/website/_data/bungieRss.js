@@ -32,7 +32,8 @@ module.exports = async function getBungieRss() {
     } else if (
       item.title.includes('Destiny') ||
       item.title.includes('Festival of the Lost') ||
-      item.title.includes('Season of')
+      item.title.includes('Season of') ||
+      true
     ) {
       addItemToList(item)
     }
