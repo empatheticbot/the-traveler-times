@@ -133,11 +133,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('assets')
   eleventyConfig.addPassthroughCopy('robots.txt')
   eleventyConfig.addPassthroughCopy({
-    'node_modules/@empatheticbot/date-elements/dist/': 'js/date-elements',
+    '../../node_modules/@empatheticbot/date-elements/dist/index.js':
+      'js/date-elements.js',
   })
   eleventyConfig.addPassthroughCopy({
-    'node_modules/@empatheticbot/on-intersection-element/dist/':
-      'js/on-intersection-element',
+    '../../node_modules/@empatheticbot/on-intersection-element/dist/index.js':
+      'js/on-intersection-element.js',
   })
 
   /* Markdown Overrides */

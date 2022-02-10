@@ -29,7 +29,6 @@ This section is in desparate need of attention! I know this! I'll hopefully get 
 - [Cloudflare](https://www.cloudflare.com)
 - [Eleventy](https://www.11ty.dev)
 - [Nunjucks](https://mozilla.github.io/nunjucks/)
-- [Lerna](https://lerna.js.org)
 - [TypeScript](https://www.typescriptlang.org)
 - [Rollup](https://www.rollupjs.org/guide/en/)
 - [Bungie API](https://bungie-net.github.io/multi/index.html)

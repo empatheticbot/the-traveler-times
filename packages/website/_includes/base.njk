@@ -42,19 +42,13 @@
       <a href="#" title="Back to top of page" class="back-to-top-link">{% include 'assets/arrow-up-icon.svg' %}</a>
     </on-intersection>
     <script>
-      {%- set js -%}
-      {% include "../node_modules/@empatheticbot/on-intersection-element/dist/index.js" %}
-      {% include "../node_modules/@empatheticbot/date-elements/dist/index.js" %}
-      {%- endset -%}
-      {{ js | jsmin | safe }}
-
       setTimeout(() => {
         window
           .location
           .reload();
       }, 1000 * 60 * 60);
     </script>
-    {# <script src="/js/on-intersection-element/index.js"></script> #}
-    {# <script src="/js/date-elements/index.js"></script> #}
+    <script type="module" src="/js/on-intersection-element.js"></script>
+    <script type="module" src="/js/date-elements.js"></script>
   </body>
 </html>
