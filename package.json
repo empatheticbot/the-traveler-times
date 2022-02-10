@@ -35,7 +35,7 @@
     "build:workers": "npm run build -w @the-traveler-times/utils -w @the-traveler-times/bungie-api-gateway -w @the-traveler-times/d2-lost-sector-worker -w @the-traveler-times/d2-meta-worker -w @the-traveler-times/d2-nightfall-worker -w @the-traveler-times/d2-oauth-worker -w @the-traveler-times/d2-pgcr-worker -w @the-traveler-times/d2-season-worker -w @the-traveler-times/d2-trials-worker -w @the-traveler-times/d2-vendors-worker -w @the-traveler-times/d2-weekly-worker",
     "clean": "npm run clean --workspaces --if-present",
     "format": "npm run format --workspaces --if-present",
-    "publish": "npm run build && npm run publish --workspaces --if-present",
+    "publish": "npm run build:workers && npm run publish --workspaces --if-present",
     "start": "npm run start --workspaces --if-present",
     "start:definition": "cd packages/d2-definition-worker && npm run start",
     "start:nightfall": "cd packages/d2-nightfall-worker && npm run start",
