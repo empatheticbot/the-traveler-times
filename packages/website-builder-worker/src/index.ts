@@ -26,14 +26,13 @@ function shouldDeleteDeployment(deployment: { created_on: string }): boolean {
 async function getDeployments(
   env,
   page = 1,
-  perPage = 10,
+  perPage = 15,
   sortOrder = 'asc',
   sortBy = 'created_on'
 ) {
   const account_id = env.ACCOUNT_ID
   const pages_id = env.PAGES_ID
   const init = {
-    'content-type': 'application/json;charset=UTF-8',
     headers: {
       'X-Auth-Key': env.SECRET_AUTH_KEY,
       'X-Auth-Email': env.SECRET_AUTH_EMAIL,
@@ -58,7 +57,6 @@ async function deleteDeploy(env, id) {
   const account_id = env.ACCOUNT_ID
   const pages_id = env.PAGES_ID
   const init = {
-    'content-type': 'application/json;charset=UTF-8',
     method: 'DELETE',
     headers: {
       'X-Auth-Key': env.SECRET_AUTH_KEY,
@@ -77,15 +75,19 @@ async function deleteDeploy(env, id) {
   console.log(id, 'failed', response.ok, response.status)
 }
 
-async function cleanUpOldDeployments(env) {
-  const deployments = await getDeployments(env)
-  deployments.shift()
+async function cleanUpOldDeployments(env, pageNumber) {
+  const deployments = await getDeployments(env, pageNumber)
+  if (pageNumber === 1) {
+    deployments.shift()
+  }
   const filteredDeployments = deployments.filter(
     (deployment: { created_on: string }) => shouldDeleteDeployment(deployment)
   )
+  const deletes = []
   for (const deployment of filteredDeployments) {
-    deleteDeploy(env, deployment.id)
+    deletes.push(deleteDeploy(env, deployment.id))
   }
+  return Promise.all(deletes)
 }
 
 export default {
@@ -93,11 +95,19 @@ export default {
     if (!isAuthorized(request, env)) {
       return new Response('Unauthorized', { status: 401 })
     }
-    await cleanUpOldDeployments(env)
+    let pageNumber = 1
+    while (pageNumber < 3) {
+      await cleanUpOldDeployments(env, pageNumber)
+      pageNumber += 1
+    }
     return buildTravelerTimesWebsite(request, env)
   },
   async scheduled(event, env) {
-    cleanUpOldDeployments(env)
+    let pageNumber = 1
+    while (pageNumber < 4) {
+      await cleanUpOldDeployments(env, pageNumber)
+      pageNumber += 1
+    }
     return buildTravelerTimesWebsite(null, env)
   },
 }
