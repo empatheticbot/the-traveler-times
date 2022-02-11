@@ -42,8 +42,6 @@ async function getDeployments(
     `https://api.cloudflare.com/client/v4/accounts/${account_id}/pages/projects/${pages_id}/deployments`
   )
   url.searchParams.set('page', page.toString())
-  url.searchParams.set('sort_by', sortBy)
-  url.searchParams.set('sort_order', sortOrder)
   url.searchParams.set('per_page', perPage.toString())
   const response = await fetch(url.toString(), init)
   if (response.ok) {
@@ -96,7 +94,7 @@ export default {
       return new Response('Unauthorized', { status: 401 })
     }
     let pageNumber = 1
-    while (pageNumber < 3) {
+    while (pageNumber < 4) {
       await cleanUpOldDeployments(env, pageNumber)
       pageNumber += 1
     }

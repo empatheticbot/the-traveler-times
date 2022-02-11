@@ -74,6 +74,11 @@ export const maps = [
     twitterQuery: 'trials twilight gap',
     activityHash: '1714585558',
   },
+  {
+    map: 'Endless Vale',
+    twitterQuery: 'trials endless vale',
+    activityHash: '1489679220',
+  },
 ]
 
 export const rewards = [
