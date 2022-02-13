@@ -9,6 +9,7 @@ export { D2PostGameCarnageReportObject } from './D2PostGameCarnageReportObject'
 const CALL_EVERY_ID = '$CALL_EVERY'
 const LAST_ACTIVITY_ID = '$CURRENT_ACTIVITY_ID'
 const NEW_ACTIVITY_ID = '$NEW_ACTIVITY_ID'
+const META_DAYS_INCLUDED = '$META_DAYS_INCLUDED'
 
 async function getPGCRDurableObject(env: CloudflareEnvironment) {
   let id = env.PGCR_DURABLE_OBJECT.idFromName('PGCR_DURABLE_OBJECT')
@@ -116,13 +117,14 @@ async function parsePGCRResults(env: CloudflareEnvironment, results: unknown) {
   }
 }
 
-async function getLastWeekOfMetaEndingAt(
+async function getMeta(
   date = new Date(),
+  numberOfDaysToIncludeInMeta: number,
   definitionHandler,
   env: CloudflareEnvironment
 ) {
   const dates = []
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < numberOfDaysToIncludeInMeta; i++) {
     const workingDate = date
     date.setDate(workingDate.getDate() - i)
     const currentPeriodKey = workingDate.toISOString().split('T')[0]
@@ -184,17 +186,20 @@ async function getLastWeekOfMetaEndingAt(
 }
 
 async function getCurrentMeta(request: Request, env: CloudflareEnvironment) {
+  const numberOfDaysToIncludeInMeta = parseInt(await env.DESTINY_2_CRUCIBLE_META.get(META_DAYS_INCLUDED) || '4');
   const definitionHandler = new DefinitionHandler()
   await definitionHandler.init(env.BUNGIE_API)
-  const currentMeta = await getLastWeekOfMetaEndingAt(
+  const currentMeta = await getMeta(
     new Date(),
+    numberOfDaysToIncludeInMeta
     definitionHandler,
     env
   )
   const weekAgo = new Date()
   weekAgo.setDate(weekAgo.getDate() - 7)
-  const lastWeekMeta = await getLastWeekOfMetaEndingAt(
+  const lastWeekMeta = await getMeta(
     weekAgo,
+    numberOfDaysToIncludeInMeta,
     definitionHandler,
     env
   )
