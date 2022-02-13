@@ -48,6 +48,23 @@
           .reload();
       }, 1000 * 60 * 60);
     </script>
+    <script>
+      const lastUpdated = new Date('{{computed.buildDate}}');
+
+      function updateLastUpdateStyle() {
+        const lastUpdatedElement = document.getElementById('site-last-updated');
+        const twoHoursAgo = new Date();
+        twoHoursAgo.setHours(twoHoursAgo.getHours() - 2);
+
+        if (lastUpdatedElement && lastUpdated < twoHoursAgo) {
+          lastUpdatedElement.style.color = 'var(--color-red)';
+          lastUpdatedElement.innerHTML = lastUpdatedElement.innerHTML + ' We are having trouble retrieving information from Bungie.';
+        }
+      }
+
+      updateLastUpdateStyle();
+      setInterval(updateLastUpdateStyle, 1000 * 60);
+    </script>
     <script type="module" src="/js/on-intersection-element.js"></script>
     <script type="module" src="/js/date-elements.js"></script>
   </body>
