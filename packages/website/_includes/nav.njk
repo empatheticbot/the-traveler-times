@@ -1,5 +1,5 @@
 <time class="small-label page-header-today" datetime="{{computed.buildDate}}">{{ computed.buildDate | todayFullDate}}</time>
-{% if page.fileSlug !== 'about' %}
+{% if page.url === '/' %}
   <nav class="nav">
     {% for date, activities in nav | groupby("date") %}
       <section class="nav-section">
