@@ -1,17 +1,5 @@
-{% if page.fileSlug === 'support' or page.fileSlug === 'about' %}
-  <nav class="nav-about">
-    <p class="nav-support">
-      <a href="/">Home</a>
-    </p>
-    <p class="nav-support">
-        ❤️ <a href="https://buy.stripe.com/4gw7vdbqwevvg927st">I'd like to show my support</a>
-    </p>
-    <p class="nav-support">
-      ❓ <a href="/about/">I want to learn more or get in touch</a>
-    </p>
-  </nav>
-{% else %}
-  <time class="small-label page-header-today" datetime="{{computed.buildDate}}">{{ computed.buildDate | todayFullDate}}</time>
+<time class="small-label page-header-today" datetime="{{computed.buildDate}}">{{ computed.buildDate | todayFullDate}}</time>
+{% if page.fileSlug !== 'about' %}
   <nav class="nav">
     {% for date, activities in nav | groupby("date") %}
       <section class="nav-section">
