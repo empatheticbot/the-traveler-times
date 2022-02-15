@@ -84,11 +84,22 @@
 .nav-about {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem 2rem;
   margin-bottom: 2rem;
   z-index: 10;
 
   a {
     font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .nav-about {
+    flex-direction: column;
+  }
+
+  p {
+    display: block;
   }
 }

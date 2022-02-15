@@ -18,11 +18,24 @@ If you find this site useful and would like to see it continue to be supported a
 
 <a class="support-link" href="https://buy.stripe.com/4gw7vdbqwevvg927st">♥️ &nbsp;&nbsp;Show Support</a>
 
-<br>
-<br>
+---
 
-Thanks for visiting and take care. ❤️
+## Get in Touch
+
+Have a feature that you'd love to see? A bug that keeps biting you? Or you just want to say hi?
+
+It's really great that you care about the site enough to take some time to get in touch! With this in mind I'll do my very best to respond, but I do ask that you keep in mind that this is a fun hobby for me and doesn't pay the bills–it could take some time before I respond!
+
+There are a couple options to get in touch:
+
+- **For bugs and feature requests** go ahead and [create an issue](https://github.com/empatheticbot/the-traveler-times/issues) on Github.
+- **No Github?** No worries, just send me an email at <a href="mailto:support@thetraveler.news">support@thetraveler.news</a>
+- **If you are on Twitter** feel free to follow [@traveler_times](https://twitter.com/traveler_times) for updates. I'll do my best to respond to messages there as well.
+
+I look forward to hearing from you!
 
 ---
 
 This site was built and is maintained by [Steve Ledsworth](https://twitter.com/sledsworth). He builds software–mostly fun (niche) websites–under his company [Empatheticbot](https://twitter.com/empathetic_bot).
+
+Thanks for visiting and take care. ❤️

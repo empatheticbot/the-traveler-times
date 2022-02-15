@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Learn more or get in touch</title>
+    <g id="Arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="outline-circle" stroke="#AAAAAA" stroke-width="2" fill="#FFFFFF" cx="24" cy="24" r="23"></circle>
+        <text id="question-mark-icon" font-family="AppleColorEmoji, Apple Color Emoji" font-size="20" font-weight="normal" fill="#000000"
+        x="50%" y="52%" dominant-baseline="middle" text-anchor="middle">
+            ❓
+        </text>
+    </g>
+</svg>

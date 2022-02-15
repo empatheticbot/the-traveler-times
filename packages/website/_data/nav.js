@@ -114,7 +114,7 @@ module.exports = async function () {
       <p>
         <a href="#${vendors.xur.name.toLowerCase()}">${
         vendors.xur.name
-      }</a> has been located in the <strong>${vendors.xur.location.area}, ${
+      }</a> has been located on <strong>${vendors.xur.location.area}, ${
         vendors.xur.location.planet
       }</strong>.
       </p>
