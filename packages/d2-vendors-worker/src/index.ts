@@ -4,9 +4,9 @@ import {
 } from '@the-traveler-times/bungie-api-gateway'
 import { getAda } from './ada'
 import { getBanshee } from './banshee'
-import { getSpider } from './spider'
 import { getXur } from './xur'
 import { isAuthorized } from '@the-traveler-times/utils'
+import { getRahool } from './rahool'
 
 export default {
   async fetch(request: Request, env: CloudflareEnvironment) {
@@ -22,19 +22,19 @@ export default {
 
       const ada = await getAda(vendorHandler)
       const banshee = await getBanshee(vendorHandler)
-      const spider = await getSpider(vendorHandler)
+      const rahool = await getRahool(vendorHandler)
       const xur = await getXur(vendorHandler, twitterHandler)
 
       const isAvailable =
         xur.isAvailable ||
         banshee.isAvailable ||
-        spider.isAvailable ||
+        rahool.isAvailable ||
         ada.isAvailable
 
       const lastRefreshDate = [
         xur.lastRefreshDate,
         banshee.lastRefreshDate,
-        spider.lastRefreshDate,
+        rahool.lastRefreshDate,
         ada.lastRefreshDate,
       ].sort((a, b) => new Date(b).valueOf() - new Date(a).valueOf())[0]
 
@@ -42,7 +42,7 @@ export default {
         JSON.stringify({
           ada,
           banshee,
-          spider,
+          rahool,
           xur,
           isAvailable,
           lastRefreshDate,
