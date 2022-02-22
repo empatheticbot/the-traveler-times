@@ -3,6 +3,7 @@ export const XUR = '2190858386'
 export const ZAVALA = '69482069'
 export const BANSHEE = '672118013'
 export const SPIDER = '863940356'
+export const RAHOOL = '2255782930'
 export const ADA = '350061650'
 
 // PUBLIC MILESTONES

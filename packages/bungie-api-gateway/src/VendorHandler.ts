@@ -1,6 +1,6 @@
 import BungieAPIHandler from './BungieAPIHandler'
 import DefinitionHandler from './DefinitionHandler'
-import { XUR, ZAVALA, SPIDER, ADA, BANSHEE } from './Hashes'
+import { XUR, ZAVALA, SPIDER, RAHOOL, ADA, BANSHEE } from './Hashes'
 import { getStrippedItems } from './InventoryItemUtility'
 
 export default class VendorHandler {
@@ -100,8 +100,9 @@ export default class VendorHandler {
     const refreshIntervalMap = {
       [BANSHEE]: 1,
       [XUR]: 7,
-      [ADA]: 7,
-      [SPIDER]: 7,
+      [ADA]: 1,
+      [SPIDER]: 1,
+      [RAHOOL]: 1,
       [ZAVALA]: 7,
     }
     const refreshInterval = refreshIntervalMap[hash] || 1
