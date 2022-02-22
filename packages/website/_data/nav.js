@@ -122,12 +122,12 @@ module.exports = async function () {
     })
   }
 
-  if (vendors.spider.isAvailable) {
+  if (vendors.rahool.isAvailable) {
     updates.push({
-      date: cleanDate(vendors.spider.lastRefreshDate),
+      date: cleanDate(vendors.rahool.lastRefreshDate),
       markup: `
       <p>
-      <a href="#spider">Spider</a>'s stock was updated.
+      <a href="#rahool">Master Rahool's</a>'s stock was updated.
       </p>
     `,
     })
