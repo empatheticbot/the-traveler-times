@@ -25,7 +25,8 @@
     "markdown-it-footnote": "^3.0.3",
     "node-fetch": "^2.6.7",
     "rss-parser": "^3.12.0",
-    "sass": "^1.49.7"
+    "sass": "^1.49.7",
+    "terser": "^5.10.0"
   },
   "repository": {
     "type": "git",
