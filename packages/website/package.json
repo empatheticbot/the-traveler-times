@@ -5,9 +5,9 @@
   "main": "_site/index.js",
   "scripts": {
     "clean": "rm -rf _site",
-    "start": "NODE_ENV=develop eleventy --serve",
+    "start": "NODE_ENV=develop npx eleventy --serve",
     "start:prod": "NODE_ENV=production eleventy --serve",
-    "build": "NODE_ENV=production eleventy",
+    "build": "NODE_ENV=production npx eleventy",
     "update": "npx npm-check -u"
   },
   "repository": {
