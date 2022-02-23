@@ -97,21 +97,21 @@ export const rewards = [
     twitterQuery: "trials flawless reward Reed's Regret",
     hash: '751170008',
   },
-  {
-    reward: 'Igneous Hammerl',
-    twitterQuery: 'trials flawless reward Igneous Hammer',
-    hash: '2527666306',
-  },
+  // {
+  //   reward: 'Igneous Hammerl',
+  //   twitterQuery: 'trials flawless reward Igneous Hammer',
+  //   hash: '2527666306',
+  // },
   {
     reward: 'The Messenger',
     twitterQuery: 'trials flawless reward The Messenger',
     hash: '98400473',
   },
-  {
-    reward: "Sola's Scar",
-    twitterQuery: "trials flawless reward Sola's Scar",
-    hash: '1175310596',
-  },
+  // {
+  //   reward: "Sola's Scar",
+  //   twitterQuery: "trials flawless reward Sola's Scar",
+  //   hash: '1175310596',
+  // },
   {
     reward: "Exile's Curse",
     twitterQuery:
