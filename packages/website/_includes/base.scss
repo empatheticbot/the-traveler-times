@@ -143,6 +143,9 @@ li {
   align-items: center;
   justify-content: center;
   width: 100%;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.25s ease;
 }
 
 .callout p {
@@ -160,6 +163,11 @@ li {
 .warning--icon {
   width: 24px;
   margin-right: 1rem;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .back-to-top {

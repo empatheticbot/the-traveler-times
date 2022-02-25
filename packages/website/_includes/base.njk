@@ -26,9 +26,8 @@
     <meta name="twitter:creator" content="@sledsworth">
   </head>
   <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
-    <div class="callout warning" hidden>
+    <div class="callout warning hidden">
       <img class="warning--icon" alt="Caution icon triangle with exclamation mark" src="/assets/warning.svg"/>
-      {# <p class="warning-text">The Witch Queen is upon us! While very exciting, it means that Bungie's services are unstable and changing–so expect the site to be a bit broken in places. <a style="color: white; font-weight: bolder;" href="https://github.com/empatheticbot/the-traveler-times/milestone/2">I'm working on it</a>!</p> #}
     </div>
     {% include 'header.njk' %}
     <main class="main-container {% if mainClass %}{{mainClass}}{% endif %}">
@@ -72,7 +71,7 @@
       setInterval(updateLastUpdateStyle, 1000 * 60);
     </script>
     <script>
-      async function fetchLiveData() {
+      async function fetchWarningBanner() {
         const bannerData = await fetch('/api/banner');
         if (bannerData.ok) {
           const data = await bannerData.json()
@@ -82,11 +81,14 @@
             const parser = new DOMParser()
             const bannerElement = parser.parseFromString(warningMessage, 'text/html')
             warningCalloutBanner.append(bannerElement.body.firstChild)
-            warningCalloutBanner.removeAttribute('hidden')
+            warningCalloutBanner
+              .classList
+              .remove('hidden')
+
           }
         }
       }
-      fetchLiveData()
+      fetchWarningBanner()
     </script>
   </body>
 </html>
