@@ -46,7 +46,13 @@ const modifierDetailsMap = {
   },
 }
 
-function getShieldTypes(description: string): string[] {
+function getShieldTypeHashes(description: string): string[] {
+  const shieldTypes = {
+    Void: 3454344768,
+    Solar: 1847026933,
+    Arc: 2303181850,
+    Stasis: 151347233,
+  }
   const descriptionStrings = description.split('\n\n')
   const shieldDescriptionString = descriptionStrings.find((item) =>
     item.includes('Shields:')
@@ -54,7 +60,7 @@ function getShieldTypes(description: string): string[] {
   const shieldRegex = /(?<=\[).+?(?=\])/g
   if (shieldDescriptionString) {
     const shields = [...shieldDescriptionString.matchAll(shieldRegex)]
-    return shields.map((value) => value[0])
+    return shields.map((value) => shieldTypes[value[0]])
   }
   return []
 }
@@ -155,7 +161,19 @@ async function getLostSectorData(lostSector, definitionHandler) {
     activity.destinationHash
   )
 
-  const shields = getShieldTypes(activity.displayProperties.description)
+  const shieldHashes = getShieldTypeHashes(
+    activity.displayProperties.description
+  )
+  const shieldsTypes = await definitionHandler.getAllDamageTypes()
+  const shields = shieldHashes.map((hash) => {
+    const type = shieldsTypes[hash]
+    return {
+      description: `Enemies have ${type.displayProperties.name} shields.`,
+      name: type.displayProperties.name,
+      hash: type.hash,
+      icon: type.displayProperties.icon,
+    }
+  })
 
   let rewards = []
   if (lostSector.rewards) {

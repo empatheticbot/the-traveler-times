@@ -94,8 +94,12 @@ export default class DefinitionHandler {
     return classesKeyedById[classId]
   }
 
+  async getAllDamageTypes() {
+    return this.getDefinitions('DestinyDamageTypeDefinition')
+  }
+
   async getDamageType(hash) {
-    const damageTypes = await this.getDefinitions('DestinyDamageTypeDefinition')
+    const damageTypes = await this.getAllDamageTypes()
     return damageTypes[hash]
   }
 
