@@ -18,6 +18,8 @@ const modifierIgnoreList = [
   '2821775453', // Master Modifiers
   '2301442403', // Legend Modifiers
   '376634891', // Limited Revives
+  '1626706410', // Shielded Foes
+  '3649753063', // Champion Foes
 ]
 
 const commonModifiers = [
@@ -52,9 +54,25 @@ function getShieldTypes(description: string): string[] {
   const shieldRegex = /(?<=\[).+?(?=\])/g
   if (shieldDescriptionString) {
     const shields = [...shieldDescriptionString.matchAll(shieldRegex)]
-    console.log(shields.toString(), shieldDescriptionString)
-
     return shields.map((value) => value[0])
+  }
+  return []
+}
+
+function getChampionModifiers(description: string): string[] {
+  const championTypes = {
+    'Shield-Piercing': '605585258',
+    Disruption: '882588556',
+    Stagger: '3933343183',
+  }
+  const descriptionStrings = description.split('\n\n')
+  const championDescriptionString = descriptionStrings.find((item) =>
+    item.includes('Champions:')
+  )
+  const championRegex = /(?<=\[).+?(?=\])/g
+  if (championDescriptionString) {
+    const champions = [...championDescriptionString.matchAll(championRegex)]
+    return champions.map((value) => championTypes[value[0]])
   }
   return []
 }
@@ -119,11 +137,19 @@ function getModifiersOfInterest(modifiers) {
 
 async function getLostSectorData(lostSector, definitionHandler) {
   const activity = await definitionHandler.getActivity(lostSector.hash)
-  const modifiers = await definitionHandler.getActivityModifiers(
-    ...activity.modifiers.map((modifier) => modifier.activityModifierHash)
-  )
 
-  const modifiersOfInterest = getModifiersOfInterest(modifiers)
+  const modifiers = await definitionHandler.getActivityModifiers(
+    ...activity.modifiers.map((modifier) => modifier.activityModifierHash),
+    ...getChampionModifiers(activity.displayProperties.description)
+  )
+  const uniqueModifiers = {}
+  for (const modifier of modifiers) {
+    uniqueModifiers[modifier.hash] = modifier
+  }
+
+  const modifiersOfInterest = getModifiersOfInterest(
+    Object.values(uniqueModifiers)
+  )
 
   const destination = await definitionHandler.getDestination(
     activity.destinationHash
