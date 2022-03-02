@@ -74,17 +74,15 @@
       async function fetchWarningBanner() {
         const bannerData = await fetch('/api/banner');
         if (bannerData.ok) {
-          const data = await bannerData.json()
-          const warningMessage = data.warning
-          if (warningMessage) {
+          const {warning} = await bannerData.json()
+          if (warning) {
             const warningCalloutBanner = document.querySelector('.callout.warning')
             const parser = new DOMParser()
-            const bannerElement = parser.parseFromString(warningMessage, 'text/html')
+            const bannerElement = parser.parseFromString(warning, 'text/html')
             warningCalloutBanner.append(bannerElement.body.firstChild)
             warningCalloutBanner
               .classList
               .remove('hidden')
-
           }
         }
       }
