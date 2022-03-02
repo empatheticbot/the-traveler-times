@@ -59,6 +59,10 @@ export default class VendorHandler {
           return { ...sale, ...item, classType, damageType, costs, sockets }
         })
       )
+      // Rewards are included with sales items 🙄. I'm relying on the fact that
+      // a sold item should always have a cost, so filtering out items without a cost.
+      // If this isn't true at some point, this will be broken.
+      sales = sales.filter((sale) => sale.costs.length > 0)
     }
     return { ...vendor, sales }
   }
