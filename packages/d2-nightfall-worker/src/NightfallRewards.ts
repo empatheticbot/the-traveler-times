@@ -17,7 +17,13 @@ export enum NightfallRewards {
   TheHotheadAdept = '1866778462',
   SiliconNeuroma = '3355385170',
   SiliconNeuromaAdept = '1387987271',
+  DutyBound = '435216110',
+  DutyBoundAdept = '1135050595',
   Unknown = '773524094',
+}
+
+export const NightfallStrikeReward = {
+  'The Arms Dealer': ['2757144092'],
 }
 
 export const NightfallRewardPairs = [
