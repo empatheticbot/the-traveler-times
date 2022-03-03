@@ -74,10 +74,11 @@ export default class VendorHandler {
 
       // TODO: Bungie's API is wrong. Xur does not show up at 4AM... so we need to adjust that to make sure Twitter
       // stuff works correctly... (https://github.com/Bungie-net/api/issues/353)
+      // Oh, Rahool's refresh time seems wrong as well 🤷🏻‍♂️
       let nextRefreshDate = vendorLiveData.nextRefreshDate
       let lastRefreshDate
       if (nextRefreshDate) {
-        if (hash === XUR) {
+        if (hash === XUR || hash === RAHOOL) {
           const nextRefreshDateXur = new Date(nextRefreshDate)
           nextRefreshDateXur.setUTCHours(17)
           nextRefreshDate = nextRefreshDateXur.toISOString()
