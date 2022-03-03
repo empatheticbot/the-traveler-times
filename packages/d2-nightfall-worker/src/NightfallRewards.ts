@@ -15,33 +15,39 @@ export enum NightfallRewards {
   UzumeAdept = '852228780',
   TheHothead = '4255171531',
   TheHotheadAdept = '1866778462',
+  SiliconNeuroma = '3355385170',
+  SiliconNeuromaAdept = '1387987271',
   Unknown = '773524094',
 }
 
 export const NightfallRewardPairs = [
   {
-    nightfall: [NightfallRewards.TheComedian, NightfallRewards.ShadowPrice],
-    grandmaster: [
-      NightfallRewards.TheComedianAdept,
-      NightfallRewards.ShadowPriceAdept,
-    ],
+    nightfall: [NightfallRewards.SiliconNeuroma],
+    grandmaster: [NightfallRewards.SiliconNeuromaAdept],
   },
-  {
-    nightfall: [NightfallRewards.TheHothead, NightfallRewards.HungJury],
-    grandmaster: [
-      NightfallRewards.TheHotheadAdept,
-      NightfallRewards.HungJuryAdept,
-    ],
-  },
-  {
-    nightfall: [NightfallRewards.Uzume, NightfallRewards.PlugOne],
-    grandmaster: [NightfallRewards.UzumeAdept, NightfallRewards.PlugOneAdept],
-  },
-  {
-    nightfall: [NightfallRewards.ThePalindrome, NightfallRewards.TheSwarm],
-    grandmaster: [
-      NightfallRewards.ThePalindromeAdept,
-      NightfallRewards.TheSwarmAdept,
-    ],
-  },
+  // {
+  //   nightfall: [NightfallRewards.TheComedian, NightfallRewards.ShadowPrice],
+  //   grandmaster: [
+  //     NightfallRewards.TheComedianAdept,
+  //     NightfallRewards.ShadowPriceAdept,
+  //   ],
+  // },
+  // {
+  //   nightfall: [NightfallRewards.TheHothead, NightfallRewards.HungJury],
+  //   grandmaster: [
+  //     NightfallRewards.TheHotheadAdept,
+  //     NightfallRewards.HungJuryAdept,
+  //   ],
+  // },
+  // {
+  //   nightfall: [NightfallRewards.Uzume, NightfallRewards.PlugOne],
+  //   grandmaster: [NightfallRewards.UzumeAdept, NightfallRewards.PlugOneAdept],
+  // },
+  // {
+  //   nightfall: [NightfallRewards.ThePalindrome, NightfallRewards.TheSwarm],
+  //   grandmaster: [
+  //     NightfallRewards.ThePalindromeAdept,
+  //     NightfallRewards.TheSwarmAdept,
+  //   ],
+  // },
 ]
