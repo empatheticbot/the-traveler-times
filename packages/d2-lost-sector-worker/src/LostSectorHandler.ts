@@ -10,6 +10,8 @@ const availableLostSectors = [
   { name: 'K1 Crew Quarters', master: '184186578', legend: '184186581' },
   { name: 'K1 Logistics', master: '567131519', legend: '567131512' },
   { name: 'Metamorphosis', master: '3678847134', legend: '3678847129' },
+  { name: 'Sepulcher', master: '480864721', legend: '480864726' },
+  { name: 'Extraction', master: '145221020', legend: '145221019' },
   // NOTE: Disabled Lost Sectors
   // { name: 'K1 Communion', master: '2829206720', legend: '2829206727' },
   // { name: 'Concealed Void', master: '912873274', legend: '912873277' },
@@ -19,8 +21,6 @@ const availableLostSectors = [
   // { name: 'The Quarry', master: '3253890600', legend: '3253890607' },
   // { name: "Scavenger's Den", master: '1905792146', legend: '1905792149' },
   // { name: 'Excavation Site XII', master: '548616653', legend: '548616650' },
-  // { name: 'Exodus Garden 2A', master: '2936791995', legend: '2936791996' },
-  // { name: 'Veles Labyrinth', master: '3094493727', legend: '3094493720' },
 ]
 
 const rewards = [
