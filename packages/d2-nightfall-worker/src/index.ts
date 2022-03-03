@@ -11,6 +11,7 @@ import {
   getCurrentNightfallRewardHashes,
   getGrandmasterAvailability,
   getIsGrandmasterStartWeek,
+  getStrikeReward,
 } from './NightfallHandler'
 import { isAuthorized } from '@the-traveler-times/utils'
 
@@ -68,11 +69,16 @@ export default {
       }
 
       const { nightfall, grandmaster } = getCurrentNightfallRewardHashes()
+      const strikeReward = getStrikeReward(
+        activities[0].displayProperties.description
+      )
       const nightfallRewards = await definitionHandler.getInventoryItems(
-        ...nightfall
+        ...nightfall,
+        ...strikeReward
       )
       const grandmasterRewards = await definitionHandler.getInventoryItems(
-        ...grandmaster
+        ...grandmaster,
+        ...strikeReward
       )
 
       return new Response(

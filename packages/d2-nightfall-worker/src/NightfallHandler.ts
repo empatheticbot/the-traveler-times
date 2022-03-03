@@ -1,4 +1,4 @@
-import { NightfallRewardPairs } from './NightfallRewards'
+import { NightfallRewardPairs, NightfallStrikeReward } from './NightfallRewards'
 
 const startingDate = new Date('March 1, 2022 17:00:00 GMT')
 
@@ -10,6 +10,10 @@ export function getCurrentNightfallRewardHashes() {
 
   const index = daysFromStart % NightfallRewardPairs.length
   return NightfallRewardPairs[index]
+}
+
+export function getStrikeReward(strikeName: string) {
+  return NightfallStrikeReward[strikeName] || []
 }
 
 export function getGrandmasterAvailability(
