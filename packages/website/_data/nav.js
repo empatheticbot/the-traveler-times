@@ -127,7 +127,7 @@ module.exports = async function () {
       date: cleanDate(vendors.rahool.lastRefreshDate),
       markup: `
       <p>
-      <a href="#rahool">Master Rahool's</a>'s stock was updated.
+      <a href="#master-rahool">Master Rahool's</a>'s stock was updated.
       </p>
     `,
     })
