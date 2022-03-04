@@ -86,7 +86,7 @@ export default {
 
       return new Response(
         JSON.stringify({
-          isAvailable,
+          isAvailable: false,
           maps: trialsMaps,
           startDate: lastWeekendReset,
           endDate: nextWeeklyReset,
