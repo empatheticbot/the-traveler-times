@@ -7,7 +7,7 @@
     Lost sector found on <strong>{{ lostSectorData.destination.displayProperties.name }}</strong>.
   {% endset %}
 
-  {% call section.section(lostSectorData.name, lostSectorData.difficulty, description, lostSectorData.pgcrImage) %}
+  {% call section.section(lostSectorData.name, '1550  |  1580', description, lostSectorData.pgcrImage) %}
   <section class="modifiers-group">
     <h4 class="modifier-heading">Rewards</h4>
     <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
@@ -39,6 +39,6 @@
 
   {% block content %}
     {{ lostSectorSection(lostSector.master)}}
-    {{ lostSectorSection(lostSector.legend)}}
+    {# {{ lostSectorSection(lostSector.legend)}} #}
   {% endblock %}
 {% endif %}
