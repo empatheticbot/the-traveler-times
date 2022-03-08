@@ -23,6 +23,7 @@ export enum NightfallRewards {
 }
 
 export const NightfallStrikeReward = {
+  'The Scarlet Keep': [],
   'The Arms Dealer': ['2757144092'],
 }
 
@@ -31,29 +32,24 @@ export const NightfallRewardPairs = [
     nightfall: [NightfallRewards.SiliconNeuroma],
     grandmaster: [NightfallRewards.SiliconNeuromaAdept],
   },
-  // {
-  //   nightfall: [NightfallRewards.TheComedian, NightfallRewards.ShadowPrice],
-  //   grandmaster: [
-  //     NightfallRewards.TheComedianAdept,
-  //     NightfallRewards.ShadowPriceAdept,
-  //   ],
-  // },
-  // {
-  //   nightfall: [NightfallRewards.TheHothead, NightfallRewards.HungJury],
-  //   grandmaster: [
-  //     NightfallRewards.TheHotheadAdept,
-  //     NightfallRewards.HungJuryAdept,
-  //   ],
-  // },
-  // {
-  //   nightfall: [NightfallRewards.Uzume, NightfallRewards.PlugOne],
-  //   grandmaster: [NightfallRewards.UzumeAdept, NightfallRewards.PlugOneAdept],
-  // },
-  // {
-  //   nightfall: [NightfallRewards.ThePalindrome, NightfallRewards.TheSwarm],
-  //   grandmaster: [
-  //     NightfallRewards.ThePalindromeAdept,
-  //     NightfallRewards.TheSwarmAdept,
-  //   ],
-  // },
+  {
+    nightfall: [NightfallRewards.DutyBound],
+    grandmaster: [NightfallRewards.DutyBoundAdept],
+  },
+  {
+    nightfall: [NightfallRewards.TheComedian],
+    grandmaster: [NightfallRewards.TheComedianAdept],
+  },
+  {
+    nightfall: [NightfallRewards.TheHothead],
+    grandmaster: [NightfallRewards.TheHotheadAdept],
+  },
+  {
+    nightfall: [NightfallRewards.PlugOne],
+    grandmaster: [NightfallRewards.PlugOneAdept],
+  },
+  {
+    nightfall: [NightfallRewards.ThePalindrome],
+    grandmaster: [NightfallRewards.ThePalindromeAdept],
+  },
 ]
