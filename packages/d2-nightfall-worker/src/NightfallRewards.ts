@@ -39,17 +39,21 @@ export const NightfallRewardPairs = [
   {
     nightfall: [NightfallRewards.DutyBound],
     grandmaster: [NightfallRewards.DutyBoundAdept],
+    isUnknown: true,
   },
   {
     nightfall: [NightfallRewards.TheHothead],
     grandmaster: [NightfallRewards.TheHotheadAdept],
+    isUnknown: true,
   },
   {
     nightfall: [NightfallRewards.PlugOne],
     grandmaster: [NightfallRewards.PlugOneAdept],
+    isUnknown: true,
   },
   {
     nightfall: [NightfallRewards.ThePalindrome],
     grandmaster: [NightfallRewards.ThePalindromeAdept],
+    isUnknown: true,
   },
 ]

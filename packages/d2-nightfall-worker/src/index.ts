@@ -68,7 +68,8 @@ export default {
         )
       }
 
-      const { nightfall, grandmaster } = getCurrentNightfallRewardHashes()
+      const { nightfall, grandmaster, isUnknown } =
+        getCurrentNightfallRewardHashes()
       const strikeReward = getStrikeReward(
         activities[0].displayProperties.description
       )
@@ -88,6 +89,7 @@ export default {
           groupedActivities: activitiesAsArray,
           modifierGroups,
           rewards: nightfallRewards,
+          isRewardKnown: !isUnknown,
           grandmasterRewards,
           isGrandmasterAvailable,
           isGrandmasterStartWeek,
