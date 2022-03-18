@@ -8,13 +8,13 @@ The project is a monorepo–made up of many sub-projects, all responsible for di
 
 - All the sub-projects with naming patterns of `d2-**-worker` are Cloudflare Workers used to provide some Destiny 2 data related to the name.
 - `website` is just that. It's built using [Eleventy](https://www.11ty.dev). It calls into all the various workers for data to build the static site. It's hosted with Cloudflare Pages.
-- `website-builder-worker` is also a Cloudflare Worker, but it's only job is to kick off a Cloudflare Pages build and publish every hour to get the latest updates.
+- `website-builder-worker` is also a Cloudflare Worker, but its only job is to kick off a Cloudflare Pages build and publish every hour to get the latest updates.
 - `bungie-api-gateway` was originally meant to be the layer built on top of the [Bungie API](https://bungie-net.github.io/multi/index.html), but expanded to doing some additional things–like query Twitter. The world is an imperfect place 😅
 - Finally, there are a couple utility and types projects that help share some code and typings between projects.
 
 ## Contribution
 
-This section is in desparate need of attention! I know this! I'll hopefully get to this soon! 😬
+This section is in desperate need of attention! I know this! I'll hopefully get to this soon! 😬
 
 ## Getting Started
 

@@ -1,12 +1,15 @@
 {
   "actions" : {
     "build" : {
-      "script" : "npm run build"
+      "script" : "npm run "
     },
     "run" : {
       "enabled" : true,
-      "script" : "npm run publish"
+      "script" : "npm run version:patch"
     }
   },
+  "arguments" : [
+    "version"
+  ],
   "openLogOnRun" : "finish"
 }

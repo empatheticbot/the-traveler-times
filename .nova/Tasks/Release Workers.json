@@ -1,9 +1,0 @@
-{
-  "actions" : {
-    "run" : {
-      "enabled" : true,
-      "script" : "npm run version\nnpm run publish"
-    }
-  },
-  "identifier" : "C0066B7D-7995-4073-A8A7-11A7DE48A95C"
-}

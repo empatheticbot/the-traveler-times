@@ -1,11 +1,8 @@
 {
   "actions" : {
-    "build" : {
-      "script" : "npm run build"
-    },
     "run" : {
       "enabled" : true,
-      "script" : "npm run publish"
+      "script" : "npm run version:minor"
     }
   },
   "openLogOnRun" : "finish"

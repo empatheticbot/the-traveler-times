@@ -1,0 +1,13 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "cd packages\/d2-weekly-worker\nnpm run build"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "cd packages\/d2-weekly-worker\nnpm run start"
+    }
+  },
+  "openLogOnRun" : "start"
+}
