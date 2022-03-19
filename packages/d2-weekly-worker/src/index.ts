@@ -40,12 +40,12 @@ export default {
         const ironBannerRewards = await definitionHandler.getInventoryItems(
           1141547457, // Frontier's Cry
           1796949035, // Razor's Edge
-          // 829330711,  // Peacebond
-          // 1076810832, // Forge's Pledge
-          // 108221785, // Riiswalker
+          829330711, // Peacebond
+          1076810832, // Forge's Pledge
+          108221785, // Riiswalker
           // 701922966, // Finite Impactor
-          // 852551895, // Occluded Finality 
-          // 1967303408, // Archon's Thunder
+          // 852551895, // Occluded Finality
+          1967303408 // Archon's Thunder
         )
         ironBanner = {
           isAvailable: true,

@@ -1,4 +1,5 @@
 {% import "components/section.njk" as section %}
+{% import "components/items.njk" as items %}
 
 {% set ironBanner = weekly.ironBanner %}
 {% if ironBanner.isAvailable %}
@@ -12,5 +13,15 @@
   {% block content %}
     {% call section.section(icon = ironBanner.image) %}
     {% endcall %}
+    <section class="modifiers-group">
+      <h4 class="modifier-heading">Rewards</h4>
+      <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
+        {% for item in ironBanner.rewards %}
+          <li class="">
+            {{ items.inventoryItem(item.displayProperties.name, icon=item.displayProperties.icon) }}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
   {% endblock %}
 {% endif %}
