@@ -18,7 +18,7 @@
       <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
         {% for item in ironBanner.rewards %}
           <li class="">
-            {{ items.inventoryItem(item.displayProperties.name, icon=item.displayProperties.icon) }}
+            {{ items.inventoryItem(item.name, item.subtitle, icon=item.displayProperties.icon) }}
           </li>
         {% endfor %}
       </ul>

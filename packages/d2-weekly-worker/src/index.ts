@@ -3,6 +3,7 @@ import {
   // VendorHandler,
   PublicMilestoneHandler,
   Hashes,
+  getStrippedItem,
   dateUtilities,
 } from '@the-traveler-times/bungie-api-gateway'
 import { isAuthorized } from '@the-traveler-times/utils'
@@ -47,9 +48,23 @@ export default {
           // 852551895, // Occluded Finality
           1967303408 // Archon's Thunder
         )
+        const awardsStripped = await Promise.all(
+          ironBannerRewards.map(async (weapon) => {
+            const damageType = await definitionHandler.getDamageType(
+              weapon.defaultDamageTypeHash
+            )
+            weapon.damageType = damageType
+
+            return {
+              ...weapon,
+              ...getStrippedItem(weapon),
+            }
+          })
+        )
+
         ironBanner = {
           isAvailable: true,
-          rewards: ironBannerRewards,
+          rewards: awardsStripped,
           startDate: lastWeeklyReset,
           endDate: nextWeeklyReset,
           ...ironBannerDefinition,
