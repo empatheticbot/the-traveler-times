@@ -23,6 +23,7 @@ export default {
       const nextWeekendReset = dateUtilities.getNextWeekendReset()
       const lastWeeklyReset = dateUtilities.getLastWeeklyReset()
       const lastWeekendReset = dateUtilities.getLastWeekendReset()
+
       let ironBannerMilestone
       try {
         ironBannerMilestone =
@@ -32,8 +33,8 @@ export default {
       } catch (e) {
         console.log('Iron Banner not available.')
       }
-      let ironBanner
 
+      let ironBanner
       if (ironBannerMilestone) {
         const ironBannerDefinition = await definitionHandler.getMilestone(
           ironBannerMilestone.milestoneHash
@@ -74,6 +75,43 @@ export default {
         ironBanner = { isAvailable: false }
       }
 
+      let wellspringMilestone =
+        await publicMilestoneHandler.getPublicMilestoneByHash(Hashes.WELLSPRING)
+
+      let wellspring
+      if (wellspringMilestone) {
+        const activities = await definitionHandler.getActivities(
+          ...wellspringMilestone.activities.map(
+            (activity) => activity.activityHash
+          )
+        )
+
+        const rewardHashes = activities.map((activity) => {
+          const rewards = activity.rewards.map((reward) =>
+            reward.rewardItems.map((item) => item.itemHash)
+          )
+          return rewards.flat()
+        })
+
+        const wellspringRewards = await definitionHandler.getInventoryItems(
+          ...rewardHashes.flat()
+        )
+
+        wellspring = await Promise.all(
+          wellspringRewards.map(async (item) => {
+            const damageType = await definitionHandler.getDamageType(
+              item.defaultDamageTypeHash
+            )
+            item.damageType = damageType
+
+            return {
+              ...item,
+              ...getStrippedItem(item),
+            }
+          })
+        )
+      }
+
       return new Response(
         JSON.stringify({
           nextWeeklyReset,
@@ -81,6 +119,7 @@ export default {
           nextWeekendReset,
           lastWeekendReset,
           ironBanner,
+          wellspring,
           isAvailable: true,
         }),
         {
