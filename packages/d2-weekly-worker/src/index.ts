@@ -97,7 +97,7 @@ export default {
           ...rewardHashes.flat()
         )
 
-        wellspring = await Promise.all(
+        const wellspringFetchedRewards = await Promise.all(
           wellspringRewards.map(async (item) => {
             const damageType = await definitionHandler.getDamageType(
               item.defaultDamageTypeHash
@@ -110,6 +110,16 @@ export default {
             }
           })
         )
+        wellspring = {
+          ...wellspringMilestone,
+          activities,
+          rewards: wellspringFetchedRewards,
+          isAvailable: true,
+        }
+      } else {
+        wellspring = {
+          isAvailable: false,
+        }
       }
 
       return new Response(
