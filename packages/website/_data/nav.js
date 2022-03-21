@@ -66,6 +66,17 @@ module.exports = async function () {
     })
   }
 
+  if (weekly.wellspring.isAvailable) {
+    updates.push({
+      date: cleanDate(weekly.wellspring.startDate),
+      markup: `
+      <p>
+        <a href="#wellspring">Wellspring</a> has been updated.
+      </p>
+      `,
+    })
+  }
+
   updates.push({
     date: meta.lastRefreshDate,
     markup: `

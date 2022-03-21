@@ -1,0 +1,29 @@
+{% import "components/items.njk" as items %}
+{% import "components/section.njk" as section %}
+
+{% set wellspring = weekly.wellspring %}
+
+{% if wellspring.isAvailable %}
+
+  {% extends "components/article.njk" %}
+
+  {% set title =  wellspring.activities[0].displayProperties.name %}
+  {% set id = "wellspring" %}
+  {% set description = wellspring.activities[0].displayProperties.description %}
+  {% set displayDate = wellspring.startDate %}
+
+  {% block content %}
+  {% call section.section(icon = wellspring.activities[0].pgcrImage) %}
+    <section class="modifiers-group">
+      <h4 class="modifier-heading">Rewards</h4>
+      <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
+       {% for item in wellspring.rewards %}
+         <li class="">
+           {{ items.inventoryItem(item.name, icon=item.displayProperties.icon) }}
+         </li>
+       {% endfor %}
+      </ul>
+    </section>
+    {% endcall %}
+  {% endblock %}
+{% endif %}

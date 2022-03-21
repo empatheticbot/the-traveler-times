@@ -99,11 +99,6 @@ export default {
 
         const wellspringFetchedRewards = await Promise.all(
           wellspringRewards.map(async (item) => {
-            const damageType = await definitionHandler.getDamageType(
-              item.defaultDamageTypeHash
-            )
-            item.damageType = damageType
-
             return {
               ...item,
               ...getStrippedItem(item),
