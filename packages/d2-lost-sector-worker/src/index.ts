@@ -150,7 +150,9 @@ async function getLostSectorData(lostSector, definitionHandler) {
   )
   const uniqueModifiers = {}
   for (const modifier of modifiers) {
-    uniqueModifiers[modifier.hash] = modifier
+    if (modifier?.hash) {
+      uniqueModifiers[modifier.hash] = modifier
+    }
   }
 
   const modifiersOfInterest = getModifiersOfInterest(
