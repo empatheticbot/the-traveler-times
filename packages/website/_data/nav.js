@@ -35,7 +35,7 @@ module.exports = async function () {
   ]
   const [
     bungieRss,
-    lostSectors,
+    lostSector,
     meta,
     nightfall,
     season,
@@ -107,9 +107,9 @@ module.exports = async function () {
     })
   }
 
-  if (lostSectors.isAvailable) {
+  if (lostSector.isAvailable) {
     updates.push({
-      date: cleanDate(lostSectors.startDate),
+      date: cleanDate(lostSector.startDate),
       markup: `
       <p>
       The dialy solo <a href="#lost-sectors">Lost Sector</a> was updated.

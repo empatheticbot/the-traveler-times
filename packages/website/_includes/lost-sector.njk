@@ -29,9 +29,10 @@
   {% endcall %}
 {% endmacro %}
 
-{% extends "components/article.njk" %}
-
 {% if lostSector.isAvailable %}
+
+  {% extends "components/article.njk" %}
+
   {% set title = "Lost Sector" %}
   {% set id = "lost-sectors"%}
   {% set description = "The daily solo Lost Sector locations, modifiers, and rewards."%}
