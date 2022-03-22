@@ -12,20 +12,39 @@ const modifierIgnoreList = [
   // '2834348323', // Champions: Mob
   // '2055950944', // Champions: Fallen
   // '3605663348', // Champions: Hive
+  '2095017004', // Blank, probably Bungie bug
+  '2226420346', // Blank, probably Bungie bug
   '2078602635', // Champions: All
   '939324719', // Equipment Locked
+  '1406852142', // Equipment Locked
   '3859784314', // Match Game
+  '657164207', // Match Game
   '2821775453', // Master Modifiers
+  '1441935103', // Master Modifiers
   '2301442403', // Legend Modifiers
   '376634891', // Limited Revives
+  '356012132', // Limited Revives
   '1626706410', // Shielded Foes
+  '2016159242', // Shielded Foes
+  '1208695820', // Shielded Foes
   '3649753063', // Champion Foes
+  '3392797826', // Champion Foes
+  '3462015812', // Champion Foes
+]
+
+const championModifiers = [
+  '3649753063', // Champion Foes
+  '3392797826', // Champion Foes
+  '3462015812', // Champion Foes
 ]
 
 const commonModifiers = [
   '939324719', // Equipment Locked
+  '1406852142', // Equipment Locked
   '3859784314', // Match Game
+  '657164207', // Match Game
   '376634891', // Limited Revives
+  '356012132', // Limited Revives
 ]
 
 const modifierDetailsMap = {
@@ -88,7 +107,7 @@ function getModifiersOfInterest(modifiers) {
     (modifier) => !modifierIgnoreList.includes(modifier.hash.toString())
   )
   const champions = modifiers
-    .filter((modifier) => modifier.displayProperties.name.includes('Champions'))
+    .filter((modifier) => modifier.displayProperties.name.includes('Champion'))
     .map((modifier) => ({
       name: modifier.displayProperties.name.replace('Champions: ', ''),
       icon: modifier.displayProperties.icon,
@@ -148,6 +167,7 @@ async function getLostSectorData(lostSector, definitionHandler) {
     ...activity.modifiers.map((modifier) => modifier.activityModifierHash),
     ...getChampionModifiers(activity.displayProperties.description)
   )
+
   const uniqueModifiers = {}
   for (const modifier of modifiers) {
     if (modifier?.hash) {
