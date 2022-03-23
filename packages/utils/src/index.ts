@@ -1,6 +1,6 @@
 // TODO: Look into how generics work in typescript
-export function chunkArray(array: unknown[], chunk: number): unknown[] {
-  return array.reduce((resultArray: unknown[][], item, index) => {
+export function chunkArray<T>(array: T[], chunk: number): T[][] {
+  return array.reduce((resultArray: T[][], item, index) => {
     const chunkIndex = Math.floor(index / chunk)
 
     if (!resultArray[chunkIndex]) {
@@ -10,7 +10,7 @@ export function chunkArray(array: unknown[], chunk: number): unknown[] {
     resultArray[chunkIndex].push(item)
 
     return resultArray
-  }, []) as unknown[][]
+  }, []) as T[][]
 }
 
 export async function delay(ms: number) {

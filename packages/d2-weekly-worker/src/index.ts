@@ -101,14 +101,14 @@ export default {
           wellspringRewards.map(async (item) => {
             return {
               ...item,
-              startDate: dateUtilities.getCurrentDailyResetStartDate(),
-              refreshDate: dateUtilities.getCurrentDailyResetEndDate(),
               ...getStrippedItem(item),
             }
           })
         )
         wellspring = {
           ...wellspringMilestone,
+          startDate: dateUtilities.getCurrentDailyResetStartDate(),
+          endDate: dateUtilities.getCurrentDailyResetEndDate(),
           activities,
           rewards: wellspringFetchedRewards,
           isAvailable: true,

@@ -1,7 +1,7 @@
 import BungieAPIHandler from './BungieAPIHandler'
 import { IRON_BANNER } from './Hashes'
 export default class PublicMilestoneHandler {
-  async init(bungieApiEnv) {
+  async init(bungieApiEnv: KVNamespace) {
     this.bungieAPIHandler = new BungieAPIHandler()
     await this.bungieAPIHandler.init(bungieApiEnv)
   }

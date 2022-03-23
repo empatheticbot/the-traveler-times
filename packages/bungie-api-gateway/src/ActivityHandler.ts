@@ -1,9 +1,9 @@
 import DefinitionHandler from './DefinitionHandler'
 
 export default class ActivityHandler {
-  async init(bungieApiEnv, definitionEnv) {
+  async init(bungieApiEnv) {
     this.definitionHandler = new DefinitionHandler()
-    await this.definitionHandler.init(bungieApiEnv, definitionEnv)
+    await this.definitionHandler.init(bungieApiEnv)
   }
 
   async getActivities(activities) {

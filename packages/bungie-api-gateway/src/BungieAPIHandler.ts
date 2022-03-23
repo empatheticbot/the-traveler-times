@@ -1,12 +1,14 @@
 import BungieAPIError, { BungieErrorStatus } from './BungieAPIError'
 
 export default class BungieAPIHandler {
-  manifest = undefined
-  membershipId: string
-  characterId: string
-  membershipType: string
+  manifest?: BungieD2Manifest = undefined
+  membershipId: string | null = null
+  characterId: string | null = null
+  membershipType: string | null = null
+  apiKey: string | null = null
+  oauthToken: string | null = null
 
-  async init(bungieApiEnv) {
+  async init(bungieApiEnv: KVNamespace) {
     try {
       this.apiKey = await bungieApiEnv.get('KEY')
       this.oauthToken = await bungieApiEnv.get('OAUTH_TOKEN')
@@ -21,7 +23,7 @@ export default class BungieAPIHandler {
   /**
    * Adds the API Key to the request header.
    */
-  addApiKeyToHeader({ headers = {}, ...rest }) {
+  addApiKeyToHeader({ headers = {}, ...rest }): { headers: {} } {
     return {
       headers: {
         ...headers,
@@ -41,7 +43,7 @@ export default class BungieAPIHandler {
     path = '',
     baseUrl = 'https://www.bungie.net/Platform',
   }: {
-    headers?: unknown
+    headers?: {}
     components?: string[]
     path?: string
     baseUrl?: string
@@ -51,10 +53,9 @@ export default class BungieAPIHandler {
     if (components) {
       url.searchParams.set('components', components.join(','))
     }
-
     console.log('CALL: ' + url)
     try {
-      resp = await fetch(url, this.addApiKeyToHeader({ headers }))
+      resp = await fetch(url.toString(), this.addApiKeyToHeader({ headers }))
     } catch (e) {
       console.error(`Failed to call bungie platform api ${e}`)
       throw e
@@ -71,7 +72,11 @@ export default class BungieAPIHandler {
     return resp.json()
   }
 
-  async callBungieNet(options) {
+  async callBungieNet(options: {
+    path: string
+    headers?: {}
+    components?: string[]
+  }) {
     return this.callApi({ ...options, baseUrl: 'https://www.bungie.net/' })
   }
 
@@ -88,7 +93,9 @@ export default class BungieAPIHandler {
       path: '/Destiny2/Manifest/',
       method: 'GET',
     }
-    let manifestResponse = await this.callApi(options)
+    let manifestResponse = (await this.callApi(
+      options
+    )) as BungieAPIManifestResponse
     this.manifest = manifestResponse.Response
     return this.manifest
   }
@@ -98,7 +105,7 @@ export default class BungieAPIHandler {
    * Links to sqlite database file containing information on items/entities etc.
    * Useful for large/frequent requests for item information and other things.
    */
-  async getManifestDefinition(entityType, hash) {
+  async getManifestDefinition(entityType: string, hash: string | number) {
     let options = {
       path: `/Destiny2/Manifest/${entityType}/${hash}/`,
       method: 'GET',
@@ -109,10 +116,10 @@ export default class BungieAPIHandler {
   async getCompleteManifest() {
     const manifest = await this.getManifest()
 
-    return this.callBungieNet({ path: manifest.jsonWorldContentPaths.en })
+    return this.callBungieNet({ path: manifest?.jsonWorldContentPaths?.en })
   }
 
-  async getDefinitionFromManifest(definition) {
+  async getDefinitionFromManifest(definition: BungieD2Definition) {
     if (typeof definition !== 'string') {
       throw new Error(
         'Parameter `definition` is required and must be of type string.'
@@ -121,7 +128,7 @@ export default class BungieAPIHandler {
 
     const manifest = await this.getManifest()
     const definitionPath =
-      manifest.jsonWorldComponentContentPaths.en[definition]
+      manifest?.jsonWorldComponentContentPaths?.en[definition]
 
     if (!definitionPath) {
       throw new Error(
@@ -133,12 +140,12 @@ export default class BungieAPIHandler {
   }
 
   async getPostGameCarnageReport(id: string) {
-    let resp
+    let resp: BungieAPIPGCRResponse
     try {
-      resp = await this.callApi({
+      resp = (await this.callApi({
         path: `/Platform/Destiny2/Stats/PostGameCarnageReport/${id}/`,
         baseUrl: `https://stats.bungie.net`,
-      })
+      })) as BungieAPIPGCRResponse
     } catch (e) {
       console.error(`Failed to call bungie platform api ${e}`)
       throw e
@@ -156,17 +163,17 @@ export default class BungieAPIHandler {
   }
 
   async getCharacterMilestones() {
-    let resp
+    let resp: BungieAPICharacterMilestoneResponse
     try {
-      resp = await this.callApi({
+      resp = (await this.callApi({
         path: `/Destiny2/${this.membershipType}/Profile/${this.membershipId}`,
         components: ['CharacterProgressions'],
-      })
+      })) as BungieAPICharacterMilestoneResponse
     } catch (e) {
       console.error(`Failed to call bungie platform api ${e}`)
       throw e
     }
-    if (resp.Message === 'Ok') {
+    if (resp.Message === 'Ok' && this.characterId) {
       return resp.Response?.characterProgressions?.data[this.characterId]
         ?.milestones
     } else {

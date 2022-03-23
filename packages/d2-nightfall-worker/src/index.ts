@@ -1,3 +1,4 @@
+import { isAuthorized } from '@the-traveler-times/utils'
 import {
   PublicMilestoneHandler,
   ActivityHandler,
@@ -13,7 +14,6 @@ import {
   getIsGrandmasterStartWeek,
   getStrikeReward,
 } from './NightfallHandler'
-import { isAuthorized } from '@the-traveler-times/utils'
 
 export default {
   async fetch(request: Request, env: CloudflareEnvironment) {

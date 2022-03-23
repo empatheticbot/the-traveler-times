@@ -12,7 +12,7 @@ export default class SeasonHandler {
     this.definitionHandler = new DefinitionHandler()
   }
 
-  async init(bungieApiEnv: CloudflareEnvironment) {
+  async init(bungieApiEnv: KVNamespace) {
     await this.bungieAPIHandler.init(bungieApiEnv)
     await this.definitionHandler.init(bungieApiEnv)
     this.seasonsInfo = await this.definitionHandler.getDefinitions(
