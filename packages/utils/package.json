@@ -7,6 +7,7 @@
   "homepage": "https://github.com/empatheticbot/the-traveler-times/tree/main/packages/utils#readme",
   "license": "UNLICENSED",
   "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -19,7 +20,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean && rollup -c",
+    "build": "npm run clean && rollup -c && tsc --emitDeclarationOnly",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write '**/*.{js,ts,njk,html,css,json,md}'"
   },

@@ -1,0 +1,3 @@
+interface SeasonOverrides {
+  grandMasterStartDate: string
+}

@@ -50,7 +50,9 @@
         },
         "acquireRewardSiteHash": 0,
         "acquireUnlockHash": 0,
-        "summary": { "sortPriority": 400 },
+        "summary": {
+          "sortPriority": 400
+        },
         "investmentStats": [],
         "perks": [],
         "allowActions": true,
@@ -106,7 +108,9 @@
         },
         "acquireRewardSiteHash": 0,
         "acquireUnlockHash": 0,
-        "summary": { "sortPriority": 400 },
+        "summary": {
+          "sortPriority": 400
+        },
         "investmentStats": [],
         "perks": [],
         "allowActions": true,
@@ -482,9 +486,7 @@
         "index": 103,
         "redacted": false,
         "blacklisted": false
-      },
-      null,
-      null
+      }
     ],
     "isPlaylist": false,
     "challenges": [],
@@ -511,26 +513,6 @@
     "redacted": false,
     "blacklisted": false,
     "modifiersOfInterest": {
-      "champions": [
-        {
-          "name": "Champion Foes",
-          "icon": "/common/destiny2_content/icons/13a6cd6b01da71468f38c79c9534ad83.png",
-          "description": "You will face [Shield-Piercing] Barrier and [Disruption] Overload Champions.",
-          "hash": 3392797826
-        },
-        {
-          "name": "Champion Foes",
-          "icon": "/common/destiny2_content/icons/13a6cd6b01da71468f38c79c9534ad83.png",
-          "description": "You will face [Shield-Piercing] Barrier and [Disruption] Overload Champions.\n\nYou must equip Anti-Barrier and Anti-Overload mods to your arms armor to defeat them. These mods come from the Seasonal Artifact.",
-          "hash": 3462015812
-        },
-        {
-          "name": "Mob",
-          "icon": "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png",
-          "description": "This mode contains additional Champions.",
-          "hash": 3531595760
-        }
-      ],
       "damage": [
         {
           "damageType": "arc",
@@ -544,69 +526,39 @@
       ],
       "misc": [
         {
-          "name": "Limited Revives",
-          "icon": "/common/destiny2_content/icons/be42fd65184d2a22579a170ff1abed28.png",
-          "description": "Limited fireteam revives. Gain additional revives by defeating Champions.",
-          "hash": 356012132
-        },
-        {
-          "name": "Match Game",
-          "icon": "/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png",
-          "description": "Enemy shields are highly resistant to all unmatched elemental damage.",
-          "hash": 657164207
-        },
-        {
           "name": "Hot Knife",
           "icon": "/common/destiny2_content/icons/2e33702388430d35daf00ea364890a88.png",
           "description": "Shanks now have Solar shields",
           "hash": 885505259
         },
         {
-          "name": "Shielded Foes",
-          "icon": "/common/destiny2_content/icons/2e33702388430d35daf00ea364890a88.png",
-          "description": "[Solar] Solar Shields",
-          "hash": 1208695820
-        },
-        {
-          "name": "Equipment Locked",
-          "icon": "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png",
-          "description": "You will not be able to change your equipment after this activity starts.",
-          "hash": 1406852142
-        },
-        {
-          "name": "Master Modifiers",
-          "icon": "/common/destiny2_content/icons/05546f508343b402f6499fee3b29ed5c.png",
-          "description": "Champions: Mob\nLocked Loadout\nMatch Game\nExtra Shields",
-          "hash": 1441935103
-        },
-        {
           "name": "Attrition",
           "icon": "/common/destiny2_content/icons/3776182414b5df7ea146b2c9b131a572.png",
           "description": "Regeneration is greatly impaired. Defeating enemies may create wells of Light.",
           "hash": 1892404710
-        },
-        {
-          "name": "Shielded Foes",
-          "icon": "/common/destiny2_content/icons/2e33702388430d35daf00ea364890a88.png",
-          "description": "You will face combatants with [Solar] Solar Shields.\n\nActivity modifiers may add more shield types.",
-          "hash": 2016159242
-        },
-        { "name": "", "description": "", "hash": 2095017004 },
-        { "name": "", "description": "", "hash": 2226420346 },
-        {
-          "name": "Champion Foes",
-          "icon": "/common/destiny2_content/icons/13a6cd6b01da71468f38c79c9534ad83.png",
-          "description": "You will face [Shield-Piercing] Barrier and [Disruption] Overload Champions.",
-          "hash": 3392797826
-        },
-        {
-          "name": "Champion Foes",
-          "icon": "/common/destiny2_content/icons/13a6cd6b01da71468f38c79c9534ad83.png",
-          "description": "You will face [Shield-Piercing] Barrier and [Disruption] Overload Champions.\n\nYou must equip Anti-Barrier and Anti-Overload mods to your arms armor to defeat them. These mods come from the Seasonal Artifact.",
-          "hash": 3462015812
         }
       ],
-      "common": []
+      "common": [],
+      "champions": [
+        {
+          "name": "Barrier",
+          "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+          "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+          "hash": 3674284440
+        },
+        {
+          "name": "Overload",
+          "icon": "/common/destiny2_content/icons/c4d9c4f1ec3167e272286bb155dc15f4.png",
+          "description": "This mode contains Overload Champions, which cannot be stopped without an Overload mod.",
+          "hash": 2631129878
+        },
+        {
+          "name": "Mob",
+          "icon": "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png",
+          "description": "This mode contains additional Champions.",
+          "hash": 3531595760
+        }
+      ]
     },
     "shields": [
       {
@@ -614,6 +566,86 @@
         "name": "Solar",
         "hash": 1847026933,
         "icon": "/common/destiny2_content/icons/DestinyDamageTypeDefinition_2a1773e10968f2d088b97c22b22bba9e.png"
+      }
+    ],
+    "champions": [
+      {
+        "displayProperties": {
+          "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+          "name": "Champions: Barrier",
+          "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+          "iconSequences": [
+            {
+              "frames": [
+                "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+              ]
+            },
+            {
+              "frames": [
+                "/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"
+              ]
+            }
+          ],
+          "hasIcon": true
+        },
+        "displayInNavMode": true,
+        "displayInActivitySelection": true,
+        "hash": 3674284440,
+        "index": 85,
+        "redacted": false,
+        "blacklisted": false
+      },
+      {
+        "displayProperties": {
+          "description": "This mode contains Overload Champions, which cannot be stopped without an Overload mod.",
+          "name": "Champions: Overload",
+          "icon": "/common/destiny2_content/icons/c4d9c4f1ec3167e272286bb155dc15f4.png",
+          "iconSequences": [
+            {
+              "frames": [
+                "/common/destiny2_content/icons/c4d9c4f1ec3167e272286bb155dc15f4.png"
+              ]
+            },
+            {
+              "frames": [
+                "/common/destiny2_content/icons/9208b941f44b44d05e605fccaee7241b.png"
+              ]
+            }
+          ],
+          "hasIcon": true
+        },
+        "displayInNavMode": true,
+        "displayInActivitySelection": true,
+        "hash": 2631129878,
+        "index": 83,
+        "redacted": false,
+        "blacklisted": false
+      },
+      {
+        "displayProperties": {
+          "description": "This mode contains additional Champions.",
+          "name": "Champions: Mob",
+          "icon": "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png",
+          "iconSequences": [
+            {
+              "frames": [
+                "/common/destiny2_content/icons/b9955d70ff4eea2500e3972b30bbd62b.png"
+              ]
+            },
+            {
+              "frames": [
+                "/common/destiny2_content/icons/efc32267a9f1c53719c88d02a23d5b36.png"
+              ]
+            }
+          ],
+          "hasIcon": true
+        },
+        "displayInNavMode": false,
+        "displayInActivitySelection": true,
+        "hash": 3531595760,
+        "index": 22,
+        "redacted": false,
+        "blacklisted": false
       }
     ],
     "destination": {
@@ -624,7 +656,11 @@
       },
       "placeHash": 677774031,
       "defaultFreeroamActivityHash": 506197732,
-      "activityGraphEntries": [{ "activityGraphHash": 677774031 }],
+      "activityGraphEntries": [
+        {
+          "activityGraphHash": 677774031
+        }
+      ],
       "bubbleSettings": [
         {
           "displayProperties": {
@@ -1090,7 +1126,9 @@
         },
         "acquireRewardSiteHash": 0,
         "acquireUnlockHash": 0,
-        "summary": { "sortPriority": 400 },
+        "summary": {
+          "sortPriority": 400
+        },
         "investmentStats": [],
         "perks": [],
         "allowActions": true,
@@ -1146,7 +1184,9 @@
         },
         "acquireRewardSiteHash": 0,
         "acquireUnlockHash": 0,
-        "summary": { "sortPriority": 400 },
+        "summary": {
+          "sortPriority": 400
+        },
         "investmentStats": [],
         "perks": [],
         "allowActions": true,
@@ -1469,9 +1509,7 @@
         "index": 103,
         "redacted": false,
         "blacklisted": false
-      },
-      null,
-      null
+      }
     ],
     "isPlaylist": false,
     "challenges": [],
@@ -1504,20 +1542,6 @@
     "redacted": false,
     "blacklisted": false,
     "modifiersOfInterest": {
-      "champions": [
-        {
-          "name": "Champion Foes",
-          "icon": "/common/destiny2_content/icons/13a6cd6b01da71468f38c79c9534ad83.png",
-          "description": "You will face [Shield-Piercing] Barrier and [Disruption] Overload Champions.",
-          "hash": 3392797826
-        },
-        {
-          "name": "Champion Foes",
-          "icon": "/common/destiny2_content/icons/13a6cd6b01da71468f38c79c9534ad83.png",
-          "description": "You will face [Shield-Piercing] Barrier and [Disruption] Overload Champions.\n\nYou must equip Anti-Barrier and Anti-Overload mods to your arms armor to defeat them. These mods come from the Seasonal Artifact.",
-          "hash": 3462015812
-        }
-      ],
       "damage": [
         {
           "damageType": "arc",
@@ -1531,63 +1555,33 @@
       ],
       "misc": [
         {
-          "name": "Limited Revives",
-          "icon": "/common/destiny2_content/icons/be42fd65184d2a22579a170ff1abed28.png",
-          "description": "Limited fireteam revives. Gain additional revives by defeating Champions.",
-          "hash": 356012132
-        },
-        {
-          "name": "Match Game",
-          "icon": "/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png",
-          "description": "Enemy shields are highly resistant to all unmatched elemental damage.",
-          "hash": 657164207
-        },
-        {
           "name": "Hot Knife",
           "icon": "/common/destiny2_content/icons/2e33702388430d35daf00ea364890a88.png",
           "description": "Shanks now have Solar shields",
           "hash": 885505259
         },
         {
-          "name": "Shielded Foes",
-          "icon": "/common/destiny2_content/icons/2e33702388430d35daf00ea364890a88.png",
-          "description": "[Solar] Solar Shields",
-          "hash": 1208695820
-        },
-        {
-          "name": "Equipment Locked",
-          "icon": "/common/destiny2_content/icons/3e2501508484b8531f31ca4cea497110.png",
-          "description": "You will not be able to change your equipment after this activity starts.",
-          "hash": 1406852142
-        },
-        {
           "name": "Legend Modifiers",
           "icon": "/common/destiny2_content/icons/45f40693f3014d50ea78d5f3f8fe2e04.png",
           "description": "Locked Loadout\nMatch Game\nExtra Shields",
           "hash": 1697524957
-        },
-        {
-          "name": "Shielded Foes",
-          "icon": "/common/destiny2_content/icons/2e33702388430d35daf00ea364890a88.png",
-          "description": "You will face combatants with [Solar] Solar Shields.\n\nActivity modifiers may add more shield types.",
-          "hash": 2016159242
-        },
-        { "name": "", "description": "", "hash": 2095017004 },
-        { "name": "", "description": "", "hash": 2226420346 },
-        {
-          "name": "Champion Foes",
-          "icon": "/common/destiny2_content/icons/13a6cd6b01da71468f38c79c9534ad83.png",
-          "description": "You will face [Shield-Piercing] Barrier and [Disruption] Overload Champions.",
-          "hash": 3392797826
-        },
-        {
-          "name": "Champion Foes",
-          "icon": "/common/destiny2_content/icons/13a6cd6b01da71468f38c79c9534ad83.png",
-          "description": "You will face [Shield-Piercing] Barrier and [Disruption] Overload Champions.\n\nYou must equip Anti-Barrier and Anti-Overload mods to your arms armor to defeat them. These mods come from the Seasonal Artifact.",
-          "hash": 3462015812
         }
       ],
-      "common": []
+      "common": [],
+      "champions": [
+        {
+          "name": "Barrier",
+          "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+          "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+          "hash": 3674284440
+        },
+        {
+          "name": "Overload",
+          "icon": "/common/destiny2_content/icons/c4d9c4f1ec3167e272286bb155dc15f4.png",
+          "description": "This mode contains Overload Champions, which cannot be stopped without an Overload mod.",
+          "hash": 2631129878
+        }
+      ]
     },
     "shields": [
       {
@@ -1595,6 +1589,60 @@
         "name": "Solar",
         "hash": 1847026933,
         "icon": "/common/destiny2_content/icons/DestinyDamageTypeDefinition_2a1773e10968f2d088b97c22b22bba9e.png"
+      }
+    ],
+    "champions": [
+      {
+        "displayProperties": {
+          "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod.",
+          "name": "Champions: Barrier",
+          "icon": "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png",
+          "iconSequences": [
+            {
+              "frames": [
+                "/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+              ]
+            },
+            {
+              "frames": [
+                "/common/destiny2_content/icons/ee9ddc5d1bef17762d27ac9f5d206924.png"
+              ]
+            }
+          ],
+          "hasIcon": true
+        },
+        "displayInNavMode": true,
+        "displayInActivitySelection": true,
+        "hash": 3674284440,
+        "index": 85,
+        "redacted": false,
+        "blacklisted": false
+      },
+      {
+        "displayProperties": {
+          "description": "This mode contains Overload Champions, which cannot be stopped without an Overload mod.",
+          "name": "Champions: Overload",
+          "icon": "/common/destiny2_content/icons/c4d9c4f1ec3167e272286bb155dc15f4.png",
+          "iconSequences": [
+            {
+              "frames": [
+                "/common/destiny2_content/icons/c4d9c4f1ec3167e272286bb155dc15f4.png"
+              ]
+            },
+            {
+              "frames": [
+                "/common/destiny2_content/icons/9208b941f44b44d05e605fccaee7241b.png"
+              ]
+            }
+          ],
+          "hasIcon": true
+        },
+        "displayInNavMode": true,
+        "displayInActivitySelection": true,
+        "hash": 2631129878,
+        "index": 83,
+        "redacted": false,
+        "blacklisted": false
       }
     ],
     "destination": {
@@ -1605,7 +1653,11 @@
       },
       "placeHash": 677774031,
       "defaultFreeroamActivityHash": 506197732,
-      "activityGraphEntries": [{ "activityGraphHash": 677774031 }],
+      "activityGraphEntries": [
+        {
+          "activityGraphHash": 677774031
+        }
+      ],
       "bubbleSettings": [
         {
           "displayProperties": {

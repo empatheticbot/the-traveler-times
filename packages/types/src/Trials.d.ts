@@ -1,0 +1,3 @@
+interface TrialsReward {}
+
+interface TrialsMap {}

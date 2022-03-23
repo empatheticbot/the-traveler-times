@@ -1,10 +1,9 @@
 {
-  "extends": "@tsconfig/node14/tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "include": ["./src/**/*"],
   "compilerOptions": {
-    "allowJs": true,
-    "target": "esnext",
-    "module": "esnext",
-    "lib": ["esnext", "webworker"]
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "declarationDir": "./dist"
   }
 }

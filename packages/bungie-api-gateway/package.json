@@ -7,6 +7,7 @@
   "license": "UNLICENSED",
   "module": "dist/index.mjs",
   "main": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "private": true,
   "files": [
     "dist"
@@ -17,7 +18,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean && rollup -c",
+    "build": "npm run clean && rollup -c && tsc --emitDeclarationOnly",
     "start": "npm run clean && rollup -c --watch",
     "test": "echo \"Error: run tests from root\" && exit 1",
     "format": "prettier --write '**/*.{js,ts,njk,html,css,json,md}'"

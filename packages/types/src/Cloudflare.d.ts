@@ -4,4 +4,5 @@ interface CloudflareEnvironment {
   BUNGIE_API: KVNamespace
   PGCR_DURABLE_OBJECT: DurableObjectNamespace
   TWITTER_API: KVNamespace
+  TTT_API_KEY: string
 }

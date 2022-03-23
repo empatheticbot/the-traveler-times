@@ -1,0 +1,18 @@
+{
+  "extends": "@tsconfig/node14/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "composite": true,
+    "allowJs": true,
+    "moduleResolution": "Node",
+    "declaration": true,
+    "esModuleInterop": true,
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["esnext", "webworker"],
+    "types": ["@cloudflare/workers-types", "@the-traveler-times/types"],
+    "paths": {
+      "@the-traveler-times/*": ["packages/*"]
+    }
+  }
+}

@@ -6,7 +6,6 @@
   "author": "Steve Ledsworth <sledsworth@gmail.com>",
   "homepage": "https://github.com/empatheticbot/the-traveler-times/tree/main/packages/utils#readme",
   "license": "UNLICENSED",
-  "main": "src/index.d.ts",
   "types": "src/index.d.ts",
   "files": [
     "src"

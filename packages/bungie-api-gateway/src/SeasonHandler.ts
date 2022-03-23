@@ -4,11 +4,16 @@ import BungieAPIHandler from './BungieAPIHandler'
 
 export default class SeasonHandler {
   seasonsInfo: unknown
+  bungieAPIHandler: BungieAPIHandler
+  definitionHandler: DefinitionHandler
 
-  async init(bungieApiEnv) {
+  constructor() {
     this.bungieAPIHandler = new BungieAPIHandler()
-    await this.bungieAPIHandler.init(bungieApiEnv)
     this.definitionHandler = new DefinitionHandler()
+  }
+
+  async init(bungieApiEnv: CloudflareEnvironment) {
+    await this.bungieAPIHandler.init(bungieApiEnv)
     await this.definitionHandler.init(bungieApiEnv)
     this.seasonsInfo = await this.definitionHandler.getDefinitions(
       'DestinySeasonDefinition'
