@@ -1,5 +1,6 @@
 import { isAuthorized } from '@the-traveler-times/utils'
 import {
+  ActivityHandler,
   DefinitionHandler,
   dateUtilities,
 } from '@the-traveler-times/bungie-api-gateway'
@@ -22,6 +23,8 @@ const modifierIgnoreList = [
   1626706410, // Shielded Foes
   2016159242, // Shielded Foes
   1208695820, // Shielded Foes
+  3047797310, // Shielded Foes
+  1612795492, // Shielded Foes
 ]
 
 const commonModifiers = [
