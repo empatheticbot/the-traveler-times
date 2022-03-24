@@ -1,6 +1,5 @@
 import { isAuthorized } from '@the-traveler-times/utils'
 import {
-  ActivityHandler,
   DefinitionHandler,
   dateUtilities,
 } from '@the-traveler-times/bungie-api-gateway'

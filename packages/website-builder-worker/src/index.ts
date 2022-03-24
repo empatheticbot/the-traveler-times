@@ -1,6 +1,6 @@
 import { isAuthorized } from '@the-traveler-times/utils'
 
-async function buildTravelerTimesWebsite(request, env) {
+async function buildTravelerTimesWebsite(env: CloudflareEnvironment) {
   const account_id = env.ACCOUNT_ID
   const pages_id = env.PAGES_ID
   const init = {
@@ -17,19 +17,29 @@ async function buildTravelerTimesWebsite(request, env) {
   )
 }
 
-function shouldDeleteDeployment(deployment: { created_on: string }): boolean {
+function shouldDeleteDeployment(deployment: CloudflareDeployment): boolean {
+  const isDeploymentSuccessful = isSuccessfulProductionDeploy(deployment)
   const deploymentDate = new Date(deployment.created_on)
   const hour = deploymentDate.getUTCHours()
-  return hour !== 17
+  return hour !== 17 || !isDeploymentSuccessful
+}
+
+function isSuccessfulProductionDeploy(
+  deployment: CloudflareDeployment
+): boolean {
+  const isInProduction = deployment.environment === 'production'
+  const isLatestStageDeployment = deployment.latest_stage.name === 'deploy'
+  const isLatestStageFinished = deployment.latest_stage.status === 'success'
+  return isInProduction && isLatestStageDeployment && isLatestStageFinished
 }
 
 async function getDeployments(
-  env,
+  env: CloudflareEnvironment,
   page = 1,
   perPage = 15,
   sortOrder = 'asc',
   sortBy = 'created_on'
-) {
+): Promise<CloudflareDeployment[]> {
   const account_id = env.ACCOUNT_ID
   const pages_id = env.PAGES_ID
   const init = {
@@ -45,13 +55,13 @@ async function getDeployments(
   url.searchParams.set('per_page', perPage.toString())
   const response = await fetch(url.toString(), init)
   if (response.ok) {
-    const data = await response.json()
-    return data.result
+    const data: { result: unknown } = await response.json()
+    return data.result as CloudflareDeployment[]
   }
   return []
 }
 
-async function deleteDeploy(env, id) {
+async function deleteDeploy(env: CloudflareEnvironment, id: string) {
   const account_id = env.ACCOUNT_ID
   const pages_id = env.PAGES_ID
   const init = {
@@ -61,35 +71,48 @@ async function deleteDeploy(env, id) {
       'X-Auth-Email': env.SECRET_AUTH_EMAIL,
     },
   }
-  const response = await fetch(
+  const response: Response = await fetch(
     `https://api.cloudflare.com/client/v4/accounts/${account_id}/pages/projects/${pages_id}/deployments/${id}`,
     init
   )
   if (response.ok) {
-    const data = await response.json()
+    const data: { success: String; errors: string } = await response.json()
     console.log(id, ': ', data.success, data.errors)
     return data
   }
   console.log(id, 'failed', response.ok, response.status)
 }
 
-async function cleanUpOldDeployments(env, pageNumber) {
+async function cleanUpOldDeployments(
+  env: CloudflareEnvironment,
+  pageNumber: number
+) {
+  let hasSavedMostRecentSuccessfulBuild = pageNumber !== 1
   const deployments = await getDeployments(env, pageNumber)
-  if (pageNumber === 1) {
-    deployments.shift()
+  const toBeDeletedDeployments: CloudflareDeployment[] = []
+  for (const deployment of deployments) {
+    if (
+      hasSavedMostRecentSuccessfulBuild &&
+      shouldDeleteDeployment(deployment)
+    ) {
+      toBeDeletedDeployments.push(deployment)
+    } else if (
+      !hasSavedMostRecentSuccessfulBuild &&
+      isSuccessfulProductionDeploy(deployment)
+    ) {
+      hasSavedMostRecentSuccessfulBuild = true
+      continue
+    }
   }
-  const filteredDeployments = deployments.filter(
-    (deployment: { created_on: string }) => shouldDeleteDeployment(deployment)
-  )
   const deletes = []
-  for (const deployment of filteredDeployments) {
+  for (const deployment of toBeDeletedDeployments) {
     deletes.push(deleteDeploy(env, deployment.id))
   }
   return Promise.all(deletes)
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request: Request, env: CloudflareEnvironment) {
     if (!isAuthorized(request, env)) {
       return new Response('Unauthorized', { status: 401 })
     }
@@ -98,14 +121,14 @@ export default {
       await cleanUpOldDeployments(env, pageNumber)
       pageNumber += 1
     }
-    return buildTravelerTimesWebsite(request, env)
+    return buildTravelerTimesWebsite(env)
   },
-  async scheduled(event, env) {
+  async scheduled(event: Event, env: CloudflareEnvironment) {
     let pageNumber = 1
     while (pageNumber < 4) {
       await cleanUpOldDeployments(env, pageNumber)
       pageNumber += 1
     }
-    return buildTravelerTimesWebsite(null, env)
+    return buildTravelerTimesWebsite(env)
   },
 }

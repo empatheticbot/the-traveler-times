@@ -1,3 +1,4 @@
+import { isAuthorized } from '@the-traveler-times/utils'
 import {
   DefinitionHandler,
   // VendorHandler,
@@ -6,7 +7,6 @@ import {
   getStrippedItem,
   dateUtilities,
 } from '@the-traveler-times/bungie-api-gateway'
-import { isAuthorized } from '@the-traveler-times/utils'
 
 export default {
   async fetch(request: Request, env: CloudflareEnvironment) {
