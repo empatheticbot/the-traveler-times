@@ -2,14 +2,18 @@ import BungieAPIHandler from './BungieAPIHandler'
 import { SocketPlugSources } from './Masks'
 
 export default class DefinitionHandler {
-  inFlightDefinitionRequests = {}
+  inFlightDefinitionRequests: { [index: string]: unknown } = {}
+  bungieAPIHandler
 
-  async init(bungieApiEnv) {
+  constructor() {
     this.bungieAPIHandler = new BungieAPIHandler()
+  }
+
+  async init(bungieApiEnv: KVNamespace) {
     await this.bungieAPIHandler.init(bungieApiEnv)
   }
 
-  async getDefinitions(definitionName) {
+  async getDefinitions(definitionName: string) {
     let definitions = this.inFlightDefinitionRequests[definitionName]
 
     if (definitions) {

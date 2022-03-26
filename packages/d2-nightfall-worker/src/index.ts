@@ -64,7 +64,7 @@ export default {
 
       if (!isGrandmasterAvailable) {
         modifierGroups = modifierGroups.filter(
-          (modifier) => modifier.name !== 'Grandmaster'
+          (modifier) => modifier.group !== 'Grandmaster'
         )
       }
 

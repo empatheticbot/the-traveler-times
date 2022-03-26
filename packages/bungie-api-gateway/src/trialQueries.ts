@@ -118,4 +118,9 @@ export const rewards = [
       "trials flawless reward (Exile OR Curse OR exiles OR exile's)",
     hash: '276080079',
   },
+  {
+    reward: "Aisha's Embrace (Adept) ",
+    twitterQuery: 'trials reward aisha embrace',
+    hash: '2432138634',
+  },
 ]

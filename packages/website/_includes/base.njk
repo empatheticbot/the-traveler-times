@@ -91,7 +91,7 @@
     </script>
     <script>
       async function fetchWarningBanner() {
-        const bannerData = await fetch('/api/banner');
+        const bannerData = await fetch('/api/banner')
         if (bannerData.ok) {
           const {warning} = await bannerData.json()
           if (warning) {

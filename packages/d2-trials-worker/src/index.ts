@@ -57,12 +57,15 @@ export default {
       if (isAvailable) {
         const currentDate = new Date()
         const twitterSearchStartDate = new Date(lastWeekendReset)
-
         let twitterSearchEndDate: Date | undefined = new Date(
           twitterSearchStartDate
         )
         twitterSearchEndDate.setHours(twitterSearchEndDate.getHours() + 2)
 
+        console.log(
+          twitterSearchStartDate.toString(),
+          twitterSearchEndDate.toString()
+        )
         twitterSearchEndDate =
           twitterSearchEndDate > currentDate
             ? currentDate

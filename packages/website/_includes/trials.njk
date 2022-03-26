@@ -19,7 +19,7 @@
         <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
           {% for item in trials.rewards %}
             <li class="">
-              {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
+              {{ items.inventoryItem(item.displayProperties.name, item.itemTypeDisplayName, icon=item.displayProperties.icon) }}
             </li>
           {% endfor %}
         </ul>

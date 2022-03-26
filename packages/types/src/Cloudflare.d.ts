@@ -14,4 +14,11 @@ interface CloudflareEnvironment {
 interface CloudflareDeployment {
   created_on: string
   id: string
+  environment: string
+  latest_stage: {
+    name: string
+    started_on: string
+    ended_on: string
+    status: string
+  }
 }
