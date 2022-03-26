@@ -24,7 +24,7 @@
         <ul role="list" class="lost-sector-list lost-sector-rewards-list sub-section">
           {% for item in nightfall.rewards %}
             <li class="sub-section-item">
-              {{ items.inventoryItem(item.displayProperties.name, item.displayProperties.description, icon=item.displayProperties.icon) }}
+              {{ items.inventoryItem(item.displayProperties.name, item.itemTypeDisplayName, icon=item.displayProperties.icon) }}
             </li>
           {% endfor %}
         </ul>
@@ -33,16 +33,16 @@
       {% endif %}
     </section>
     <section class="lost-sector-modifiers-container">
-      {% for name, modifiers in nightfall.modifierGroups | groupby("name") %}
+      {% for group, modifiers in nightfall.modifierGroups | groupby("group") %}
         {% if loop.index0 === 0 or loop.index0 === 2 %}
           <section class="modifiers-group">
           {% endif %}
           <section class="modifiers-group">
-            <h4 class="modifier-heading">{{name}}</h4>
+            <h4 class="modifier-heading">{{group}}</h4>
             <ul role="list" class="modifier-list">
               {% for modifier in modifiers %}
                 <li class="modifier">
-                  {{ items.modifier(modifier.displayProperties.name, modifier.displayProperties.description, icon=modifier.displayProperties.icon) }}
+                  {{ items.modifier(modifier.name, modifier.description, icon=modifier.icon) }}
                 </li>
               {% endfor %}
             </ul>

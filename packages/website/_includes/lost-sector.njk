@@ -19,12 +19,13 @@
     </ul>
   </section>
   <section class="lost-sector-modifiers-container">
-    {{ modifiers.modifierListLayout("Champions", lostSectorData.modifiersOfInterest.champions) }}
+    {{ modifiers.modifierListLayout("Champions", lostSectorData.expandedModifiers.champions) }}
     <section class="modifiers-group">
-    {{ modifiers.modifierListLayout("Shields", lostSectorData.shields) }}
-      {{ modifiers.modifierListLayout("Damage", lostSectorData.modifiersOfInterest.damage) }}
+    {{ modifiers.modifierListLayout("Shields", lostSectorData.expandedModifiers.shields) }}
+      {{ modifiers.modifierListLayout("Damage", lostSectorData.expandedModifiers.damage) }}
     </section>
-      {{ modifiers.modifierListLayout("Misc", lostSectorData.modifiersOfInterest.misc) }}
+      {{ modifiers.modifierListLayout("Misc", lostSectorData.expandedModifiers.misc) }}
+      {{ modifiers.modifierListLayout("Common", lostSectorData.expandedModifiers.common) }}
   </section>
   {% endcall %}
 {% endmacro %}
