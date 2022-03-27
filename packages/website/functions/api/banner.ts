@@ -1,5 +1,4 @@
 const BANNER_WARNING = 'BANNER_WARNING'
-const LAST_BUILD = 'LAST_BUILD'
 
 export async function onRequestGet({ env }) {
   let message = ''
@@ -14,7 +13,7 @@ export async function onRequestGet({ env }) {
     )
     const lastBuildData = await lastBuildResponse.json()
     if (lastBuildData.isBuildStale) {
-      message += `<p>We are experiencing issues retrieving data from Bungie. Information on the page may be out of date.</p>`
+      message += `<p>Bungie services are unavailable, information may be out of date.</p>`
     }
   } catch (e) {
     console.error(e)

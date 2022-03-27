@@ -146,6 +146,9 @@ li {
   visibility: visible;
   opacity: 1;
   transition: all 0.25s ease;
+  z-index: 100;
+  position: sticky;
+  top: 0;
 }
 
 .callout p {
