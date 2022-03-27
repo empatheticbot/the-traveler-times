@@ -71,25 +71,6 @@
       }, 1000 * 60 * 60);
     </script>
     <script>
-      const lastUpdated = new Date('{{computed.buildDate}}');
-      let isShowingError = false;
-
-      function updateLastUpdateStyle() {
-        const lastUpdatedElement = document.getElementById('site-last-updated');
-        const twoHoursAgo = new Date();
-        twoHoursAgo.setHours(twoHoursAgo.getHours() - 2);
-
-        if (lastUpdatedElement && lastUpdated < twoHoursAgo) {
-          lastUpdatedElement.style.color = 'var(--color-red)';
-          lastUpdatedElement.innerHTML = lastUpdatedElement.innerHTML + ' We are having trouble retrieving data from Bungie. The displayed information may not be accurate.';
-          isShowingError = true;
-        }
-      }
-
-      updateLastUpdateStyle();
-      setInterval(updateLastUpdateStyle, 1000 * 60);
-    </script>
-    <script>
       async function fetchWarningBanner() {
         const bannerData = await fetch('/api/banner')
         if (bannerData.ok) {

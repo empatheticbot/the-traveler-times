@@ -111,11 +111,41 @@ async function cleanUpOldDeployments(
   return Promise.all(deletes)
 }
 
+async function getBuildStatus(env: CloudflareEnvironment) {
+  const deployments = await getDeployments(env, 1)
+  const lastSuccessfulProductionDeploy = deployments.find((deployment) =>
+    isSuccessfulProductionDeploy(deployment)
+  )
+
+  if (!lastSuccessfulProductionDeploy) {
+    return new Response('No production builds found', { status: 401 })
+  }
+
+  const timeThreshold = new Date()
+  timeThreshold.setMinutes(timeThreshold.getMinutes() - 90)
+  const deploymentDate = new Date(lastSuccessfulProductionDeploy.modified_on)
+  const isBuildStale = deploymentDate < timeThreshold
+  return new Response(
+    JSON.stringify({
+      isBuildStale,
+      date: lastSuccessfulProductionDeploy.modified_on,
+      url: lastSuccessfulProductionDeploy.url,
+      details: lastSuccessfulProductionDeploy.latest_stage,
+    })
+  )
+}
+
 export default {
   async fetch(request: Request, env: CloudflareEnvironment) {
     if (!isAuthorized(request, env)) {
       return new Response('Unauthorized', { status: 401 })
     }
+
+    const url = new URL(request.url)
+    if (url.pathname === '/buildStatus') {
+      return getBuildStatus(env)
+    }
+
     let pageNumber = 1
     while (pageNumber < 4) {
       await cleanUpOldDeployments(env, pageNumber)

@@ -4,18 +4,28 @@ const LAST_BUILD = 'LAST_BUILD'
 export async function onRequestGet({ env }) {
   let message = ''
   try {
-    const warning = await env.LiveData.get(BANNER_WARNING)
-    const lastBuild = await env.LiveData.get(LAST_BUILD, 'json')
-    console.log(env, lastBuild, warning)
-    if (lastBuild?.status === 'failed') {
-      message += `<p>${lastBuild.message}</p>`
+    const lastBuildResponse = await fetch(
+      'https://website-builder-worker.empatheticbot.workers.dev/buildStatus',
+      {
+        headers: {
+          'TTT-API-KEY': env.TTT_API_KEY,
+        },
+      }
+    )
+    const lastBuildData = await lastBuildResponse.json()
+    if (lastBuildData.isBuildStale) {
+      message += `<p>We are experiencing issues retrieving data from Bungie. Information on the page may be out of date.</p>`
     }
+  } catch (e) {
+    console.error(e)
+  }
+  try {
+    const warning = await env.LiveData.get(BANNER_WARNING)
     if (warning) {
       message += warning
     }
     return new Response(JSON.stringify({ message }))
   } catch (e) {
-    console.log(e)
     return new Response(JSON.stringify({ message: e.message }), { status: 500 })
   }
 }
