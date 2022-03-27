@@ -143,7 +143,6 @@ li {
   align-items: center;
   justify-content: center;
   width: 100%;
-  transition: all 0.25s ease;
   z-index: 100;
   position: sticky;
   top: 0;
@@ -171,6 +170,7 @@ li {
 .show {
   visibility: visible;
   opacity: 1;
+  transition: all 0.25s ease;
 }
 
 .back-to-top {
