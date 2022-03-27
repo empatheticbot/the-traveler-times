@@ -26,7 +26,7 @@
     <meta name="twitter:creator" content="@sledsworth">
   </head>
   <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
-    <div class="callout warning hidden">
+    <div class="callout warning">
       <img class="warning--icon" alt="Caution icon triangle with exclamation mark" src="/assets/warning.svg"/>
     </div>
     <aside style="margin: .5rem 2rem 0; text-align: right;">
@@ -82,7 +82,7 @@
             warningCalloutBanner.append(bannerElement.body.firstChild)
             warningCalloutBanner
               .classList
-              .remove('hidden')
+              .add('show')
           }
         }
       }

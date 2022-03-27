@@ -143,12 +143,12 @@ li {
   align-items: center;
   justify-content: center;
   width: 100%;
-  visibility: visible;
-  opacity: 1;
   transition: all 0.25s ease;
   z-index: 100;
   position: sticky;
   top: 0;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .callout p {
@@ -168,9 +168,9 @@ li {
   margin-right: 1rem;
 }
 
-.hidden {
-  visibility: hidden;
-  opacity: 0;
+.show {
+  visibility: visible;
+  opacity: 1;
 }
 
 .back-to-top {
