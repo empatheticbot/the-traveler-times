@@ -72,7 +72,7 @@
     </script>
     <script>
       const lastUpdated = new Date('{{computed.buildDate}}');
-      const isShowingError = false;
+      let isShowingError = false;
 
       function updateLastUpdateStyle() {
         const lastUpdatedElement = document.getElementById('site-last-updated');
@@ -90,14 +90,29 @@
       setInterval(updateLastUpdateStyle, 1000 * 60);
     </script>
     <script>
+      async function fetchLastBuild() {
+        const lastBuildData = await fetch('/api/lastBuild')
+        if (lastBuildData.ok) {
+          const { status, message } = await lastBuildData.json()
+          if (status === 'failed') {
+            const warningCalloutBanner = document.querySelector('.callout.warning')
+            const parser = new DOMParser()
+            const bannerElement = parser.parseFromString(message, 'text/html')
+            warningCalloutBanner.append(bannerElement.body.firstChild)
+            warningCalloutBanner
+              .classList
+              .remove('hidden')
+          }
+        }
+      }
       async function fetchWarningBanner() {
         const bannerData = await fetch('/api/banner')
         if (bannerData.ok) {
-          const {warning} = await bannerData.json()
-          if (warning) {
+          const {message} = await bannerData.json()
+          if (message) {
             const warningCalloutBanner = document.querySelector('.callout.warning')
             const parser = new DOMParser()
-            const bannerElement = parser.parseFromString(warning, 'text/html')
+            const bannerElement = parser.parseFromString(message, 'text/html')
             warningCalloutBanner.append(bannerElement.body.firstChild)
             warningCalloutBanner
               .classList

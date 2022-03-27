@@ -5,7 +5,7 @@
   "main": "_site/index.js",
   "scripts": {
     "clean": "rm -rf _site",
-    "start": "NODE_ENV=develop eleventy --serve",
+    "start": "npx wrangler pages dev ./_site --live-reload --kv LiveData -- npm run start",
     "start:prod": "NODE_ENV=production eleventy --serve",
     "build": "NODE_ENV=production eleventy",
     "update": "npx npm-check -u"
