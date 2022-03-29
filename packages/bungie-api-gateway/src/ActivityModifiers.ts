@@ -8,8 +8,11 @@ export interface SimplifiedModifier {
 export const modifierIgnoreList = [
   2095017004, // Blank, probably Bungie bug
   2226420346, // Blank, probably Bungie bug
+  1783825372, // Blank, probably Bungie bug
+  782039530, // Blank, probably Bungie bug
   2821775453, // Master Modifiers
   1441935103, // Master Modifiers
+  3788294071, // Master Modifiers
   2301442403, // Legend Modifiers
   1697524957, // Legend Modifiers
   2779568867, // Hero Modifiers
@@ -25,20 +28,28 @@ export const shieldModifiers = [
   1612795492, // Shielded Foes
   2177381508, // Shielded Foes
   3168340598, // Shielded Foes
+  1651706850, // Shielded Foes
+  2288210988, // Shielded Foes
+  3538098588, // Shielded Foes
+  720259466, // Shielded Foes
 ]
 
 export const commonModifiers = [
   939324719, // Equipment Locked
   1406852142, // Equipment Locked
+  1598842522, // Equipment Locked
   3859784314, // Match Game
   657164207, // Match Game
+  2751349583, // Match Game
   376634891, // Limited Revives
   356012132, // Limited Revives
   2778077469, // Limited Revives
+  203094476, // Limited Revives
 ]
 
 export const championMobModifiers: number[] = [
   3531595760, // Champion Mob
+  97112028, // Champion Mob
   // '2687456355', // Champions: Cabal
   // '1930311099', // Champions: Vex
   // '3495411183', // Champions: Taken
@@ -56,6 +67,8 @@ export const championFoesModifiers: number[] = [
   4280142965, // Champion Foes
   1537847744, // Champion Foes
   1072191636, // Champion Foes
+  40182179, // Champion Foes
+  3307318061, // Champion Foes
 ]
 
 function parseBracketedString(text: string) {
@@ -93,14 +106,15 @@ export function getShieldModifiersHashes(modifiers: Modifier[]): number[] {
 
 function getChampionTypeHashes(modifier: Modifier): number[] {
   const championTypes: { [index: string]: number } = {
-    'Shield-Piercing': 3674284440,
-    Disruption: 2631129878,
-    Stagger: 1619309025,
+    'Shield-Piercing': 1974619026,
+    Disruption: 1201462052,
+    Stagger: 4218937993,
   }
   if (modifier?.displayProperties?.description) {
     const champions = parseBracketedString(
       modifier.displayProperties.description
     )
+    console.log(modifier?.displayProperties?.description, champions.toString())
     return champions
       .map((champion) => championTypes[champion])
       .filter((hash) => hash !== undefined)
@@ -129,14 +143,8 @@ export function getChampionModifiersHashes(modifiers: Modifier[]): number[] {
   return [...new Set(championModifiers)]
 }
 
-export function getModifiersOfInterest(modifiers: Modifier[]) {
-  const ignoredModifiers = [...championFoesModifiers, ...modifierIgnoreList]
-  return modifiers.filter(
-    (modifier) => !ignoredModifiers.includes(modifier.hash)
-  )
-}
-
 export function isDamageModifier(modifier: Modifier) {
+  console.log('des ', modifier.displayProperties.description)
   return modifier.displayProperties.description.includes('+50%')
 }
 
@@ -173,10 +181,11 @@ export function sortChampionModifiers(
   a: SimplifiedModifier,
   b: SimplifiedModifier
 ) {
-  if (a.name.includes('Mob')) {
+  console.log('name ', a.name, b.name)
+  if (a?.name?.includes('Mob')) {
     return 1
   }
-  if (b.name.includes('Mob')) {
+  if (b?.name?.includes('Mob')) {
     return -1
   }
   return a.name > b.name ? 1 : -1

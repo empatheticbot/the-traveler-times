@@ -19,6 +19,7 @@
   {% endif %}
 {% endmacro %}
 
+{% if vendors.isAvailable %}
 {% extends "components/article.njk" %}
 
 {% set title = "Vendors" %}
@@ -44,3 +45,4 @@
   </section>
 
 {% endblock %}
+{% endif %}
