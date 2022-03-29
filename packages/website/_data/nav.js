@@ -87,24 +87,26 @@ module.exports = async function () {
     `,
   })
 
-  if (nightfall.isGrandmasterStartWeek) {
-    updates.push({
-      date: cleanDate(nightfall.startDate),
-      markup: `
-      <p>
-      <a href="#nightfall">Grandmaster Nightfall</a> is now available.
-      </p>
-    `,
-    })
-  } else {
-    updates.push({
-      date: cleanDate(nightfall.startDate),
-      markup: `
+  if (nightfall.isAvailable) {
+    if (nightfall.isGrandmasterStartWeek) {
+      updates.push({
+        date: cleanDate(nightfall.startDate),
+        markup: `
         <p>
-        The weekly <a href="#nightfall">Nightfall</a> has been updated.
+        <a href="#nightfall">Grandmaster Nightfall</a> is now available.
         </p>
       `,
-    })
+      })
+    } else {
+      updates.push({
+        date: cleanDate(nightfall.startDate),
+        markup: `
+          <p>
+          The weekly <a href="#nightfall">Nightfall</a> has been updated.
+          </p>
+        `,
+      })
+    }
   }
 
   if (lostSector.isAvailable) {

@@ -6,10 +6,10 @@ export interface SimplifiedModifier {
 }
 
 export const modifierIgnoreList = [
-  2095017004, // Blank, probably Bungie bug
-  2226420346, // Blank, probably Bungie bug
-  1783825372, // Blank, probably Bungie bug
-  782039530, // Blank, probably Bungie bug
+  2095017004, // Blank modifier, probably Bungie bug 🤷‍♀️
+  2226420346, // Blank modifier, probably Bungie bug 🤷‍♀️
+  1783825372, // Blank modifier, probably Bungie bug 🤷‍♀️
+  782039530, // Blank modifier, probably Bungie bug 🤷‍♀️
   2821775453, // Master Modifiers
   1441935103, // Master Modifiers
   3788294071, // Master Modifiers
