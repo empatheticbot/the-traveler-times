@@ -32,6 +32,8 @@ export const shieldModifiers = [
   2288210988, // Shielded Foes
   3538098588, // Shielded Foes
   720259466, // Shielded Foes
+  1553093202, // Shielded Foes
+  2965677044, // Shielded Foes
 ]
 
 export const commonModifiers = [
@@ -50,6 +52,7 @@ export const commonModifiers = [
 export const championMobModifiers: number[] = [
   3531595760, // Champion Mob
   97112028, // Champion Mob
+  3788294071, // Champion Mob
   // '2687456355', // Champions: Cabal
   // '1930311099', // Champions: Vex
   // '3495411183', // Champions: Taken
@@ -69,6 +72,7 @@ export const championFoesModifiers: number[] = [
   1072191636, // Champion Foes
   40182179, // Champion Foes
   3307318061, // Champion Foes
+  197794292, // Champion Foes
 ]
 
 function parseBracketedString(text: string) {
