@@ -52,7 +52,6 @@ export const commonModifiers = [
 export const championMobModifiers: number[] = [
   3531595760, // Champion Mob
   97112028, // Champion Mob
-  3788294071, // Champion Mob
   // '2687456355', // Champions: Cabal
   // '1930311099', // Champions: Vex
   // '3495411183', // Champions: Taken
