@@ -10,11 +10,11 @@ currentPage: 'home'
 {% block content %}
   {% if weekly.isAvailable %}
     <section class="rail-1">
-      {% include 'trials.njk' %}
-      {% include 'iron-banner.njk' %}
       {% include 'vendors.njk' %}
     </section>
     <section class="rail-2">
+      {% include 'iron-banner.njk' %}
+      {% include 'trials.njk' %}
       {% include 'wellspring.njk' %}
       {% include 'nightfall.njk' %}
       {% include 'lost-sector.njk' %}
