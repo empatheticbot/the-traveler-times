@@ -72,6 +72,13 @@ export const championFoesModifiers: number[] = [
   40182179, // Champion Foes
   3307318061, // Champion Foes
   197794292, // Champion Foes
+  438106166, // Champion Foes
+  1598783516, // Champion Foes
+  1806568190, // Champion Foes
+  1990363418, // Champion Foes
+  2006149364, // Champion Foes
+  2475764450, // Champion Foes
+  4038464106, // Champion Foes
 ]
 
 function parseBracketedString(text: string) {
