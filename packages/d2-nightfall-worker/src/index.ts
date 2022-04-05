@@ -31,7 +31,10 @@ export default {
     await seasonHandler.init(env.BUNGIE_API)
     const currentSeasonId = seasonHandler.getCurrentSeasonId()
     const seasonOverrides: SeasonOverrides =
-      (await env.DESTINY_2_MANUAL_DATA.get(currentSeasonId, 'json')) || {}
+      (await env.DESTINY_2_MANUAL_DATA.get(
+        currentSeasonId.toString(),
+        'json'
+      )) || {}
 
     try {
       const nightfallMilestone =

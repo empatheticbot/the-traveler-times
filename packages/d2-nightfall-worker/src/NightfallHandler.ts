@@ -20,20 +20,23 @@ export function getGrandmasterAvailability(
   seasonOverrides: SeasonOverrides
 ): boolean {
   const grandmasterStartDateString = seasonOverrides?.grandmasterStartDate
+  console.log(grandmasterStartDateString)
   if (!grandmasterStartDateString) {
     return false
   }
   const today = new Date()
+  console.log(today)
   const grandmasterStartDate = new Date(grandmasterStartDateString)
   return today.valueOf() > grandmasterStartDate.valueOf()
 }
 
 export function getIsGrandmasterStartWeek(seasonOverrides: SeasonOverrides) {
   const isGrandmasterAvailable = getGrandmasterAvailability(seasonOverrides)
-  if (!isGrandmasterAvailable) {
+  const grandmasterStartDateString = seasonOverrides?.grandmasterStartDate
+  if (!isGrandmasterAvailable || !grandmasterStartDateString) {
     return false
   }
-  const grandmasterStartDate = new Date(seasonOverrides.grandMasterStartDate)
+  const grandmasterStartDate = new Date(grandmasterStartDateString)
   const today = new Date()
   today.setDate(today.getDate() - 7)
   return today.valueOf() < grandmasterStartDate.valueOf()

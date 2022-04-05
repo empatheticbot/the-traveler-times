@@ -19,10 +19,18 @@
     {% endif %}
     {% call section.section(nightfall.groupedActivities[0][0].displayProperties.description, "Strike", sectionDescription, nightfall.groupedActivities[0][0].pgcrImage) %}
     <section class="modifiers-group">
-      <h4 class="modifier-heading">Reward</h4>
+      <h4 class="modifier-heading">Rewards</h4>
       {% if nightfall.isRewardKnown %}
         <ul role="list" class="lost-sector-list lost-sector-rewards-list sub-section">
           {% for item in nightfall.rewards %}
+            <li class="sub-section-item">
+              {{ items.inventoryItem(item.displayProperties.name, item.itemTypeDisplayName, icon=item.displayProperties.icon) }}
+            </li>
+          {% endfor %}
+        </ul>
+        <h4 class="modifier-heading">Grandmaster Rewards</h4>
+        <ul role="list" class="lost-sector-list lost-sector-rewards-list sub-section">
+          {% for item in nightfall.grandmasterRewards %}
             <li class="sub-section-item">
               {{ items.inventoryItem(item.displayProperties.name, item.itemTypeDisplayName, icon=item.displayProperties.icon) }}
             </li>
