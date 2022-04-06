@@ -48,7 +48,7 @@
         </article>
       </details>
     {% endif %}
-    {% if sockets and sockets.length !== 0 %}
+    {% if false %}
       <details class="item-modifier-details">
         <summary class="small-label">Weapon Perks</summary>
         <article class="item-modifier-group-container">
@@ -77,8 +77,8 @@
 
 {% macro meta(item, effectiveness, loop) %}
   {{ inventoryItem(
-    name=item.name, 
-    subtitle=item.subtitle, 
+    name=item.name,
+    subtitle=item.subtitle,
     effectiveness=effectiveness,
     icon=item.icon,
     numbered=true,

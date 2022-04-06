@@ -114,7 +114,7 @@ module.exports = async function () {
       date: cleanDate(lostSector.startDate),
       markup: `
       <p>
-      The dialy solo <a href="#lost-sectors">Lost Sector</a> was updated.
+      The daily <a href="#lost-sectors">Lost Sector</a> was updated.
       </p>
       `,
     })
