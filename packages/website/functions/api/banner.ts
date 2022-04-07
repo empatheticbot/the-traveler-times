@@ -13,7 +13,7 @@ export async function onRequestGet({ env }) {
     )
     const lastBuildData = await lastBuildResponse.json()
     if (lastBuildData.isBuildStale) {
-      message += `<p>Bungie services are unavailable, information may be out of date.</p>`
+      message += `<p>We are experinecing some technical issues. Information may not be up to date.</p>`
     }
   } catch (e) {
     console.error(e)
