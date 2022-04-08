@@ -62,14 +62,8 @@ export default {
         )
         twitterSearchEndDate.setHours(twitterSearchEndDate.getHours() + 2)
 
-        console.log(
-          twitterSearchStartDate.toString(),
-          twitterSearchEndDate.toString()
-        )
         twitterSearchEndDate =
-          twitterSearchEndDate > currentDate
-            ? currentDate
-            : twitterSearchEndDate
+          twitterSearchEndDate > currentDate ? undefined : twitterSearchEndDate
 
         trialsRewards = await twitterHandler.getTrialsRewards(
           twitterSearchStartDate,
