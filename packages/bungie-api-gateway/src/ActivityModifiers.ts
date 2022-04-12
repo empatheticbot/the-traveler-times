@@ -38,6 +38,8 @@ export const shieldModifiers = [
   3230561446, // Shielded Foes
   2833087500, // Shielded Foes
   2650740350, // Shielded Foes
+  3139381566, // Shielded Foes
+  3171609188, // Shielded Foes
 ]
 
 export const commonModifiers = [
