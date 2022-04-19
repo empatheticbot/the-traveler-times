@@ -29,8 +29,17 @@ export const NightfallStrikeReward = {
 
 export const NightfallRewardPairs = [
   {
+    nightfall: [NightfallRewards.SiliconNeuroma],
+    grandmaster: [NightfallRewards.SiliconNeuromaAdept],
+  },
+  {
     nightfall: [NightfallRewards.TheComedian],
     grandmaster: [NightfallRewards.TheComedianAdept],
+    isUnknown: true,
+  },
+  {
+    nightfall: [NightfallRewards.TheHothead],
+    grandmaster: [NightfallRewards.TheHotheadAdept],
   },
   {
     nightfall: [NightfallRewards.DutyBound],
@@ -41,20 +50,14 @@ export const NightfallRewardPairs = [
     grandmaster: [NightfallRewards.SiliconNeuromaAdept],
   },
   {
-    nightfall: [NightfallRewards.TheHothead],
-    grandmaster: [NightfallRewards.TheHotheadAdept],
-    isUnknown: true,
-  },
-  {
     nightfall: [NightfallRewards.PlugOne, NightfallRewards.ThePalindrome],
     grandmaster: [
       NightfallRewards.PlugOneAdept,
       NightfallRewards.ThePalindromeAdept,
     ],
   },
-  // {
-  //   nightfall: [NightfallRewards.ThePalindrome],
-  //   grandmaster: [NightfallRewards.ThePalindromeAdept],
-  //   isUnknown: true,
-  // },
+  {
+    nightfall: [NightfallRewards.DutyBound],
+    grandmaster: [NightfallRewards.DutyBoundAdept],
+  },
 ]
