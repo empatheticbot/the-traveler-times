@@ -35,7 +35,6 @@ export const NightfallRewardPairs = [
   {
     nightfall: [NightfallRewards.TheComedian],
     grandmaster: [NightfallRewards.TheComedianAdept],
-    isUnknown: true,
   },
   {
     nightfall: [NightfallRewards.TheHothead],
