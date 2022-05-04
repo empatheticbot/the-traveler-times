@@ -118,6 +118,15 @@ module.exports = function (eleventyConfig) {
     })
   })
 
+  eleventyConfig.addFilter('iconUrl', (url) => {
+    console.log(url)
+    if (url.startsWith('/assets/')) {
+      return url
+    } else {
+      return `https://www.bungie.net${url}`
+    }
+  })
+
   eleventyConfig.addNunjucksAsyncShortcode('scss', async function (globs) {
     const entries = await fg(globs)
     let results = []

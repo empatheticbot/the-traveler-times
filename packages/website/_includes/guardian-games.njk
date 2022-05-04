@@ -1,0 +1,27 @@
+{% import "components/section.njk" as section %}
+{% import "components/items.njk" as items %}
+
+{% set guardianGames = weekly.guardianGames %}
+{% if guardianGames.isAvailable %}
+  {% extends "components/article.njk" %}
+
+  {% set title = guardianGames.displayProperties.name | safe %}
+  {% set id = "guardian-games" %}
+  {% set description = guardianGames.displayProperties.description %}
+  {% set displayDate = guardianGames.startDate %}
+
+  {% block content %}
+    {% call section.section(icon = guardianGames.image) %}
+    {% endcall %}
+    <section class="modifiers-group">
+      <h4 class="modifier-heading">Rewards</h4>
+      <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
+        {% for item in guardianGames.rewards %}
+          <li class="">
+            {{ items.inventoryItem(item.displayProperties.name, 'Legendary Submachine Gun', icon=item.displayProperties.icon) }}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endblock %}
+{% endif %}

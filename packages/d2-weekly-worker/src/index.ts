@@ -75,6 +75,41 @@ export default {
         ironBanner = { isAvailable: false }
       }
 
+      let guardianGamesMilestone
+      try {
+        guardianGamesMilestone =
+          await publicMilestoneHandler.getPublicMilestoneByHash(
+            Hashes.GUARDIAN_GAMES
+          )
+      } catch (e) {
+        console.log('Guardian Games not available.')
+      }
+
+      let guardianGames
+      if (guardianGamesMilestone) {
+        const milestone = await definitionHandler.getMilestone(
+          guardianGamesMilestone.milestoneHash
+        )
+        const activities = await definitionHandler.getActivities(
+          ...guardianGamesMilestone.activities.map(
+            (activity) => activity.activityHash
+          )
+        )
+        const rewards = await definitionHandler.getInventoryItems('3785032442')
+        guardianGames = {
+          ...guardianGamesMilestone,
+          ...milestone,
+          image: '/assets/guardian-games-2022.png',
+          rewards,
+          isAvailable: true,
+          activities,
+        }
+      } else {
+        guardianGames = {
+          isAvailable: false,
+        }
+      }
+
       let wellspringMilestone =
         await publicMilestoneHandler.getPublicMilestoneByHash(Hashes.WELLSPRING)
 
@@ -127,6 +162,7 @@ export default {
           lastWeekendReset,
           ironBanner,
           wellspring,
+          guardianGames,
           isAvailable: true,
         }),
         {

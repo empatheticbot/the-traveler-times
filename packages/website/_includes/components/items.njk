@@ -22,7 +22,7 @@
     {% endif %}
     <img
       loading="lazy"
-      src="https://www.bungie.net{{ icon | safe }}"
+      src="{{ icon | iconUrl }}"
       alt="Icon for the item {{ name | safe }}."
       class="item-icon"
       title="{{ name | safe }}">
