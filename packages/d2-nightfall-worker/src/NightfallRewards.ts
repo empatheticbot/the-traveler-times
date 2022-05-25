@@ -19,6 +19,10 @@ export enum NightfallRewards {
   SiliconNeuromaAdept = '1387987271',
   DutyBound = '435216110',
   DutyBoundAdept = '1135050595',
+  HorrorsLeast = '1071542914',
+  HorrorsLeastAdept = '1924276978',
+  DFA = '4238497225',
+  DFAAdept = '2006308129',
   Unknown = '773524094',
 }
 
@@ -31,22 +35,27 @@ export const NightfallRewardPairs = [
   {
     nightfall: [NightfallRewards.SiliconNeuroma],
     grandmaster: [NightfallRewards.SiliconNeuromaAdept],
+    isUnknown: true,
   },
   {
     nightfall: [NightfallRewards.TheComedian],
     grandmaster: [NightfallRewards.TheComedianAdept],
+    isUnknown: true,
   },
   {
     nightfall: [NightfallRewards.TheHothead],
     grandmaster: [NightfallRewards.TheHotheadAdept],
+    isUnknown: true,
   },
   {
     nightfall: [NightfallRewards.DutyBound],
     grandmaster: [NightfallRewards.DutyBoundAdept],
+    isUnknown: true,
   },
   {
     nightfall: [NightfallRewards.SiliconNeuroma],
     grandmaster: [NightfallRewards.SiliconNeuromaAdept],
+    isUnknown: true,
   },
   {
     nightfall: [NightfallRewards.PlugOne, NightfallRewards.ThePalindrome],
@@ -54,9 +63,11 @@ export const NightfallRewardPairs = [
       NightfallRewards.PlugOneAdept,
       NightfallRewards.ThePalindromeAdept,
     ],
+    isUnknown: true,
   },
   {
     nightfall: [NightfallRewards.DutyBound],
     grandmaster: [NightfallRewards.DutyBoundAdept],
+    isUnknown: true,
   },
 ]

@@ -1,6 +1,6 @@
 import { NightfallRewardPairs, NightfallStrikeReward } from './NightfallRewards'
 
-const startingDate = new Date('March 1, 2022 17:00:00 GMT')
+const startingDate = new Date('May 24, 2022 17:00:00 GMT')
 
 export function getCurrentNightfallRewardHashes() {
   const today = new Date()
