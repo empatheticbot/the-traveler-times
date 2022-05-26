@@ -3,6 +3,7 @@ const startingDate = new Date('May 24, 2022 17:00:00 GMT')
 const availableLostSectors = [
   { name: 'K1 Crew Quarters', master: '184186578', legend: '184186581' },
   { name: 'K1 Logistics', master: '567131519', legend: '567131512' },
+  { name: 'K1 Revelation', master: '3911969238', legend: '3911969233' },
   { name: 'Metamorphosis', master: '3678847134', legend: '3678847129' },
   { name: 'Sepulcher', master: '480864721', legend: '480864726' },
   { name: 'Extraction', master: '145221020', legend: '145221019' },
@@ -11,7 +12,6 @@ const availableLostSectors = [
   { name: "Aphelion's Rest", master: '1898610131', legend: '1898610132' },
   { name: 'Bay of Drowned Wishes', master: '660710120', legend: '660710127' },
   { name: 'Chamber of Starlight', master: '4206916276', legend: '4206916275' },
-  { name: 'K1 Revelation', master: '3911969238', legend: '3911969233' },
   // NOTE: Disabled Lost Sectors
   // { name: 'K1 Communion', master: '2829206720', legend: '2829206727' },
   // { name: 'Concealed Void', master: '912873274', legend: '912873277' },
