@@ -5,6 +5,7 @@ const availableLostSectors = [
   { name: 'K1 Logistics', master: '567131519', legend: '567131512' },
   { name: 'K1 Revelation', master: '3911969238', legend: '3911969233' },
   { name: 'K1 Communion', master: '2829206720', legend: '2829206727' },
+  { name: 'The Conflux', master: '1163502296', legend: '1163502303' },
   { name: 'Metamorphosis', master: '3678847134', legend: '3678847129' },
   { name: 'Sepulcher', master: '480864721', legend: '480864726' },
   { name: 'Extraction', master: '145221020', legend: '145221019' },
