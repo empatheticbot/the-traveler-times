@@ -83,39 +83,48 @@ export const maps = [
 
 export const rewards = [
   {
-    reward: "Shayura's Wrath",
-    twitterQuery: "trials flawless reward Shayura's Wrath",
-    hash: '2559492205',
+    reward: 'Burden Of Guilt',
+    twitterQuery: 'trials reward burden guilt',
+    hash: '1415290314',
   },
   {
+    reward: 'Forgiveness',
+    twitterQuery: 'trials reward forgiveness',
+    hash: '2284285250',
+  },
+  // {
+  //   reward: "Shayura's Wrath",
+  //   twitterQuery: "trials reward Shayura's Wrath",
+  //   hash: '2559492205',
+  // },
+  {
     reward: 'Eye of Sol',
-    twitterQuery: 'trials flawless reward Eye of Sol',
+    twitterQuery: 'trials reward Eye of Sol',
     hash: '2740905684',
   },
   {
     reward: "Reed's Regret",
-    twitterQuery: "trials flawless reward Reed's Regret",
+    twitterQuery: "trials reward Reed's Regret",
     hash: '751170008',
   },
   // {
-  //   reward: 'Igneous Hammerl',
-  //   twitterQuery: 'trials flawless reward Igneous Hammer',
+  //   reward: 'Igneous Hammer',
+  //   twitterQuery: 'trials reward Igneous Hammer',
   //   hash: '2527666306',
   // },
-  {
-    reward: 'The Messenger',
-    twitterQuery: 'trials flawless reward The Messenger',
-    hash: '98400473',
-  },
+  // {
+  //   reward: 'The Messenger',
+  //   twitterQuery: 'trials reward The Messenger',
+  //   hash: '98400473',
+  // },
   // {
   //   reward: "Sola's Scar",
-  //   twitterQuery: "trials flawless reward Sola's Scar",
+  //   twitterQuery: "trials reward Sola's Scar",
   //   hash: '1175310596',
   // },
   {
     reward: "Exile's Curse",
-    twitterQuery:
-      "trials flawless reward (Exile OR Curse OR exiles OR exile's)",
+    twitterQuery: "trials flawless (Exile OR Curse OR exiles OR exile's)",
     hash: '276080079',
   },
   {

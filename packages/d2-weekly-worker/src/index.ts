@@ -40,6 +40,8 @@ export default {
           ironBannerMilestone.milestoneHash
         )
         const ironBannerRewards = await definitionHandler.getInventoryItems(
+          2961807684, // The Wizened Rebuke
+          2909905776, // The Hero's Burden
           1141547457, // Frontier's Cry
           1796949035, // Razor's Edge
           829330711, // Peacebond
