@@ -37,6 +37,10 @@ export const NightfallRewardPairs = [
     grandmaster: [NightfallRewards.SiliconNeuromaAdept],
   },
   {
+    nightfall: [NightfallRewards.DFA],
+    grandmaster: [NightfallRewards.DFAAdept],
+  },
+  {
     nightfall: [NightfallRewards.TheComedian],
     grandmaster: [NightfallRewards.TheComedianAdept],
     isUnknown: true,
