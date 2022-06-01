@@ -9,6 +9,7 @@ const availableLostSectors = [
   { name: 'Metamorphosis', master: '3678847134', legend: '3678847129' },
   { name: 'Sepulcher', master: '480864721', legend: '480864726' },
   { name: 'Extraction', master: '145221020', legend: '145221019' },
+  { name: 'Excavation Site XII', master: '548616653', legend: '548616650' },
   { name: 'Veles Labyrinth', master: '3094493727', legend: '3094493720' },
   { name: 'Exodus Garden 2A', master: '2936791995', legend: '2936791996' },
   { name: "Aphelion's Rest", master: '1898610131', legend: '1898610132' },
@@ -21,7 +22,6 @@ const availableLostSectors = [
   // { name: 'The Empty Tank', master: '2019961993', legend: '2019961998' },
   // { name: 'The Quarry', master: '3253890600', legend: '3253890607' },
   // { name: "Scavenger's Den", master: '1905792146', legend: '1905792149' },
-  // { name: 'Excavation Site XII', master: '548616653', legend: '548616650' },
 ]
 
 const rewards = [
