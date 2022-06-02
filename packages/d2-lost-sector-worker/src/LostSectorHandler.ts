@@ -45,7 +45,7 @@ export function getCurrentLostSectorHashes() {
     master: {
       name: availableLostSectors[lostSectorIndex].name,
       hash: availableLostSectors[lostSectorIndex].master,
-      level: '1580',
+      level: '1590',
       difficulty: 'Master',
       rewards: [
         {
@@ -61,7 +61,7 @@ export function getCurrentLostSectorHashes() {
     legend: {
       name: availableLostSectors[lostSectorIndex].name,
       hash: availableLostSectors[lostSectorIndex].legend,
-      level: '1550',
+      level: '1560',
       difficulty: 'Legend',
       rewards: [
         {
