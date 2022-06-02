@@ -10,7 +10,8 @@ import { getCurrentLostSectorHashes } from './LostSectorHandler'
 async function getLostSectorData(
   lostSector,
   activityHandler: ActivityHandler,
-  definitionHandler: DefinitionHandler
+  definitionHandler: DefinitionHandler,
+  overrides: { pgcrImage?: string } = {}
 ) {
   const activity = await activityHandler.getActivityByHash(lostSector.hash)
   let rewards = []
@@ -24,6 +25,7 @@ async function getLostSectorData(
   return {
     ...lostSector,
     ...activity,
+    ...overrides,
     rewards,
   }
 }
@@ -46,12 +48,14 @@ export default {
       const legend = await getLostSectorData(
         lostSectors.legend,
         activityHandler,
-        definitionHandler
+        definitionHandler,
+        lostSectors.overrides
       )
       const master = await getLostSectorData(
         lostSectors.master,
         activityHandler,
-        definitionHandler
+        definitionHandler,
+        lostSectors.overrides
       )
 
       return new Response(
