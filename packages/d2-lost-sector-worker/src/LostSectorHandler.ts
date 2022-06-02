@@ -10,6 +10,7 @@ const availableLostSectors = [
   { name: 'Sepulcher', master: '480864721', legend: '480864726' },
   { name: 'Extraction', master: '145221020', legend: '145221019' },
   { name: 'Excavation Site XII', master: '548616653', legend: '548616650' },
+  { name: 'Skydock IV', master: '55186256', legend: '55186263' },
   { name: 'Veles Labyrinth', master: '3094493727', legend: '3094493720' },
   { name: 'Exodus Garden 2A', master: '2936791995', legend: '2936791996' },
   { name: "Aphelion's Rest", master: '1898610131', legend: '1898610132' },
