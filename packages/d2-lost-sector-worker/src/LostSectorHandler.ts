@@ -16,6 +16,7 @@ const availableLostSectors = [
     legend: '55186263',
     overrides: { pgcrImage: '/img/destiny_content/pgcr/skydock_iv.jpg' },
   },
+  { name: 'The Quarry', master: '3253890600', legend: '3253890607' },
   { name: 'Veles Labyrinth', master: '3094493727', legend: '3094493720' },
   { name: 'Exodus Garden 2A', master: '2936791995', legend: '2936791996' },
   { name: "Aphelion's Rest", master: '1898610131', legend: '1898610132' },
@@ -26,7 +27,6 @@ const availableLostSectors = [
   // { name: 'Bunker E15', master: '1648125538', legend: '1648125541' },
   // { name: 'Perdition', master: '1070981425', legend: '1070981430' },
   // { name: 'The Empty Tank', master: '2019961993', legend: '2019961998' },
-  // { name: 'The Quarry', master: '3253890600', legend: '3253890607' },
   // { name: "Scavenger's Den", master: '1905792146', legend: '1905792149' },
 ]
 
