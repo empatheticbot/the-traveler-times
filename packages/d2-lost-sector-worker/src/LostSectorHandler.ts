@@ -16,7 +16,7 @@ const availableLostSectors = [
     legend: '55186263',
     overrides: { pgcrImage: '/img/destiny_content/pgcr/skydock_iv.jpg' },
   },
-  { name: 'The Quarry', master: '3253890600', legend: '3253890607' },
+  { name: 'The Quarry', master: '1344654779', legend: '1344654780' },
   { name: 'Veles Labyrinth', master: '3094493727', legend: '3094493720' },
   { name: 'Exodus Garden 2A', master: '2936791995', legend: '2936791996' },
   { name: "Aphelion's Rest", master: '1898610131', legend: '1898610132' },
