@@ -9,7 +9,7 @@ const availableLostSectors = [
   { name: 'Metamorphosis', master: '3678847134', legend: '3678847129' },
   { name: 'Sepulcher', master: '480864721', legend: '480864726' },
   { name: 'Extraction', master: '145221020', legend: '145221019' },
-  { name: 'Excavation Site XII', master: '548616653', legend: '548616650' },
+  { name: 'Excavation Site XII', master: '3350278552', legend: '3350278559' },
   {
     name: 'Skydock IV',
     master: '55186256',
