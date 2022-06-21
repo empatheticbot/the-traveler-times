@@ -5,9 +5,9 @@ kv_namespaces = [
   {binding = "DESTINY_2_MANUAL_DATA", id = "351a1edd802045f9ba923aa2b93f60df", preview_id = "aad61bea7bb1482aa1f6293674f14522"},
 ]
 name = "d2-nightfall-worker"
-type = "javascript"
 usage_model = "unbound"
 workers_dev = true
+main = "dist/index.mjs"
 
 [dev]
 port = 3003
@@ -15,6 +15,3 @@ port = 3003
 [build]
 command = "npm install && npm run build"
 
-[build.upload]
-format = "modules"
-main = "./index.mjs"
