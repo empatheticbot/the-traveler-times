@@ -31,7 +31,7 @@
   ],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
-    "build:web": "npm run build -w @the-traveler-times/website",
+    "build:web": "npm run build -w @the-traveler-times/bungie-api-gateway && npm run build -w @the-traveler-times/website",
     "build:workers": "npm run build -w @the-traveler-times/utils -w @the-traveler-times/bungie-api-gateway -w @the-traveler-times/d2-lost-sector-worker -w @the-traveler-times/d2-meta-worker -w @the-traveler-times/d2-nightfall-worker -w @the-traveler-times/d2-oauth-worker -w @the-traveler-times/d2-pgcr-worker -w @the-traveler-times/d2-season-worker -w @the-traveler-times/d2-trials-worker -w @the-traveler-times/d2-vendors-worker -w @the-traveler-times/d2-weekly-worker",
     "clean": "npm run clean --workspaces --if-present",
     "format": "npm run format --workspaces --if-present",
@@ -58,6 +58,7 @@
     "@rollup/plugin-commonjs": "^21.0.3",
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@rollup/plugin-typescript": "^8.3.1",
+    "@the-traveler-times/bungie-api-gateway": "file:./packages/bungie-api-gateway",
     "@tsconfig/node14": "1.0.1",
     "eslint": "^8.12.0",
     "npm-check": "5.9.2",
