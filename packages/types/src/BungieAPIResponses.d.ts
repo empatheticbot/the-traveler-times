@@ -19,6 +19,12 @@ interface BungieAPIPGCRResponse {
   ErrorStatus: BungieErrorStatus
 }
 
+interface BungieUserSearchResponse {
+  Message: string
+  Response: {}
+  ErrorStatus: BungieErrorStatus
+}
+
 interface BungieD2CharacterMilestoneResponse {
   characterProgressions?: {
     data: { [index: string]: { milestones: unknown } }

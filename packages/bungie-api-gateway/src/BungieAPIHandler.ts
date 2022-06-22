@@ -180,4 +180,21 @@ export default class BungieAPIHandler {
       throw new Error(`${resp.ErrorStatus}: ${resp.Message}`)
     }
   }
+
+  async getUsersFromSearch(search: string, page = 0) {
+    let resp: BungieUserSearchResponse
+    try {
+      resp = (await this.callApi({
+        path: `/User/Search/Prefix/${search}/${page}/`,
+      })) as BungieUserSearchResponse
+    } catch (e) {
+      console.error(`Failed to call bungie user search api ${e}`)
+      throw e
+    }
+    if (resp.Message === 'Ok') {
+      return resp.Response
+    } else {
+      throw new Error(`${resp.ErrorStatus}: ${resp.Message}`)
+    }
+  }
 }
