@@ -1,4 +1,4 @@
 interface Modifier {
-  displayProperties: Displayable
-  hash: number
+	displayProperties: Displayable
+	hash: number
 }

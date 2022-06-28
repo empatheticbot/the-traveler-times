@@ -7,12 +7,12 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 
 export default {
-  input: 'src/index.ts',
-  output: {
-    exports: 'named',
-    format: 'es',
-    file: 'dist/index.mjs',
-    sourcemap: true,
-  },
-  plugins: [typescript(), commonjs(), nodeResolve({ browser: true }), terser()],
+	input: 'src/index.ts',
+	output: {
+		exports: 'named',
+		format: 'es',
+		file: 'dist/index.mjs',
+		sourcemap: true,
+	},
+	plugins: [typescript(), commonjs(), nodeResolve({ browser: true }), terser()],
 }

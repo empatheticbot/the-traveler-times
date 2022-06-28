@@ -1,3 +1,3 @@
 interface InventoryItem {
-  hash: string
+	hash: string
 }

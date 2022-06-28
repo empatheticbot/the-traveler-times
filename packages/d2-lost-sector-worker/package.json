@@ -1,16 +1,16 @@
 {
-  "private": true,
-  "name": "@the-traveler-times/d2-lost-sector-worker",
-  "version": "2.0.0",
-  "description": "A template for kick starting a Cloudflare Workers project",
-  "module": "./dist/index.mjs",
-  "scripts": {
-    "clean": "rm -rf dist",
-    "build": "npm run clean && rollup -c",
-    "publish": "wrangler publish",
-    "start": "wrangler dev",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write '**/*.{js,ts,njk,html,css,json,md}'"
-  },
-  "author": "Steve Ledsworth <steve@empatheticbot.com>"
+	"private": true,
+	"name": "@the-traveler-times/d2-lost-sector-worker",
+	"version": "2.0.0",
+	"description": "A template for kick starting a Cloudflare Workers project",
+	"module": "./dist/index.mjs",
+	"scripts": {
+		"clean": "rm -rf dist",
+		"build": "npm run clean && rollup -c",
+		"publish": "wrangler publish",
+		"start": "wrangler dev",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "prettier --write '**/*.{js,ts,njk,html,css,json,md}'"
+	},
+	"author": "Steve Ledsworth <steve@empatheticbot.com>"
 }

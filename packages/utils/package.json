@@ -1,30 +1,30 @@
 {
-  "private": true,
-  "name": "@the-traveler-times/utils",
-  "version": "2.0.0",
-  "description": "The Traveler Times Utility Functions",
-  "author": "Steve Ledsworth <sledsworth@gmail.com>",
-  "homepage": "https://github.com/empatheticbot/the-traveler-times/tree/main/packages/utils#readme",
-  "license": "UNLICENSED",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/empatheticbot/the-traveler-times.git"
-  },
-  "scripts": {
-    "clean": "rm -rf dist",
-    "build": "npm run clean && rollup -c && tsc --emitDeclarationOnly",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write '**/*.{js,ts,njk,html,css,json,md}'"
-  },
-  "bugs": {
-    "url": "https://github.com/empatheticbot/the-traveler-times/issues"
-  }
+	"private": true,
+	"name": "@the-traveler-times/utils",
+	"version": "2.0.0",
+	"description": "The Traveler Times Utility Functions",
+	"author": "Steve Ledsworth <sledsworth@gmail.com>",
+	"homepage": "https://github.com/empatheticbot/the-traveler-times/tree/main/packages/utils#readme",
+	"license": "UNLICENSED",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/empatheticbot/the-traveler-times.git"
+	},
+	"scripts": {
+		"clean": "rm -rf dist",
+		"build": "npm run clean && rollup -c && tsc --emitDeclarationOnly",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "prettier --write '**/*.{js,ts,njk,html,css,json,md}'"
+	},
+	"bugs": {
+		"url": "https://github.com/empatheticbot/the-traveler-times/issues"
+	}
 }

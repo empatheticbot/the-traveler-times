@@ -11,16 +11,16 @@ import { getStrippedItem, getStrippedItems } from './InventoryItemUtility'
 import * as dateUtilities from './dateUtilities'
 
 export {
-  ActivityHandler,
-  BungieAPIHandler,
-  BungieErrorStatus,
-  DefinitionHandler,
-  PublicMilestoneHandler,
-  TwitterHandler,
-  VendorHandler,
-  SeasonHandler,
-  Hashes,
-  getStrippedItem,
-  getStrippedItems,
-  dateUtilities,
+	ActivityHandler,
+	BungieAPIHandler,
+	BungieErrorStatus,
+	DefinitionHandler,
+	PublicMilestoneHandler,
+	TwitterHandler,
+	VendorHandler,
+	SeasonHandler,
+	Hashes,
+	getStrippedItem,
+	getStrippedItems,
+	dateUtilities,
 }

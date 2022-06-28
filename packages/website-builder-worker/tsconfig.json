@@ -1,17 +1,17 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "include": ["./src/**/*"],
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "declarationDir": "./dist"
-  },
-  "references": [
-    {
-      "path": "../utils"
-    },
-    {
-      "path": "../bungie-api-gateway"
-    }
-  ]
+	"extends": "../../tsconfig.base.json",
+	"include": ["./src/**/*"],
+	"compilerOptions": {
+		"rootDir": "./src",
+		"outDir": "./dist",
+		"declarationDir": "./dist"
+	},
+	"references": [
+		{
+			"path": "../utils"
+		},
+		{
+			"path": "../bungie-api-gateway"
+		}
+	]
 }

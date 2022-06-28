@@ -1,29 +1,29 @@
 {
-  "name": "@the-traveler-times/bungie-api-gateway",
-  "version": "2.0.0",
-  "description": "Utilities used to call into Bungie's API",
-  "author": "Steve Ledsworth <sledsworth@gmail.com>",
-  "homepage": "https://github.com/empatheticbot/the-traveler-times/tree/main/packages/bungie-api-gateway#readme",
-  "license": "UNLICENSED",
-  "module": "dist/index.mjs",
-  "main": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "private": true,
-  "files": [
-    "dist"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/empatheticbot/the-traveler-times.git"
-  },
-  "scripts": {
-    "clean": "rm -rf dist",
-    "build": "npm run clean && rollup -c && tsc --emitDeclarationOnly",
-    "start": "npm run clean && rollup -c --watch",
-    "test": "echo \"Error: run tests from root\" && exit 1",
-    "format": "prettier --write '**/*.{js,ts,njk,html,css,json,md}'"
-  },
-  "bugs": {
-    "url": "https://github.com/empatheticbot/the-traveler-times/issues"
-  }
+	"name": "@the-traveler-times/bungie-api-gateway",
+	"version": "2.0.0",
+	"description": "Utilities used to call into Bungie's API",
+	"author": "Steve Ledsworth <sledsworth@gmail.com>",
+	"homepage": "https://github.com/empatheticbot/the-traveler-times/tree/main/packages/bungie-api-gateway#readme",
+	"license": "UNLICENSED",
+	"module": "dist/index.mjs",
+	"main": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"private": true,
+	"files": [
+		"dist"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/empatheticbot/the-traveler-times.git"
+	},
+	"scripts": {
+		"clean": "rm -rf dist",
+		"build": "npm run clean && rollup -c && tsc --emitDeclarationOnly",
+		"start": "npm run clean && rollup -c --watch",
+		"test": "echo \"Error: run tests from root\" && exit 1",
+		"format": "prettier --write '**/*.{js,ts,njk,html,css,json,md}'"
+	},
+	"bugs": {
+		"url": "https://github.com/empatheticbot/the-traveler-times/issues"
+	}
 }

@@ -1,4 +1,4 @@
 interface SeasonOverrides {
-  grandmasterStartDate?: string
-  raidStartDate?: string
+	grandmasterStartDate?: string
+	raidStartDate?: string
 }

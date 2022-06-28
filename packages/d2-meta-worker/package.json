@@ -1,17 +1,17 @@
 {
-  "private": true,
-  "name": "@the-traveler-times/d2-meta-worker",
-  "version": "2.0.0",
-  "description": "Scheduled worker that crawls the Bungie Destiny2*Definition endpoints and stores the values in KV DESTINY_2_DEFINITIONS",
-  "module": "./dist/index.mjs",
-  "scripts": {
-    "clean": "rm -rf dist",
-    "build": "npm run clean && rollup -c",
-    "publish": "wrangler publish",
-    "start": "wrangler dev",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write '**/*.{js,ts,njk,html,css,json,md}'",
-    "clean:definitions": "wrangler kv:bulk delete --binding=DESTINY_2_DEFINITIONS definitions-bulk-delete.json"
-  },
-  "author": "Steve Ledsworth <steve@empatheticbot.com>"
+	"private": true,
+	"name": "@the-traveler-times/d2-meta-worker",
+	"version": "2.0.0",
+	"description": "Scheduled worker that crawls the Bungie Destiny2*Definition endpoints and stores the values in KV DESTINY_2_DEFINITIONS",
+	"module": "./dist/index.mjs",
+	"scripts": {
+		"clean": "rm -rf dist",
+		"build": "npm run clean && rollup -c",
+		"publish": "wrangler publish",
+		"start": "wrangler dev",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "prettier --write '**/*.{js,ts,njk,html,css,json,md}'",
+		"clean:definitions": "wrangler kv:bulk delete --binding=DESTINY_2_DEFINITIONS definitions-bulk-delete.json"
+	},
+	"author": "Steve Ledsworth <steve@empatheticbot.com>"
 }
