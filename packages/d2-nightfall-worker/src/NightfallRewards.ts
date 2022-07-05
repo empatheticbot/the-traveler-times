@@ -56,9 +56,4 @@ export const NightfallRewardPairs = [
 		nightfall: [NightfallRewards.PlugOne],
 		grandmaster: [NightfallRewards.PlugOneAdept],
 	},
-	{
-		nightfall: [NightfallRewards.TheComedian],
-		grandmaster: [NightfallRewards.TheComedianAdept],
-		isUnknown: true,
-	},
 ]
