@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ '/index.css' | url }}"/>
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}"/>
     {% block css %}{% endblock %}
+    <meta name="generator" content="{{ eleventy.generator }}">
     <meta name="description" content="{{ renderData.description or description or metadata.fullDescription }}"/>
     <meta name="keywords" content="Destiny 2, Meta, Crucible, Xur, Vanguard, Strike, Nightfall, Iron Banner, PVP, PVE"/>
     <meta property="og:title" content="{{ metadata.title }}"/>
