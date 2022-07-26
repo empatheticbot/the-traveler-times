@@ -4,7 +4,8 @@
 	"compilerOptions": {
 		"rootDir": "./src",
 		"outDir": "./dist",
-		"declarationDir": "./dist"
+		"declaration": true,
+		"declarationDir": "./dist/types/"
 	},
 	"references": [
 		{

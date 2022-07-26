@@ -7,7 +7,7 @@
 	"license": "UNLICENSED",
 	"module": "dist/index.mjs",
 	"main": "dist/index.mjs",
-	"types": "dist/index.d.ts",
+	"types": "dist/types/index.d.ts",
 	"private": true,
 	"files": [
 		"dist"

@@ -1,25 +1,25 @@
 {
-  "name": "@the-traveler-times/website",
-  "version": "2.0.0",
-  "description": "The web front-end to The Traveler Times site.",
-  "main": "_site/index.js",
-  "scripts": {
-    "clean": "rm -rf _site",
-    "start": "npx wrangler pages dev ./_site --live-reload --kv BungieAPI --kv LiveData -- npx NODE_ENV=develop eleventy --serve",
-    "start:prod": "NODE_ENV=production eleventy --serve",
-    "build": "npm run build:gateway || npm run build:site",
-    "build:site": "NODE_ENV=production eleventy",
-    "build:gateway": "cd ../bungie-api-gateway && npm run build",
-    "update": "npx npm-check -u"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/empatheticbot/the-traveler-times.git"
-  },
-  "author": "Steve Ledsworth <steve@empatheticbot.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/empatheticbot/the-traveler-times/issues"
-  },
-  "homepage": "https://github.com/empatheticbot/the-traveler-times#readme"
+	"name": "@the-traveler-times/website",
+	"version": "2.0.0",
+	"description": "The web front-end to The Traveler Times site.",
+	"main": "_site/index.js",
+	"scripts": {
+		"clean": "rm -rf _site",
+		"start:server": "npx wrangler pages dev ./_site --live-reload --kv BungieAPI --kv LiveData",
+		"start": "NODE_ENV=develop eleventy --serve",
+		"start:prod": "NODE_ENV=production eleventy --serve",
+		"build": "npm run build:gateway || npm run build:site",
+		"build:site": "NODE_ENV=production eleventy",
+		"build:gateway": "cd ../bungie-api-gateway && npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/empatheticbot/the-traveler-times.git"
+	},
+	"author": "Steve Ledsworth <steve@empatheticbot.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/empatheticbot/the-traveler-times/issues"
+	},
+	"homepage": "https://github.com/empatheticbot/the-traveler-times#readme"
 }

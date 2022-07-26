@@ -1,0 +1,28 @@
+{% import "components/section.njk" as section %}
+{% import "components/items.njk" as items %}
+
+{% set solstice = weekly.solstice %}
+{% if solstice.isAvailable %}
+{% extends "components/article.njk" %}
+
+{% set title = "Solstice" %}
+{% set id = "solstice" %}
+{% set description = solstice.displayProperties.description %}
+{% set endDate = "2022-08-09T17:00:00Z" %}
+
+{% block content %}
+{% call section.section(icon = solstice.image) %}
+{% endcall %}
+<section class="modifiers-group">
+	<h4 class="modifier-heading">Rewards</h4>
+	<ul role="list" class=" lost-sector-list lost-sector-rewards-list">
+		{% for item in solstice.rewards %}
+		<li class="">
+			{{ items.inventoryItem(item.displayProperties.name, item.itemTypeAndTierDisplayName,
+			icon=item.displayProperties.icon) }}
+		</li>
+		{% endfor %}
+	</ul>
+</section>
+{% endblock %}
+{% endif %}

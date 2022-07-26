@@ -112,6 +112,42 @@ export default {
 				}
 			}
 
+			let solsticeMilestone
+			try {
+				solsticeMilestone =
+					await publicMilestoneHandler.getPublicMilestoneByHash(Hashes.SOLSTICE)
+			} catch (e) {
+				console.log('Solstice not available.')
+			}
+
+			let solstice
+			if (solsticeMilestone) {
+				const milestone = await definitionHandler.getMilestone(
+					solsticeMilestone.milestoneHash
+				)
+				const activities = await definitionHandler.getActivities(
+					...solsticeMilestone.activities.map(
+						(activity) => activity.activityHash
+					)
+				)
+				const rewards = await definitionHandler.getInventoryItems(
+					'3600498390',
+					'1800094035'
+				)
+				solstice = {
+					...solsticeMilestone,
+					...milestone,
+					image: activities[0].pgcrImage,
+					rewards,
+					isAvailable: true,
+					activities,
+				}
+			} else {
+				solstice = {
+					isAvailable: false,
+				}
+			}
+
 			let wellspringMilestone =
 				await publicMilestoneHandler.getPublicMilestoneByHash(Hashes.WELLSPRING)
 
@@ -165,6 +201,7 @@ export default {
 					ironBanner,
 					wellspring,
 					guardianGames,
+					solstice,
 					isAvailable: true,
 				}),
 				{

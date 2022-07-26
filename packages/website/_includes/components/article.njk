@@ -1,10 +1,14 @@
 <article class="article">
-  {% if displayDate %}
-    <since-date class="small-label article-date" datetime="{{displayDate}}">{{displayDate | readableDate}}</since-date>
-  {% endif %}
-  <h2 class="article-title" id="{{ id }}">{{ title }}</h2>
-  <p class="section-description">{{ description | safe }}</p>
-  {% block content %}
-    <p>Content not available.</p>
-  {% endblock %}
+	{% if endDate %}
+	<p class="small-label article-date">
+		Ends <until-date datetime="{{endDate}}">{{endDate | readableDate}}</until-date>
+	</p>
+	{% elif displayDate %}
+	<since-date class="small-label article-date" datetime="{{displayDate}}">{{displayDate | readableDate}}</since-date>
+	{% endif %}
+	<h2 class="article-title" id="{{ id }}">{{ title }}</h2>
+	<p class="section-description">{{ description | safe }}</p>
+	{% block content %}
+	<p>Content not available.</p>
+	{% endblock %}
 </article>

@@ -8,7 +8,9 @@ export class D2PostGameCarnageReportObject {
 	SUBCALLS = 25
 	CALL_EVERY = 5
 
-	constructor(state, env) {
+	env: CloudflareEnvironment
+
+	constructor(state: unknown, env: CloudflareEnvironment) {
 		this.env = env
 	}
 

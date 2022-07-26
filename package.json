@@ -44,7 +44,7 @@
     "start:season": "cd packages/d2-season-worker && npm run start",
     "start:trials": "cd packages/d2-trials-worker && npm run start",
     "start:vendors": "cd packages/d2-vendors-worker && npm run start",
-    "start:web": "npm run start -w @the-traveler-times/website",
+    "start:web": "npx wrangler pages dev ./packages/website/_site --live-reload --kv BungieAPI --kv LiveData",
     "start:web:prod": "npm run start:prod -w @the-traveler-times/website",
     "start:workers": "npm run start -w @the-traveler-times/utils -w @the-traveler-times/bungie-api-gateway -w @the-traveler-times/d2-lost-sector-worker -w @the-traveler-times/d2-meta-worker -w @the-traveler-times/d2-nightfall-worker -w @the-traveler-times/d2-oauth-worker -w @the-traveler-times/d2-pgcr-worker -w @the-traveler-times/d2-season-worker -w @the-traveler-times/d2-trials-worker -w @the-traveler-times/d2-vendors-worker -w @the-traveler-times/d2-weekly-worker",
     "test": "npm run test --workspaces --if-present",
