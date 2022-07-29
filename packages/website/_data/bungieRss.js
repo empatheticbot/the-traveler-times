@@ -26,22 +26,26 @@ module.exports = async function getBungieRss() {
 	}
 
 	for (const item of feed.items) {
-		if (item.title.toLowerCase().includes('this week at bungie')) {
-			item.title = 'This Week At Bungie'
-			addItemToList(item)
-		} else if (
-			item.title.includes('Destiny') ||
-			item.title.includes('Festival of the Lost') ||
-			item.title.includes('Season of') ||
-			true
-		) {
-			addItemToList(item)
-		}
+		// if (item.title.toLowerCase().includes('this week at bungie')) {
+		// 	item.title = 'This Week At Bungie'
+		// 	addItemToList(item)
+		// } else if (
+		// 	item.title.includes('Destiny') ||
+		// 	item.title.includes('Festival of the Lost') ||
+		// 	item.title.includes('Season of') ||
+		// 	true
+		// ) {
+		// 	addItemToList(item)
+		// }
+
+		addItemToList(item)
 	}
 	return {
 		...feed,
 		lastRefreshDate: lastUpdateDate.toISOString(),
 		isAvailable: items.length > 0,
-		items: items.slice(0, 5),
+		items: items
+			.sort((a, b) => new Date(b.isoDate) - new Date(a.isoDate))
+			.slice(0, 5),
 	}
 }

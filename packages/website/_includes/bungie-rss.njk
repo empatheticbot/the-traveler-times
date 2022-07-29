@@ -14,14 +14,14 @@
           {% if item.isNew %}
             <span class="badge">New</span>
           {% endif %}
-          <relative-date 
+          <relative-date
             relative-range="2"
             relative-unit="day"
             datetime="{{ item.isoDate | htmlDateString }}">
             {{item.isoDate | readableDate}}
           </relative-date>
         </section>
-        <a href="{{ item.link }}">
+        <a href="https://www.bungie.net{{ item.link }}">
           <strong>{{item.title | title}}</strong>
         </a>
       </li>
