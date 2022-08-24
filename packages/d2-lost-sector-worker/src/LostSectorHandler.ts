@@ -2,6 +2,7 @@ const startingDate = new Date('August 23, 2022 17:00:00 GMT')
 
 const availableLostSectors = [
 	{ name: 'Concealed Void', master: '912873274', legend: '912873277' },
+	{ name: 'Bunker E15', master: '1648125538', legend: '1648125541' },
 	{ name: 'K1 Crew Quarters', master: '184186578', legend: '184186581' },
 	{ name: 'K1 Logistics', master: '567131519', legend: '567131512' },
 	{ name: 'K1 Revelation', master: '3911969238', legend: '3911969233' },
@@ -24,7 +25,6 @@ const availableLostSectors = [
 	// { name: "Aphelion's Rest", master: '1898610131', legend: '1898610132' },
 	// { name: 'Bay of Drowned Wishes', master: '660710120', legend: '660710127' },
 	// { name: 'Chamber of Starlight', master: '4206916276', legend: '4206916275' },
-	// { name: 'Bunker E15', master: '1648125538', legend: '1648125541' },
 	// { name: 'Perdition', master: '1070981425', legend: '1070981430' },
 	// { name: 'The Empty Tank', master: '2019961993', legend: '2019961998' },
 	// { name: "Scavenger's Den", master: '1905792146', legend: '1905792149' },
