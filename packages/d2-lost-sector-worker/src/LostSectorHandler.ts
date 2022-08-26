@@ -4,6 +4,7 @@ const availableLostSectors = [
 	{ name: 'Concealed Void', master: '912873274', legend: '912873277' },
 	{ name: 'Bunker E15', master: '1648125538', legend: '1648125541' },
 	{ name: 'The Conflux', master: '1163502296', legend: '1163502303' },
+	{ name: 'The Rift', master: '1551471974', legend: '1551471969' },
 	{ name: 'Metamorphosis', master: '3678847134', legend: '3678847129' },
 	{ name: 'Sepulcher', master: '480864721', legend: '480864726' },
 	{ name: 'Extraction', master: '145221020', legend: '145221019' },
