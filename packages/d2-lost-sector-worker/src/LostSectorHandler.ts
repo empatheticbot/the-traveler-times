@@ -8,10 +8,6 @@ const availableLostSectors = [
 	{ name: 'K1 Crew Quarters', master: '184186578', legend: '184186581' },
 	{ name: 'K1 Logistics', master: '567131519', legend: '567131512' },
 	{ name: 'K1 Communion', master: '2829206720', legend: '2829206727' },
-	{ name: 'Metamorphosis', master: '3678847134', legend: '3678847129' },
-	{ name: 'Sepulcher', master: '480864721', legend: '480864726' },
-	{ name: 'Extraction', master: '145221020', legend: '145221019' },
-	{ name: 'Excavation Site XII', master: '3350278552', legend: '3350278559' },
 	{
 		name: 'Skydock IV',
 		master: '55186256',
@@ -19,7 +15,11 @@ const availableLostSectors = [
 		overrides: { pgcrImage: '/img/destiny_content/pgcr/skydock_iv.jpg' },
 	},
 	{ name: 'The Quarry', master: '1344654779', legend: '1344654780' },
+	// { name: 'Metamorphosis', master: '3678847134', legend: '3678847129' },
 	// Previously available Lost Sectors
+	// { name: 'Sepulcher', master: '480864721', legend: '480864726' },
+	// { name: 'Extraction', master: '145221020', legend: '145221019' },
+	// { name: 'Excavation Site XII', master: '3350278552', legend: '3350278559' },
 	// { name: 'K1 Revelation', master: '3911969238', legend: '3911969233' },
 	// { name: 'Veles Labyrinth', master: '3094493727', legend: '3094493720' },
 	// { name: 'Exodus Garden 2A', master: '2936791995', legend: '2936791996' },
