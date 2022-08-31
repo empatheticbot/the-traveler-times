@@ -14,6 +14,7 @@ const availableLostSectors = [
 		legend: '55186263',
 		overrides: { pgcrImage: '/img/destiny_content/pgcr/skydock_iv.jpg' },
 	},
+	{ name: "Scavenger's Den", master: '144485117', legend: '144485114' },
 	{ name: 'The Quarry', master: '1344654779', legend: '1344654780' },
 	// { name: 'Metamorphosis', master: '3678847134', legend: '3678847129' },
 	// Previously available Lost Sectors
@@ -28,7 +29,6 @@ const availableLostSectors = [
 	// { name: 'Chamber of Starlight', master: '4206916276', legend: '4206916275' },
 	// { name: 'Perdition', master: '1070981425', legend: '1070981430' },
 	// { name: 'The Empty Tank', master: '2019961993', legend: '2019961998' },
-	// { name: "Scavenger's Den", master: '1905792146', legend: '1905792149' },
 ]
 
 const rewards = [
