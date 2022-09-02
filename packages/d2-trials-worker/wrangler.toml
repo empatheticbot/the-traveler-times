@@ -3,6 +3,7 @@ compatibility_date = "2021-11-25"
 kv_namespaces = [
   {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
   {binding = "TWITTER_API", id = "fb5926d96ac7431c8632b5c4413f7821", preview_id = "fb5926d96ac7431c8632b5c4413f7821"},
+  {binding = "DESTINY_2_MANUAL_DATA", id = "351a1edd802045f9ba923aa2b93f60df", preview_id = "351a1edd802045f9ba923aa2b93f60df"},
 ]
 name = "d2-trials-worker"
 type = "javascript"

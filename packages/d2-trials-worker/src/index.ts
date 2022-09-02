@@ -15,6 +15,11 @@ async function getIsAvailable(
 ) {
 	const seasonHandler = new SeasonHandler()
 	await seasonHandler.init(env.BUNGIE_API)
+	const currentSeasonId = seasonHandler.getCurrentSeasonId()
+	const seasonOverrides: SeasonOverrides =
+		(await env.DESTINY_2_MANUAL_DATA.get(currentSeasonId.toString(), 'json')) ||
+		{}
+
 	const publicMilestoneHandler = new PublicMilestoneHandler()
 	await publicMilestoneHandler.init(env.BUNGIE_API)
 
@@ -24,8 +29,22 @@ async function getIsAvailable(
 	const ironBannerMilestone =
 		await publicMilestoneHandler.getIronBannerMilestone()
 	const isIronBannerWeek = ironBannerMilestone.isAvailable
+
+	const trialsManualStartDateString = seasonOverrides.trialsStartDate
+	let isAfterManualEnteredStartDate = true
+	if (trialsManualStartDateString) {
+		const trialsManualStartDate = new Date(trialsManualStartDateString)
+		console.log(trialsManualStartDateString, weekDate.toISOString())
+		isAfterManualEnteredStartDate = trialsManualStartDate <= weekDate
+	}
+
 	const isFirstWeekOfSeason = await seasonHandler.isFirstWeekOfSeason()
-	return !isIronBannerWeek && !isFirstWeekOfSeason && weekDate < weekendDate
+	return (
+		!isIronBannerWeek &&
+		!isFirstWeekOfSeason &&
+		isAfterManualEnteredStartDate &&
+		weekDate < weekendDate
+	)
 }
 
 export default {
