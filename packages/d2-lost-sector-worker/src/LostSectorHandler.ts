@@ -16,11 +16,11 @@ const availableLostSectors = [
 	},
 	{ name: "Scavenger's Den", master: '144485117', legend: '144485114' },
 	{ name: 'The Quarry', master: '1344654779', legend: '1344654780' },
-	// { name: 'Metamorphosis', master: '3678847134', legend: '3678847129' },
+	{ name: 'Excavation Site XII', master: '3350278552', legend: '3350278559' },
 	// Previously available Lost Sectors
+	// { name: 'Metamorphosis', master: '3678847134', legend: '3678847129' },
 	// { name: 'Sepulcher', master: '480864721', legend: '480864726' },
 	// { name: 'Extraction', master: '145221020', legend: '145221019' },
-	// { name: 'Excavation Site XII', master: '3350278552', legend: '3350278559' },
 	// { name: 'K1 Revelation', master: '3911969238', legend: '3911969233' },
 	// { name: 'Veles Labyrinth', master: '3094493727', legend: '3094493720' },
 	// { name: 'Exodus Garden 2A', master: '2936791995', legend: '2936791996' },
