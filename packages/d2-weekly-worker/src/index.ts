@@ -40,16 +40,18 @@ export default {
 					ironBannerMilestone.milestoneHash
 				)
 				const ironBannerRewards = await definitionHandler.getInventoryItems(
+					308332265, // Roar of the Bear
+					334859415, // Allied Demand
 					2961807684, // The Wizened Rebuke
 					2909905776, // The Hero's Burden
 					1141547457, // Frontier's Cry
 					1796949035, // Razor's Edge
-					829330711, // Peacebond
+					// 829330711, // Peacebond
 					1076810832, // Forge's Pledge
-					108221785, // Riiswalker
+					108221785 // Riiswalker
 					// 701922966, // Finite Impactor
 					// 852551895, // Occluded Finality
-					1967303408 // Archon's Thunder
+					// 1967303408 // Archon's Thunder
 				)
 				const awardsStripped = await Promise.all(
 					ironBannerRewards.map(async (weapon) => {

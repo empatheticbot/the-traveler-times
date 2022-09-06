@@ -97,11 +97,11 @@ export const rewards = [
 	//   twitterQuery: "trials reward Shayura's Wrath",
 	//   hash: '2559492205',
 	// },
-	{
-		reward: 'Eye of Sol',
-		twitterQuery: 'trials reward Eye of Sol',
-		hash: '2740905684',
-	},
+	// {
+	// 	reward: 'Eye of Sol',
+	// 	twitterQuery: 'trials reward Eye of Sol',
+	// 	hash: '2740905684',
+	// },
 	{
 		reward: "Reed's Regret",
 		twitterQuery: "trials reward Reed's Regret",
@@ -131,5 +131,15 @@ export const rewards = [
 		reward: "Aisha's Embrace (Adept) ",
 		twitterQuery: 'trials reward aisha embrace',
 		hash: '2432138634',
+	},
+	{
+		reward: 'The Inquisitor',
+		twitterQuery: 'trials flawless Inquisitor',
+		hash: '2185327324',
+	},
+	{
+		reward: "Whistler's Whim",
+		twitterQuery: 'trials reward Whistler Whim',
+		hash: '541991426',
 	},
 ]
