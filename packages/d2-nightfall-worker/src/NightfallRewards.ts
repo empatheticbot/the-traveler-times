@@ -50,12 +50,12 @@ export const NightfallRewardPairs = [
 		grandmaster: [NightfallRewards.MindbendersAmbitionAdept],
 	},
 	{
-		nightfall: [NightfallRewards.MilitiasBirthright],
-		grandmaster: [NightfallRewards.MilitiasBirthrightAdept],
-	},
-	{
 		nightfall: [NightfallRewards.DutyBound],
 		grandmaster: [NightfallRewards.DutyBoundAdept],
+	},
+	{
+		nightfall: [NightfallRewards.MilitiasBirthright],
+		grandmaster: [NightfallRewards.MilitiasBirthrightAdept],
 		isUnknown: true,
 	},
 	{

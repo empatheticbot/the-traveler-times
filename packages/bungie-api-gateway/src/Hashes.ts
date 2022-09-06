@@ -15,3 +15,11 @@ export const FESTIVAL_OF_THE_LOST = '3690390'
 export const WELLSPRING = '3831234800'
 export const GUARDIAN_GAMES = '1335536775'
 export const SOLSTICE = '1355287603'
+
+export const DoubleRank = {
+	Crucible: '3874605433',
+	Trials: '1361609633',
+	Nightfall: '1171597537',
+	Vanguard: '745014575',
+	Gambit: '3228023383',
+}
