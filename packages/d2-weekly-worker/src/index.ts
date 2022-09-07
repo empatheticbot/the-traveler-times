@@ -36,6 +36,13 @@ export default {
 
 			let ironBanner
 			if (ironBannerMilestone) {
+				const ironBannerGametypeHashes =
+					await publicMilestoneHandler.getIronBannerGametype()
+				console.log(ironBannerGametypeHashes)
+				const ironBannerGametypes =
+					await definitionHandler.getActivityModifiers(
+						...ironBannerGametypeHashes
+					)
 				const ironBannerDefinition = await definitionHandler.getMilestone(
 					ironBannerMilestone.milestoneHash
 				)
@@ -69,6 +76,7 @@ export default {
 
 				ironBanner = {
 					isAvailable: true,
+					gametype: ironBannerGametypes[0],
 					rewards: awardsStripped,
 					startDate: lastWeeklyReset,
 					endDate: nextWeeklyReset,
@@ -194,6 +202,11 @@ export default {
 				}
 			}
 
+			const doubleRankHashes = await publicMilestoneHandler.getDoubleRank()
+			const doubleRanks = await definitionHandler.getActivityModifiers(
+				...doubleRankHashes
+			)
+
 			return new Response(
 				JSON.stringify({
 					nextWeeklyReset,
@@ -204,6 +217,7 @@ export default {
 					wellspring,
 					guardianGames,
 					solstice,
+					doubleRanks,
 					isAvailable: true,
 				}),
 				{

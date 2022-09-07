@@ -18,8 +18,14 @@ export const SOLSTICE = '1355287603'
 
 export const DoubleRank = {
 	Crucible: '3874605433',
+	IronBanner: '2542545137',
 	Trials: '1361609633',
 	Nightfall: '1171597537',
 	Vanguard: '745014575',
 	Gambit: '3228023383',
+}
+
+export const IronBanner = {
+	Rift: '4211958639',
+	Eruption: '372037179',
 }

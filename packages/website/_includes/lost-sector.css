@@ -11,6 +11,9 @@
 
 .lost-sector-list {
   margin-bottom: 2rem;
+	display: flex;
+flex-wrap: wrap;
+gap: 0 2rem;
 }
 
 .lost-sector-list .item-icon {
@@ -21,6 +24,10 @@
 
 .lost-sector-list .inventory-item {
   margin-bottom: 0.5rem;
+}
+
+.lost-sector-list li {
+	flex: 1 1 300px;
 }
 
 .lost-sector-rewards-list .item-icon {

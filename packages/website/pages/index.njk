@@ -10,6 +10,7 @@ currentPage: 'home'
 {% block content %}
 {% if weekly.isAvailable %}
 <section class="rail-1">
+	{% include 'double-rank.njk' %}
 	{% include 'vendors.njk' %}
 </section>
 <section class="rail-2">

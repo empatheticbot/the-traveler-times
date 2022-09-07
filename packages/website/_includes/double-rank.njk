@@ -1,0 +1,24 @@
+{% import "components/section.njk" as section %}
+{% import "components/items.njk" as items %}
+{% import "components/modifiers.njk" as modifiers %}
+
+{% set doubleRanks = weekly.doubleRanks %}
+{% if doubleRanks.length > 0 %}
+{% extends "components/article.njk" %}
+
+{% set title = "Double Rank" %}
+{% set id = "double-rank" %}
+{% set description = "Gain additional ranks in the weekly double rank activity." %}
+{% set displayDate = weekly.lastWeeklyReset %}
+
+{% block content %}
+<ul role="list" class=" lost-sector-list sub-section">
+	{% for item in doubleRanks %}
+	<li class="sub-section-item">
+		{{ items.inventoryItem(item.displayProperties.name,
+		icon=item.displayProperties.icon) }}
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}
+{% endif %}

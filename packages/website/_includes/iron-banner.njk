@@ -3,25 +3,26 @@
 
 {% set ironBanner = weekly.ironBanner %}
 {% if ironBanner.isAvailable %}
-  {% extends "components/article.njk" %}
+{% extends "components/article.njk" %}
 
-  {% set title = ironBanner.displayProperties.name | safe %}
-  {% set id = "iron-banner" %}
-  {% set description = ironBanner.displayProperties.description %}
-  {% set displayDate = ironBanner.startDate %}
+{% set title = ironBanner.displayProperties.name | safe %}
+{% set id = "iron-banner" %}
+{% set description = ironBanner.displayProperties.description %}
+{% set displayDate = ironBanner.startDate %}
 
-  {% block content %}
-    {% call section.section(icon = ironBanner.image) %}
-    {% endcall %}
-    <section class="modifiers-group">
-      <h4 class="modifier-heading">Rewards</h4>
-      <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
-        {% for item in ironBanner.rewards %}
-          <li class="">
-            {{ items.inventoryItem(item.name, item.subtitle, icon=item.displayProperties.icon) }}
-          </li>
-        {% endfor %}
-      </ul>
-    </section>
-  {% endblock %}
+{% block content %}
+{% call section.section(name = ironBanner.gametype.displayProperties.name, description =
+ironBanner.gametype.displayProperties.description, icon = ironBanner.image) %}
+<section class="modifiers-group">
+	<h4 class="modifier-heading">Rewards</h4>
+	<ul role="list" class=" lost-sector-list lost-sector-rewards-list">
+		{% for item in ironBanner.rewards %}
+		<li class="">
+			{{ items.inventoryItem(item.name, item.subtitle, icon=item.displayProperties.icon) }}
+		</li>
+		{% endfor %}
+	</ul>
+</section>
+{% endcall %}
+{% endblock %}
 {% endif %}
