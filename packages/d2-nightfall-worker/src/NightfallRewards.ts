@@ -56,7 +56,6 @@ export const NightfallRewardPairs = [
 	{
 		nightfall: [NightfallRewards.MilitiasBirthright],
 		grandmaster: [NightfallRewards.MilitiasBirthrightAdept],
-		isUnknown: true,
 	},
 	{
 		nightfall: [NightfallRewards.HorrorsLeast],
