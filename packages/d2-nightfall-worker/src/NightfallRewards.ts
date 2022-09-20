@@ -60,7 +60,6 @@ export const NightfallRewardPairs = [
 	{
 		nightfall: [NightfallRewards.HorrorsLeast],
 		grandmaster: [NightfallRewards.HorrorsLeastAdept],
-		isUnknown: true,
 	},
 	// {
 	// 	nightfall: [NightfallRewards.TheHothead],
