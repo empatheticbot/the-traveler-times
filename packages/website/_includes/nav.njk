@@ -1,39 +1,52 @@
-<time class="small-label page-header-today" datetime="{{computed.buildDate}}">{{ computed.buildDate | todayFullDate}}</time>
+<time id="page-date" class="small-label page-header-today" datetime="{{computed.buildDate}}">{{ computed.buildDate |
+	todayFullDate}}</time>
+<script>
+	const pageDate = document.querySelector('#page-date')
+	const date = new Date(pageDate.getAttribute('datetime'))
+	const options = {
+		weekday: 'long',
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	};
+	if (date.getDate() !== NaN) {
+		pageDate.innerText = date.toLocaleDateString('en-US', options)
+	}
+</script>
 {% if page.url === '/' %}
-  <nav class="nav">
-    {% for date, activities in nav | groupby("date") %}
-      <section class="nav-section">
-        <since-date 
-          class="small-label"
-          datetime="{{date}}"
-          >
-          {{date | readableDate}}
-        </since-date>
-        <ul class="nav-list">
-          {% for activity in activities %}
-            <li class="nav-item">{{ activity.markup | safe}}</li>
-          {% endfor %}
-        </ul>
-      </section>
-    {% endfor %}
-    <aside class="nav-aside nav-section">
-      <p class="nav-support">
-        <a href="#season">{{
-    season.currentSeason.displayProperties.name
-  }}</a> ends <until-date datetime="{{
+<nav class="nav">
+	{% for date, activities in nav | groupby("date") %}
+	<section class="nav-section">
+		<since-date class="small-label" datetime="{{date}}">
+			{{date | readableDate}}
+		</since-date>
+		<ul class="nav-list">
+			{% for activity in activities %}
+			<li class="nav-item">{{ activity.markup | safe}}</li>
+			{% endfor %}
+		</ul>
+	</section>
+	{% endfor %}
+	<aside class="nav-aside nav-section">
+		<p class="nav-support">
+			<a href="#season">{{
+				season.currentSeason.displayProperties.name
+				}}</a> ends <until-date datetime="{{
     season.currentSeason.endDate
-  }}">{{season.currentSeason.endDate | readableDate}}</until-date>.</p>
-      <p id="site-last-updated">
-        Site last updated <since-date datetime="{{computed.buildDate}}">{{ computed.buildDate | readableDate}}</since-date>.
-      </p>
-    </aside>
-    <aside class="nav-aside nav-section">
-      <p class="nav-support">
-        ❤️ <a href="https://buy.stripe.com/4gw7vdbqwevvg927st">I'd like to show my support</a>
-      </p>
-      <p class="nav-support">
-        ❓ <a href="/about/">I want to learn more or get in touch</a>
-      </p>
-    </aside>
-  </nav>
+  }}">{{season.currentSeason.endDate | readableDate}}</until-date>.
+		</p>
+		<p id="site-last-updated">
+			Site last updated <since-date datetime="{{computed.buildDate}}">{{ computed.buildDate | readableDate}}
+			</since-date>.
+		</p>
+	</aside>
+	<aside class="nav-aside nav-section">
+		<p class="nav-support">
+			❤️ <a href="https://buy.stripe.com/4gw7vdbqwevvg927st">I'd like to show my support</a>
+		</p>
+		<p class="nav-support">
+			❓ <a href="/about/">I want to learn more or get in touch</a>
+		</p>
+	</aside>
+</nav>
 {% endif %}
