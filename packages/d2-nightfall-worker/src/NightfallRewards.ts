@@ -26,8 +26,7 @@ export enum NightfallRewards {
 	MindbendersAmbition = '4117693024',
 	MindbendersAmbitionAdept = '912150785',
 	MilitiasBirthright = '40394833',
-	MilitiasBirthrightAdept = '40394833',
-	MindbendersAmbitionAdept = '2378101424',
+	MilitiasBirthrightAdept = '2378101424',
 	Unknown = '773524094',
 }
 
