@@ -4,7 +4,12 @@ let parser = new Parser()
 const BUNGIE_RSS_URL = 'http://www.bungie.net/News/NewsRss.ashx'
 
 module.exports = async function getBungieRss() {
-	const feed = await parser.parseURL(BUNGIE_RSS_URL)
+  let feed
+  try {
+    feed = await parser.parseURL(BUNGIE_RSS_URL)
+  } catch (e) {
+    console.error('Failed to parse bungie rss', e)
+  }
 	let items = []
 	let lastUpdateDate
 
@@ -24,25 +29,29 @@ module.exports = async function getBungieRss() {
 		}
 		items.push(item)
 	}
+ if (feed) {
+   for (const item of feed.items) {
+     // if (item.title.toLowerCase().includes('this week at bungie')) {
+     // 	item.title = 'This Week At Bungie'
+     // 	addItemToList(item)
+     // } else if (
+     // 	item.title.includes('Destiny') ||
+     // 	item.title.includes('Festival of the Lost') ||
+     // 	item.title.includes('Season of') ||
+     // 	true
+     // ) {
+     // 	addItemToList(item)
+     // }
 
-	for (const item of feed.items) {
-		// if (item.title.toLowerCase().includes('this week at bungie')) {
-		// 	item.title = 'This Week At Bungie'
-		// 	addItemToList(item)
-		// } else if (
-		// 	item.title.includes('Destiny') ||
-		// 	item.title.includes('Festival of the Lost') ||
-		// 	item.title.includes('Season of') ||
-		// 	true
-		// ) {
-		// 	addItemToList(item)
-		// }
+     addItemToList(item)
+   }
+ } else {
+   feed = {}
+ }
 
-		addItemToList(item)
-	}
 	return {
 		...feed,
-		lastRefreshDate: lastUpdateDate.toISOString(),
+		lastRefreshDate: lastUpdateDate && lastUpdateDate.toISOString(),
 		isAvailable: items.length > 0,
 		items: items
 			.sort((a, b) => new Date(b.isoDate) - new Date(a.isoDate))

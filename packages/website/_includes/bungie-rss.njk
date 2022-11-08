@@ -1,3 +1,4 @@
+{% if bungieRss.isAvailable %}
 {% extends "components/article.njk" %}
 
 {% set title = "Bungie.net" %}
@@ -28,3 +29,4 @@
     {% endfor %}
   </ul>
 {% endblock %}
+{% endif %}
