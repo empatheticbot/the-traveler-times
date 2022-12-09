@@ -1,6 +1,7 @@
-const startingDate = new Date('August 23, 2022 17:00:00 GMT')
+const startingDate = new Date('December 8, 2022 17:00:00 GMT')
 
 const availableLostSectors = [
+	{ name: 'K1 Revelation', master: '3911969238', legend: '3911969233' },
 	{ name: 'Concealed Void', master: '912873274', legend: '912873277' },
 	{ name: 'Bunker E15', master: '1648125538', legend: '1648125541' },
 	{ name: 'The Conflux', master: '1163502296', legend: '1163502303' },
@@ -22,7 +23,6 @@ const availableLostSectors = [
 	// { name: 'Metamorphosis', master: '3678847134', legend: '3678847129' },
 	// { name: 'Sepulcher', master: '480864721', legend: '480864726' },
 	// { name: 'Extraction', master: '145221020', legend: '145221019' },
-	// { name: 'K1 Revelation', master: '3911969238', legend: '3911969233' },
 	// { name: 'Veles Labyrinth', master: '3094493727', legend: '3094493720' },
 	// { name: 'Exodus Garden 2A', master: '2936791995', legend: '2936791996' },
 	// { name: "Aphelion's Rest", master: '1898610131', legend: '1898610132' },
@@ -33,10 +33,10 @@ const availableLostSectors = [
 ]
 
 const rewards = [
-	{ name: 'Chest', master: '2686128774', legend: '176055472' },
-	{ name: 'Head', master: '2679019194', legend: '1387420892' },
 	{ name: 'Legs', master: '247000308', legend: '2850782006' },
 	{ name: 'Arms', master: '256080248', legend: '1572351682' },
+	{ name: 'Chest', master: '2686128774', legend: '176055472' },
+	{ name: 'Head', master: '2679019194', legend: '1387420892' },
 ]
 
 export function getCurrentLostSectorHashes() {
@@ -53,7 +53,7 @@ export function getCurrentLostSectorHashes() {
 		master: {
 			name: availableLostSectors[lostSectorIndex].name,
 			hash: availableLostSectors[lostSectorIndex].master,
-			level: '1590',
+			level: '1610',
 			difficulty: 'Master',
 			rewards: [
 				{
@@ -69,7 +69,7 @@ export function getCurrentLostSectorHashes() {
 		legend: {
 			name: availableLostSectors[lostSectorIndex].name,
 			hash: availableLostSectors[lostSectorIndex].legend,
-			level: '1560',
+			level: '1580',
 			difficulty: 'Legend',
 			rewards: [
 				{

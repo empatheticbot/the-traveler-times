@@ -4,9 +4,10 @@
 	"version": "2.0.0",
 	"description": "A template for kick starting a Cloudflare Workers project",
 	"module": "./dist/index.mjs",
+	"type": "module",
 	"scripts": {
 		"clean": "rm -rf dist",
-		"build": "npm run clean && rollup -c",
+		"build": "npm run clean && rollup -c --bundleConfigAsCjs",
 		"publish": "wrangler publish",
 		"start": "wrangler dev",
 		"test": "echo \"Error: no test specified\" && exit 1",

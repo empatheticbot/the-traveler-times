@@ -4,8 +4,11 @@ kv_namespaces = [
   {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
   {binding = "DESTINY_2_CRUCIBLE_META", id = "ae40a0ee5ec649f5b0a98e7aef5deab0", preview_id = "f355b6d7652d479aaf4a46b458676987"},
 ]
+main = "dist/index.mjs"
 name = "d2-meta-worker"
-type = "javascript"
+services = [
+  {binding = "bungieGateway", service = "d2-bungie-gateway-worker"},
+]
 usage_model = "unbound"
 workers_dev = true
 
@@ -15,10 +18,6 @@ port = 3011
 [build]
 command = "npm install && npm run build"
 
-[build.upload]
-format = "modules"
-main = "./index.mjs"
-
 [durable_objects]
 bindings = [
   {name = "PGCR_DURABLE_OBJECT", class_name = "D2PostGameCarnageReportObject"}, # Binding to our DurableObjectExample class
@@ -26,3 +25,6 @@ bindings = [
 
 [triggers]
 crons = ["*/1 * * * *"]
+
+[[migrations]]
+tag = "v1" # Should be unique for each entry

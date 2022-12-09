@@ -15,6 +15,23 @@ import {
 	getStrikeReward,
 } from './NightfallHandler'
 
+async function getInventoryItems(hashes, env, request) {
+	const url = new URL(
+		'https://d2-bungie-gateway-worker.empatheticbot.workers.dev/definition/DestinyInventoryItemDefinition'
+	)
+	for (const hash of hashes) {
+		url.searchParams.append('definitionIds', hash)
+	}
+	console.log(url.toString())
+	const r = new Request(url, { headers: request.headers })
+	try {
+		const nightfallRewards = await env.bungieGateway.fetch(r)
+		return nightfallRewards.json()
+	} catch (e) {
+		console.log(e)
+	}
+}
+
 export default {
 	async fetch(request: Request, env: CloudflareEnvironment) {
 		if (!isAuthorized(request, env)) {
@@ -76,13 +93,23 @@ export default {
 			const strikeReward = getStrikeReward(
 				activities[0].displayProperties.description
 			)
-			const nightfallRewards = await definitionHandler.getInventoryItems(
-				...nightfall,
-				...strikeReward
+			// const nightfallRewards = await definitionHandler.getInventoryItems(
+			// 	...nightfall,
+			// 	...strikeReward
+			// )
+			// const grandmasterRewards = await definitionHandler.getInventoryItems(
+			// 	...grandmaster,
+			// 	...strikeReward
+			// )
+			const nightfallRewards = await getInventoryItems(
+				[...nightfall, ...strikeReward],
+				env,
+				request
 			)
-			const grandmasterRewards = await definitionHandler.getInventoryItems(
-				...grandmaster,
-				...strikeReward
+			const grandmasterRewards = await getInventoryItems(
+				[...grandmaster, ...strikeReward],
+				env,
+				request
 			)
 
 			return new Response(

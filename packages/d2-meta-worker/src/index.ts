@@ -11,6 +11,23 @@ const LAST_ACTIVITY_ID = '$CURRENT_ACTIVITY_ID'
 const NEW_ACTIVITY_ID = '$NEW_ACTIVITY_ID'
 const META_DAYS_INCLUDED = '$META_DAYS_INCLUDED'
 
+async function getInventoryItems(hashes, env, request) {
+	const url = new URL(
+		'https://d2-bungie-gateway-worker.empatheticbot.workers.dev/definition/DestinyInventoryItemDefinition'
+	)
+	for (const hash of hashes) {
+		url.searchParams.append('definitionIds', hash)
+	}
+	console.log(url.toString())
+	const r = new Request(url, { headers: request.headers })
+	try {
+		const inventoryItems = await env.bungieGateway.fetch(r)
+		return inventoryItems.json()
+	} catch (e) {
+		console.log(e)
+	}
+}
+
 async function getPGCRDurableObject(env: CloudflareEnvironment) {
 	let id = env.PGCR_DURABLE_OBJECT.idFromName('PGCR_DURABLE_OBJECT')
 	let stub = await env.PGCR_DURABLE_OBJECT.get(id)
@@ -121,7 +138,8 @@ async function getMeta(
 	date = new Date(),
 	numberOfDaysToIncludeInMeta: number,
 	definitionHandler,
-	env: CloudflareEnvironment
+	env: CloudflareEnvironment,
+	request
 ) {
 	const dates = []
 	for (let i = 0; i < numberOfDaysToIncludeInMeta; i++) {
@@ -163,9 +181,11 @@ async function getMeta(
 		})
 	})
 	const allWeapons = Object.values(completeUsage)
+	const weaponIds = allWeapons.map((weapon) => weapon.id)
+	const weaponDetails = await getInventoryItems(weaponIds, env, request)
 	const allWeaponsWithDetails = await Promise.all(
-		allWeapons.map(async (weapon) => {
-			const details = await definitionHandler.getInventoryItem(weapon.id)
+		allWeapons.map(async (weapon, index) => {
+			const details = weaponDetails[index]
 			const damageType = await definitionHandler.getDamageType(
 				details.defaultDamageTypeHash
 			)
@@ -195,7 +215,8 @@ async function getCurrentMeta(request: Request, env: CloudflareEnvironment) {
 		new Date(),
 		numberOfDaysToIncludeInMeta,
 		definitionHandler,
-		env
+		env,
+		request
 	)
 	const weekAgo = new Date()
 	weekAgo.setDate(weekAgo.getDate() - 7)
@@ -203,7 +224,8 @@ async function getCurrentMeta(request: Request, env: CloudflareEnvironment) {
 		weekAgo,
 		numberOfDaysToIncludeInMeta,
 		definitionHandler,
-		env
+		env,
+		request
 	)
 
 	return {

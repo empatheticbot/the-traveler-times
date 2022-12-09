@@ -16,7 +16,7 @@ export default {
 
 		try {
 			const vendorHandler = new VendorHandler()
-			await vendorHandler.init(env.BUNGIE_API)
+			await vendorHandler.init(env, request)
 			const twitterHandler = new TwitterHandler()
 			await twitterHandler.init(env.TWITTER_API)
 

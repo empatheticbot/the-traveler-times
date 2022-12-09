@@ -39,10 +39,12 @@ export const NightfallRewardPairs = [
 	{
 		nightfall: [NightfallRewards.SiliconNeuroma],
 		grandmaster: [NightfallRewards.SiliconNeuromaAdept],
+		isUnknown: true,
 	},
 	{
 		nightfall: [NightfallRewards.DFA],
 		grandmaster: [NightfallRewards.DFAAdept],
+		isUnknown: true,
 	},
 	{
 		nightfall: [NightfallRewards.MindbendersAmbition],
@@ -51,14 +53,17 @@ export const NightfallRewardPairs = [
 	{
 		nightfall: [NightfallRewards.DutyBound],
 		grandmaster: [NightfallRewards.DutyBoundAdept],
+		isUnknown: true,
 	},
 	{
 		nightfall: [NightfallRewards.MilitiasBirthright],
 		grandmaster: [NightfallRewards.MilitiasBirthrightAdept],
+		isUnknown: true,
 	},
 	{
 		nightfall: [NightfallRewards.HorrorsLeast],
 		grandmaster: [NightfallRewards.HorrorsLeastAdept],
+		isUnknown: true,
 	},
 	// {
 	// 	nightfall: [NightfallRewards.TheHothead],

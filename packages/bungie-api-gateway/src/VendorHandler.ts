@@ -3,15 +3,36 @@ import DefinitionHandler from './DefinitionHandler'
 import { XUR, ZAVALA, SPIDER, RAHOOL, ADA, BANSHEE } from './Hashes'
 import { getStrippedItems } from './InventoryItemUtility'
 
+async function getInventoryItems(hashes, env, request) {
+	const url = new URL(
+		'https://d2-bungie-gateway-worker.empatheticbot.workers.dev/definition/DestinyInventoryItemDefinition'
+	)
+	for (const hash of hashes) {
+		url.searchParams.append('definitionIds', hash)
+	}
+	console.log(url.toString())
+	const r = new Request(url, { headers: request.headers })
+	try {
+		const inventoryItems = await env.bungieGateway.fetch(r)
+		return inventoryItems.json()
+	} catch (e) {
+		console.log(e)
+	}
+}
+
 export default class VendorHandler {
 	bungieAPIHandler
 	definitionHandler
+	env
+	request
 
-	async init(bungieApiEnv) {
+	async init(env, request) {
+		this.env = env
+		this.request = request
 		this.bungieAPIHandler = new BungieAPIHandler()
-		await this.bungieAPIHandler.init(bungieApiEnv)
+		await this.bungieAPIHandler.init(env.BUNGIE_API)
 		this.definitionHandler = new DefinitionHandler()
-		await this.definitionHandler.init(bungieApiEnv)
+		await this.definitionHandler.init(env.BUNGIE_API)
 	}
 
 	// TODO: This function is fairly gnarly, split out some of the item sales code it's own module
@@ -32,7 +53,7 @@ export default class VendorHandler {
 			const itemHashes = saleItems.map((sale) => sale.itemHash)
 
 			const items = (
-				await this.definitionHandler.getInventoryItems(...itemHashes)
+				await getInventoryItems(itemHashes, this.env, this.request)
 			).reduce((acc, item) => {
 				acc[item.hash] = item
 				return acc

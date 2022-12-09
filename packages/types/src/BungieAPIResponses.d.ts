@@ -37,4 +37,15 @@ interface BungieAPICharacterMilestoneResponse {
 	ErrorStatus: BungieErrorStatus
 }
 
-type BungieD2Definition = string
+type BungieD2Definition =
+	| 'DestinyVendorDefinition'
+	| 'DestinyInventoryItemDefinition'
+	| 'DestinyActivityDefinition'
+	| 'DestinyActivityModifierDefinition'
+	| 'DestinyClassDefinition'
+	| 'DestinyDamageTypeDefinition'
+	| 'DestinyMilestoneDefinition'
+	| 'DestinyDestinationDefinition'
+	| 'DestinyPresentationNodeDefinition'
+	| 'DestinyRecordDefinition'
+	| 'DestinySeasonDefinition'

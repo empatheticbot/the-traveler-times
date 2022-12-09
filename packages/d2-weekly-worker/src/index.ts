@@ -8,6 +8,23 @@ import {
 	dateUtilities,
 } from '@the-traveler-times/bungie-api-gateway'
 
+async function getInventoryItems(hashes, env, request) {
+	const url = new URL(
+		'https://d2-bungie-gateway-worker.empatheticbot.workers.dev/definition/DestinyInventoryItemDefinition'
+	)
+	for (const hash of hashes) {
+		url.searchParams.append('definitionIds', hash)
+	}
+	console.log(url.toString())
+	const r = new Request(url, { headers: request.headers })
+	try {
+		const inventoryItems = await env.bungieGateway.fetch(r)
+		return inventoryItems.json()
+	} catch (e) {
+		console.log(e)
+	}
+}
+
 export default {
 	async fetch(request: Request, env: CloudflareEnvironment) {
 		if (!isAuthorized(request, env)) {
@@ -46,20 +63,25 @@ export default {
 				const ironBannerDefinition = await definitionHandler.getMilestone(
 					ironBannerMilestone.milestoneHash
 				)
-				const ironBannerRewards = await definitionHandler.getInventoryItems(
-					308332265, // Roar of the Bear
-					334859415, // Allied Demand
-					2961807684, // The Wizened Rebuke
-					2909905776, // The Hero's Burden
-					1141547457, // Frontier's Cry
-					1796949035, // Razor's Edge
-					// 829330711, // Peacebond
-					1076810832, // Forge's Pledge
-					108221785 // Riiswalker
-					// 701922966, // Finite Impactor
-					// 852551895, // Occluded Finality
-					// 1967303408 // Archon's Thunder
+				const ironBannerRewards = await getInventoryItems(
+					[
+						308332265, // Roar of the Bear
+						334859415, // Allied Demand
+						2961807684, // The Wizened Rebuke
+						2909905776, // The Hero's Burden
+						1141547457, // Frontier's Cry
+						1796949035, // Razor's Edge
+						// 829330711, // Peacebond
+						1076810832, // Forge's Pledge
+						108221785, // Riiswalker
+						// 701922966, // Finite Impactor
+						// 852551895, // Occluded Finality
+						// 1967303408 // Archon's Thunder
+					],
+					env,
+					request
 				)
+
 				const awardsStripped = await Promise.all(
 					ironBannerRewards.map(async (weapon) => {
 						const damageType = await definitionHandler.getDamageType(
@@ -107,7 +129,8 @@ export default {
 						(activity) => activity.activityHash
 					)
 				)
-				const rewards = await definitionHandler.getInventoryItems('3785032442')
+				const rewards = await getInventoryItems([3785032442], env, request)
+
 				guardianGames = {
 					...guardianGamesMilestone,
 					...milestone,
@@ -140,9 +163,10 @@ export default {
 						(activity) => activity.activityHash
 					)
 				)
-				const rewards = await definitionHandler.getInventoryItems(
-					'3600498390',
-					'1800094035'
+				const rewards = await getInventoryItems(
+					['3600498390', '1800094035'],
+					env,
+					request
 				)
 				solstice = {
 					...solsticeMilestone,
@@ -176,8 +200,10 @@ export default {
 					return rewards.flat()
 				})
 
-				const wellspringRewards = await definitionHandler.getInventoryItems(
-					...rewardHashes.flat()
+				const wellspringRewards = await getInventoryItems(
+					rewardHashes.flat(),
+					env,
+					request
 				)
 
 				const wellspringFetchedRewards = await Promise.all(

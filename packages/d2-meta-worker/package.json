@@ -4,9 +4,10 @@
 	"version": "2.0.0",
 	"description": "Scheduled worker that crawls the Bungie Destiny2*Definition endpoints and stores the values in KV DESTINY_2_DEFINITIONS",
 	"module": "./dist/index.mjs",
+	"type": "module",
 	"scripts": {
 		"clean": "rm -rf dist",
-		"build": "npm run clean && rollup -c",
+		"build": "npm run clean && rollup -c --bundleConfigAsCjs",
 		"publish": "wrangler publish",
 		"start": "wrangler dev",
 		"test": "echo \"Error: no test specified\" && exit 1",

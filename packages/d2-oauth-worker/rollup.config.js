@@ -1,4 +1,4 @@
-import { terser } from 'rollup-plugin-terser'
+import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 // plugin-node-resolve and plugin-commonjs are required for a rollup bundled project
 // to resolve dependencies from node_modules. See the documentation for these plugins

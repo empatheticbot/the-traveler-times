@@ -4,14 +4,16 @@ kv_namespaces = [
   {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
   {binding = "DESTINY_2_MANUAL_DATA", id = "351a1edd802045f9ba923aa2b93f60df", preview_id = "351a1edd802045f9ba923aa2b93f60df"},
 ]
+main = "dist/index.mjs"
 name = "d2-nightfall-worker"
+services = [
+  {binding = "bungieGateway", service = "d2-bungie-gateway-worker"},
+]
 usage_model = "unbound"
 workers_dev = true
-main = "dist/index.mjs"
 
 [dev]
 port = 3003
 
 [build]
 command = "npm install && npm run build"
-

@@ -1,25 +1,42 @@
 import { isAuthorized } from '@the-traveler-times/utils'
 import {
 	ActivityHandler,
-	DefinitionHandler,
 	dateUtilities,
 } from '@the-traveler-times/bungie-api-gateway'
 
 import { getCurrentLostSectorHashes } from './LostSectorHandler'
 
+async function getInventoryItems(hashes, env, request) {
+	const url = new URL(
+		'https://d2-bungie-gateway-worker.empatheticbot.workers.dev/definition/DestinyInventoryItemDefinition'
+	)
+	for (const hash of hashes) {
+		url.searchParams.append('definitionIds', hash)
+	}
+	console.log(url.toString())
+	const r = new Request(url, { headers: request.headers })
+	try {
+		const inventoryItems = await env.bungieGateway.fetch(r)
+		return inventoryItems.json()
+	} catch (e) {
+		console.log(e)
+	}
+}
+
 async function getLostSectorData(
 	lostSector,
 	activityHandler: ActivityHandler,
-	definitionHandler: DefinitionHandler,
+	env,
+	request,
 	overrides: { pgcrImage?: string } = {}
 ) {
 	const activity = await activityHandler.getActivityByHash(lostSector.hash)
 	let rewards = []
 	if (lostSector.rewards) {
-		rewards = await Promise.all(
-			lostSector.rewards.map((reward) =>
-				definitionHandler.getInventoryItem(reward.hash)
-			)
+		rewards = await await getInventoryItems(
+			lostSector.rewards.map((reward) => reward.hash),
+			env,
+			request
 		)
 	}
 	return {
@@ -42,19 +59,18 @@ export default {
 			const activityHandler = new ActivityHandler()
 			await activityHandler.init(env.BUNGIE_API)
 
-			const definitionHandler = new DefinitionHandler()
-			await definitionHandler.init(env.BUNGIE_API)
-
 			const legend = await getLostSectorData(
 				lostSectors.legend,
 				activityHandler,
-				definitionHandler,
+				env,
+				request,
 				lostSectors.overrides
 			)
 			const master = await getLostSectorData(
 				lostSectors.master,
 				activityHandler,
-				definitionHandler,
+				env,
+				request,
 				lostSectors.overrides
 			)
 

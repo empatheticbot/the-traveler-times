@@ -3,8 +3,11 @@ compatibility_date = "2021-11-25"
 kv_namespaces = [
   {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
 ]
+main = "dist/index.mjs"
 name = "d2-weekly-worker"
-type = "javascript"
+services = [
+  {binding = "bungieGateway", service = "d2-bungie-gateway-worker"},
+]
 usage_model = "unbound"
 workers_dev = true
 
@@ -13,7 +16,3 @@ port = 3008
 
 [build]
 command = "npm install && npm run build"
-
-[build.upload]
-format = "modules"
-main = "./index.mjs"
