@@ -8,6 +8,23 @@ import {
 } from '@the-traveler-times/bungie-api-gateway'
 import { isAuthorized } from '@the-traveler-times/utils'
 
+async function getInventoryItems(hashes, env, request) {
+	const url = new URL(
+		'https://d2-bungie-gateway-worker.empatheticbot.workers.dev/definition/DestinyInventoryItemDefinition'
+	)
+	for (const hash of hashes) {
+		url.searchParams.append('definitionIds', hash)
+	}
+	console.log(url.toString())
+	const r = new Request(url, { headers: request.headers })
+	try {
+		const nightfallRewards = await env.bungieGateway.fetch(r)
+		return nightfallRewards.json()
+	} catch (e) {
+		console.log(e)
+	}
+}
+
 async function getIsAvailable(
 	env: CloudflareEnvironment,
 	weekendReset: string,
@@ -88,8 +105,10 @@ export default {
 					twitterSearchStartDate,
 					twitterSearchEndDate
 				)
-				trialsRewards = await definitionHandler.getInventoryItems(
-					...trialsRewards.map((map) => map.hash)
+				trialsRewards = getInventoryItems(
+					trialsRewards.map((map) => map.hash),
+					env,
+					request
 				)
 
 				trialsMaps = await twitterHandler.getTrialsMap(

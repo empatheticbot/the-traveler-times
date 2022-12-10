@@ -5,8 +5,11 @@ kv_namespaces = [
   {binding = "TWITTER_API", id = "fb5926d96ac7431c8632b5c4413f7821", preview_id = "fb5926d96ac7431c8632b5c4413f7821"},
   {binding = "DESTINY_2_MANUAL_DATA", id = "351a1edd802045f9ba923aa2b93f60df", preview_id = "351a1edd802045f9ba923aa2b93f60df"},
 ]
+main = "dist/index.mjs"
 name = "d2-trials-worker"
-type = "javascript"
+services = [
+  {binding = "bungieGateway", service = "d2-bungie-gateway-worker"},
+]
 usage_model = "unbound"
 workers_dev = true
 
@@ -15,7 +18,3 @@ port = 3006
 
 [build]
 command = "npm install && npm run build"
-
-[build.upload]
-format = "modules"
-main = "./index.mjs"
