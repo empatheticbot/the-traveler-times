@@ -3,6 +3,9 @@ const startingDate = new Date('December 8, 2022 17:00:00 GMT')
 const availableLostSectors = [
 	{ name: 'K1 Revelation', master: '3911969238', legend: '3911969233' },
 	{ name: 'K1 Communion', master: '2829206720', legend: '2829206727' },
+	{ name: 'Bunker E15', master: '1648125538', legend: '1648125541' },
+	{ name: 'The Conflux', master: '1163502296', legend: '1163502303' },
+	{ name: 'Perdition', master: '1070981425', legend: '1070981430' },
 	{
 		name: 'Skydock IV',
 		master: '55186256',
@@ -13,9 +16,6 @@ const availableLostSectors = [
 	{ name: 'The Quarry', master: '1344654779', legend: '1344654780' },
 	{ name: 'Excavation Site XII', master: '3350278552', legend: '3350278559' },
 	{ name: 'Concealed Void', master: '912873274', legend: '912873277' },
-	{ name: 'Bunker E15', master: '1648125538', legend: '1648125541' },
-	{ name: 'The Conflux', master: '1163502296', legend: '1163502303' },
-	{ name: 'Perdition', master: '1070981425', legend: '1070981430' },
 	// { name: 'The Rift', master: '1551471974', legend: '1551471969' },
 	{ name: 'K1 Crew Quarters', master: '184186578', legend: '184186581' },
 	{ name: 'K1 Logistics', master: '567131519', legend: '567131512' },
