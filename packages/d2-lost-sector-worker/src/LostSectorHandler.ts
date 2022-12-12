@@ -5,8 +5,9 @@ const availableLostSectors = [
 	{ name: 'K1 Communion', master: '2829206720', legend: '2829206727' },
 	{ name: 'Bunker E15', master: '1648125538', legend: '1648125541' },
 	{ name: 'Concealed Void', master: '912873274', legend: '912873277' },
-	{ name: 'The Conflux', master: '1163502296', legend: '1163502303' },
 	{ name: 'Perdition', master: '1070981425', legend: '1070981430' },
+	// Next
+	{ name: 'The Conflux', master: '1163502296', legend: '1163502303' },
 	{
 		name: 'Skydock IV',
 		master: '55186256',
