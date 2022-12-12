@@ -112,13 +112,19 @@ async function cleanUpOldDeployments(
 }
 
 async function getBuildStatus(env: CloudflareEnvironment) {
-	const deployments = await getDeployments(env, 1)
-	const lastSuccessfulProductionDeploy = deployments.find((deployment) =>
-		isSuccessfulProductionDeploy(deployment)
-	)
+	let lastSuccessfulProductionDeploy
+	const deployments = []
+	let pageNumber = 1
+	while (!lastSuccessfulProductionDeploy || pageNumber > 10) {
+		const newDeployments = await getDeployments(env, pageNumber)
+		lastSuccessfulProductionDeploy = newDeployments.find((deployment) =>
+			isSuccessfulProductionDeploy(deployment)
+		)
+		pageNumber++
+	}
 
 	if (!lastSuccessfulProductionDeploy) {
-		return new Response('No production builds found', { status: 401 })
+		return new Response('No production builds found', { status: 500 })
 	}
 
 	const timeThreshold = new Date()

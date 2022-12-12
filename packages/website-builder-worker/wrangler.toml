@@ -1,7 +1,7 @@
 account_id = "a13a5016df895961431fb659d5d3a635"
 compatibility_date = "2021-11-25"
+main = "dist/index.mjs"
 name = "website-builder-worker"
-type = "javascript"
 usage_model = "bundled"
 workers_dev = true
 
@@ -12,10 +12,6 @@ port = 3009
 
 [build]
 command = "npm install && npm run build"
-
-[build.upload]
-format = "modules"
-main = "./index.mjs"
 
 [triggers]
 crons = ["3 * * * *", "20 17 * * *"]
