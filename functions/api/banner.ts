@@ -1,7 +1,7 @@
 const BANNER_WARNING = 'BANNER_WARNING'
 
 export async function onRequestGet({ env }) {
-  let message = '<aside>'
+  let message = ''
   try {
     const lastBuildResponse = await fetch(
       'https://website-builder-worker.empatheticbot.workers.dev/buildStatus',
@@ -26,7 +26,9 @@ export async function onRequestGet({ env }) {
   } catch (e) {
     return new Response(JSON.stringify({ message: e.message }), { status: 500 })
   }
-  message += '</aside>'
+  if (message) {
+    message = `<aside>${message}</aside>`
+  }
   return new Response(JSON.stringify({ message }))
 
 }
