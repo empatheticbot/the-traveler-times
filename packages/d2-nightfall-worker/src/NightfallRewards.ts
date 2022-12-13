@@ -51,6 +51,10 @@ export const NightfallRewardPairs = [
 		grandmaster: [NightfallRewards.MindbendersAmbitionAdept],
 	},
 	{
+		nightfall: [NightfallRewards.HorrorsLeast],
+		grandmaster: [NightfallRewards.HorrorsLeastAdept],
+	},
+	{
 		nightfall: [NightfallRewards.DutyBound],
 		grandmaster: [NightfallRewards.DutyBoundAdept],
 		isUnknown: true,
@@ -58,11 +62,6 @@ export const NightfallRewardPairs = [
 	{
 		nightfall: [NightfallRewards.MilitiasBirthright],
 		grandmaster: [NightfallRewards.MilitiasBirthrightAdept],
-		isUnknown: true,
-	},
-	{
-		nightfall: [NightfallRewards.HorrorsLeast],
-		grandmaster: [NightfallRewards.HorrorsLeastAdept],
 		isUnknown: true,
 	},
 	// {
