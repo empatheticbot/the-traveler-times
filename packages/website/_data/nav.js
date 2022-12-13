@@ -120,7 +120,7 @@ module.exports = async function () {
 		})
 	}
 
-	if (vendors.xur.isAvailable) {
+	if (vendors.xur && vendors.xur.isAvailable) {
 		updates.push({
 			date: cleanDate(vendors.xur.lastRefreshDate),
 			markup: `
@@ -135,7 +135,7 @@ module.exports = async function () {
 		})
 	}
 
-	if (vendors.rahool.isAvailable) {
+	if (vendors.rahool && vendors.rahool.isAvailable) {
 		updates.push({
 			date: cleanDate(vendors.rahool.lastRefreshDate),
 			markup: `
@@ -146,7 +146,7 @@ module.exports = async function () {
 		})
 	}
 
-	if (vendors.ada.isAvailable) {
+	if (vendors.ada && vendors.ada.isAvailable) {
 		updates.push({
 			date: cleanDate(vendors.ada.lastRefreshDate),
 			markup: `
@@ -157,7 +157,7 @@ module.exports = async function () {
 		})
 	}
 
-	if (vendors.banshee.isAvailable) {
+	if (vendors.banshee && vendors.banshee.isAvailable) {
 		updates.push({
 			date: cleanDate(vendors.banshee.lastRefreshDate),
 			markup: `
