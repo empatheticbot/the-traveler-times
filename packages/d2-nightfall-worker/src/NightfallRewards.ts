@@ -37,6 +37,14 @@ export const NightfallStrikeReward = {
 
 export const NightfallRewardPairs = [
 	{
+		nightfall: [NightfallRewards.MindbendersAmbition],
+		grandmaster: [NightfallRewards.MindbendersAmbitionAdept],
+	},
+	{
+		nightfall: [NightfallRewards.HorrorsLeast],
+		grandmaster: [NightfallRewards.HorrorsLeastAdept],
+	},
+	{
 		nightfall: [NightfallRewards.SiliconNeuroma],
 		grandmaster: [NightfallRewards.SiliconNeuromaAdept],
 		isUnknown: true,
@@ -45,14 +53,6 @@ export const NightfallRewardPairs = [
 		nightfall: [NightfallRewards.DFA],
 		grandmaster: [NightfallRewards.DFAAdept],
 		isUnknown: true,
-	},
-	{
-		nightfall: [NightfallRewards.MindbendersAmbition],
-		grandmaster: [NightfallRewards.MindbendersAmbitionAdept],
-	},
-	{
-		nightfall: [NightfallRewards.HorrorsLeast],
-		grandmaster: [NightfallRewards.HorrorsLeastAdept],
 	},
 	{
 		nightfall: [NightfallRewards.DutyBound],
