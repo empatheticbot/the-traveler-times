@@ -7,6 +7,7 @@ const availableLostSectors = [
 	{ name: 'Concealed Void', master: '912873274', legend: '912873277' },
 	{ name: 'Perdition', master: '1070981425', legend: '1070981430' },
 	{ name: 'Sepulcher', master: '480864721', legend: '480864726' },
+	{ name: 'Extraction', master: '145221020', legend: '145221019' },
 	// Next
 	{ name: 'The Conflux', master: '1163502296', legend: '1163502303' },
 	{
@@ -24,7 +25,6 @@ const availableLostSectors = [
 	{ name: 'K1 Logistics', master: '567131519', legend: '567131512' },
 	// Previously available Lost Sectors
 	// { name: 'Metamorphosis', master: '3678847134', legend: '3678847129' },
-	// { name: 'Extraction', master: '145221020', legend: '145221019' },
 	// { name: 'Veles Labyrinth', master: '3094493727', legend: '3094493720' },
 	// { name: 'Exodus Garden 2A', master: '2936791995', legend: '2936791996' },
 	// { name: "Aphelion's Rest", master: '1898610131', legend: '1898610132' },
