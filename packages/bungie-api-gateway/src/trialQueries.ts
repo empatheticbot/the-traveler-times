@@ -142,4 +142,9 @@ export const rewards = [
 		twitterQuery: 'trials reward Whistler Whim',
 		hash: '541991426',
 	},
+	{
+		reward: "Exalted Truth",
+		twitterQuery: 'trials reward exalted truth',
+		hash: '1061000675',
+	},
 ]

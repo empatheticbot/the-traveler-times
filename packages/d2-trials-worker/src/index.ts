@@ -105,8 +105,9 @@ export default {
 					twitterSearchStartDate,
 					twitterSearchEndDate
 				)
-				trialsRewards = getInventoryItems(
-					trialsRewards.map((map) => map.hash),
+
+				trialsRewards = await getInventoryItems(
+					trialsRewards.map((reward) => reward.hash),
 					env,
 					request
 				)
