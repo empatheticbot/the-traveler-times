@@ -9,6 +9,7 @@ const availableLostSectors = [
 	{ name: 'Sepulcher', master: '480864721', legend: '480864726' },
 	{ name: 'Extraction', master: '145221020', legend: '145221019' },
 	{ name: 'Chamber of Starlight', master: '4206916276', legend: '4206916275' },
+	{ name: "Aphelion's Rest", master: '1898610131', legend: '1898610132' },
 	// Next
 	{ name: 'The Conflux', master: '1163502296', legend: '1163502303' },
 	{
