@@ -1,0 +1,27 @@
+{% import "components/section.njk" as section %}
+{% import "components/items.njk" as items %}
+
+{% set dawning = weekly.dawning %}
+{% if dawning.isAvailable %}
+  {% extends "components/article.njk" %}
+
+  {% set title = "The Dawning" %}
+  {% set id = "dawning" %}
+  {% set description = "Head to the Tower and bid a season’s greetings to Eva Levante. She’s waiting near her Holiday Oven with warm wishes and the perfect recipe for Dawning Spirit, delicious cookies, and twinkling rewards." %}
+  {% set displayDate = dawning.startDate %}
+
+  {% block content %}
+    {% call section.section(icon = dawning.image) %}
+    {% endcall %}
+    <section class="modifiers-group">
+      <h4 class="modifier-heading">Rewards</h4>
+      <ul role="list" class=" lost-sector-list lost-sector-rewards-list">
+        {% for item in dawning.rewards %}
+          <li class="">
+            {{ items.inventoryItem(item.displayProperties.name, 'Legendary Pulse Rifle', icon=item.displayProperties.icon) }}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endblock %}
+{% endif %}

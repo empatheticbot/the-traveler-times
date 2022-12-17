@@ -109,6 +109,42 @@ export default {
 				ironBanner = { isAvailable: false }
 			}
 
+			let dawningMilestone
+			try {
+				dawningMilestone =
+					await publicMilestoneHandler.getPublicMilestoneByHash(
+						Hashes.DAWNING
+					)
+			} catch (e) {
+				console.log('Dawning not available.')
+			}
+
+			let dawning
+			if (dawningMilestone) {
+				const milestone = await definitionHandler.getMilestone(
+					dawningMilestone.milestoneHash
+				)
+				// const activities = await definitionHandler.getActivities(
+				// 	...dawningMilestone.activities.map(
+				// 		(activity) => activity.activityHash
+				// 	)
+				// )
+				const rewards = await getInventoryItems(['2812100428'], env, request)
+
+				dawning = {
+					...dawningMilestone,
+					...milestone,
+					image: '/assets/dawning-2022.png',
+					rewards,
+					isAvailable: true,
+					// activities,
+				}
+			} else {
+				dawning = {
+					isAvailable: false,
+				}
+			}
+			
 			let guardianGamesMilestone
 			try {
 				guardianGamesMilestone =
@@ -118,7 +154,7 @@ export default {
 			} catch (e) {
 				console.log('Guardian Games not available.')
 			}
-
+			
 			let guardianGames
 			if (guardianGamesMilestone) {
 				const milestone = await definitionHandler.getMilestone(
@@ -243,6 +279,7 @@ export default {
 					wellspring,
 					guardianGames,
 					solstice,
+					dawning,
 					doubleRanks,
 					isAvailable: true,
 				}),
