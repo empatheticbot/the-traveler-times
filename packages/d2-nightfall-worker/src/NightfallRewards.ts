@@ -45,9 +45,8 @@ export const NightfallRewardPairs = [
 		grandmaster: [NightfallRewards.HorrorsLeastAdept],
 	},
 	{
-		nightfall: [NightfallRewards.SiliconNeuroma],
-		grandmaster: [NightfallRewards.SiliconNeuromaAdept],
-		isUnknown: true,
+		nightfall: [NightfallRewards.HungJury],
+		grandmaster: [NightfallRewards.HungJuryAdept],
 	},
 	{
 		nightfall: [NightfallRewards.DFA],
