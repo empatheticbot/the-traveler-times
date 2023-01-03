@@ -109,15 +109,16 @@ export default {
 				ironBanner = { isAvailable: false }
 			}
 
-			let dawningMilestone
-			try {
-				dawningMilestone =
-					await publicMilestoneHandler.getPublicMilestoneByHash(
-						Hashes.DAWNING
-					)
-			} catch (e) {
-				console.log('Dawning not available.')
-			}
+			let dawningMilestone: any
+			// TODO: Remove comment to enable dawning
+			// try {
+			// 	dawningMilestone =
+			// 		await publicMilestoneHandler.getPublicMilestoneByHash(
+			// 			Hashes.DAWNING
+			// 		)
+			// } catch (e) {
+			// 	console.log('Dawning not available.')
+			// }
 
 			let dawning
 			if (dawningMilestone) {
