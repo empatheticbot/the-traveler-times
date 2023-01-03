@@ -55,7 +55,6 @@ export const NightfallRewardPairs = [
 	{
 		nightfall: [NightfallRewards.DFA],
 		grandmaster: [NightfallRewards.DFAAdept],
-		isUnknown: true,
 	},
 	{
 		nightfall: [NightfallRewards.DutyBound],
