@@ -147,4 +147,10 @@ export const rewards = [
 		twitterQuery: 'trials reward exalted truth',
 		hash: '1061000675',
 	},
+	{
+		reward: " Unwavering Duty",
+		twitterQuery: 'trials reward unwavering duty',
+		// TODO: Figure out hash for unwavering duty
+		hash: '3852811050',
+	},
 ]

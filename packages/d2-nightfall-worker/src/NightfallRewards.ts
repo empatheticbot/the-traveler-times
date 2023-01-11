@@ -27,6 +27,8 @@ export enum NightfallRewards {
 	MindbendersAmbitionAdept = '912150785',
 	MilitiasBirthright = '40394833',
 	MilitiasBirthrightAdept = '2378101424',
+	Wendigo = '578459533',
+	WendigoAdept = '555148853',
 	Unknown = '773524094',
 }
 
@@ -57,9 +59,8 @@ export const NightfallRewardPairs = [
 		grandmaster: [NightfallRewards.DFAAdept],
 	},
 	{
-		nightfall: [NightfallRewards.DutyBound],
-		grandmaster: [NightfallRewards.DutyBoundAdept],
-		isUnknown: true,
+		nightfall: [NightfallRewards.Wendigo],
+		grandmaster: [NightfallRewards.WendigoAdept],
 	},
 	// {
 	// 	nightfall: [NightfallRewards.TheHothead],
