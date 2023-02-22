@@ -1,7 +1,7 @@
 const fs = require('fs')
 let Parser = require('rss-parser')
 let parser = new Parser()
-const BUNGIE_RSS_URL = 'http://www.bungie.net/News/NewsRss.ashx'
+const BUNGIE_RSS_URL = 'http://www.bungie.net/en/Rss/NewsByCategory/feed'
 
 module.exports = async function getBungieRss() {
 	let feed

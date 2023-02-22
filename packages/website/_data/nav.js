@@ -173,7 +173,7 @@ module.exports = async function () {
 			date: cleanDate(bungieRss.lastRefreshDate),
 			markup: `
       <p>
-        A <a href="${bungieRss.items[0].link}">${
+        A <a href="https://www.bungie.net${bungieRss.items[0].link}">${
 				bungieRss.items[0].title.includes('This Week At Bungie')
 					? 'new TWAB'
 					: 'new article'
