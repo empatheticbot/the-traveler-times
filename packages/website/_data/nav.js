@@ -66,15 +66,17 @@ module.exports = async function () {
 		})
 	}
 
-	updates.push({
-		date: meta.lastRefreshDate,
-		markup: `
-    <p>
-    Check out <a href="#meta">The Meta</a>
-      [<a href="#meta-kills">Kills</a>, <a href="#meta-usage">Usage</a>, and <a href="#meta-efficiency">Efficiency</a>] to get an edge on your opponents in the Crucible.
-    </p>
-    `,
+  if (meta.isAvailable) {
+	  updates.push({
+		  date: meta.lastRefreshDate,
+		  markup: `
+      <p>
+      Check out <a href="#meta">The Meta</a>
+        [<a href="#meta-kills">Kills</a>, <a href="#meta-usage">Usage</a>, and <a href="#meta-efficiency">Efficiency</a>] to get an edge on your opponents in the Crucible.
+      </p>
+      `,
 	})
+  }
 
 	if (lostSector.isAvailable) {
 		updates.push({
