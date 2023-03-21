@@ -93,6 +93,7 @@ function getTopEfficiency(weapons, lastWeapons, limit = LIMIT) {
 
 module.exports = async function () {
   const response = await fetchDataFromEndpoint(PGCR_ENDPOINT, DEV_PGCR_ENDPOINT)
+
   if (response.isAvailable) {
     const { weapons, lastWeekMeta, ...rest } = response
     return {
@@ -102,6 +103,10 @@ module.exports = async function () {
       topEfficiency: getTopEfficiency(weapons, lastWeekMeta.weapons),
       topUsage: getTopUsage(weapons, lastWeekMeta.weapons),
       lastRefreshDate: new Date().toISOString(),
+    }
+  } else {
+    return {
+      isAvailable: false,
     }
   }
 }
