@@ -8,16 +8,18 @@ import { getCurrentLostSectorHashes } from './LostSectorHandler'
 
 async function getInventoryItems(hashes, env, request) {
 	const url = new URL(
-		'https://d2-bungie-gateway-worker.empatheticbot.workers.dev/definition/DestinyInventoryItemDefinition'
+		'https://the-traveler-times.netlify.app/.netlify/functions/definitions'
 	)
+	url.searchParams.append('definitionType', 'DestinyInventoryItemDefinition')
 	for (const hash of hashes) {
 		url.searchParams.append('definitionIds', hash)
 	}
 	console.log(url.toString())
 	const r = new Request(url, { headers: request.headers })
 	try {
-		const inventoryItems = await env.bungieGateway.fetch(r)
-		return inventoryItems.json()
+		const response = await fetch(r)
+		const data = await response.json()
+		return data.definitions
 	} catch (e) {
 		console.log(e)
 	}
@@ -33,7 +35,7 @@ async function getLostSectorData(
 	const activity = await activityHandler.getActivityByHash(lostSector.hash)
 	let rewards = []
 	if (lostSector.rewards) {
-		rewards = await await getInventoryItems(
+		rewards = await getInventoryItems(
 			lostSector.rewards.map((reward) => reward.hash),
 			env,
 			request
@@ -88,7 +90,11 @@ export default {
 			)
 		} catch (e) {
 			return new Response(
-				JSON.stringify({ isAvailable: false, error: e.message }),
+				JSON.stringify({
+					isAvailable: false,
+					error: e.message,
+					stack: e.stack,
+				}),
 				{
 					status: 500,
 				}

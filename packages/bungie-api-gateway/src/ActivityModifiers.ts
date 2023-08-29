@@ -101,6 +101,7 @@ function getShieldTypeHashes(modifier: Modifier): number[] {
 		Solar: 1847026933,
 		Arc: 2303181850,
 		Stasis: 151347233,
+		Strand: 3949783978,
 	}
 	if (modifier?.displayProperties?.description) {
 		const shields = parseBracketedString(modifier.displayProperties.description)
@@ -142,12 +143,13 @@ function getChampionTypeHashes(modifier: Modifier): number[] {
 
 export function getChampionModifiersHashes(modifiers: Modifier[]): number[] {
 	let championModifiers: number[] = []
-	const foesModifiers = modifiers.filter((modifier) =>
-		championFoesModifiers.includes(modifier.hash)
+	const foesModifiers = modifiers.filter(
+		(modifier) =>
+			modifier?.hash && championFoesModifiers.includes(modifier.hash)
 	)
 
-	const mobModifiers = modifiers.filter((modifier) =>
-		championMobModifiers.includes(modifier.hash)
+	const mobModifiers = modifiers.filter(
+		(modifier) => modifier?.hash && championMobModifiers.includes(modifier.hash)
 	)
 
 	for (const foeMod of foesModifiers) {
@@ -162,37 +164,43 @@ export function getChampionModifiersHashes(modifiers: Modifier[]): number[] {
 }
 
 export function isDamageModifier(modifier: Modifier) {
-	console.log('des ', modifier.displayProperties.description)
-	return modifier.displayProperties.description.includes('+50%')
+	console.log('damage ', modifier?.displayProperties?.description)
+	return modifier?.displayProperties?.description.includes('bonus to outgoing')
 }
 
 export function isChampionModifier(modifier: Modifier) {
+	console.log('champion ', modifier?.displayProperties?.description)
 	return (
-		championFoesModifiers.includes(modifier.hash) ||
-		championMobModifiers.includes(modifier.hash)
+		championFoesModifiers.includes(modifier?.hash) ||
+		championMobModifiers.includes(modifier?.hash)
 	)
 }
 
 export function isCommonModifier(modifier: Modifier) {
-	return commonModifiers.includes(modifier.hash)
+	console.log('common ', modifier?.displayProperties?.description)
+	return commonModifiers.includes(modifier?.hash)
 }
 
 export function isIgnoredModifier(modifier: Modifier) {
-	return modifierIgnoreList.includes(modifier.hash)
+	console.log('ignored ', modifier?.displayProperties?.description)
+	return modifierIgnoreList.includes(modifier?.hash)
 }
 
 export function isMiscModifier(modifier: Modifier) {
-	return !(
-		isChampionModifier(modifier) ||
-		isDamageModifier(modifier) ||
-		isCommonModifier(modifier) ||
-		isShieldsModifier(modifier) ||
-		isIgnoredModifier(modifier)
+	return (
+		modifier &&
+		!(
+			isChampionModifier(modifier) ||
+			isDamageModifier(modifier) ||
+			isCommonModifier(modifier) ||
+			isShieldsModifier(modifier) ||
+			isIgnoredModifier(modifier)
+		)
 	)
 }
 
 export function isShieldsModifier(modifier: Modifier) {
-	return shieldModifiers.includes(modifier.hash)
+	return shieldModifiers.includes(modifier?.hash)
 }
 
 export function sortChampionModifiers(

@@ -1,4 +1,4 @@
-import { FESTIVAL_OF_THE_LOST } from './Hashes'
+// import { FESTIVAL_OF_THE_LOST } from './Hashes'
 import DefinitionHandler from './DefinitionHandler'
 import BungieAPIHandler from './BungieAPIHandler'
 
@@ -74,18 +74,18 @@ export default class SeasonHandler {
 	}
 
 	async getFestivalOfTheLost() {
-		const milestones = await this.bungieAPIHandler.getCharacterMilestones()
-		const festivalOfTheLostMilestone = milestones[FESTIVAL_OF_THE_LOST]
-		if (festivalOfTheLostMilestone) {
-			const definition = await this.definitionHandler.getMilestone(
-				FESTIVAL_OF_THE_LOST
-			)
-			return {
-				...festivalOfTheLostMilestone,
-				...definition,
-				isAvailable: true,
-			}
-		}
+		// const milestones = await this.bungieAPIHandler.getCharacterMilestones()
+		// const festivalOfTheLostMilestone = milestones[FESTIVAL_OF_THE_LOST]
+		// if (festivalOfTheLostMilestone) {
+		// 	const definition = await this.definitionHandler.getMilestone(
+		// 		FESTIVAL_OF_THE_LOST
+		// 	)
+		// 	return {
+		// 		...festivalOfTheLostMilestone,
+		// 		...definition,
+		// 		isAvailable: true,
+		// 	}
+		// }
 		return {
 			isAvailable: false,
 		}

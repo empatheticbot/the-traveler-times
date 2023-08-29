@@ -84,12 +84,12 @@ export const maps = [
 export const rewards = [
 	{
 		reward: 'Burden Of Guilt',
-		twitterQuery: 'trials reward burden guilt',
+		twitterQuery: 'trials burden guilt',
 		hash: '1415290314',
 	},
 	{
 		reward: 'Forgiveness',
-		twitterQuery: 'trials reward forgiveness',
+		twitterQuery: 'trials forgiveness',
 		hash: '2284285250',
 	},
 	// {
@@ -104,7 +104,7 @@ export const rewards = [
 	// },
 	{
 		reward: "Reed's Regret",
-		twitterQuery: "trials reward Reed's Regret",
+		twitterQuery: "trials Reed's Regret",
 		hash: '751170008',
 	},
 	// {
@@ -124,33 +124,32 @@ export const rewards = [
 	// },
 	{
 		reward: "Exile's Curse",
-		twitterQuery: "trials flawless (Exile OR Curse OR exiles OR exile's)",
+		twitterQuery: "trials (Exile OR Curse OR exiles OR exile's)",
 		hash: '276080079',
 	},
 	{
 		reward: "Aisha's Embrace (Adept) ",
-		twitterQuery: 'trials reward aisha embrace',
+		twitterQuery: 'trials aisha embrace',
 		hash: '2432138634',
 	},
 	{
 		reward: 'The Inquisitor',
-		twitterQuery: 'trials flawless Inquisitor',
+		twitterQuery: 'trials Inquisitor',
 		hash: '2185327324',
 	},
 	{
 		reward: "Whistler's Whim",
-		twitterQuery: 'trials reward Whistler Whim',
+		twitterQuery: 'trials Whistler Whim',
 		hash: '541991426',
 	},
 	{
-		reward: "Exalted Truth",
-		twitterQuery: 'trials reward exalted truth',
+		reward: 'Exalted Truth',
+		twitterQuery: 'trials exalted truth',
 		hash: '1061000675',
 	},
 	{
-		reward: " Unwavering Duty",
-		twitterQuery: 'trials reward unwavering duty',
-		// TODO: Figure out hash for unwavering duty
+		reward: ' Unwavering Duty',
+		twitterQuery: 'trials unwavering duty',
 		hash: '3852811050',
 	},
 ]

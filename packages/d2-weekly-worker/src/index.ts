@@ -10,16 +10,18 @@ import {
 
 async function getInventoryItems(hashes, env, request) {
 	const url = new URL(
-		'https://d2-bungie-gateway-worker.empatheticbot.workers.dev/definition/DestinyInventoryItemDefinition'
+		'https://the-traveler-times.netlify.app/.netlify/functions/definitions'
 	)
+	url.searchParams.append('definitionType', 'DestinyInventoryItemDefinition')
 	for (const hash of hashes) {
 		url.searchParams.append('definitionIds', hash)
 	}
 	console.log(url.toString())
 	const r = new Request(url, { headers: request.headers })
 	try {
-		const inventoryItems = await env.bungieGateway.fetch(r)
-		return inventoryItems.json()
+		const inventoryItems = await fetch(r)
+		const json = await inventoryItems.json()
+		return json.definitions
 	} catch (e) {
 		console.log(e)
 	}
@@ -65,15 +67,19 @@ export default {
 				)
 				const ironBannerRewards = await getInventoryItems(
 					[
-						308332265, // Roar of the Bear
-						334859415, // Allied Demand
-						2961807684, // The Wizened Rebuke
+						94729174, // Gunnora's Axe
+						540880995, // Dark Decider
+						62937067, // Jorum's Claw
 						2909905776, // The Hero's Burden
 						1141547457, // Frontier's Cry
+						2961807684, // The Wizened Rebuke
+						308332265, // Roar of the Bear
 						1796949035, // Razor's Edge
+						334859415, // Allied Demand
+
 						// 829330711, // Peacebond
-						1076810832, // Forge's Pledge
-						108221785, // Riiswalker
+						// 1076810832, // Forge's Pledge
+						// 108221785, // Riiswalker
 						// 701922966, // Finite Impactor
 						// 852551895, // Occluded Finality
 						// 1967303408 // Archon's Thunder
@@ -145,26 +151,27 @@ export default {
 					isAvailable: false,
 				}
 			}
-			
+
 			let guardianGamesMilestone
-			try {
-				guardianGamesMilestone =
-					await publicMilestoneHandler.getPublicMilestoneByHash(
-						Hashes.GUARDIAN_GAMES
-					)
-			} catch (e) {
-				console.log('Guardian Games not available.')
-			}
-			
+			// try {
+			// 	guardianGamesMilestone =
+			// 		await publicMilestoneHandler.getPublicMilestoneByHash(
+			// 			Hashes.GUARDIAN_GAMES
+			// 		)
+			// } catch (e) {
+			// 	console.log('Guardian Games not available.')
+			// }
+			console.log(guardianGamesMilestone)
 			let guardianGames
 			if (guardianGamesMilestone) {
 				const milestone = await definitionHandler.getMilestone(
 					guardianGamesMilestone.milestoneHash
 				)
-				const activities = await definitionHandler.getActivities(
-					...guardianGamesMilestone.activities.map(
+				console.log(milestone)
+				let activities = await definitionHandler.getActivities(
+					...(guardianGamesMilestone.activities?.map(
 						(activity) => activity.activityHash
-					)
+					) ?? [])
 				)
 				const rewards = await getInventoryItems([3785032442], env, request)
 
@@ -190,80 +197,79 @@ export default {
 				console.log('Solstice not available.')
 			}
 
-			let solstice
-			if (solsticeMilestone) {
-				const milestone = await definitionHandler.getMilestone(
-					solsticeMilestone.milestoneHash
-				)
-				const activities = await definitionHandler.getActivities(
-					...solsticeMilestone.activities.map(
-						(activity) => activity.activityHash
-					)
-				)
-				const rewards = await getInventoryItems(
-					['3600498390', '1800094035'],
-					env,
-					request
-				)
-				solstice = {
-					...solsticeMilestone,
-					...milestone,
-					image: activities[0].pgcrImage,
-					rewards,
-					isAvailable: true,
-					activities,
-				}
-			} else {
-				solstice = {
-					isAvailable: false,
-				}
-			}
+			// let solstice
+			// if (solsticeMilestone) {
+			// 	const milestone = await definitionHandler.getMilestone(
+			// 		solsticeMilestone.milestoneHash
+			// 	)
+			// 	const activities = await definitionHandler.getActivities(
+			// 		...solsticeMilestone.activities.map(
+			// 			(activity) => activity.activityHash
+			// 		)
+			// 	)
+			// 	const rewards = await getInventoryItems(
+			// 		['3600498390', '1800094035'],
+			// 		env,
+			// 		request
+			// 	)
+			// 	solstice = {
+			// 		...solsticeMilestone,
+			// 		...milestone,
+			// 		image: activities[0].pgcrImage,
+			// 		rewards,
+			// 		isAvailable: true,
+			// 		activities,
+			// 	}
+			// } else {
+			// 	solstice = {
+			// 		isAvailable: false,
+			// 	}
+			// }
 
-			let wellspringMilestone =
-				await publicMilestoneHandler.getPublicMilestoneByHash(Hashes.WELLSPRING)
+			// let wellspringMilestone =
+			// 	await publicMilestoneHandler.getPublicMilestoneByHash(Hashes.WELLSPRING)
 
-			let wellspring
-			if (wellspringMilestone) {
-				const activities = await definitionHandler.getActivities(
-					...wellspringMilestone.activities.map(
-						(activity) => activity.activityHash
-					)
-				)
+			// let wellspring
+			// if (wellspringMilestone) {
+			// 	const activities = await definitionHandler.getActivities(
+			// 		...wellspringMilestone.activities.map(
+			// 			(activity) => activity.activityHash
+			// 		)
+			// 	)
 
-				const rewardHashes = activities.map((activity) => {
-					const rewards = activity.rewards.map((reward) =>
-						reward.rewardItems.map((item) => item.itemHash)
-					)
-					return rewards.flat()
-				})
+			// 	const rewardHashes = activities.map((activity) => {
+			// 		const rewards = activity.rewards.map((reward) =>
+			// 			reward.rewardItems.map((item) => item.itemHash)
+			// 		)
+			// 		return rewards.flat()
+			// 	})
 
-				const wellspringRewards = await getInventoryItems(
-					rewardHashes.flat(),
-					env,
-					request
-				)
-
-				const wellspringFetchedRewards = await Promise.all(
-					wellspringRewards.map(async (item) => {
-						return {
-							...item,
-							...getStrippedItem(item),
-						}
-					})
-				)
-				wellspring = {
-					...wellspringMilestone,
-					startDate: dateUtilities.getCurrentDailyResetStartDate(),
-					endDate: dateUtilities.getCurrentDailyResetEndDate(),
-					activities,
-					rewards: wellspringFetchedRewards,
-					isAvailable: true,
-				}
-			} else {
-				wellspring = {
-					isAvailable: false,
-				}
-			}
+			// 	const wellspringRewards = await getInventoryItems(
+			// 		rewardHashes.flat(),
+			// 		env,
+			// 		request
+			// 	)
+			// 	const wellspringFetchedRewards = await Promise.all(
+			// 		wellspringRewards.map(async (item) => {
+			// 			return {
+			// 				...item,
+			// 				...getStrippedItem(item),
+			// 			}
+			// 		})
+			// 	)
+			// 	wellspring = {
+			// 		...wellspringMilestone,
+			// 		startDate: dateUtilities.getCurrentDailyResetStartDate(),
+			// 		endDate: dateUtilities.getCurrentDailyResetEndDate(),
+			// 		activities,
+			// 		rewards: wellspringFetchedRewards,
+			// 		isAvailable: true,
+			// 	}
+			// } else {
+			// 	wellspring = {
+			// 		isAvailable: false,
+			// 	}
+			// }
 
 			const doubleRankHashes = await publicMilestoneHandler.getDoubleRank()
 			const doubleRanks = await definitionHandler.getActivityModifiers(
@@ -277,9 +283,9 @@ export default {
 					nextWeekendReset,
 					lastWeekendReset,
 					ironBanner,
-					wellspring,
+					wellspring: { isAvailable: false },
 					guardianGames,
-					solstice,
+					solstice: { isAvailable: false },
 					dawning,
 					doubleRanks,
 					isAvailable: true,
@@ -290,7 +296,7 @@ export default {
 			)
 		} catch (e) {
 			return new Response(
-				JSON.stringify({ isAvailable: false, error: e.message })
+				JSON.stringify({ isAvailable: false, error: e.message, stack: e.stack })
 			)
 		}
 	},

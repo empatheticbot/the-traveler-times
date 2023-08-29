@@ -10,16 +10,18 @@ import { isAuthorized } from '@the-traveler-times/utils'
 
 async function getInventoryItems(hashes, env, request) {
 	const url = new URL(
-		'https://d2-bungie-gateway-worker.empatheticbot.workers.dev/definition/DestinyInventoryItemDefinition'
+		'https://the-traveler-times.netlify.app/.netlify/functions/definitions'
 	)
+	url.searchParams.append('definitionType', 'DestinyInventoryItemDefinition')
 	for (const hash of hashes) {
 		url.searchParams.append('definitionIds', hash)
 	}
 	console.log(url.toString())
 	const r = new Request(url, { headers: request.headers })
 	try {
-		const nightfallRewards = await env.bungieGateway.fetch(r)
-		return nightfallRewards.json()
+		const response = await fetch(r)
+		const data = await response.json()
+		return data.definitions
 	} catch (e) {
 		console.log(e)
 	}

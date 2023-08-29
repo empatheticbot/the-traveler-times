@@ -2,7 +2,7 @@ account_id = "a13a5016df895961431fb659d5d3a635"
 compatibility_date = "2021-11-25"
 kv_namespaces = [
   {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
-  {binding = "DESTINY_2_CRUCIBLE_META", id = "ae40a0ee5ec649f5b0a98e7aef5deab0", preview_id = "f355b6d7652d479aaf4a46b458676987"},
+  {binding = "DESTINY_2_CRUCIBLE_META", id = "ae40a0ee5ec649f5b0a98e7aef5deab0", preview_id = "ae40a0ee5ec649f5b0a98e7aef5deab0"},
 ]
 main = "dist/index.mjs"
 name = "d2-meta-worker"

@@ -5,6 +5,10 @@ name = "website-builder-worker"
 usage_model = "bundled"
 workers_dev = true
 
+kv_namespaces = [
+  {binding = "BUNGIE_API", id = "94aaee89b0dd448cb5ad4fb2593a9975", preview_id = "94aaee89b0dd448cb5ad4fb2593a9975"},
+]
+
 vars = {ACCOUNT_ID = "a13a5016df895961431fb659d5d3a635", ZONE_ID = "26a980504251839979d2321e3bbad257", PAGES_ID = "the-traveler-times"}
 
 [dev]
@@ -14,4 +18,4 @@ port = 3009
 command = "npm install && npm run build"
 
 [triggers]
-crons = ["3 * * * *", "20 17 * * *"]
+crons = ["5 * * * *"]

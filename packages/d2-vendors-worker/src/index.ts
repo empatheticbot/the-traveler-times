@@ -5,8 +5,8 @@ import {
 import { getAda } from './ada'
 import { getBanshee } from './banshee'
 import { getXur } from './xur'
-import { isAuthorized } from '@the-traveler-times/utils'
 import { getRahool } from './rahool'
+import { isAuthorized } from '@the-traveler-times/utils'
 
 export default {
 	async fetch(request: Request, env: CloudflareEnvironment) {
@@ -16,14 +16,20 @@ export default {
 
 		try {
 			const vendorHandler = new VendorHandler()
-			await vendorHandler.init(env, request)
+			await vendorHandler.init(env)
 			const twitterHandler = new TwitterHandler()
 			await twitterHandler.init(env.TWITTER_API)
 
-			const ada = await getAda(vendorHandler)
-			const banshee = await getBanshee(vendorHandler)
-			const rahool = await getRahool(vendorHandler)
-			const xur = await getXur(vendorHandler, twitterHandler)
+			const [ada, banshee, rahool, xur] = await Promise.all([
+				getAda(vendorHandler),
+				getBanshee(vendorHandler),
+				getRahool(vendorHandler),
+				getXur(vendorHandler, twitterHandler),
+			])
+			// const ada = await getAda(vendorHandler)
+			// const banshee = await getBanshee(vendorHandler)
+			// const rahool = await getRahool(vendorHandler)
+			// const xur = await getXur(vendorHandler, twitterHandler)
 
 			const isAvailable =
 				xur.isAvailable ||

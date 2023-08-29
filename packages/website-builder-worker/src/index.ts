@@ -1,4 +1,5 @@
 import { isAuthorized } from '@the-traveler-times/utils'
+const baseUrl = 'https://api.netlify.com/api/v1/accounts/sledsworth'
 
 async function buildTravelerTimesWebsite(env: CloudflareEnvironment) {
 	const account_id = env.ACCOUNT_ID
@@ -16,6 +17,51 @@ async function buildTravelerTimesWebsite(env: CloudflareEnvironment) {
 		init
 	)
 }
+
+
+
+export async function updateEnvVariable(
+	key: string,
+	value: string,
+	env: CloudflareEnvironment,
+): Promise<unknown> {
+	const url = new URL(`${baseUrl}/env/${key}`)
+	url.searchParams.set('site_id', env.NETLIFY_SITE_ID)
+	const body = JSON.stringify({
+		values: [
+			{
+				id: 'string',
+				value: value,
+				context: 'all',
+			},
+		],
+		key: key,
+	})
+	return fetch(url.toString(), {
+		headers: {
+			Authorization: `Bearer ${env.NETLIFY_AUTH_TOKEN}`,
+			'Content-Type': 'application/json; charset=utf-8',
+		},
+		method: 'put',
+		body,
+	}).then(async (response) => {
+		const data = await response.json()
+		console.log('Env update response: ', response.status, data)
+		return data
+	})
+}
+
+export async function redeploySite(env: CloudflareEnvironment) {
+	const url = new URL(env.NETLIFY_DEPLOY_URL)
+	const response = await fetch(url.toString(), {
+		method: 'post',
+	})
+	if (response.ok) {
+		console.log('Redeploy response: ', response.status)
+		return response
+	}
+}
+
 
 function shouldDeleteDeployment(deployment: CloudflareDeployment): boolean {
 	const isDeploymentSuccessful = isSuccessfulProductionDeploy(deployment)
@@ -157,6 +203,31 @@ export default {
 			await cleanUpOldDeployments(env, pageNumber)
 			pageNumber += 1
 		}
+		const refreshToken = await env.BUNGIE_API.get('REFRESH_TOKEN')
+		const oauthToken = await env.BUNGIE_API.get('OAUTH_TOKEN')
+		let envUpdates: Promise<unknown>[] = []
+		if (oauthToken) {
+			envUpdates.push(updateEnvVariable('BUNGIE_OAUTH_TOKEN', oauthToken, env))
+		}
+		if (refreshToken) {
+			envUpdates.push(updateEnvVariable('BUNGIE_REFRESH_TOKEN', refreshToken, env))
+		}
+		try {
+			await Promise.all(envUpdates)
+		} catch (e) {
+			console.error('Failed to update env variables: ', e)
+			return {
+				statusCode: 500,
+			}
+		}
+		try {
+			await redeploySite(env)
+		} catch (e) {
+			console.error('Failed to redeploy site: ', e)
+			return {
+				statusCode: 500,
+			}
+		}
 		return buildTravelerTimesWebsite(env)
 	},
 	async scheduled(event: Event, env: CloudflareEnvironment) {
@@ -164,6 +235,31 @@ export default {
 		while (pageNumber < 4) {
 			await cleanUpOldDeployments(env, pageNumber)
 			pageNumber += 1
+		}
+		const refreshToken = await env.BUNGIE_API.get('REFRESH_TOKEN')
+		const oauthToken = await env.BUNGIE_API.get('OAUTH_TOKEN')
+		let envUpdates: Promise<unknown>[] = []
+		if (oauthToken) {
+			envUpdates.push(updateEnvVariable('BUNGIE_OAUTH_TOKEN', oauthToken, env))
+		}
+		if (refreshToken) {
+			envUpdates.push(updateEnvVariable('BUNGIE_REFRESH_TOKEN', refreshToken, env))
+		}
+		try {
+			await Promise.all(envUpdates)
+		} catch (e) {
+			console.error('Failed to update env variables: ', e)
+			return {
+				statusCode: 500,
+			}
+		}
+		try {
+			await redeploySite(env)
+		} catch (e) {
+			console.error('Failed to redeploy site: ', e)
+			return {
+				statusCode: 500,
+			}
 		}
 		return buildTravelerTimesWebsite(env)
 	},

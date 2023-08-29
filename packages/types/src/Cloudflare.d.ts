@@ -9,6 +9,9 @@ interface CloudflareEnvironment {
 	PAGES_ID: string
 	SECRET_AUTH_KEY: string
 	SECRET_AUTH_EMAIL: string
+	NETLIFY_SITE_ID: string
+	NETLIFY_AUTH_TOKEN: string
+	NETLIFY_DEPLOY_URL: string
 }
 
 interface CloudflareDeployment {

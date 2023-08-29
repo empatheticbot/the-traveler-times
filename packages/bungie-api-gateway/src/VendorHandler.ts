@@ -2,19 +2,22 @@ import BungieAPIHandler from './BungieAPIHandler'
 import DefinitionHandler from './DefinitionHandler'
 import { XUR, ZAVALA, SPIDER, RAHOOL, ADA, BANSHEE } from './Hashes'
 import { getStrippedItems } from './InventoryItemUtility'
+import { SocketPlugSources } from './Masks'
 
-async function getInventoryItems(hashes, env, request) {
+async function getInventoryItems(hashes, env) {
 	const url = new URL(
-		'https://d2-bungie-gateway-worker.empatheticbot.workers.dev/definition/DestinyInventoryItemDefinition'
+		'https://the-traveler-times.netlify.app/.netlify/functions/definitions'
 	)
-	for (const hash of hashes) {
-		url.searchParams.append('definitionIds', hash)
-	}
+	url.searchParams.append('definitionType', 'DestinyInventoryItemDefinition')
 	console.log(url.toString())
-	const r = new Request(url, { headers: request.headers })
 	try {
-		const inventoryItems = await env.bungieGateway.fetch(r)
-		return inventoryItems.json()
+		const inventoryItems = await fetch(url, {
+			headers: { 'TTT-API-KEY': env.TTT_API_KEY },
+			method: 'post',
+			body: JSON.stringify({ definitionIds: hashes }),
+		})
+		const data = await inventoryItems.json()
+		return data.definitions
 	} catch (e) {
 		console.log(e)
 	}
@@ -24,11 +27,9 @@ export default class VendorHandler {
 	bungieAPIHandler
 	definitionHandler
 	env
-	request
 
-	async init(env, request) {
+	async init(env) {
 		this.env = env
-		this.request = request
 		this.bungieAPIHandler = new BungieAPIHandler()
 		await this.bungieAPIHandler.init(env.BUNGIE_API)
 		this.definitionHandler = new DefinitionHandler()
@@ -37,6 +38,7 @@ export default class VendorHandler {
 
 	// TODO: This function is fairly gnarly, split out some of the item sales code it's own module
 	async getVendorLiveData(hash, components = ['Vendors', 'VendorSales']) {
+		console.log(this.env)
 		let response = await this.bungieAPIHandler.callApi({
 			path: `/Destiny2/${this.bungieAPIHandler.membershipType}/Profile/${this.bungieAPIHandler.membershipId}/Character/${this.bungieAPIHandler.characterId}/Vendors/`,
 			components,
@@ -52,29 +54,53 @@ export default class VendorHandler {
 			const saleItems = Object.values(saleObject)
 			const itemHashes = saleItems.map((sale) => sale.itemHash)
 
-			const items = (
-				await getInventoryItems(itemHashes, this.env, this.request)
-			).reduce((acc, item) => {
-				acc[item.hash] = item
-				return acc
-			}, {})
+			const items = (await getInventoryItems(itemHashes, this.env)).reduce(
+				(acc, item) => {
+					acc[item.hash] = item
+					return acc
+				},
+				{}
+			)
 
 			sales = await Promise.all(
 				saleItems.map(async (sale) => {
 					const item = items[sale.itemHash]
 
-					const classType = await this.definitionHandler.getCharacterClass(
-						item.classType
-					)
+					let classType
+					try {
+						classType = await this.definitionHandler.getCharacterClass(
+							item.classType
+						)
+					} catch (e) {
+						throw Error(`Failed to get classType: ${e}`)
+					}
 
-					const damageType = await this.definitionHandler.getDamageType(
-						item.defaultDamageTypeHash
-					)
+					let damageType
+					try {
+						damageType = await this.definitionHandler.getDamageType(
+							item.defaultDamageTypeHash
+						)
+					} catch (e) {
+						throw Error(`Failed to get damageType: ${e}`)
+					}
 
-					const sockets = await this.definitionHandler.getSocketDetails(item)
+					let sockets = []
+					// try {
+					// 	sockets = await this.definitionHandler.getSocketDetails(item, SocketPlugSources.ReusablePlugItems, this.env)
+					// } catch (e) {
+					// 	throw Error(`Failed to get sockets: ${e}`)
+					// }
+
 					let costs = []
 					if (sale.costs) {
-						costs = await this.definitionHandler.getSaleItemCosts(sale.costs)
+						try {
+							costs = await this.definitionHandler.getSaleItemCosts(
+								sale.costs,
+								this.env
+							)
+						} catch (e) {
+							throw Error(`Failed to get costs: ${e}`)
+						}
 					}
 
 					return { ...sale, ...item, classType, damageType, costs, sockets }
@@ -144,6 +170,7 @@ export default class VendorHandler {
 
 	async getStrippedDownVendorByHash(hash) {
 		const completeVendorData = await this.getVendorByHash(hash)
+		console.log('got complete vendor data', completeVendorData)
 		const {
 			name,
 			description,

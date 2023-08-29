@@ -1,6 +1,24 @@
 import BungieAPIHandler from './BungieAPIHandler'
 import { SocketPlugSources } from './Masks'
 
+async function getInventoryItems(hashes, env) {
+	const url = new URL(
+		'https://the-traveler-times.netlify.app/.netlify/functions/definitions'
+	)
+	url.searchParams.append('definitionType', 'DestinyInventoryItemDefinition')
+	try {
+		const inventoryItems = await fetch(url, {
+			headers: { 'TTT-API-KEY': env.TTT_API_KEY },
+			method: 'post',
+			body: JSON.stringify({ definitionIds: hashes }),
+		})
+		const data = await inventoryItems.json()
+		return data.definitions
+	} catch (e) {
+		console.log(e)
+	}
+}
+
 export default class DefinitionHandler {
 	inFlightDefinitionRequests: { [index: string]: unknown } = {}
 	bungieAPIHandler
@@ -49,6 +67,7 @@ export default class DefinitionHandler {
 	}
 
 	async getInventoryItems(...hashes) {
+		console.log('Called old inventory items')
 		const items = await this.getDefinitions('DestinyInventoryItemDefinition')
 		return this.getArrayOfDefinitions(hashes, items)
 	}
@@ -107,22 +126,39 @@ export default class DefinitionHandler {
 		return damageTypes[hash]
 	}
 
-	async getSocketDetails(item, source = SocketPlugSources.ReusablePlugItems) {
-		const items = await this.getDefinitions('DestinyInventoryItemDefinition')
+	async getSocketDetails(
+		item,
+		source = SocketPlugSources.ReusablePlugItems,
+		env
+	) {
 		const socketEntries = item?.sockets?.socketEntries
 		let sockets = []
 		if (socketEntries) {
+			const plugHashes = socketEntries
+				.filter((entry) => entry.plugSources === source)
+				.map((entry) =>
+					entry.reusablePlugItems.map((plugItem) => plugItem.plugItemHash)
+				)
+				.flat()
+			let items = []
+			try {
+				items = await getInventoryItems(plugHashes, env)
+			} catch (e) {
+				return Promise.reject(`Failed to getInventoryItems for socket: ${e}`)
+			}
 			for (const entry of socketEntries) {
 				if (entry.plugSources === source) {
 					sockets.push(
 						entry.reusablePlugItems.map((pluginItem) => {
-							const pluginItemDefinition = items[pluginItem.plugItemHash]
+							const pluginItemDefinition =
+								items && items[pluginItem.plugItemHash]
 							return pluginItemDefinition
 						})
 					)
 				}
 			}
 		}
+		console.log('completed sockets')
 		return sockets
 	}
 
@@ -146,12 +182,17 @@ export default class DefinitionHandler {
 		return records[hash]
 	}
 
-	async getSaleItemCosts(saleCosts) {
-		return Promise.all(
-			saleCosts.map(async (cost) => {
-				const currencyDetails = await this.getInventoryItem(cost.itemHash)
-				return { ...currencyDetails, ...cost }
-			})
-		)
+	async getSaleItemCosts(saleCosts, env) {
+		const saleHashes = saleCosts.map((cost) => cost.itemHash)
+		let items = []
+		try {
+			items = await getInventoryItems(saleHashes, env)
+		} catch (e) {
+			return Promise.reject(`Failed to getInventoryItems for costs: ${e}`)
+		}
+		return saleCosts.map((cost, index) => {
+			const currencyDetails = items && items[index]
+			return { ...currencyDetails, ...cost }
+		})
 	}
 }

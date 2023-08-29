@@ -4,12 +4,37 @@ key: Home
 order: 1
 permalink: /
 currentPage: 'home'
+mainClass: about
 ---
 
 {% extends 'base.njk' %}
 {% block content %}
-{% if weekly.isAvailable %}
-<section class="rail-1">
+{# {% if weekly.isAvailable %} #}
+<h2>Thanks, Guardian!</h2>
+<p>
+It's been a little over a year since I released The Traveler Times and a lot has changed. My first child was born last October (she is wonderful, but also more work than I could have ever imagined). Elon Musk has ruined Twitter and with it made the cost of features like Xur location and Trials of Osiris information out of reach. Destiny's API has been pretty rocky for me ever since The Witch Queen release and has only gotten worse over time.
+</p>
+<p>
+This all adds up to making the work to keep this thing afloat less of an exciting hobby and more of a drudgery—a time and money pit. The goal was never to make a profit (I would have went ads if that were the case), but I was hoping to get enough support to keep the site running. I'm way in the red if you count hosting, domain registration, font licenses, and just the sheer time it takes to keep up with a live service game.
+</p>
+<p>I will say it meant the world to me to see some of you support the site. It's an awesome feeling to have someone give you money for a thing that is free—what a kind gesture, you great people! Unfortunately, it only amounted to about $12 and nowhere in the ballpark of what it takes to operate this site for a year. 😅
+</p>
+<p>
+If it's not clear by this point, <strong>I've made the decision to shut this site down</strong>. Luckily there are plenty of other (better) alternatives available:
+</p>
+<ul>
+<li><a href="https://bray.tech">Braytech</a></li>
+<li><a href="https://www.todayindestiny.com">Today in Destiny</a></li>
+<li><a href="https://destinyitemmanager.com">Destiny Item Manager</a></li>
+<li><a href="https://destinytracker.com">Destiny Tracker</a></li>
+</ul>
+<p>
+Thanks to all of you that supported the site, whether that be financially, with your words, or visits. I appreciate you all a bunch!
+</p>
+<p>
+♥️ <a href="mailto:steve@empatheticbot.com">Steve</a>
+</p>
+{# <section class="rail-1">
 	{% include 'double-rank.njk' %}
 	{% include 'vendors.njk' %}
 </section>
@@ -27,8 +52,8 @@ currentPage: 'home'
 <section class="rail-3">
 	{% include 'bungie-rss.njk' %}
 	{% include 'meta.njk' %}
-</section>
-{% else %}
+</section> #}
+{# {% else %}
 {% include 'error.njk' %}
-{% endif %}
+{% endif %} #}
 {% endblock %}

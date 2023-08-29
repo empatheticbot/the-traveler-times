@@ -2,7 +2,7 @@ import {
 	DefinitionHandler,
 	getStrippedItem,
 } from '@the-traveler-times/bungie-api-gateway'
-import { isAuthorized } from '@the-traveler-times/utils'
+import { chunkArray, isAuthorized } from '@the-traveler-times/utils'
 
 export { D2PostGameCarnageReportObject } from './D2PostGameCarnageReportObject'
 
@@ -13,16 +13,21 @@ const META_DAYS_INCLUDED = '$META_DAYS_INCLUDED'
 
 async function getInventoryItems(hashes, env, request) {
 	const url = new URL(
-		'https://d2-bungie-gateway-worker.empatheticbot.workers.dev/definition/DestinyInventoryItemDefinition'
+		'https://the-traveler-times.netlify.app/.netlify/functions/definitions'
 	)
-	for (const hash of hashes) {
-		url.searchParams.append('definitionIds', hash)
-	}
-	console.log(url.toString())
-	const r = new Request(url, { headers: request.headers })
+	url.searchParams.append('definitionType', 'DestinyInventoryItemDefinition')
+	// for (const hash of hashes.slice(0, 50)) {
+	// 	url.searchParams.append('definitionIds', hash)
+	// }
+	// console.log({ definitionIds: hashes })
 	try {
-		const inventoryItems = await env.bungieGateway.fetch(r)
-		return inventoryItems.json()
+		const inventoryItems = await fetch(url, {
+			headers: request.headers,
+			method: 'post',
+			body: JSON.stringify({ definitionIds: hashes }),
+		})
+		const data = await inventoryItems.json()
+		return data.definitions
 	} catch (e) {
 		console.log(e)
 	}
@@ -151,7 +156,6 @@ async function getMeta(
 	const weaponData = await Promise.all(
 		dates.map(async (date) => {
 			const data = await env.DESTINY_2_CRUCIBLE_META.get(date, 'json')
-			console.log(data)
 			return data
 		})
 	)
@@ -182,10 +186,16 @@ async function getMeta(
 	})
 	const allWeapons = Object.values(completeUsage)
 	const weaponIds = allWeapons.map((weapon) => weapon.id)
-	const weaponDetails = await getInventoryItems(weaponIds, env, request)
+	const chunkedIds = chunkArray(weaponIds, 300)
+	const weaponIdRequests = await Promise.all(
+		chunkedIds.map((chunk) => getInventoryItems(chunk, env, request))
+	)
+	const weaponDetails = weaponIdRequests.flat()
+	// const weaponDetails = await getInventoryItems(weaponIds, env, request)
 	const allWeaponsWithDetails = await Promise.all(
 		allWeapons.map(async (weapon, index) => {
 			const details = weaponDetails[index]
+			// console.log(details)
 			const damageType = await definitionHandler.getDamageType(
 				details.defaultDamageTypeHash
 			)

@@ -103,6 +103,7 @@ export default class ActivityHandler {
 			(await this.definitionHandler.getAllDamageTypes()) as {
 				[index: number]: Modifier
 			}
+		console.log(shieldRemappedHashes)
 		const shields = shieldRemappedHashes.map((hash) => {
 			const type = shieldsTypes[hash]
 			return {

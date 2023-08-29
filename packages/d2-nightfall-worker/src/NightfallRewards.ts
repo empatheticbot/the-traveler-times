@@ -29,8 +29,12 @@ export enum NightfallRewards {
 	MilitiasBirthrightAdept = '2378101424',
 	Wendigo = '578459533',
 	WendigoAdept = '555148853',
-	Buzzard = '2000110363',
-	BuzzardAdept = '2811487832',
+	Buzzard = '437135896',
+	BuzzardAdept = '456546107',
+	LoadedQuestion = '2549575171',
+	LoadedQuestionAdept = '2914913838',
+	BraytechOsprey = '3667553455',
+	BraytechOspreyAdept = '1064132738',
 	Unknown = '773524094',
 }
 
@@ -41,29 +45,28 @@ export const NightfallStrikeReward = {
 
 export const NightfallRewardPairs = [
 	{
+		nightfall: [NightfallRewards.Buzzard],
+		grandmaster: [NightfallRewards.BuzzardAdept],
+	},
+	{
 		nightfall: [NightfallRewards.HungJury],
 		grandmaster: [NightfallRewards.HungJuryAdept],
 	},
 	{
-		nightfall: [NightfallRewards.MindbendersAmbition],
-		grandmaster: [NightfallRewards.MindbendersAmbitionAdept],
+		nightfall: [NightfallRewards.TheSwarm],
+		grandmaster: [NightfallRewards.TheSwarmAdept],
 	},
 	{
 		nightfall: [NightfallRewards.Wendigo],
 		grandmaster: [NightfallRewards.WendigoAdept],
 	},
 	{
-		nightfall: [NightfallRewards.MilitiasBirthright],
-		grandmaster: [NightfallRewards.MilitiasBirthrightAdept],
+		nightfall: [NightfallRewards.LoadedQuestion],
+		grandmaster: [NightfallRewards.LoadedQuestionAdept],
 	},
 	{
-		nightfall: [NightfallRewards.Buzzard],
-		grandmaster: [NightfallRewards.BuzzardAdept],
-	},
-	{
-		nightfall: [NightfallRewards.DFA],
-		grandmaster: [NightfallRewards.DFAAdept],
-		isUnknown: true,
+		nightfall: [NightfallRewards.BraytechOsprey],
+		grandmaster: [NightfallRewards.BraytechOspreyAdept],
 	},
 	// {
 	// 	nightfall: [NightfallRewards.TheHothead],
