@@ -30,9 +30,9 @@
 </head>
 
 <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
-	<div class="callout warning">
+	{# <div class="callout warning">
 		<img class="warning--icon" alt="Caution icon triangle with exclamation mark" src="/assets/warning.svg" />
-	</div>
+	</div> #}
 	{% include 'header.njk' %}
 	<main class="main-container {% if mainClass %}{{mainClass}}{% endif %}">
 		{% block content %}
